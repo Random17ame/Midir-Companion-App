@@ -328,209 +328,142 @@ window.MIDIR_ROTATION_REFERENCE={
   },
   "ag": {
     "name": "Arsenal Gunner",
-    "summary": "Transmutation Energy is the real limitation. Bullet Barrage carries sustained damage; prepare Fatal Scope for a safe Way of the Gun and Pall burst.",
+    "summary": "Build Transmutation Energy with Bullet Barrage, Heavy Artillery, Calamity Cannon and your first Fatal Scope shot. Every 100 energy fills one gold Energy Bullet. Spend complete bullets on Detonation Field, Tracer Pod, Crest and Fatal Scope follow-ups; use Crest to keep refilling while you fight.",
     "skills": [
-      [
-        "Gunner's Crest",
-        "Start the damage engine",
-        "Keep your empowerment running so your gun skills build meaningful Transmutation Energy."
-      ],
-      [
-        "Bullet Barrage",
-        "Sustained damage star",
-        "Keep it working across long fights. Its repeated damage adds up even between flashy burst windows."
-      ],
-      [
-        "Heavy Artillery",
-        "Spend energy",
-        "Plan around your Transmutation Energy supply, not just the cooldown indicator."
-      ],
-      [
-        "Calamity Cannon",
-        "Positioned energy spender",
-        "Find a useful firing line and enough energy before committing."
-      ],
-      [
-        "Fatal Scope",
-        "Protect the charge",
-        "Build the charge safely and align it with Way of the Gun and Pall when possible. Getting interrupted wastes the opportunity."
-      ],
-      [
-        "Tracer Pod",
-        "Mark your priority target",
-        "Set up your target before the big gun sequence, especially when preparing Fatal Scope."
-      ],
-      [
-        "Detonation Field",
-        "Make the battlefield work",
-        "Always put your circles on your circles. Layer Detonation Fields where your attacks and enemies will actually overlap."
-      ],
-      [
-        "Way of the Gun",
-        "Burst amplifier",
-        "Save it for a real damage window, ideally with Fatal Scope and Pall lined up."
-      ],
-      [
-        "Bullet Slide",
-        "Base gun movement",
-        "Use positioning and cooldowns to keep damage going while the Arcana kit cycles."
-      ],
-      [
-        "Flash Launcher",
-        "Base gun damage",
-        "Work it into available openings without spending the energy needed for your main attacks."
-      ],
-      [
-        "Bullet Storm",
-        "Base gun pressure",
-        "Use it when you have a useful target spread and a gap in your Arcana sequence."
-      ],
-      [
-        "Reload",
-        "Spirit-dependent ammunition",
-        "A Dual Gun spirit can refill bullets instantly. It does not replace Transmutation Energy generation."
-      ],
-      [
-        "Grapple Shot",
-        "Invulnerability frames / dodge",
-        "Grapple Shot is your i-frame. Use it to dodge incoming attacks while staying in a position to keep shooting."
-      ]
+      ["Gunner's Crest", "Spend 1 bullet · earn energy with Dual Guns", "Spend one full Energy Bullet to activate Crest for four minutes. While it's up, Flash Launcher, Shooting Rush, Bullet Storm, Grapple Shot and Bullet Slide each generate 50 energy when used. Keep Crest active to fuel your setup."],
+      ["Bullet Barrage", "Build 60–300 energy", "Hold for at least half a second to earn 60 energy, or fire for the full three seconds to earn 300 (three bullets). Longer firing also means a longer cooldown, from one to nine seconds."],
+      ["Heavy Artillery", "Generate 1 bullet", "Use it to deal damage and gain 100 energy. It's a builder, not a spender—take the free bullet when the shot fits."],
+      ["Calamity Cannon", "Generate 1 bullet", "Line up the shot and collect 100 energy. Don't hold it back because you think it spends a bullet—it builds one."],
+      ["Fatal Scope", "First shot builds · follow-ups spend", "Your first shot generates 100 energy. Release before full aim and you only get that shot; reach full aim to enter re-aim mode and fire an extra shot for each full Energy Bullet you spend. Normal full aim takes two seconds."],
+      ["Tracer Pod", "Spend 1 bullet · faster Fatal Scope", "Mark your priority target for one full Energy Bullet. Fatal Scope aims twice as fast against it: full aim takes one second instead of two. This doesn't stack with Detonation Field's aim bonus."],
+      ["Detonation Field", "Spend 1 bullet · overlap your circles", "Always put your circles on your circles. Layer fields under your targets, then land attacks there. Fatal Scope aims twice as fast against enemies inside the field; Tracer Pod doesn't make it any faster."],
+      ["Way of the Gun", "Coordinate your burst", "Prepare your position and energy before committing to the burst. Don't confuse its ammunition interactions with Transmutation Energy."],
+      ["Bullet Slide", "Crest: +50 energy", "Use it when repositioning helps; with Crest active, this Dual Gun skill generates half an Energy Bullet."],
+      ["Flash Launcher", "Crest: +50 energy", "Fit it between Arcana attacks. With Crest active it generates 50 Transmutation Energy, even though it doesn't cost an Energy Bullet."],
+      ["Bullet Storm", "Crest: +50 energy", "Use it on a worthwhile spread of targets. With Crest active, using this Dual Gun skill adds 50 energy."],
+      ["Reload", "Ammunition, not Energy Bullets", "A Dual Gun spirit can refill ordinary ammunition instantly. It does not refill Transmutation Energy, so keep your energy builders in rotation."],
+      ["Grapple Shot", "Dodge with i-frames · Crest: +50", "Keep it ready to evade dangerous attacks with its invulnerability frames. With Crest active, using it also earns 50 energy."]
     ]
   },
   "fa": {
     "name": "Forbidden Alchemist",
-    "summary": "Choose your formula, then aim Serpentcall, Chemical Carnival, and Fangs of Stone at where moving enemies are going. Preparation means nothing if the target leaves your ground marker.",
+    "summary": "Do your elemental preparation outside combat, keep all four amplification buffs, then spend the fight landing Fangs of Stone and your preferred Water Cannon or Heat Buster route. Build Alchemy orbs for Serpentcall or Chemical Carnival—both spend the whole stack.",
     "skills": [
       [
         "Elemental Compounding",
-        "Choose the right herbs",
-        "Choose a formula for the fight and the bonus you will need soon, not merely what is available now."
+        "Prepare before the fight",
+        "Set up your elemental formula outside combat. Make your choices before the pull so your attention stays on dealing damage once the fight begins."
       ],
       [
         "Compound Catalyst",
-        "One formula at a time",
-        "Applying a new formula replaces the current Catalyst. Think ahead before swapping bonuses."
+        "Prepare the right formula",
+        "Only one Catalyst formula can be active at a time. Set up the bonus your build needs before you engage."
       ],
       [
         "Elemental Amplification",
-        "Choose your utility",
-        "Different elements change what you gain; plan offense, movement, or defense for the next phase."
-      ],
-      [
-        "Serpentcall",
-        "Ground aim / prediction",
-        "Aim at the ground where the enemy will be. A moving target can leave your attack behind."
-      ],
-      [
-        "Chemical Carnival",
-        "Ground aim / damage",
-        "Place the attack for the enemy’s movement, not just where it stood when you clicked."
+        "Keep all four buffs",
+        "Elevate your gameplay with full buffs. Pick all four elements and bring their bonuses into the fight."
       ],
       [
         "Fangs of Stone",
-        "Ground aim / grouping",
-        "Lead moving targets with your cursor and use the pull to set up follow-up damage."
+        "Your bread and butter",
+        "One of your biggest damage sources and most-used skills. Lead moving enemies carefully—Fangs can miss if they move out of the impact area."
       ],
       [
-        "Elemental Wave",
-        "Empower base Alchemy",
-        "Set up the Alchemy bonuses you actually plan to use next."
+        "Serpentcall",
+        "Spend every Alchemy orb",
+        "Your Tri-Assault equivalent. Build up the shared Alchemy orbs, then spend them all on a well-aimed Serpentcall. Its ground targeting can miss moving enemies."
+      ],
+      [
+        "Chemical Carnival",
+        "Target an enemy · spend every orb",
+        "Select an enemy rather than a ground location. It uses the same Alchemy orbs as Serpentcall and consumes your entire stock, so plan which payoff you want."
       ],
       [
         "Water Cannon",
-        "Water toolkit",
-        "Use it when your formula and positioning favor Water."
-      ],
-      [
-        "Flame Burst",
-        "Fire toolkit",
-        "Take advantage of Fire preparation and keep the target within its effective area."
+        "A main damage choice",
+        "One of two popular base-Alchemy damage staples. Water Cannon and Heat Buster can perform similarly across a comparable window; favor whichever your build supports."
       ],
       [
         "Heat Buster",
-        "Prepared payoff",
-        "Bring the right pressure and buffs before committing."
+        "A main damage choice",
+        "The alternative to leaning into Water Cannon. Both can deliver comparable damage over time; build and preference decide. Amplify Heat Buster with Elemental Amplification or Elemental Wave."
       ],
       [
-        "Sand Burst",
-        "Control tool",
-        "Use the blind when it creates space or a safe opportunity."
+        "Elemental Wave",
+        "Make Heat Buster hit harder",
+        "Its benefit is also included in Elemental Amplification. Use either amplification route to supercharge Heat Buster and leave them high and dry."
+      ],
+      [
+        "Flame Burst",
+        "Feeds Serpentcall",
+        "A core part of what makes Serpentcall work, but you generally won’t spend much of your Forbidden Alchemist combat rotation casting Flame Burst itself."
       ],
       [
         "Wind Blast",
-        "Control and spacing",
-        "Move or disrupt enemies when positioning matters more than raw damage."
+        "Utility and spacing",
+        "Push or reposition enemies when control matters. It is a utility button, not a damage-rotation priority."
       ],
       [
         "Shock",
-        "Supportive damage",
-        "Keep it active when the setup and duration fit the fight."
-      ],
-      [
-        "Life Drain",
-        "Survival and damage",
-        "Use it deliberately when healing and damage can both matter."
+        "Activate Brionac",
+        "Use Shock to activate Brionac without consuming the once-per-day Demigod Transformation option. It is reusable sooner and with fewer consequences."
       ]
     ]
   },
   "mp": {
     "name": "Melodic Puppeteer",
-    "summary": "Your base Puppetry skills can feel almost cooldown-free with S50 Erg and the set bonus, but charge times and hidden target/server limits remain. Those bonuses do not apply to Arcana skills; Link X has its own Cutting Chorus exception.",
+    "summary": "Three puppets, three sets of attacks, and barely enough fingers to keep up. Downbeat Drop and Act 7 carry your damage; keep Live Wire active and thread Cutting Chorus through every opening you can find. This Arcana rewards fast hands and overlapping actions.",
     "skills": [
       [
-        "Cutting Chorus",
-        "Link X cooldown exception",
-        "The Puppet Erg and set bonuses do not reduce Arcana cooldowns. Link X specifically shortens Cutting Chorus."
+        "Live Wire",
+        "Keep the whole show connected",
+        "A cornerstone of your rotation. Keep Live Wire working so your puppets can pile on the pressure without losing the rhythm."
       ],
       [
         "Downbeat Drop",
-        "Arcana timing",
-        "Work it around other attacks rather than expecting base Puppetry cooldown reductions to apply."
-      ],
-      [
-        "Relentless Tempo",
-        "Keep the momentum",
-        "Time this with your puppet’s next useful sequence."
-      ],
-      [
-        "Showstopper",
-        "Burst commitment",
-        "Plan its impact around the party and the target’s actual position."
-      ],
-      [
-        "Showstopper's Echo",
-        "Extra puppet pressure",
-        "Get value from Echo while keeping your next Puppet action ready."
-      ],
-      [
-        "Live Wire",
-        "Maintain your link",
-        "Watch the timing so you do not lose the advantage between actions."
-      ],
-      [
-        "Act 2: Threshold Cutter",
-        "Per-target restriction",
-        "A target can temporarily refuse another Act 2 even when you can cast it on a different enemy."
+        "Your bread and butter",
+        "One of your two big repeat attacks. Send it whenever it's ready, and keep the other puppets busy while it lands."
       ],
       [
         "Act 7: Climactic Crash",
-        "Charge is the real cooldown",
-        "With the reductions active it may show no cooldown, but a full charge and your connection still limit the real pace."
+        "Crash, charge, repeat",
+        "Your other bread-and-butter attack. Hurl a puppet into the enemy, charge the next crash, and keep the hits coming faster than your fingers want to move."
       ],
       [
-        "Pierrot Marionette",
-        "Summon and control",
-        "Plan which puppet you need and remember that fast resummoning has a hidden delay."
+        "Cutting Chorus",
+        "Weave it between everything",
+        "While a summoned puppet is already attacking, slip Cutting Chorus between your other commands for an extra AoE hit at that puppet's location. Its short cooldown makes frequent weaving the whole point."
       ],
       [
-        "Colossus Marionette",
-        "Summon and control",
-        "Keep your puppet choice aligned with the next attack and its positioning."
+        "Act 2: Threshold Cutter",
+        "Keep another puppet flying",
+        "Launch a puppet straight back into the action. If one enemy can't be hit by Act 2 again yet, find another target and keep your puppets moving."
       ],
       [
-        "Marionette Summoning",
-        "Hidden resummon delay",
-        "The visible cooldown can disappear, but you still cannot resummon immediately."
+        "Act 4: Rising Action",
+        "Fill the gaps with another hit",
+        "Put a free puppet to work while Downbeat Drop and Act 7 cycle. Three puppets means there's almost always another attack to send."
+      ],
+      [
+        "Act 6: Crisis",
+        "Another button, another opening",
+        "Bring Act 6 into the mix when your main attacks are busy. Use your spare puppet to keep the rotation packed instead of waiting around."
+      ],
+      [
+        "Relentless Tempo",
+        "Turn up the pace",
+        "Lean into the speed of the Arcana: keep your puppets attacking together and make each available command count."
+      ],
+      [
+        "Showstopper's Echo",
+        "Build toward the grand finale",
+        "Keep the Echo's extra puppet pressure rolling while you line up the next big hit."
+      ],
+      [
+        "Showstopper",
+        "Bring the house down",
+        "This is your grand finale. Set the puppets loose, catch the boss in your best opening, and make the whole stage feel the impact."
       ]
     ]
   },

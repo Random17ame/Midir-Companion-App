@@ -1,3 +1,51 @@
+## Companion 97 — Melodic Puppeteer rotation reference
+- Reframed the landing page around three simultaneous puppets, Live Wire uptime, Downbeat Drop and Act 7 as core damage, and frequent Cutting Chorus weaving during puppet attacks.
+- Added Act 4 and Act 6 as rotation fillers; refreshed Act 2, Act 7, Showstopper, Echo, and Tempo descriptions.
+- Removed Pierrot Marionette, Colossus Marionette, and Marionette Summoning from the landing-page skill cards only. Simulator mechanics unchanged.
+
+### Companion 96 · Header cleanup
+- Removed the duplicate header Arcana dropdown. The Rotation Lab selector remains the single Arcana switcher; it updates saved selection and resets practice timers without affecting other modules.
+
+## Companion 96 — Rotation Lab Arcana selector
+- Added Arcana selection directly on the Rotation Lab landing page, synchronized with the existing header selector. Switching Arcana stops practice timers and returns to the selected Arcana’s skill reference.
+
+## Companion 96 — Immersive language and Debuff Academy refresh
+
+- Rebuilt the Academy landing page with Rotation Lab-style activity tiles and an embedded Debuff Field Guide.
+- Renamed the missing-effect exercise **New Debuff, Who This?** and simplified **Flash Cards**.
+- Upgraded the guided debuff opening with visible lesson progress and direct step navigation.
+- Simplified development-facing text, normalized Rotation Lab return buttons, and refreshed the header tagline to **“Make every encounter count.”**
+- Removed numeric bracket IDs from displayed Reforge attribute names without changing roll weights or levels.
+- Standardized the exact rate disclaimer across music, Erg, and Reforge simulators.
+
+## Companion 95 — Forbidden Alchemist skill strategy
+- Rewrite FA Rotation Lab skill cards around pre-combat formulas, full four-element amplification, orb spending by Serpentcall and enemy-targeted Chemical Carnival, and Fangs/Water Cannon/Heat Buster rotation priorities.
+- Group Elemental Wave beside Heat Buster; explain Shock as Brionac activation and Flame Burst as Serpentcall support.
+- Remove Sand Burst and Life Drain from the Rotation Lab landing skill reference only; preserve simulator skill availability and combat behavior.
+
+## Companion 94 — Arsenal Gunner energy reference
+- Rewrote AG Rotation Lab landing skill cards to explain verified energy generation, full-bullet consumption, Crest dual-gun generation, and Fatal Scope aim/re-aim.
+- Clarified that Tracer Pod and Detonation Field halve full aim time without stacking, and that Heavy Artillery and Calamity Cannon generate rather than spend energy.
+- Reference wording only; no simulator or Vault behavior changed.
+
+## Companion 93 — Bri gate survivor achievements
+- Add Sole Survivor: verified Bri gate clear, selected player zero recorded deaths, every other party member at least one death in that gate.
+- Add Last One Standing: selected player deathless, all other identified non-Harmonic Saint party members have two deaths in the gate (normal revival exhausted); a Harmonic Saint may survive.
+- Add Against All Odds: verified Bri gate clear with at least two confirmed non-Harmonic Saint teammates recording two deaths each in that gate.
+- Require complete timestamped party records; never treat negative HP or Deadly as a death. Missing Arcana information prevents permanent-down awards from being inferred.
+- Keep achievement history in existing storage and preserve original interactive HTML viewer.
+
+## Companion 92 — Gate pacing and debuff teamwork achievements
+- Add Perfectly Dressed: nine boss effects overlap continuously for six minutes on a verified clear.
+- Add Clockwork: five distinct verified Bri Leitt gate boss combats below half their gate mission allowances (20/20/30 minutes). Clearly label that measurement as observed boss combat, not complete mission duration.
+- Add The Long Haul: verified Gate 1/2 boss fights at least 17 minutes; Gate 3 fights over 25 minutes. Threshold omitted from in-app description.
+- Add Burst of Brilliance (10-second personal recorded hit group peak) and Never Off Duty (attributed debuff streak).
+- Solo-survivor/only-deathless-party-member and finishing-strong boss-phase awards deferred: current exports do not prove continuous party alive state or boss-targeted final-phase hits.
+
+## Companion 91 — Retire provisional debuff achievement
+- Removed Reference Coverage Together from the active achievement catalog and new award generation. Full Party Coverage and To the Nines now cover meaningful observed and sustained boss debuff coverage.
+- Existing historical award records remain untouched in saved profiles; the retired type no longer counts toward active catalog completion.
+
 ## Companion 90 — Full Party Coverage clarity and pet debuff grouping
 
 - Full Party Coverage achievement detail now displays a nine-item bulleted debuff checklist; removed “required” from its description and associated messaging.

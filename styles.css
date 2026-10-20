@@ -306,3 +306,22 @@ main{padding-top:21px;padding-bottom:38px}
 .ag-bullet{background:#24364b;color:#8599b0;border-color:#53667b;box-shadow:inset 0 0 3px #0005}
 .ag-bullet.partial{background:linear-gradient(to top,#43d6ec var(--ag-fill,0%),#24364b var(--ag-fill,0%));color:#b0f4ff;border-color:#49c9e3;box-shadow:inset 0 0 4px #b0f4ff55}
 .ag-bullet.charged{background:#b77e29;color:#ffe0a1;border-color:#f5bf68;box-shadow:0 0 8px #cd933c66,inset 0 0 4px #ffe0a144}
+
+/* Companion 96 · Debuff Academy aligned with Rotation Lab */
+.academy-shortcuts{margin:1rem 0 1.5rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.academy-reference{margin-top:1rem}
+.academy-reference-heading{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.academy-reference-count{font-size:.8rem;opacity:.7}
+.academy-library-inline{max-height:365px;overflow:auto;border:1px solid var(--border, #444);border-radius:10px;padding:.55rem;margin:1rem 0}
+.academy-reference-detail{margin-top:1rem}
+.academy-progress{height:8px;border-radius:20px;background:rgba(160,170,190,.16);overflow:hidden;margin:1rem 0 .65rem}
+.academy-progress-bar{height:100%;background:linear-gradient(90deg,#67c5d6,#d6ac64);transition:width .2s ease}
+.academy-lesson-steps{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1rem}
+.academy-lesson-step{min-width:2.4rem;min-height:2.4rem;border-radius:50%}
+.academy-lesson-step.current{border-color:#d6ac64;background:rgba(214,172,100,.18);font-weight:700}
+.sim-rate-disclaimer{margin:.7rem 0 1rem;font-style:italic}
+
+/* Companion 96: select an Arcana directly from the Rotation Lab landing. */
+.rotation-arcana-picker{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 16px;margin:0 0 18px;border:1px solid #416277;background:#1a3040;border-radius:12px}
+.rotation-arcana-picker label{color:#7ee0d3}
+.rotation-arcana-picker select{min-width:min(100%,260px);max-width:100%}

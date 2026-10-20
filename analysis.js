@@ -124,7 +124,7 @@ window.MIDIR_ANALYSIS = (() => {
  // Percentage of boss-combat time with at least seven of nine slot EFFECTS
  // active together. Use intervals rather than averaging each icon's uptime.
  // A paired Brionac/Fragarach peel is active only while BOTH icons overlap.
- function toTheNines(r,a){
+ function concurrentCoverage(r,a,minimum=7){
   const start=n(a.start),end=n(a.end);
   if(start===null||end===null||end<=start)return {eligible:false,reason:'No valid boss fight window',fraction:0,coveredSeconds:0,duration:0};
   const wanted=new Set(categories.flatMap(c=>c.statuses));
@@ -143,17 +143,19 @@ window.MIDIR_ANALYSIS = (() => {
   // Missing end markers cannot certify 97% uptime. Refuse to assume they persist.
   if(unbounded)return {eligible:false,reason:'One or more relevant debuff intervals have no reliable end',fraction:0,coveredSeconds:0,duration:end-start};
   boundaries.sort((x,y)=>x.t-y.t);
-  const active=new Map();let covered=0,peak=0,last=start,i=0;
+  const active=new Map();let covered=0,peak=0,last=start,i=0,longestRun=0,runStart=null;
   while(i<boundaries.length){const at=boundaries[i].t;
    if(at>last){const found=new Set();for(const cat of categories){if(cat.statuses.every(id=>(active.get(id)||0)>0))found.add(cat.id);}
     const count=fullCoverageSlots.reduce((sum,slot)=>sum+(slot.any.some(id=>found.has(id))?1:0),0);
-    peak=Math.max(peak,count);if(count>=7)covered+=at-last;last=at;
+    peak=Math.max(peak,count);if(count>=minimum){covered+=at-last;if(runStart===null)runStart=last;longestRun=Math.max(longestRun,at-runStart);}else runStart=null;last=at;
    }
    while(i<boundaries.length&&boundaries[i].t===at){const e=boundaries[i++];if(e.id)active.set(e.id,Math.max(0,(active.get(e.id)||0)+e.d));}
   }
   const duration=end-start,fraction=Math.min(1,Math.max(0,covered/duration));
-  return {eligible:valid>0,reason:valid?'':'No timed boss-debuff intervals found',fraction,coveredSeconds:covered,duration,peak,qualified:fraction>=0.97-1e-10};
+  return {eligible:valid>0,reason:valid?'':'No timed boss-debuff intervals found',fraction,coveredSeconds:covered,duration,peak,longestRun,qualified:fraction>=0.97-1e-10};
  }
+ function toTheNines(r,a){return concurrentCoverage(r,a,7)}
+ function perfectlyDressed(r,a){const result=concurrentCoverage(r,a,9);return {...result,qualified:result.eligible&&result.longestRun>=360}}
  function personalWindow(r,a,p){
   const groups=(p.damageEvents||[]).filter(e=>Number.isFinite(Number(e.time))&&e.time>=a.start&&e.time<=a.end);
   if(!groups.length)return null;
@@ -166,5 +168,5 @@ window.MIDIR_ANALYSIS = (() => {
   if(Math.abs(sa-sb)>3||Math.abs(Number(a.duration)-Number(b.duration))>5)return false;
   return true;
  }
- return {categories,fullCoverageSlots,fullCoverage,toTheNines,encounters,eventsInAttempt,debuffs,personalWindow,possibleRepeat};
+ return {categories,fullCoverageSlots,fullCoverage,toTheNines,perfectlyDressed,encounters,eventsInAttempt,debuffs,personalWindow,possibleRepeat};
 })();
