@@ -47,7 +47,8 @@ window.MIDIR_ANALYSIS = (() => {
   const ids=new Set(a.targetIds);const out=[];
   for(const t of r.targets||[]){if(!ids.has(t.entityId))continue;
    for(const c of t.conditions||[]){const start=n(c.start),end=n(c.end);
-    if(start===null||start<a.start||start>a.end)continue;
+    if(start===null||start>=a.end||end!==null&&end<=a.start)continue;
+    // Include effects already active as the encounter begins. Preserve original start for attribution.
     out.push({...c,targetId:t.entityId,start,end});
    }
   }
@@ -102,17 +103,17 @@ window.MIDIR_ANALYSIS = (() => {
   }
   return {applied,players,required:categories.length,completeReference:applied.length===categories.length,knownOnly:true,eventsCount:events.length};
  }
- // Nine requested team coverage slots. Pet 1 and Pet 2 accept either of the
- // known interchangeable pet conditions; the amp pet accepts Dragon Lightning.
+ // Nine boss-condition coverage slots: two separate pet defense debuffs
+ // and one pet damage amplification effect, each with interchangeable pets.
  // No caster attribution is required. Observed at least once != simultaneous uptime.
  const fullCoverageSlots=[
   {id:'physical',name:'Defense reduction',any:['phys']},
   {id:'magical',name:'Magic defense reduction',any:['magic']},
   {id:'amplification',name:'Damage amplification',any:['amp']},
   {id:'peel',name:'Brionac / Fragarach peel',any:['maxpair']},
-  {id:'pet1',name:'Pet 1 · Bone Dragon or Purrling',any:['bone','purr']},
-  {id:'pet2',name:'Pet 2 · Bunbun or Foxyquin',any:['clover','foxy']},
-  {id:'petamp',name:'Damage amp pet · Dragon Lightning',any:['lightning']},
+  {id:'pet1',name:'Pet defense debuff · Bone Dragon / Purrling',any:['bone','purr']},
+  {id:'pet2',name:'Pet defense debuff · Mir Dragon / Ceraunus',any:['lightning']},
+  {id:'petamp',name:'Pet damage amp · Bunbun / Foxyquin',any:['clover','foxy']},
   {id:'kart',name:'Kart Bomb',any:['kartbomb']},
   {id:'fate',name:'Fateweaver · Aspect of Reversal (healing on hit)',any:['reversal']}
  ];

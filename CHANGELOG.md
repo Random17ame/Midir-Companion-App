@@ -1,3 +1,45 @@
+## Companion 90 — Full Party Coverage clarity and pet debuff grouping
+
+- Full Party Coverage achievement detail now displays a nine-item bulleted debuff checklist; removed “required” from its description and associated messaging.
+- Distinguished pet defense debuff groups: Bone Dragon/Purrling and Mir Dragon/Ceraunus; pet damage amplification uses Bunbun/Foxyquin. Each group occupies one of the existing nine independent slots.
+- The same corrected grouping applies to To the Nines simultaneous coverage calculations. The seven-of-nine for 97% threshold is unchanged.
+
+## Companion 89 — Report Storage, Performance and Recovery
+
+- Structured imported reports are now stored individually in IndexedDB; localStorage keeps a lightweight index and achievement/profile data.
+- Existing report data is migrated only after IndexedDB write and readback verification; localStorage is not rewritten when migration fails.
+- On startup the existing achievement system hydrates its report evidence from IndexedDB; report cards are paginated 25 at a time.
+- The Vault includes Storage Management immediately before Previously Imported Reports, with browser quota estimates and persistent storage requests.
+- Full profile backup can include existing archived HTML reports and the original structured report data.
+- Imports write structured data before committing the new profile index; removed reports clear their stored detail record.
+- Archived interactive HTML viewer remains unchanged. Vault awards remain in localStorage.
+- Known limitation: all reports still need to hydrate for existing achievement calculations; incremental achievement indexing is a future optimization.
+
+## Companion 86 — Import and profile protection
+- Validated backup structure, size, and record counts before replacement; added confirmation preview and rollback on failed storage save.
+- Added bounded Vault imports (40 MB per file, 250,000 NDJSON events, entity-count caps).
+- Roll back unsaved imported records and awards rather than presenting transient progress as saved.
+- Preserved the existing sandboxed interactive HTML report viewers and IndexedDB HTML archive.
+- Note: browser-stored structured records are not yet migrated to IndexedDB; full migration needs a dedicated tested release.
+
+## Companion 85 — Integrity and security audit
+- Prevented a repeated Midir session import from generating another set of achievements, even under a new file name; retains a warning and prevents duplicate storage.
+- Included conditions that started before the boss-combat window but remained active inside it in debuff attribution/coverage observations. To the Nines already clipped intervals correctly.
+- Archived HTML reports opened in a separate tab now run in a sandboxed iframe with an opaque origin (scripts permitted for legacy interactive plots, but no same-origin access to Companion data), consistent with the existing inline viewer. Note that untrusted scripts may still make network requests; do not import untrusted HTML.
+- Remaining risks: local browser storage quotas, lack of cryptographic authenticity for offline imports, comprehensive malformed-file validation, and full browser regression tests.
+
+## Companion 84 — Achievement boundary and evidence audit
+- Stronger Defense now also celebrates repeated verified zero-damage-taken clears, without fabricating zero damage when the metric is missing. Both the report and attempt award paths support this.
+- Quick Setup now enforces its advertised first-ten-seconds window; late attributed debuffs no longer qualify.
+- Reviewed zero-boundary and repeatability across Vault awards: Fewer Falls already covers repeated deathless clears; Reliable Finisher uses explicit streak thresholds; record achievements retain genuine improvement requirements; Full Party Coverage and To the Nines remain evidence-based.
+- No changes to imports or stored achievement records.
+
+## Companion 83 — Fewer Falls recognizes deathless consistency
+- Fewer Falls now counts improvements all the way to zero deaths rather than excluding zero.
+- Successive verified zero-death clears also qualify as maintaining zero falls.
+- Deathless Improvement remains a separate award for improving from deaths to a verified deathless clear.
+- Requires recorded death counts; never infers zero when death data is missing.
+
 ## Companion 82 — To the Nines
 - Added To the Nines: >=97% of verified boss combat duration with seven or more of the nine Full Party Coverage effects simultaneously active.
 - Uses recorded condition start/end timestamps across the encounter; pet alternatives share one slot and the Brionac/Fragarach pair requires both icons simultaneously.
