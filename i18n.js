@@ -19,7 +19,7 @@ function apply(root=document){document.documentElement.lang=locale;const walker=
  if(!originals.has(node))originals.set(node,node.nodeValue);
  const original=originals.get(node); const translated=t(original);if(node.nodeValue!==translated)node.nodeValue=translated;
  }
- root.querySelectorAll?.('[placeholder],[title],[aria-label]').forEach(el=>{if(el.matches('input[type=file],iframe')||el.closest('[data-i18n-skip],.vault-report-entry'))return;for(const name of ['placeholder','title','aria-label']){if(!el.hasAttribute(name))continue;const key='original'+name; if(!el.dataset[key])el.dataset[key]=el.getAttribute(name);const value=t(el.dataset[key]);if(el.getAttribute(name)!==value)el.setAttribute(name,value);}});
+ root.querySelectorAll?.('[placeholder],[title],[aria-label]').forEach(el=>{if(el.matches('input[type=file],iframe')||el.closest('[data-i18n-skip],.vault-report-entry'))return;for(const name of ['placeholder','title','aria-label']){if(!el.hasAttribute(name))continue;const key='original'+name.replace(/-([a-z])/g,(_,c)=>c.toUpperCase()); if(!el.dataset[key])el.dataset[key]=el.getAttribute(name);const value=t(el.dataset[key]);if(el.getAttribute(name)!==value)el.setAttribute(name,value);}});
  const selector=document.getElementById('companion-language');if(selector&&selector.value!==locale)selector.value=locale;
 }
 function set(v){if(!['en','ko','es'].includes(v))return;locale=v;try{localStorage.setItem(store,v);}catch(e){};apply(document);}

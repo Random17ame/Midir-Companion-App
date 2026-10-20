@@ -62,3 +62,98 @@ Verification: JavaScript parsed by Node and ZIP integrity tested; browser intera
 
 
 For consolidated changes and verification caveats, see `CHANGELOG.md`.
+
+
+### Companion 33: Encounter Records & Debuff Evidence
+Open **The Vault → Personal Records & Milestones → Encounter-Specific Records & Debuff Contributions** after importing a Midir-41 HTML report. Enter your exact character name for personal credits. Each logical boss attempt is separate from its containing session, and only explicitly verified clear attempts enter the fastest-boss-combat records. Raw damage-hit events in an attempt window can include adds or other targets and are labeled accordingly; a skill-damage event is not a verified activation.
+
+**Debuff evidence:** Actual boss condition intervals and player damage-hit groups are retained. Recorded attacker IDs take precedence; for an ownerless condition a single unique nearby (±3 sec) matching skill-hit group can substantiate a likely player contribution. Unknown, overlapping, conditional and pet-owned applications are not guessed. The 10 listed reference condition groups, including the paired max-Protection effects, are **a review draft**, not a final definitive game list. Currently “coverage” means observed at least once during the attempt, **not uptime**, simultaneous effects or proof that every source was identified. “Quick Setup” measures from the recorded boss `firstSeen` to an attributed condition start, inclusive of 10 seconds.
+
+**Repeat sessions:** Same-session imports are permitted as distinct entries with a visible notice. Their records and survival awards can both count. Manually remove unwanted repeats. Re-importing HTML for a previously imported JSON-only entry attaches the original HTML when the index matches. Profile backups do not contain original HTML attachments and should be paired with separately saved HTML files.
+
+
+### Companion 34: Vault Layout Refresh
+- Main navigation reordered to place **The Vault** first, followed by Rotation Lab, Debuff Academy and Encounter Study.
+- The menu toggle is now a compact icon on the right side of the navigation row, and the slide-out panel opens from the right.
+- The separate **Your Character** panel has been replaced with a compact inline character-name field at the top of The Vault. The Save button stays hidden until the text changes.
+- Import/backup controls are more compact, and saved personal milestones now span the full available width below the import and new-milestone row.
+
+### Companion 35: Visual Spacing Refinement
+More compact Vault controls and responsive saved reports. Large Bri achievement collectible cards are deliberately unchanged. Existing offline functionality and profile data are preserved.
+
+
+### Companion 36: Arcana Skill Knowledge and AS Positioning Lab
+The Rotation Lab defaults to a uniform skill-information landing page for each Arcana. AS and DD entries combine prior project mechanics and published Nexon adjustments; provisional descriptions are marked. Use the Available pages buttons to enter the prior training experiences.
+
+AS's Positioning Lab is a configurable **idea sandbox**: click to move your character, drag enemy markers, choose placement/deletion tools, or drag the aiming handle. Select 1–15 targets, cone or line, angle, reach and shape. Click Attack to visualize eliminating intersected enemies. It is not an exact in-game hitbox model.
+
+Nexon update references: https://www.nexon.com/mabinogi/news/35462/february-quality-of-life-update and https://www.nexon.com/mabinogi/news/28264/arcana-faith-and-fury-update.
+
+
+### Companion 37 — Rotation Crafter hotbar
+AS Rotation Crafter has two twelve-slot rows (1 through = and F1 through F12). Open the Skills drawer at the right and drag a skill onto any slot; drag filled slots to swap or move. For keyboard/touchpad accessibility, click a drawer skill and click a slot. Right-click a filled slot to remove it. Use the collapsed **Build a Rotation** panel to add steps, or practice freely without one. Begin/Finish controls and a charging indicator are part of the simulated bow rehearsal. Existing imported reports and the Vault are unchanged.
+
+
+### Companion 38
+Four-element orb practice meters and Tri-Assault three-shot sequence, with an orb prerequisite and input lock. Orb gains are provisional training assumptions. Function keys appear above the number row.
+
+
+### Companion 39: Percentage-Based AS Orbs
+The Rotation Crafter uses recorded user-provided elemental generation percentages, including configurable secondary elements, rather than a generic quarter-orb per use. Orbs cap at 100%; Golden Time fills all four and Tri-Assault requires and consumes Fire and Water.
+
+
+### Companion 40: Full Rotation Crafter Expansion
+- Adds a Rotation Crafter page for every Arcana, each with a themed character and target setup.
+- Expands Alchemic Sharpshooter with extra bow skills, fixes full rotation clearing, and adds per-skill cooldown/delay customization in the builder.
+- Adds a first-pass Harmonic Saint healing stage with random ally targets, plus provisional Kart Bomb coverage in Debuff Academy.
+
+
+### Companion 41 — Active talent skill audit
+Additional active base talent skills for all nine non-AS Arcana now appear in the crafter. Species/weapon eligibility remains a gameplay constraint; editable trainer defaults do not verify exact cooldowns. Kart Bomb references condition 598 Midir artwork.
+
+
+### Companion 42: Rate isn't a Lie
+Harmonic Saint music calculator (expanded by default, collapsible) and Bard skill rehearsal. Stop performance with Escape or page interaction; switch directly to another assigned skill.
+
+
+### Companion 43: Harvest Song simulator refinement
+- Expand Harvest Song's on-screen simulator text to include Gathering Success Rate, Production Success Rate, and Gathering Speed in the same style as the provided screenshot.
+
+
+### Companion 44: High-Energy Performances
+- Music simulator now keeps an exaggerated energetic dance going for the full performance.
+- Buff text occupies the center of the stage rather than a bottom caption; Escape and outside interaction stop the dance.
+
+
+### Companion 45: Music skill icons in simulator
+- Add the active music skill icon to the center-stage buff announcement so the simulator more closely matches the in-game look and the provided screenshots.
+
+
+### Companion 46: Skill Icon Coverage
+- Skill drawers and keybars use bundled Midir icon artwork, with official Combo: aliases for fighter skills. The music buff announcement intentionally does not contain a skill icon. See SKILL-ICON-AUDIT.md for missing exact matches.
+
+
+### Companion 47
+- Resolved the remaining ambiguous skill icon choices (Charge, Counterattack, Natural Shield, Stomp) using the most modern-looking available Midir icon variants.
+- Removed Recovery from Harmonic Saint.
+- Refined Arcana training animations and positioning for melee, shield, fighter, lance, dual-gun, alchemy, and puppetry presentations.
+
+
+### Companion 48: Reforge Simulator (provisional)
+Open Explosive Vanguard > Rotation Lab > Reforge Simulator. Reforge or Stim three attributes for a selected equipment category. Source tables at Mabinogi World Wiki Reforge/Full_List and Echostone#Awaken were blocked by 403 during development. Results use a limited starter list, not the full tables or real game odds. The 1-in-1000 limit break and skewed weighting are entertainment rules as requested. Artwork supplied by the user.
+
+
+### Companion 50 — Echostone talent effects
+Echostone pools combine exclusive awakening lines and mapped talent-related reforge lines from the saved wiki tables. Stim is still one line only, no limit break. Talent/color classification uses the Echostone overview and should be checked against individual Echostone pages for edge cases.
+
+
+### Companion 52: Reforge odds tuning
+- Normal 1–20 lines are weighted toward lower rolls but now average approximately 7.0. One-line Stim and three-line Reforge behavior is unchanged.
+
+
+### Companion 53: Storage Chest & Auction House
+Each roll can be saved to the Storage Chest (preserving exact lines), or listed on the simulated Auction House. Sold items leave listings and their proceeds add to the gold ledger. Sales resolve after 15–250 future attempts. A modal must be acknowledged before another attempt is possible. All payouts and timings are fictional.
+
+
+## Companion 54
+Adds a reforge limit-break pity trigger after 2,500 unsuccessful normal reforge attempts; removes odds disclosure from Reforge UI. Adds Melodic Puppeteer Erg Break Simulator with saved wiki B/A/S rate tables, user-defined 15-failure stack ramp and 0.01-percentage-point steps, weapon chest, Reforge Chest gold-funded assist potions, and uploaded divine mineral fragment Tap icon.
