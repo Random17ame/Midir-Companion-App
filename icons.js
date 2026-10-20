@@ -1,0 +1,62 @@
+window.MIDIR_ICONS={
+  "skills": {
+    "magnum": "assets/icons/skills/gui_icon_skill_000_1_2.png",
+    "urgent": "assets/icons/skills/GUI_icon_skill_003_4_8.png",
+    "plume": "assets/icons/skills/gui_icon_skill_005_3_7.png",
+    "volley": "assets/icons/skills/gui_icon_skill_005_4_7.png",
+    "tri": "assets/icons/skills/gui_icon_skill_005_7_7.png",
+    "golden": "assets/icons/skills/gui_icon_skill_003_7_1.png",
+    "terra": "assets/icons/skills/gui_icon_skill_005_6_7.png",
+    "ventus": "assets/icons/skills/gui_icon_skill_005_5_7.png",
+    "thunder": "assets/icons/skills/gui_icon_skill_000_0_9.png",
+    "blight": "assets/icons/skills/gui_icon_skill_005_2_8.png",
+    "flare": "assets/icons/skills/gui_icon_skill_005_1_8.png",
+    "seething": "assets/icons/skills/gui_icon_skill_005_7_8.png",
+    "render": "assets/icons/skills/gui_icon_skill_005_5_8.png",
+    "surge": "assets/icons/skills/GUI_icon_skill_006_6_2.png",
+    "mana": "assets/icons/skills/gui_icon_skill_005_4_8.png"
+  },
+  "conditions": {
+    "phys": "assets/icons/conditions/GUI_condition_change04_15_1.png",
+    "magic": "assets/icons/conditions/GUI_condition_change04_0_2.png",
+    "amp": "assets/icons/conditions/GUI_condition_change04_1_2.png",
+    "deathmark": "assets/icons/conditions/gui_condition_change03_0_7.png",
+    "pet1": "assets/icons/conditions/gui_condition_change04_5_0.png",
+    "bonedash": "assets/icons/conditions/gui_condition_change_12_4.png",
+    "purrcharge": "assets/icons/conditions/gui_condition_change04_4_0.png",
+    "clover": "assets/icons/conditions/gui_condition_change04_11_0.png",
+    "foxy": "assets/icons/conditions/GUI_condition_change03_7_1.png",
+    "protectionmax": "assets/icons/conditions/gui_condition_change03_3_7.png",
+    "magicprotectionmax": "assets/icons/conditions/gui_condition_change03_4_7.png"
+  },
+  "skillIds": {
+    "magnum": "21002",
+    "urgent": "21014",
+    "plume": "59060",
+    "volley": "59061",
+    "tri": "59064",
+    "golden": "35023",
+    "terra": "59063",
+    "ventus": "59062",
+    "thunder": "30102",
+    "blight": "59041",
+    "flare": "59040",
+    "seething": "59046",
+    "render": "59044",
+    "surge": "59047",
+    "mana": "59043"
+  },
+  "conditionIds": {
+    "phys": "1164",
+    "magic": "1165",
+    "amp": "1166",
+    "deathmark": "426",
+    "pet1": "392",
+    "bonedash": "211",
+    "purrcharge": "912",
+    "clover": "1138",
+    "foxy": "716",
+    "protectionmax": "1093",
+    "magicprotectionmax": "1094"
+  }
+};
