@@ -1,6 +1,6 @@
 /* Companion-33: evidence-preserving encounter / debuff analysis (offline, no network).
  * All interval times are relative to Midir's session start. This is not a cast log.
- * Reference categories below are provisional until the player confirms a complete list.
+ * Categories are derived from observed target condition IDs, regardless of attacker.
  */
 window.MIDIR_ANALYSIS = (() => {
  'use strict';
@@ -14,7 +14,9 @@ window.MIDIR_ANALYSIS = (() => {
   {id:'bone',name:'Bone Dragon / Devil’s Dash',statuses:[211],skills:[]},
   {id:'purr',name:'Purrling / Furious Charge',statuses:[912],skills:[]},
   {id:'clover',name:'Bunbun / Clover Mark',statuses:[1138],skills:[]},
-  {id:'foxy',name:'Foxyquin’s Mark',statuses:[716],skills:[]}
+  {id:'foxy',name:'Foxyquin’s Mark',statuses:[716],skills:[]},
+  {id:'kartbomb',name:'Kart Bomb · Water Balloon (unique defense reduction)',statuses:[598],skills:[]},
+  {id:'reversal',name:'Fateweaver · Aspect of Reversal (healing on hit)',statuses:[515],skills:[]}
  ];
  const bosses = new Map([[7585,{label:'Glenn Bearna · Primeval Winter (observed form 1)',key:'glenn-form1',formOnly:true}],[7586,{label:'Glenn Bearna · Primeval Winter (observed form 2)',key:'glenn-form2',formOnly:true}],[7587,{label:'Glenn Bearna · Primeval Winter (observed form 3)',key:'glenn-form3',formOnly:true}],[7602,{label:'Bri Leitt · Gate 2 — Bronntanas',key:'bri-g2'}],[7603,{label:'Bri Leitt · Gate 3 — Midir the Beloved',key:'bri-g3'}],[193364,{label:'Crom Bas · Irusan',key:'crom-irusan'}],[193359,{label:'Crom Bas · Giga Glas Ghaibhleann',key:'crom-glas'}],[195012,{label:'Rabbie Phantasm · Succubus Queen',key:'rabbie-queen'}]]);
  const n=(v)=>(v===null||v===undefined||v==='')?null:(Number.isFinite(Number(v))?Number(v):null);
@@ -100,6 +102,57 @@ window.MIDIR_ANALYSIS = (() => {
   }
   return {applied,players,required:categories.length,completeReference:applied.length===categories.length,knownOnly:true,eventsCount:events.length};
  }
+ // Nine requested team coverage slots. Pet 1 and Pet 2 accept either of the
+ // known interchangeable pet conditions; the amp pet accepts Dragon Lightning.
+ // No caster attribution is required. Observed at least once != simultaneous uptime.
+ const fullCoverageSlots=[
+  {id:'physical',name:'Defense reduction',any:['phys']},
+  {id:'magical',name:'Magic defense reduction',any:['magic']},
+  {id:'amplification',name:'Damage amplification',any:['amp']},
+  {id:'peel',name:'Brionac / Fragarach peel',any:['maxpair']},
+  {id:'pet1',name:'Pet 1 · Bone Dragon or Purrling',any:['bone','purr']},
+  {id:'pet2',name:'Pet 2 · Bunbun or Foxyquin',any:['clover','foxy']},
+  {id:'petamp',name:'Damage amp pet · Dragon Lightning',any:['lightning']},
+  {id:'kart',name:'Kart Bomb',any:['kartbomb']},
+  {id:'fate',name:'Fateweaver · Aspect of Reversal (healing on hit)',any:['reversal']}
+ ];
+ function fullCoverage(r,a){const found=new Set(debuffs(r,a).applied.map(c=>c.category));
+  const slots=fullCoverageSlots.map(s=>({...s,observed:s.any.some(c=>found.has(c))}));
+  return {slots,count:slots.filter(s=>s.observed).length,required:slots.length,complete:slots.every(s=>s.observed)};
+ }
+ // Percentage of boss-combat time with at least seven of nine slot EFFECTS
+ // active together. Use intervals rather than averaging each icon's uptime.
+ // A paired Brionac/Fragarach peel is active only while BOTH icons overlap.
+ function toTheNines(r,a){
+  const start=n(a.start),end=n(a.end);
+  if(start===null||end===null||end<=start)return {eligible:false,reason:'No valid boss fight window',fraction:0,coveredSeconds:0,duration:0};
+  const wanted=new Set(categories.flatMap(c=>c.statuses));
+  const ids=new Set(a.targetIds.map(String));
+  const boundaries=[{t:start,id:0,d:0},{t:end,id:0,d:0}];
+  let valid=0,unbounded=0;
+  for(const t of r.targets||[]){if(!ids.has(String(t.entityId)))continue;
+   for(const c of t.conditions||[]){const id=Number(c.conditionId);if(!wanted.has(id))continue;
+    const b=n(c.start),e=n(c.end);
+    if(b===null||e===null||e<=b){if(b!==null&&b<end)unbounded++;continue;}
+    const x=Math.max(start,b),y=Math.min(end,e);
+    if(y<=x)continue;
+    boundaries.push({t:x,id,d:1},{t:y,id,d:-1});valid++;
+   }
+  }
+  // Missing end markers cannot certify 97% uptime. Refuse to assume they persist.
+  if(unbounded)return {eligible:false,reason:'One or more relevant debuff intervals have no reliable end',fraction:0,coveredSeconds:0,duration:end-start};
+  boundaries.sort((x,y)=>x.t-y.t);
+  const active=new Map();let covered=0,peak=0,last=start,i=0;
+  while(i<boundaries.length){const at=boundaries[i].t;
+   if(at>last){const found=new Set();for(const cat of categories){if(cat.statuses.every(id=>(active.get(id)||0)>0))found.add(cat.id);}
+    const count=fullCoverageSlots.reduce((sum,slot)=>sum+(slot.any.some(id=>found.has(id))?1:0),0);
+    peak=Math.max(peak,count);if(count>=7)covered+=at-last;last=at;
+   }
+   while(i<boundaries.length&&boundaries[i].t===at){const e=boundaries[i++];if(e.id)active.set(e.id,Math.max(0,(active.get(e.id)||0)+e.d));}
+  }
+  const duration=end-start,fraction=Math.min(1,Math.max(0,covered/duration));
+  return {eligible:valid>0,reason:valid?'':'No timed boss-debuff intervals found',fraction,coveredSeconds:covered,duration,peak,qualified:fraction>=0.97-1e-10};
+ }
  function personalWindow(r,a,p){
   const groups=(p.damageEvents||[]).filter(e=>Number.isFinite(Number(e.time))&&e.time>=a.start&&e.time<=a.end);
   if(!groups.length)return null;
@@ -112,5 +165,5 @@ window.MIDIR_ANALYSIS = (() => {
   if(Math.abs(sa-sb)>3||Math.abs(Number(a.duration)-Number(b.duration))>5)return false;
   return true;
  }
- return {categories,encounters,eventsInAttempt,debuffs,personalWindow,possibleRepeat};
+ return {categories,fullCoverageSlots,fullCoverage,toTheNines,encounters,eventsInAttempt,debuffs,personalWindow,possibleRepeat};
 })();

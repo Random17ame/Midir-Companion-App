@@ -1,3 +1,47 @@
+## Companion 82 — To the Nines
+- Added To the Nines: >=97% of verified boss combat duration with seven or more of the nine Full Party Coverage effects simultaneously active.
+- Uses recorded condition start/end timestamps across the encounter; pet alternatives share one slot and the Brionac/Fragarach pair requires both icons simultaneously.
+- Shows exact qualified seconds and percentage per attempt. Missing/unfinished debuff timing disqualifies the attempt instead of inventing uptime.
+- Retains Full Party Coverage as the separate once-observed achievement and requires verified clear for To the Nines.
+
+## Companion 81 — Kart Bomb and Fateweaver accuracy
+- Clarified Kart Bomb condition 598 as a distinct defense reduction, never shared damage amplification, throughout Debuff Academy and achievement references.
+- Clarified Aspect of Reversal condition 515 as 100 HP healing to the attacker per hit on afflicted target; it proves Fateweaver presence but is neither amplification nor defense reduction. Listed all five Fateweaver aspects.
+- Added both separate icon categories to the missing-debuff trainer; Full Party Coverage remains nine condition-based checks and does not require caster attribution.
+
+## Companion 80 — Personal Achievement Track and nine-slot party coverage
+- Activated Full Party Coverage using observed boss condition icons, regardless of attacker/source; nine slots include Kart Bomb ID 598 and Aspect of Reversal ID 515.
+- Added Personal Best Streak, Reliable Finisher, Skill Specialist, Debuff Regular, The Comeback and Speedrunner’s Journey milestones.
+- Added Bronze/Silver/Gold track labeling, a per-attempt coverage checklist and evidence-aware achievement descriptions.
+- Previously imported sessions are re-evaluated when the tracked character is confirmed; no implicit attribution or simultaneous-uptime claims.
+
+## Companion 79 — Evidence-grounded achievement expansion
+- Added First Boss Clear for the first verified clear of each recorded encounter.
+- Added Versatile Support for two or more distinct attributable boss debuff categories in one attempt.
+- Added Attempt Damage Breakthrough for a 20% or greater increase in timestamped personal damage across comparable attempt windows, clearly distinguished from boss-only DPS.
+- Existing award rules, private Vault, imports, and collectible accounting preserved.
+- All newly awarded achievements explicitly identify their available evidence; repeat imported sessions remain independently counted under existing Vault policy.
+
+## Companion-78 — Arsenal Gunner energy and aimed shots
+- Confirmed Heavy Artillery and Calamity Cannon grant 100 Transmutation Energy each.
+- Tracer Pod, Detonation Field, and Gunner’s Crest spend one full bullet; Crest runs for 240 seconds and grants 50 energy from Dual Gun skills.
+- Fatal Scope initial shot grants 100 energy; fully aiming allows subsequent re-aim shots at a cost of one full bullet each.
+- Normal aim takes two seconds; bonus aim rate from a relevant Tracer Pod or Detonation Field doubles speed to one second rather than allowing instant aim.
+- Active setup is modeled on the practice target; Tracer Pod and field durations remain provisional where not yet provided.
+
+## Companion 77 — Transmutation bullet readiness colors
+- AG energy bullet indicators are turquoise/light blue until 100 energy and turn gold only when full. Keep fractional fills, all existing resource costs, and Bullet Barrage charge timing unchanged.
+
+## Companion 76 — Bullet Barrage charge and fractional energy
+- Bullet Barrage is now held for 0.5–3 seconds, automatically firing at 3 seconds. Energy scales linearly from 60 to 300 (100 per bullet mark). Cooldown scales linearly from 1 to 9 seconds.
+- The five AG resource marks support partial filling; other AG skills retain provisional training values.
+
+## Companion-75 — SG/AG knowledge and Gunner field practice
+- Remove retired Martyr’s Consecration; place Fateweaver, Golden Magic Wool and Virtuous Oath together in the correct order, with the user-provided wool icon. Add SG Bash and Rage Impact entries.
+- Detonation Field layering and Grapple Shot i-frame guidance; remove Shooting Rush from AG landing reference.
+- Add Arsenal Gunner Field & Firing Lane Lab, with multiple independently placed medium fields, an enemy-centered larger attack circle, draggable targets and linear shots (no cones).
+- Add five-mark resource training display to AG Rotation Crafter. Clearly mark as simplified because game tooltip uses numerical Transmutation Energy, and exact generation/spend conversions are unverified.
+
 ## Companion-74 — Practical skill-reference revision
 - Correct Terra Scourge as target-selected area damage, not ground-targeted; note the long cast opportunity cost.
 - Rework Hexshroud around attacking afflicted enemies for Dorcha generation.

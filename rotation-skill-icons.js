@@ -11,3 +11,5 @@ Object.assign(window.MIDIR_ROTATION_ICONS,{
  "Zealous Conviction":"assets/icons/skills/gui_icon_skill_AR_SG_4_0.png",
  "Martyr's Consecration":"assets/icons/skills/gui_icon_skill_AR_SG_6_0.png"
 });
+
+window.MIDIR_ROTATION_ICONS["Golden Magic Wool"]="assets/golden-magic-wool-user.png";

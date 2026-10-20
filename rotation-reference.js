@@ -234,11 +234,6 @@ window.MIDIR_ROTATION_REFERENCE={
         "Be where the boss wants to hit so you can turn its aggression into a timed defense."
       ],
       [
-        "Martyr's Consecration",
-        "Defensive utility",
-        "Keep this in mind for defensive situations; its exact role still needs a verified tooltip."
-      ],
-      [
         "Ardent Advance",
         "Gap close and build",
         "Move into the fight and take the Virtue. Distance also affects how soon it is ready again."
@@ -259,14 +254,29 @@ window.MIDIR_ROTATION_REFERENCE={
         "This is the payoff. Get to 100 quickly, spend it in a worthwhile boss window, and start building again."
       ],
       [
-        "Virtuous Oath",
-        "Always-on Virtue engine",
-        "Keep Oath active, watch your status effects, and take well-timed attacks rather than avoiding every swing."
+        "Fateweaver",
+        "Step 1 · Prepare Oath",
+        "Choose your defensive stats before activating Oath. The stronger the setup, the better the snapshot that follows."
       ],
       [
-        "Fateweaver",
-        "Oath snapshot setup",
-        "Prepare the right defensive snapshot before activating Oath."
+        "Golden Magic Wool",
+        "Step 2 · Amplify the snapshot",
+        "Pair Wool with Fateweaver to strengthen the defenses you are about to preserve. They work together; prepare both before Oath."
+      ],
+      [
+        "Virtuous Oath",
+        "Step 3 · Lock in the defenses",
+        "Activate Oath after Fateweaver and Golden Magic Wool. Keep it active to gain Virtue and empower the rest of the SG kit."
+      ],
+      [
+        "Bash",
+        "Boost Windmill's foundation",
+        "Build and preserve Bash stacks. Stronger base Close Combat hits feed stronger Windmill damage, which then feeds Sacred Guardian's abilities."
+      ],
+      [
+        "Rage Impact",
+        "Amplify melee damage",
+        "Use Rage Impact to strengthen the melee damage feeding Windmill and your SG damage chain."
       ],
       [
         "Zealous Conviction",
@@ -353,7 +363,7 @@ window.MIDIR_ROTATION_REFERENCE={
       [
         "Detonation Field",
         "Make the battlefield work",
-        "Place your field where the target will stay long enough for your attacks to benefit."
+        "Always put your circles on your circles. Layer Detonation Fields where your attacks and enemies will actually overlap."
       ],
       [
         "Way of the Gun",
@@ -371,11 +381,6 @@ window.MIDIR_ROTATION_REFERENCE={
         "Work it into available openings without spending the energy needed for your main attacks."
       ],
       [
-        "Shooting Rush",
-        "Position and hit",
-        "Use the movement and line coverage without losing your preferred firing position."
-      ],
-      [
         "Bullet Storm",
         "Base gun pressure",
         "Use it when you have a useful target spread and a gap in your Arcana sequence."
@@ -387,8 +392,8 @@ window.MIDIR_ROTATION_REFERENCE={
       ],
       [
         "Grapple Shot",
-        "Mobility tool",
-        "Reposition with purpose, especially when preparing a charged Fatal Scope."
+        "Invulnerability frames / dodge",
+        "Grapple Shot is your i-frame. Use it to dodge incoming attacks while staying in a position to keep shooting."
       ]
     ]
   },

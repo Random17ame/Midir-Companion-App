@@ -299,3 +299,10 @@ main{padding-top:21px;padding-bottom:38px}
 .bb-pummel-panel{margin:12px 0;padding:12px;border:2px solid #eeab45;border-radius:10px;background:rgba(92,53,18,.3);text-align:center}.bb-pummel-panel p{margin:8px 0}.bb-pummel-panel kbd{padding:3px 8px;border-radius:5px;background:#253245;border:1px solid #fac56f}.bb-pummel-track{height:12px;background:#1c2839;border-radius:10px;overflow:hidden}.bb-pummel-track>div{height:100%;background:linear-gradient(90deg,#f9ab46,#ffde85);transition:width .1s}
 
 .music-skill-reforges{margin:16px 0;padding:14px;border:1px solid var(--line);border-radius:10px;background:rgba(40,70,94,.14)}.music-skill-reforges h4{margin:0 0 6px}.music-skill-reforges .hint{margin:0 0 12px}
+
+.ag-energy-panel{border:1px solid #435778;border-radius:10px;padding:10px;margin:8px 0;background:#172a40}.ag-energy-panel small{display:block;color:#a5bfd1;margin-top:4px}.ag-energy-bullets{display:flex;gap:11px;margin:7px 0}.ag-bullet{display:inline-flex;justify-content:center;align-items:center;border:1px solid #53667b;color:#46596b;border-radius:30% 30% 45% 45%;width:23px;height:33px;font-size:15px;transform:rotate(0deg)}.ag-bullet.charged{color:#edb95b;background:#785323;border-color:#f5bf68;box-shadow:0 0 8px #cd933c44}
+
+/* Fractional AG transmutation energy marks: one mark is 100 energy. */
+.ag-bullet{background:#24364b;color:#8599b0;border-color:#53667b;box-shadow:inset 0 0 3px #0005}
+.ag-bullet.partial{background:linear-gradient(to top,#43d6ec var(--ag-fill,0%),#24364b var(--ag-fill,0%));color:#b0f4ff;border-color:#49c9e3;box-shadow:inset 0 0 4px #b0f4ff55}
+.ag-bullet.charged{background:#b77e29;color:#ffe0a1;border-color:#f5bf68;box-shadow:0 0 8px #cd933c66,inset 0 0 4px #ffe0a144}
