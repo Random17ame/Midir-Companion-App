@@ -272,3 +272,30 @@ main{padding-top:21px;padding-bottom:38px}
 /* Companion 55 Herb Collection */
 .herb-collection-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(310px,1fr);gap:16px;align-items:start}.herb-collection-header{display:flex;justify-content:space-between;margin-bottom:12px}.herb-collection-header span,.herb-chest-count{color:var(--muted);font-size:.9em}.herb-collection-field{height:350px;border:1px solid #345a4e;border-radius:12px;position:relative;background:radial-gradient(ellipse at 60% 50%,#244633 0%,#1b3329 55%,#11271e 100%);overflow:hidden}.herb-collection-field:before{content:"";position:absolute;inset:0;opacity:.15;background:repeating-linear-gradient(110deg,transparent 0 23px,#88b68a 24px 25px,transparent 26px 47px);pointer-events:none}.herb-pick{position:absolute;transform:translate(-50%,-50%);border:0;background:transparent;padding:7px;cursor:pointer;border-radius:16px;filter:drop-shadow(0 2px 8px #0b1a10);transition:filter .15s}.herb-pick:hover{filter:drop-shadow(0 1px 12px #f5f2bb);background:#ffffff12}.herb-pick .herb-icon{width:65px;height:78px}.herb-chest-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.herb-chest-item{display:flex;align-items:center;gap:8px;border:1px solid #33475c;border-radius:10px;padding:7px;background:#182839;min-width:0}.herb-chest-item .herb-icon{width:29px;height:35px;flex-shrink:0}.herb-chest-item strong,.herb-chest-item span{display:block;font-size:.84rem}.herb-chest-item span{color:#a6d6c2;font-weight:700}.herb-collection-chest .hint{margin-top:16px}@media(max-width:850px){.herb-collection-layout{grid-template-columns:1fr}}
 .reforge-herb-summary{border:1px solid #365846;border-radius:10px;padding:12px;margin:10px 0}.reforge-herb-count{display:flex;align-items:center;justify-content:space-between;gap:6px;background:#182839;padding:6px 10px;border-radius:7px;font-size:.84rem}
+
+/* SG dummy strike training: obvious 1.7-second raise followed by a fast downward swing. */
+#craft-sg-weapon{transform-box:fill-box;transform-origin:95% 90%;transition:transform .12s ease-out;pointer-events:none;opacity:.95}
+.craft-animation[data-sg-attack="windup"] #craft-sg-weapon,.craft-animation[data-sg-attack="window"] #craft-sg-weapon{transform:rotate(112deg);transition:transform 1.7s linear}
+.craft-animation[data-sg-attack="strike"] #craft-sg-weapon,.craft-animation[data-sg-attack="miss"] #craft-sg-weapon{transform:rotate(-37deg);transition:transform .24s ease-in}
+.craft-animation[data-sg-attack="blocked"] #craft-sg-weapon{transform:rotate(75deg);transition:transform .18s ease-out}
+.craft-sg-warning{min-height:28px;padding:6px 10px;margin:6px 0;border:1px solid var(--line);border-radius:8px;text-align:center;color:var(--muted);font-weight:600}
+.craft-sg-warning[data-phase="windup"]{border-color:#efb15b;color:#ffd08e}
+.craft-sg-warning[data-phase="window"]{border:2px solid #71efb5;color:#afffd9;background:rgba(40,145,104,.22);animation:sg-parry-pulse .45s ease-in-out infinite alternate}
+.craft-sg-warning[data-phase="blocked"]{color:#80f3b9}.craft-sg-warning[data-phase="miss"]{color:#b2c1d0}
+@keyframes sg-parry-pulse{from{box-shadow:0 0 0 0 rgba(75,227,152,.05)}to{box-shadow:0 0 14px 3px rgba(75,227,152,.35)}}
+
+/* Sacred Guardian Pledge of Penance: ring on ground surrounding the caster */
+.craft-animation[data-scene="guardian"].sg-pledge-active::after{content:'';position:absolute;left:11%;bottom:12%;width:33%;height:13%;border:3px solid rgba(112,224,255,.86);border-radius:50%;box-shadow:0 0 18px #64cbf9, inset 0 0 14px rgba(65,193,249,.35);pointer-events:none;animation:sg-pledge-ring 1.8s ease-in-out infinite alternate}
+@keyframes sg-pledge-ring{from{opacity:.66;transform:scale(.94)}to{opacity:1;transform:scale(1.09)}}
+#craft-pledge,#craft-bash-count{color:var(--muted);text-align:center;margin:6px 0;font-size:.9rem}
+
+/* BB contextual combo stage overrides: keyboard keys 1–3 */
+.bb-combo-box{margin:10px 0;padding:12px;border:1px solid #a87649;border-radius:12px;background:linear-gradient(125deg,#292235,#172738)}
+.bb-combo-box>strong{color:#ffd396}.bb-combo-box .hint{margin:5px 0 10px}.bb-combo-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.bb-combo-options button{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;min-height:64px;padding:8px;background:#20364a;border:1px solid #51728c;border-radius:8px;color:#f2f6ff}.bb-combo-options button:not(:disabled):hover{border-color:#ffce82;background:#344658}.bb-combo-options button:disabled{opacity:.65;cursor:default}.bb-combo-options img{width:28px;height:28px;object-fit:contain}.bb-combo-options kbd{color:#ffcf8d;font-size:1.2em;font-weight:800}.bb-combo-options span{font-size:.82em}
+
+/* BB combo cooldown visibility */
+.bb-combo-options button.bb-on-cooldown{filter:grayscale(1);opacity:.48;background:#20252e;border-color:#48505b;cursor:not-allowed}.bb-combo-options button.bb-on-cooldown img{filter:grayscale(1)}.bb-combo-options .bb-cooldown-time{display:block;flex-basis:100%;font-weight:800;font-variant-numeric:tabular-nums;color:#ffd6aa}.bb-combo-options .bb-cooldown-time[hidden]{display:none}
+
+.bb-pummel-panel{margin:12px 0;padding:12px;border:2px solid #eeab45;border-radius:10px;background:rgba(92,53,18,.3);text-align:center}.bb-pummel-panel p{margin:8px 0}.bb-pummel-panel kbd{padding:3px 8px;border-radius:5px;background:#253245;border:1px solid #fac56f}.bb-pummel-track{height:12px;background:#1c2839;border-radius:10px;overflow:hidden}.bb-pummel-track>div{height:100%;background:linear-gradient(90deg,#f9ab46,#ffde85);transition:width .1s}
+
+.music-skill-reforges{margin:16px 0;padding:14px;border:1px solid var(--line);border-radius:10px;background:rgba(40,70,94,.14)}.music-skill-reforges h4{margin:0 0 6px}.music-skill-reforges .hint{margin:0 0 12px}

@@ -1,4 +1,104 @@
+## Companion-74 — Practical skill-reference revision
+- Correct Terra Scourge as target-selected area damage, not ground-targeted; note the long cast opportunity cost.
+- Rework Hexshroud around attacking afflicted enemies for Dorcha generation.
+- Rewrite Elemental Knight and Harmonic Saint skills in short, actionable terms.
+- Replace Harmonic Saint Playing Instrument reference card with Encore and its real icon.
+- Rephrase the other Arcana references around real rotation decisions rather than dense tooltips; preserve provisional EV details.
+- Reference-only changes; existing simulator behavior retained.
+
+## Companion-73 — Encounter Study hidden
+- Hide the standalone Encounter Study navigation and homepage entry points pending its future redesign.
+- Keep its implementation and encounter-derived Vault records intact; requests to open the hidden module route back to the Vault.
+- Preserve Rotation Lab, Debuff Academy and the Vault.
+
+## Companion-72 — Always-visible skill modifying reforges
+- The Harmonic Saint music calculator now has one permanently visible “Skill modifying reforges” section for all eight inputs.
+- Inputs remain independent of skill selection, retained in persistent settings, and affect only the matching effects.
+- Removed the conditional reforge panel inside the selected result card.
+
+## Companion-71 — Music calculator input cleanup
+- Consolidate three Musical Knowledge tier-specific Reforge inputs into one Musical Knowledge - Reforge field that applies to all tiers. Migrate old saved tier values by taking the largest to avoid inadvertent stacking.
+- Put contextual March Song, Enduring Melody, Harvest Song, and Vivace reforges next to the Rank 1 effect results rather than burying them in the lower modifier sections.
+
+## Companion-70 — Arcana Rotation Lab landing page cleanup
+- Removed source-note cards mistakenly rendered as skills (Field evidence / tooltip pass).
+- Merged tooltip information into named skills; rebuilt Arsenal Gunner, Forbidden Alchemist, Puppeteer and Brawler skill lists with named, illustrated actions.
+- Rewrote all ten landing page summaries to reflect actual resource, movement, cooldown and timing interactions, distinguishing known mechanics from provisional interpretations.
+- Added missing icon aliases for applicable skill references.
+
+## Companion-69 — BB multi-hit critical checks
+- Pummel and Somersault Kick register three separate damage hit events for critical-hit and Fighter cooldown reset checks, regardless of global hit-count setting.
+- Pummel rapid input count remains separate from damage hit count.
+
+## Companion-68 — Fighter timings and Pummel inputs
+- Updated Fighter base cooldowns from player-measured values at Erg S50: Focused Fist/Tumble 7s, Charging Strike/Spinning Uppercut 6s, Drop Kick 10s, Somersault Kick 8s, Pummel 12s. Base values are doubled before the optional S50 reduction to avoid double-halving.
+- Focused Fist supports optional early release or full charge. Pummel now accepts up to ten repeated activation-key presses during a five-second action, displaying a live counter.
+
+## Companion-67 — BB combo availability
+- Stage 2/3 combo choices remain visible while cooling, but grey out and cannot activate.
+- Live tenths-of-a-second countdowns refresh during practice and react immediately to Fighter cooldown resets.
+- Normal key overrides and combo progression remain unchanged.
+
+## Companion-66 — Blazing Brawler contextual combo keys
+- 1–3 override assigned hotbar skills only during an active Stage 2 or Stage 3 combo selection.
+- Stage 1: Charging Strike, Focused Fist, Flurry of Fists; Stage 2: Spinning Uppercut, Somersault Kick, Cyclone Drive; Stage 3: Pummel, Drop Kick, Hammerblow.
+- Add on-screen selectable combo cards, preserve normal hotbar outside combos, prevent cancelled/cooling actions from advancing a stage.
+- Avoid binding browser-reserved F1-F3 for the combo.
+
+## Companion-65 — EK, SG, BB mechanics clarification
+- Flashing Steel only consumes a Bash stack when activated during its existing cooldown, without resetting the cooldown timer. Bash stacks decay one every 20 seconds without a new Bash.
+- SG gains Virtue from Pledge, Ardent, Rend, Judgment, and a three-stage Zealous, with Retribution only at 100 Virtue and full consumption; added persistent Pledge ground indicator and capped duration extensions.
+- A successful SG dummy parry during Rend’s 1.5-second window grants the additional Rend Virtue bonus.
+- Blazing Brawler critical-reset events refresh Fighter skills only, not Arcana skills; configurable critical rate retained.
+
+## Companion-64 — Sacred Guardian reactive parry dummy
+- Automatic, randomized 3–10 second dummy strikes during Sacred Guardian Rotation Crafter sessions.
+- Weapon winds up visibly over 1.7 seconds; final 1.5 seconds allows a reaction parry.
+- Successful parries grant 7 Virtue and reset Rend Armor; missed strikes are harmless.
+- The attack loop stops cleanly when practice ends.
+
+## Companion 63 — Rotation mechanics correction pass
+- EK selectable two-handed, sword-and-shield, dual-wield Bash generation; hit verification toggle and configurable two-handed spirit Rage Impact resets.
+- SG continuous Oath Virtue generation, configurable Murias Relic generation, parry event and Virtue meter.
+- MP independent puppet reductions (each 50%), separate Link X Cutting Chorus reduction, summon minimum.
+- BB hit-count-aware critical reset evaluation.
+- AG spirit option distinguishes bullets from Transmutation Energy.
+- Practice-model uncertainties documented separately.
+
+## Companion-62 — In-game tooltip reference and key rotation mechanics
+- Replaced provisional skill references for EK, SG, AG, FA, MP, BB and HS with user-supplied in-game screenshot transcription and mechanic notes.
+- Added EK Bash stack tracking and Flashing Steel cooldown reset/stack consumption in Rotation Crafter.
+- Added opt-in MP Erg / puppet set cooldown modifiers and BB Erg / critical-reset simulation controls.
+- Excluded Explosive Vanguard, as requested. Source tooltips and screenshot conclusions should be checked against user corrections.
+
+## Companion-61 — Enduring Melody MP/Stamina recovery reforges
+- Added independent MP Recovery Speed and Stamina Recovery Speed inputs (footwear cap level 10; accessories cap level 3).
+- Enduring Melody calculator and on-stage buff announcements now use separate values.
+
 # Midir Companion — Consolidated Changelog
+
+## Companion-60 — More Bard skill modifiers
+- Add Enduring Melody Protection reforge (+1 flat base per level), Harvest Song Gathering Speed reforge, and independent Vivace Magic/Alchemy Casting Speed reforges (+1 percentage point of base per level for speed modifiers).
+- Apply modifiers to their corresponding base skill results only, preserving separately calculated performance tiers and local persistence.
+- Show the relevant modifier controls dynamically and reflect them in Harmonic Saint simulator text.
+
+## Companion-59 — Rate isn't a Lie · additional modifiers
+- Add March Song-specific walking/mount speed reforge controls drawn from the supplied mabi.gg calculator, and apply the values exclusively to their matching speed result.
+- Add Normal/Excellent/Inspiring tier-specific effect bonuses without treating them as generic music buff stat.
+- Persist the new settings in the existing calculator profile.
+
+## Companion-58 — Restore Sacred Guardian Oath Workshop
+- Restore the Oath Workshop as a separate Rotation Lab page alongside Rotation Crafter.
+- Reuse the original full / quick / Wool modes and interactive snapshot controls.
+
+## Companion-57 — Full ally figures for Harmonic Saint
+- Update Harmonic Saint's Rotation Crafter so randomly spawned heal targets display full-body cartoon ally figures with their weapon silhouettes, instead of simple abstract blocks.
+- Preserve target labels, health bars, and healing pop feedback.
+
+## Companion-56 — Direct Session Import
+- The Vault accepts Midir `.ndjson` session recordings, parses their raw event stream offline, and converts them into the existing Companion encounter/report model.
+- Group damage hits by second and preserve HP/condition evidence; avoid fabricating verified death/clear evidence where the event data is insufficient.
+- Preserve multiple-import behavior, repeat warnings, existing HTML import, awards and local profile state.
 
 ## Companion-55 — Forbidden Alchemist Herb Collection returns
 - Restore Herb Collection as its own Rotation Lab page.

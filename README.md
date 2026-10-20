@@ -157,3 +157,35 @@ Each roll can be saved to the Storage Chest (preserving exact lines), or listed 
 
 ## Companion 54
 Adds a reforge limit-break pity trigger after 2,500 unsuccessful normal reforge attempts; removes odds disclosure from Reforge UI. Adds Melodic Puppeteer Erg Break Simulator with saved wiki B/A/S rate tables, user-defined 15-failure stack ramp and 0.01-percentage-point steps, weapon chest, Reforge Chest gold-funded assist potions, and uploaded divine mineral fragment Tap icon.
+
+
+## Companion 56 — Direct Midir session imports (experimental)
+- Import raw Midir `.ndjson` session recordings directly into The Vault (alongside offline `.html`/`.json` exports). Multiple files may be selected in one pass.
+- This browser-only parser reconstructs session players, grouped damage hits, entity HP samples and observed condition intervals; it does not execute Midir or upload files.
+- Raw sessions do not always contain enough evidence for verified deaths, clear states or phase achievements; this adapter leaves them unverified rather than inventing evidence.
+- Larger sessions may exceed the browser's localStorage quota; the import UI warns when persistence fails. Keep the source NDJSON files and use a profile backup after importing.
+- Raw `SessionSummary` rows contain grouped hit events, not independently verified casts.
+
+
+### Companion 57
+- Upgrades Harmonic Saint's healing targets from simple silhouettes to full-body ally figures with weapons, so they visually match the other Rotation Crafter simulations more closely.
+
+
+### Companion 59: Rate isn't a Lie skill modifiers
+- Adds March Song-specific Walking Speed and Mount Speed reforge inputs, each increasing its own base speed by 1 percentage point per level, using the supplied mabi.gg HTML snapshot.
+- Adds separate Normal, Excellent, and Inspiring performance-effect inputs. Values persist with the calculator and affect the corresponding performance tier.
+
+
+### Companion 60: Skill-specific Bard reforges
+- Add Enduring Melody Protection, Harvest Song Gathering Speed, and separate Vivace Magic/Alchemy casting speed reforges to Rate isn't a Lie.
+- Only display relevant controls when the corresponding skill output is selected. The Vivace announcement now calculates both casting speed lines independently.
+
+Companion 61: Enduring Melody MP/Stamina Recovery Speed reforge modifiers are separate, calculated per skill effect, and persisted with music settings.
+
+Companion 62: in-game screenshots inform expanded Arcana skill references and optional rotation mechanics.
+
+### Companion 73
+Encounter Study is temporarily hidden from user-facing navigation. Its code remains in place for future reintroduction; encounter-related Vault awards and report data remain available.
+
+
+Companion 74: Rotation Lab skill cards now focus on player decisions and practical synergy instead of repeating tooltip numbers.
