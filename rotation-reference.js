@@ -287,43 +287,19 @@ window.MIDIR_ROTATION_REFERENCE={
   },
   "ev": {
     "name": "Explosive Vanguard",
-    "summary": "Manage shells, choose safe approaches, and look for practical burst openings. We will refine individual skill priorities when their in-game details are confirmed.",
+    "summary": "Fight as a lance-and-Mana-Shell specialist: prepare Shells and the lance damage buff, sustain Shells with Relentless Thrust, position for safe AoE, and convert Lance Charge bonuses into strong Dreadnought Burst windows. Assume fully ranked skills and Arcana Links; treat valuable reforges as build-dependent, not guaranteed perfect rolls.",
     "skills": [
-      [
-        "Recharge Shells",
-        "Skill overview pending",
-        "Explore when this action fits the weapon and target layout."
-      ],
-      [
-        "Relentless Thrust",
-        "Skill overview pending",
-        "Explore when this action fits the weapon and target layout."
-      ],
-      [
-        "Arc Impact",
-        "Skill overview pending",
-        "Explore when this action fits the weapon and target layout."
-      ],
-      [
-        "Blast Zone",
-        "Skill overview pending",
-        "Explore when this action fits the weapon and target layout."
-      ],
-      [
-        "Drill Charge",
-        "Skill overview pending",
-        "Explore when this action fits the weapon and target layout."
-      ],
-      [
-        "Dreadnought Burst",
-        "Skill overview pending",
-        "Explore when this action fits the weapon and target layout."
-      ],
-      [
-        "Blaze of Glory",
-        "Skill overview pending",
-        "Explore when this action fits the weapon and target layout."
-      ]
+      ["Recharge Shells", "Prepare shells and a weapon buff", "Reload your lance's Mana Shells and maintain the weapon damage bonus derived from Mana Bullets. At high Arcana Link, preparation becomes much easier; prepare before combat and refresh when needed rather than interrupting every attack chain."],
+      ["Relentless Thrust", "Sustain shells and enable mounted-charge bonuses", "Weave its quick thrusts between spenders to recover Mana Shells. It also grants Lance Charge Mount Bonus, so unmounted Lance Charges and Dreadnought Burst can benefit from horseback-related lance effects. Repeated consecutive uses eventually incur a cooldown; reset your rhythm with movement or other attacks."],
+      ["Arc Impact", "Short-range cleave with Flash Launcher synergy", "Hit the primary target and enemies along your lance's sweep. It inherits Flash Launcher damage enhancements, including the applicable bodywear, accessory, or Echostone reforge options. Take advantage of its resistance to interruption, but aim the attack where the group actually stands."],
+      ["Blast Zone", "Surrounding AoE with Grapple Shot synergy", "Use when enemies have gathered around you; it hits surrounding targets without requiring a designated primary target. Its damage benefits from Grapple Shot enhancements and its radius improves with Arcana Link, making positioning more important than selecting a single boss."],
+      ["Drill Charge", "Mobility and line clearing", "Travel through enemies while damaging everything in your path, including when escaping pressure. The distance scales in part with Lance Charge distance investments, such as the Max Distance reforge, while damage draws from Lance Impact. Watch its accumulated-use cooldown instead of expecting every dash to be immediately reusable."],
+      ["Dreadnought Burst", "Lance Charge-powered target burst", "Aim the thrust into a priority target to detonate around it. Its explosion inherits Lance Charge damage properties: charge-damage and main-target reforges, horseback bonuses when enabled, and relevant lance effects. Lance Charge cooldown reductions also improve this burst's availability; use it when your mount bonus and target alignment are ready."],
+      ["Blaze of Glory", "Commit your major finisher", "Reserve the large commitment for a stable target and a real damage window, ideally after preparing shells, pressure and target positioning. Do not spend it just because it is available when a boss is about to move or become invulnerable."],
+      ["Lance Charge", "Core lance gap-close and damage reference", "Use a clean approach at suitable distance to convert movement into a strong hit and set up the rest of the lance rotation. Charge Damage, Main Target Damage, cooldown, and distance reforges are meaningful but compete for slots; horseback-specific bonuses require a mount or the Lance Charge Mount Bonus."],
+      ["Lance Leap", "Create room for the next charge", "Leap away to restore spacing and gain an on-foot Lance Charge movement bonus. It is a positioning reset rather than a damage button; anticipate your movement direction and use it when melee range makes a charge awkward."],
+      ["Lance Impact", "Close-range separation and mount-bonus setup", "Strike to force separation and grant the mounted-charge benefit for an ensuing on-foot Lance Charge. It can also catch enemies lined up behind the target. Its damage feeds Drill Charge, so use it as part of the movement-and-charge toolkit rather than assuming it has a dedicated powerful reforge."],
+      ["Reforge priorities", "Build around reliable lines, not rare perfect breaks", "The existing Reforge Simulator includes Lance Charge Charge Damage on handwear/accessories, Main Target Damage on lances, cooldown reduction on headgear, distance on footwear and horseback damage options. Flash Launcher and Grapple Shot damage lines support Arc Impact and Blast Zone. Prioritize the effects your rotation actually uses; do not assume maximum or limit-break rolls."]
     ]
   },
   "ag": {

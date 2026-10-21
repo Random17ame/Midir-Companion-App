@@ -11,7 +11,7 @@ AI was used in making this app.
 ## Features
 - **The Vault:** Import and view Midir HTML, JSON, and supported NDJSON reports; review encounters and personal records.
 - **Achievements.**
-- **Rotation Lab:** Arcana skill references, customizable hotbars, Rotation Crafter, and practice tools.
+- **Arcana Simulators:** Arcana skill references, customizable hotbars, Rotation Crafter, and practice tools.
 - **Arcana activities:** Positioning drills, automaticity training, Oath Workshop, music calculator and stage, Pig Pursuit, Bandit Hunt, and Herb Collection / Precision Harvest.
 - **Debuff Academy:** Lessons, debuff reference, flashcards, and recognition exercises.
 - **Simulators:** Reforge and Erg Break, with their own fictional odds and progression.
@@ -23,7 +23,7 @@ AI was used in making this app.
 ## Use
 1. Extract the ZIP, keeping its files and `assets` folder together.
 2. Open `index.html` in Chrome or Edge. No installation, server, or internet connection is required.
-3. Use **The Vault** to import Midir exports; use **Rotation Lab** or **Debuff Academy** for practice.
+3. Use **The Vault** to import Midir exports; use **Arcana Simulators** or **Debuff Academy** for practice.
 4. Create regular full-profile backups. Keep your original Midir export files.
 
 ## Important limits

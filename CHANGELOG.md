@@ -1,3 +1,165 @@
+## Companion 137
+- Editable Emergency snapshot cast sequence with insert, remove, reorder, reset and local persistence; drives live snapshot simulation and checklist.
+- Full-width, single-column Checklist with prominent leading sequence numbers and responsive icon suppression.
+
+## Companion 136 — Live Oath snapshot values
+- Create Your Snapshot applies frozen Fateweaver (12% defense stats), Virtuous Oath (15% HP, 10% defense stats, per-cast caps), and Golden Magic Wool (20% defense stats) to current gauges.
+- Corrected HP handling: Fateweaver and Wool never add Max HP. Recasting replaces only its own bonus, retaining other skills' historical frozen values. Undo reconstructs previous states and Reset clears active snapshots.
+- Oath bonus gauges and active prepared-plus-snapshot stats stay distinct; this remains a model for gameplay planning rather than verified in-game rounding/duration behavior.
+
+## Companion 135
+- Rename Sacred Guardian snapshot rehearsal to Create Your Snapshot.
+- Connect ordered Fateweaver, Oath, and Wool captures to frozen numerical snapshot values and live Oath cap gauges. Undo and reset rebuild or clear the sequence; document approximate rules.
+
+## Companion 134
+- Reuse Midir Catering and Paladin transformation skill icons on Sacred Guardian buffs.
+- Put Edit Player Stats next to Oath thresholds and Rate Isn't a Lie music import next to Ally Music.
+- Import the saved Inspiring Enduring Melody Defense and Protection calculations from Rate Isn't a Lie, with a reversible source toggle.
+- Condense snapshot actions into a unified skill-style panel with minimal controls.
+
+## Companion 133
+- Condensed Sacred Guardian available bonuses with skill icons and per-buff stat editing.
+- Music sliders now use compact visual stat meters and support wheel/arrow adjustments.
+- Snapshot rehearsal uses compact skill-icon controls and removes redundant buff selections.
+- Suggested rotation moved to the Checklist drawer.
+
+## Companion 132 — Guided Sacred Guardian profile and cap feedback
+- Added a one-time, dismissible stat-entry sequence, animated threshold gauges, and saved shared character values across Oath Max, Emergency Oath, and Checklist.
+- Replaced the dense starting-stat table with visual Oath bonus meters and added per-buff guidance for capped/noncontributing defense stats.
+- Kept buff selection available even when its modeled Oath contribution is zero and documented assumptions in developer notes.
+
+## Companion 131 — Sacred Guardian Oath cap correction
+
+- Corrected the *bonus caps* shown and used by the Sacred Guardian Oath threshold planner to +150 Defense/Magic Defense and +15 Protection/Magic Protection. The formula still adds 10% of prepared defensive stats, so the corresponding input thresholds remain 1,500 and 150. HP remains +15% capped at +3,000 (20,000 HP threshold).
+- Updated the internal Oath developer notes to distinguish pre-Oath stat thresholds from the resulting capped bonuses.
+
+## Companion 130
+- Reinstated three Sacred Guardian pages: Oath Max, Emergency Oath, Checklist.
+- Checklist independently toggles full/emergency views and follows preparation selections from those pages, with draggable per-mode orders.
+- Uses existing Midir skill icons; removes named doll bag assumptions and generated substitutes for skills.
+
+## Companion 129
+- Replaced the Wool Readiness mode with a compact Sacred Guardian Oath visual checklist. Switch between full and emergency prep, drag steps to reorder, mark completed steps, and add/remove options from the existing buff catalog.
+- Existing skill/consumable icons are reused; compact fantasy reminder art fills gaps. Independent per-mode checklist order/checks are saved locally; snapshot rehearsal logic is unchanged.
+
+## Companion 128
+- Simplified SG Oath planner to BFO and Enduring Protection reforge sliders; calibrates estimated Enduring Melody from the ally’s displayed BFO.
+- Divine Link now accepts observed flat stat increases rather than requiring percentages.
+- Added practical, editable scenario-based preparation recommendations emphasizing persistent Doll Bags, optional ally music, and avoiding pet swaps/catering during emergency recovery.
+- Moved detailed equipment, timing, modeling assumptions to SG-OATH-DEVELOPER-NOTES.md.
+
+## Companion 127 — Bri Enduring Melody gear slots
+- Model Protection reforge levels 0–3 on boots without changing Inspiring Effect.
+- For levels 4–9, add one or two Protection-reforged accessories, each granting up to 3 levels while replacing 3 Inspiring Effect from the corresponding BFO accessory.
+- Preserve 16 Inspiring Effect for BFO, use the highest possible remaining Inspiring Effect for the selected Enduring protection total, and display the optimal boots/accessory split in the 0–9 comparison.
+- Keep all three target Bri music-build profiles, Oath preparation and saved user data otherwise unchanged.
+
+## Companion 126 — Bri Inspiring Accessory Swap
+- Bri BFO profiles use 16 Inspiring Effect (instrument plus two accessories) and adjusted Music Buff Effect to target 65%, 69% and 75% BFO.
+- Enduring Melody profiles replace both accessories with Protection reforges, reducing Inspiring Effect by 6 to 10. This affects every 0–9 Protection reforge comparison and the editable preview.
+- Only Inspiring/Haunting performance scenarios are compared; other music grades are excluded from this Oath planner.
+- No changes to saved player data, equipment inventory, or combat mechanics.
+
+## Companion 125 — Bri Music and Sacred Guardian Calibration
+- Cloud/Nimbus is a fixed Defense/Protection summon bonus, not an editable per-pet stat; still summon before Divine Link.
+- Divine Link uses editable percentage increases recalculated from currently prepared character stats. G2 transformation remains a configurable flat bonus based on race and skill rank.
+- Reworked Enduring Melody estimates for Bri: Inspiring-performance build profiles targeting about 65–75% Battlefield Overture, with Music Buff Effect and Inspiring effect inputs and a 0–9 Protection reforge comparison.
+- Corrected Enduring Melody Defense versus Protection baseline values. No changes to achievement rules, snapshot sequence, or other simulators.
+
+## Companion 124 — Sacred Guardian Oath Threshold Planner
+- Added a pre-Oath defensive stat planner to the Oath Workshop with editable HP, Defense, Protection, Magic Defense, and Magic Protection values, cap headroom and preparation-buff switches.
+- Added Shield of Trust with Magic Dampening, Lovable Yip, Cloud, Divine Link, Catering, Doll Bags, G2 transformation and both additive Orbital Pulse aspects. Situational video bonuses are editable examples, not universal stat guarantees.
+- Added Enduring Melody Protection reforge scenario comparison from 0 through 9, music performance grades and an adjustable music-build strength estimate that incorporates existing Music Lab buff modifiers.
+- Provided specific preparation guidance for full setup, emergency recovery and Wool readiness; the snapshot lineage rehearsal is unchanged, and undocumented recursive stat mathematics is not represented as exact.
+- Retained earlier Explosive Vanguard content for expert player review. No saved-state schemas, reward mechanics or cooldowns changed.
+
+## Companion 123 — Explosive Vanguard Lance Cooldown Configuration
+- EV Rotation Crafter now models maximum Lance Spirit Amplitude and Link 9+ by default, with a 5/5 Lance Charge cooldown reforge and selectable 0–7/5 values (6/5 and 7/5 identified as rare limit breaks).
+- Lance Charge and Dreadnought Burst cooldowns update together from the chosen reforge. Dreadnought uses a conservative **6-second simulator floor**; this minimum is not explicitly confirmed in the supplied game sources.
+- Settings persist per Arcana, and custom cooldown entries for skills remain supported. Existing inventory, reforge probability, and saved progress are unchanged.
+
+## Companion 122 — Explosive Vanguard rotation research
+- Rewrote the Explosive Vanguard Arcana Simulators skill guide around max-ranked Lance/Arcana interactions and practical rotation choices instead of numerical damage tooltips.
+- Added Lance Charge, Lance Leap, and Lance Impact to the EV landing reference and Rotation Crafter, including range management, mounted-charge bonus setup, and movement chains.
+- Documented Mana Shell sustainability, Relentless Thrust's charge bonus, inherited Flash Launcher/Grapple Shot damage enhancements, Dreadnought Burst's Lance Charge dependencies, and existing Lance Charge reforge categories.
+- Corrected clearly sourced EV baseline cooldowns for Lance Charge, Arc Impact, Blast Zone and the Link-adjusted Dreadnought Burst. The simulator still abstracts accumulated cooldown behavior, and rare limit-break reforge outcomes are not assumed.
+- No changes to reforge odds, inventory, persistent storage keys, achievements, or unrelated Arcana.
+
+## Companion 121 — Screenshot-based Rotation Crafter cooldown corrections
+- Compared all seven supplied in-game skill information screenshots against Rotation Crafter base defaults for Harmonic Saint, Blazing Brawler, Melodic Puppeteer, Forbidden Alchemist, Arsenal Gunner, Sacred Guardian, and Elemental Knight.
+- Updated 34 clearly labeled cooldown defaults, preserving skill-specific rules and optional Link/equipment modifiers. Cutting Chorus remains 4s base / 2s with Link X; Flashing Steel remains 7s.
+- Left cooldowns absent from the screenshots unchanged; this is a screenshot-grounded correction, not a claim that all remaining skills have been independently verified.
+- Existing player-customized cooldowns remain stored in the same save key and are not reset by updating the app.
+
+## Companion 120 — Rotation Crafter cooldown audit
+- Compared every Arcana's Rotation Crafter default cooldown list against the project handoff and later confirmed Cutting Chorus skill tooltip.
+- Corrected **Elemental Knight · Flashing Steel** from 20s to its documented natural **7s** cooldown; Bash-stack bypass remains a separate mechanic.
+- Corrected **Melodic Puppeteer · Cutting Chorus** from 8s to its confirmed **4s** base cooldown; optional Link X still subtracts 2s, yielding **2s** while enabled.
+- Preserved existing user-customized skill cooldowns and all other baseline values; the handoff does not specify sufficient numerical values to certify most other skill cooldowns. Arsenal Gunner's charged Bullet Barrage retains its documented dynamic 1–9s timing.
+- No changes to saved profiles, other simulation rules or achievement criteria.
+
+## Companion 119 — Cutting Chorus Rhythm note path
+- Place white and Cutting Chorus circles in chronological hit-time order, maintaining a continuous mouse-following path rather than jumping to unrelated positions.
+- Limit the distance between consecutive circles by their time separation; short gaps place notes close together and longer gaps permit wider movement across the field.
+- Gently curve and reflect the path near playfield edges so notes continue naturally from their previous location.
+- Preserve white-note rhythm, Link X Cutting Chorus intervals, input bindings, Hard Mode, scoring, and saved settings.
+
+## Companion 118 — Cutting Chorus Rhythm launch fix
+- Load the previously omitted rhythm module, fixing the Melodic Puppeteer activity shortcut.
+- Keep Begin, instructions, End Practice, results and replay controls inside the rhythm playfield.
+- Retain default Link X bonus and the verified 2-second ON / 4-second OFF Cutting Chorus intervals.
+
+## Companion 117 — Melodic Puppeteer Cutting Chorus Rhythm
+- Added a mouse-and-key rhythm activity with white ordinary-skill notes and black Cutting Chorus notes, approach-ring timing, scoring, and an optional no-ABA-repeat hard mode.
+- Added customizable Cutting Chorus input and an independently saved Link X cooldown toggle, enabled by default.
+- Corrected the Cutting Chorus interval using the in-game Rank 1 skill tooltip: **4 seconds normally; 2 seconds with Link X** (−2 seconds). This correction is included in the existing Companion 117 release number.
+- Preserved saved simulator progress and included the rhythm settings in profile backups.
+
+## Companion 116 — Debuff Field Guide cleanup
+- Reorganized the Field Guide around the nine distinct Full Party Coverage achievement groups, including the paired protection-peeling statuses and interchangeable pet effects.
+- Displayed existing condition icons prominently; grouped secondary skill sources and interactions under an expandable section with available skill icons.
+- Removed developer-facing “Midir condition” wording from the guide and source notes, preserving important distinctions between shared debuffs, unique effects and skill sources.
+- Kept the existing achievement definitions, missing-debuff exercise rules, saved progress and other simulators unchanged.
+
+## Companion 115 — Reforge and Erg Inventory
+- Require confirmation of a Limit Break before the next reforge roll.
+- Replace numerical reforge odds in the UI with a simple statement that Dazzling is better.
+- Tighten reforge line/value spacing and consolidate gold, ducats, items and resources into a slotted Storage Chest interface.
+- Add two-way Erg weapon transfers, preserving Erg progress, and prevent Erg weapons from being listed for sale.
+- Keep Erg Unlock Assist Potion purchasing on Erg Break, using the supplied potion icon; remove the duplicate Reforge shop purchase.
+- Preserve existing storage keys; add Erg weapon progress to optional full-backup training extras, while keeping older backups compatible.
+
+## Companion 114 — Arsenal Gunner Field & Firing Lane Lab
+- Doubled Detonation Field radius from 47 to 94 diagram units.
+- Click-release on open space places a field; drag the blue player and red enemies at any time. Removed the tool/move-mode selector and redundant enemy-position controls.
+- Limited fields to five, discarding the oldest when a sixth is placed.
+- When a selected line or Heavy Artillery attack intersects a field, all enemies in that field and touching connected fields are hit.
+- Added simultaneous line and Heavy Artillery commitment with one combined unique-target result. Both attacks can be enabled independently.
+- Preserved previous simulator records and other app functionality.
+
+## Companion 113 — In-window game controls
+- Moved Pig Pursuit Begin Ride to its playfield, with click / Escape / pointer-exit pause and in-window Continue. Results require confirmation before returning to instructions and Begin Ride.
+- Moved Bandit Hunt Begin Hunt and End Hunt controls inside the playfield; removed the separate toolbar controls.
+- Added brief training-purpose notes to Pig Pursuit (Flashing Steel mouse awareness) and Bandit Hunt (quick reactions to changing cooldowns) in game instructions and Arcana shortcut descriptions.
+- Preserved existing saved records, encounter mechanics, and ducat rewards.
+
+## Companion 112 — Navigation naming correction
+- Renamed the **Rotation Lab** top tab, page titles, return buttons, and related navigation to **Arcana Simulators**.
+- Restored **Reforge Simulator** as the Explosive Vanguard tool shortcut and page title.
+- Updated the README and Korean/Spanish navigation translations. No simulation or saved-data changes.
+
+## Companion 111 — Navigation, Vault and Positioning
+- Added direct Overview sidebar navigation to games, simulators, Rotation Crafter, and Debuff Academy above recent training.
+- Made Encounter-Specific Records and Earned Milestones collapsible in the Vault.
+- Renamed the Rotation Crafter editor bar to **Edit Skills & Presets** and increased its contrast.
+- Renamed the Explosive Vanguard Reforge Simulator shortcut and title to **Arcana Simulators** (reversed in Companion 112).
+- Updated AS Positioning with an instructions start screen, draggable player and enemies without modes, a visible rotation handle, and Left/Right arrow rotation.
+
+## Companion 110 — Pig Pursuit Start Fix and Bandit Card Size
+- Fixed Pig Pursuit Start Ride failing because obstacle generation called an undefined random helper.
+- Set all Bandit Hunt board slots and tiles to exactly 125 × 125 px, preserving consistent dimensions and horizontal scrolling.
+- No intentional changes to controls, progression, economy, saves, or achievements.
+
 ## Companion 109 — Top-down Pig Pursuit
 - Rebuilt Pig Pursuit as a free-roaming, top-down 2D obstacle course. The camera stays centered on the pig as it chases the mouse-controlled carrot in any direction.
 - Arrow keys or WASD adjust rider balance only; steering and obstacle avoidance use the mouse.
