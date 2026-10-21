@@ -353,7 +353,7 @@ main{padding-top:21px;padding-bottom:38px}
 .ek-pig-stat{display:flex;flex-direction:column;gap:6px;padding:12px;border:1px solid #526779;background:#1b3549;border-radius:10px}
 .ek-pig-stat small{color:#bdd1de;font-size:.82rem}.ek-pig-stat strong{color:#fce5af;font-size:1.3rem;font-variant-numeric:tabular-nums}
 .ek-pig-stage{position:relative;border:2px solid #8ab7a0;overflow:hidden;border-radius:16px;box-shadow:0 8px 25px #0005;background:#32586b}
-#ek-pig-canvas{display:block;width:100%;height:auto;aspect-ratio:760/430;cursor:none;touch-action:none}
+#ek-pig-canvas{display:block;width:100%;height:auto;aspect-ratio:760/520;cursor:none;touch-action:none}
 .ek-pig-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:22px;text-align:center;color:#fff4d9;background:#122a34b9;pointer-events:none;text-shadow:0 1px 3px #122333}
 .ek-pig-overlay[hidden]{display:none}.ek-pig-overlay strong{font-size:2rem;color:#ffe6a3}.ek-pig-overlay span{max-width:480px;font-size:.98rem;line-height:1.5}
 .ek-pig-meter{display:flex;align-items:center;gap:12px;margin:15px 0 9px}.ek-pig-meter>span{min-width:95px}
@@ -458,3 +458,48 @@ main{padding-top:21px;padding-bottom:38px}
 /* Companion 106: AI-use disclosure directly below version in the header. */
 .header-right .ai-disclaimer{font-size:.79rem;color:var(--muted);line-height:1.3;text-align:right}
 @media(max-width:760px){.header-right .ai-disclaimer{text-align:left}}
+
+/* Companion 107 — every Bandit Hunt board slot has identical dimensions. */
+.bb-bandit-board-scroller{overflow-x:auto;max-width:100%}
+.bb-bandit-grid{
+  width:max-content;
+  min-width:0;
+  grid-template-columns:repeat(9,200px);
+  grid-auto-rows:200px;
+  gap:8px;
+  align-items:stretch;
+}
+.bb-bandit-grid .bb-bandit-tile{
+  box-sizing:border-box;
+  width:200px;
+  min-width:200px;
+  max-width:200px;
+  height:200px;
+  min-height:200px;
+  max-height:200px;
+  padding:10px 8px;
+  overflow:hidden;
+  gap:3px;
+  font-size:.92rem;
+  line-height:1.12;
+  overflow-wrap:anywhere;
+}
+.bb-bandit-grid .bb-bandit-tile:not(:disabled):hover{transform:none}
+.bb-bandit-grid .bb-bandit-tile .bb-bandit-art.board{
+  display:block;
+  width:100%;
+  height:120px;
+  max-height:120px;
+  flex:0 0 120px;
+  object-fit:contain;
+}
+.bb-bandit-grid .bb-bandit-tile strong{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  overflow:hidden;
+  max-width:100%;
+}
+.bb-bandit-grid .bb-bandit-tile small,
+.bb-bandit-grid .bb-bandit-tile span{max-width:100%}

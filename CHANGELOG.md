@@ -1,3 +1,18 @@
+## Companion 109 — Top-down Pig Pursuit
+- Rebuilt Pig Pursuit as a free-roaming, top-down 2D obstacle course. The camera stays centered on the pig as it chases the mouse-controlled carrot in any direction.
+- Arrow keys or WASD adjust rider balance only; steering and obstacle avoidance use the mouse.
+- Pig movement accelerates to a capped speed, after which obstacles spawn with progressively smaller spacing.
+- Added world-space obstacles, collisions, rider balance, and new top-down field graphics; preserved Pig Pursuit records and save compatibility.
+
+## Companion 108 — Larger Bandit Hunt cards
+- Increased every Bandit Hunt card and grid slot to a fixed **200 × 200 px**. All states remain uniform.
+- Enlarged artwork inside the cards while retaining horizontal scrolling on smaller screens. No gameplay, economy, or save changes.
+
+## Companion 107 — Uniform Bandit Hunt Board
+- Standardized all Bandit Hunt card slots to identical fixed width and height, whether hidden, active, revealed, or showing artwork.
+- Contained portraits and long card names within their slots; narrower screens scroll horizontally without resizing individual cards.
+- No changes to encounters, rewards, game logic, save formats, or other modules.
+
 ## Companion 106 — AI-use disclosure
 - Added “AI was used in making this app.” at the top of README and in the app header below the version number and above the language selector.
 - No application logic, save format, or achievements changed.
