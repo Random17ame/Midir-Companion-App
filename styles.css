@@ -325,3 +325,136 @@ main{padding-top:21px;padding-bottom:38px}
 .rotation-arcana-picker{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:14px 16px;margin:0 0 18px;border:1px solid #416277;background:#1a3040;border-radius:12px}
 .rotation-arcana-picker label{color:#7ee0d3}
 .rotation-arcana-picker select{min-width:min(100%,260px);max-width:100%}
+
+/* Companion 100 — Precision Harvest (original chest and free gathering remain intact). */
+.herb-mode-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 18px}
+.herb-mode-tabs button{border-radius:20px;padding:9px 17px;border:1px solid #557266;background:#213b39;color:#d4e8df}
+.herb-mode-tabs button.active{background:#357259;color:#fff4db;border-color:#a3d7ac}
+.herb-challenge-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 15px}
+.herb-challenge-controls label{display:flex;gap:8px;align-items:center;color:#c6dcd5}
+.herb-challenge-controls select{max-width:155px}
+.herb-challenge-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0}
+.herb-challenge-stats>div{display:flex;flex-direction:column;gap:4px;border-radius:9px;background:#162b32;border:1px solid #3d6759;padding:10px}
+.herb-challenge-stats small{color:#afc8bc;font-size:.8rem}
+.herb-challenge-stats strong{color:#f5dc9f;font-size:1.25rem;font-variant-numeric:tabular-nums}
+.herb-collection-field.challenge{height:410px;cursor:crosshair}
+.herb-challenge-pick{transition:none;--herb-scale:1;transform:translate(-50%,-50%) scale(var(--herb-scale))}
+.herb-challenge-pick:hover{transform:translate(-50%,-50%) scale(var(--herb-scale));}
+.herb-life-track{position:absolute;bottom:0;left:0;right:0;height:6px;pointer-events:none;background:#172c29}
+.herb-life-track>div{background:linear-gradient(90deg,#ffae61,#a6e495);height:100%}
+.herb-field-prompt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:3rem;text-align:center;color:#d7f5d8;pointer-events:none}
+.herb-field-prompt strong{font-size:1.25rem}.herb-field-prompt span{font-size:.9rem;max-width:20em;color:#b2d8c9}
+.herb-challenge-records{border-top:1px solid #40604f;margin-top:18px;padding-top:12px}
+.herb-best-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:10px 0}.herb-best-grid>div{border:1px solid #416658;border-radius:8px;padding:9px;background:#1a3634}.herb-best-grid strong{display:block;color:#e5d28b;margin-top:4px}
+.herb-run-list{display:grid;gap:5px}.herb-run-list>div{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;padding:6px;border-bottom:1px solid #344d49;font-size:.85rem}
+
+/* Companion 100 — Pig Pursuit. Mouse-only EK awareness and balance training. */
+.ek-pig-card{max-width:1080px;margin:0 auto}.ek-pig-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.ek-pig-stat{display:flex;flex-direction:column;gap:6px;padding:12px;border:1px solid #526779;background:#1b3549;border-radius:10px}
+.ek-pig-stat small{color:#bdd1de;font-size:.82rem}.ek-pig-stat strong{color:#fce5af;font-size:1.3rem;font-variant-numeric:tabular-nums}
+.ek-pig-stage{position:relative;border:2px solid #8ab7a0;overflow:hidden;border-radius:16px;box-shadow:0 8px 25px #0005;background:#32586b}
+#ek-pig-canvas{display:block;width:100%;height:auto;aspect-ratio:760/430;cursor:none;touch-action:none}
+.ek-pig-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:22px;text-align:center;color:#fff4d9;background:#122a34b9;pointer-events:none;text-shadow:0 1px 3px #122333}
+.ek-pig-overlay[hidden]{display:none}.ek-pig-overlay strong{font-size:2rem;color:#ffe6a3}.ek-pig-overlay span{max-width:480px;font-size:.98rem;line-height:1.5}
+.ek-pig-meter{display:flex;align-items:center;gap:12px;margin:15px 0 9px}.ek-pig-meter>span{min-width:95px}
+.ek-pig-meter-track{flex:1;max-width:440px;height:13px;background:#452e3b;border:1px solid #6f5e66;overflow:hidden;border-radius:20px}
+#ek-pig-balance-fill{width:100%;height:100%;background:linear-gradient(90deg,#f17f6d,#ebcc7b,#7bcc9e);transition:width .1s}
+#ek-pig-balance-text{min-width:70px;color:#f7d19c}.ek-pig-cue{min-height:1.6rem;color:#b5ddc8;font-weight:650}
+.ek-pig-records{display:grid;gap:7px;margin-top:17px;padding-top:10px;border-top:1px solid #466479}.ek-pig-records span{font-size:.85rem;color:#accddd}
+@media(max-width:600px){.herb-challenge-stats,.ek-pig-top{grid-template-columns:repeat(2,minmax(0,1fr))}.ek-pig-overlay strong{font-size:1.35rem}.ek-pig-overlay span{font-size:.72rem}.ek-pig-stage{min-width:0}}
+
+/* Companion 101 — Bandit Hunt + ducat chest economy */
+.reforge-potion-shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:12px}
+.reforge-potion-shop.ducat-shop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.reforge-potion-shop.ducat-shop img,.reforge-currency-strip img{width:34px;height:34px;object-fit:contain;flex:0 0 auto}
+.reforge-currency-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:10px 0 14px}
+.reforge-currency-strip>div{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:#141318;border:1px solid #2f2934}
+.reforge-tool-choice{display:grid;gap:8px;padding:10px 12px;border:1px solid #30273b;border-radius:14px;background:#17151d;min-width:min(100%,360px)}
+.reforge-tool-choice legend{padding:0 6px;color:#d6c6e8}
+.reforge-tool-choice label{display:flex;gap:8px;align-items:flex-start;font-size:.95rem}
+.reforge-tool-choice small{display:block;color:#b8afc5}
+.row.gap{display:flex;align-items:center;gap:10px}
+
+.bb-bandit-shell{display:grid;gap:16px}
+.bb-bandit-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:12px 0}
+.bb-bandit-summary>div{padding:12px;border-radius:14px;background:#17141d;border:1px solid #30273b}
+.bb-bandit-summary.compact>div{padding:10px}
+.bb-bandit-summary small{display:block;color:#b9b2c8}
+.bb-bandit-summary strong{display:block;font-size:1.06rem;margin-top:2px}
+.bb-bandit-legend{display:grid;gap:8px}
+.bb-bandit-legend>div{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:.95rem}
+.bb-chip{display:inline-flex;align-items:center;justify-content:center;padding:5px 10px;border-radius:999px;font-weight:700;font-size:.85rem;border:1px solid transparent;min-width:86px}
+.bb-chip.strike{background:#3a1a1e;border-color:#8a3f4a;color:#ffd7dc}
+.bb-chip.dodge{background:#1d263d;border-color:#51699d;color:#dbe6ff}
+.bb-chip.wait{background:#27301b;border-color:#708a48;color:#eef9d7}
+.bb-chip.free{background:#362b16;border-color:#9a7a39;color:#fff0ca}
+.bb-bandit-toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.bb-bandit-controls{display:flex;gap:8px;flex-wrap:wrap}
+.bb-bandit-active{padding:14px;border-radius:16px;border:1px solid #393047;background:#191720;margin-bottom:14px}
+.bb-bandit-active.idle{background:#15141a}
+.bb-bandit-active.strike{box-shadow:0 0 0 1px #6b3039 inset}
+.bb-bandit-active.dodge{box-shadow:0 0 0 1px #40537a inset}
+.bb-bandit-active.wait{box-shadow:0 0 0 1px #627943 inset}
+.bb-bandit-active-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:6px}
+.bb-active-track{height:10px;background:#26222f;border-radius:999px;overflow:hidden;margin:10px 0 12px}
+#bb-active-fill{height:100%;background:linear-gradient(90deg,#f7d268,#db5d5d)}
+.bb-bandit-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.bb-bandit-grid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px}
+.bb-bandit-tile{min-height:72px;padding:8px;border-radius:14px;border:1px solid #342a3e;background:#15131a;color:#f7f3ff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:4px;transition:transform .12s ease, border-color .12s ease, background .12s ease}
+.bb-bandit-tile:not(:disabled):hover{transform:translateY(-1px);border-color:#9477c7}
+.bb-bandit-tile:disabled{cursor:default;opacity:1}
+.bb-bandit-tile small,.bb-bandit-run-list small{color:#bbb3c9}
+.bb-bandit-tile.hidden{background:linear-gradient(180deg,#1b1721,#110f15)}
+.bb-bandit-back{font-size:1.4rem;font-weight:800;color:#dcc6ff}
+.bb-bandit-tile.strike.active,.bb-bandit-tile.strike.resolved{background:#31171d;border-color:#954753}
+.bb-bandit-tile.dodge.active,.bb-bandit-tile.dodge.resolved{background:#182031;border-color:#5c79af}
+.bb-bandit-tile.wait.active,.bb-bandit-tile.wait.resolved{background:#243019;border-color:#7c9857}
+.bb-bandit-tile.free.resolved{background:#352711;border-color:#b4934a}
+.bb-bandit-tile.failed{background:#32181f;border-color:#b85163}
+.bb-bandit-tile.stolen{background:#241a14;border-color:#926542}
+.bb-bandit-tile.bonus{background:#2c2412;border-color:#c3a24b}
+.bb-bandit-records .bb-bandit-run-list{display:grid;gap:8px}
+.bb-bandit-run-list>div{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 12px;border-radius:12px;background:#15131b;border:1px solid #2f2937}
+.bb-bandit-run-list>div small{grid-column:1 / -1}
+@media (max-width:820px){.bb-bandit-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media (max-width:560px){.bb-bandit-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.bb-bandit-tile{min-height:66px;font-size:.9rem}}
+
+/* Companion 102 — distinct BB fighter responses, visual cue and shared Erg potions */
+.reforge-potion-emblem{width:34px;height:34px;display:inline-flex;justify-content:center;align-items:center;flex:0 0 auto;border:1px solid #9675b2;background:#372947;border-radius:8px;color:#f5deff;font-size:1.25rem}
+.bb-chip.counter{background:#3a1a1e;border-color:#8a3f4a;color:#ffd7dc}
+.bb-chip.charge{background:#3b2918;border-color:#a9783d;color:#ffebd1}
+.bb-action-icon{width:24px;height:24px;object-fit:contain;image-rendering:auto;border-radius:4px}
+.bb-bandit-actions button{display:inline-flex;align-items:center;gap:7px;padding:8px 12px}
+.bb-chip{display:inline-flex;align-items:center;gap:7px}
+.bb-bandit-active.counter{box-shadow:0 0 0 1px #6b3039 inset}
+.bb-bandit-active.charge{box-shadow:0 0 0 1px #947036 inset}
+.bb-bandit-tile.counter.active,.bb-bandit-tile.counter.resolved{background:#31171d;border-color:#954753}
+.bb-bandit-tile.charge.active,.bb-bandit-tile.charge.resolved{background:#352515;border-color:#bb8142}
+.bb-encounter-cue{font-size:1.12rem;color:#f2e5ce;font-weight:600;margin:.4rem 0}
+.bb-bandit-grid{min-width:755px}
+.bb-bandit-board-scroller{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+@media(max-width:820px){.bb-bandit-grid{grid-template-columns:repeat(9,minmax(0,1fr))}}
+@media(max-width:560px){.bb-bandit-grid{grid-template-columns:repeat(9,minmax(0,1fr))}}
+.bb-bandit-toolbar>div:first-child>span{display:block;margin-top:4px}
+.bb-bandit-active.idle span{display:block;color:#afa8ba;margin-top:5px}
+.bb-bandit-active-heading strong{font-size:1.12rem}
+
+/* Companion 103 — generated outlaw art for counter vs. escape cards */
+.bb-bandit-active.has-art{display:grid;grid-template-columns:minmax(125px,195px) minmax(0,1fr);align-items:center;gap:16px;min-height:210px}
+.bb-active-portrait{height:188px;width:100%;border-radius:14px;border:1px solid #4a364a;background:radial-gradient(ellipse at 50% 40%,#3a3045,#161219 72%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.bb-bandit-art.active{width:100%;height:100%;object-fit:contain;object-position:center center;filter:drop-shadow(0 5px 9px rgba(0,0,0,.55))}
+.bb-active-details{min-width:0}
+.bb-bandit-art.board{width:100%;height:44px;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+.bb-bandit-tile .bb-bandit-art.board{flex-shrink:0}
+.bb-bandit-tile.active:has(.bb-bandit-art),.bb-bandit-tile.resolved:has(.bb-bandit-art),.bb-bandit-tile.failed:has(.bb-bandit-art){min-height:116px}
+@media(max-width:600px){.bb-bandit-active.has-art{grid-template-columns:100px minmax(0,1fr);gap:9px}.bb-active-portrait{height:165px}.bb-bandit-art.board{height:38px}}
+
+/* Companion 103 — reference images of Golem arm-windup threats */
+.bb-bandit-art.golem-photo.active{object-fit:contain;border-radius:10px}
+.bb-bandit-art.golem-photo.board{object-fit:cover;object-position:center center;border-radius:6px}
+.bb-bandit-active.dodge.has-art .bb-active-portrait{background:#1b2026;border-color:#697581}
+.bb-bandit-active.dodge.has-art .bb-bandit-art.golem-photo.active{filter:drop-shadow(0 3px 4px rgba(0,0,0,.4))}
+
+/* Companion 106: AI-use disclosure directly below version in the header. */
+.header-right .ai-disclaimer{font-size:.79rem;color:var(--muted);line-height:1.3;text-align:right}
+@media(max-width:760px){.header-right .ai-disclaimer{text-align:left}}

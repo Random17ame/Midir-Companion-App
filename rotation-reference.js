@@ -469,83 +469,24 @@ window.MIDIR_ROTATION_REFERENCE={
   },
   "bb": {
     "name": "Blazing Brawler",
-    "summary": "React to the combo choices in front of you. Each hit is another chance for a crit-based Fighter cooldown reset; Fighter resets do not refresh Blazing Brawler’s own Arcana cooldowns.",
+    "summary": "Keep Berserker’s Fury topped off, weave Fury spenders to maintain Absolute Fury, and chase critical hits to bring your combos back around faster. Choose between focused strikes and close-range area damage as the fight demands.",
     "skills": [
-      [
-        "Fire Within",
-        "Fury engine",
-        "Keep Fury generation going so your strongest Ignite options remain available."
-      ],
-      [
-        "Berserker’s Fury",
-        "Empower at the right moment",
-        "Use your Fury for a stronger sequence when you can keep attacking."
-      ],
-      [
-        "Piercing Gale",
-        "Fury spender",
-        "Commit Fury when the target is reachable and your next combo is ready."
-      ],
-      [
-        "Earthshaker",
-        "Fury spender / space",
-        "Choose a good impact position and spend Fury where the hit will matter."
-      ],
-      [
-        "Radiant Storm",
-        "Major Fury commitment",
-        "Line up the right targets and opening before spending two Fury."
-      ],
-      [
-        "Ignite: Flurry of Fists",
-        "Arcana combo starter",
-        "Start a chain; the Fighter reset can be triggered by its hits but does not reset this Arcana cooldown."
-      ],
-      [
-        "Charging Strike",
-        "Stage 1 opener",
-        "Start a Fighter combo when a worthwhile follow-up is available."
-      ],
-      [
-        "Spinning Uppercut",
-        "Stage 2 choice",
-        "Choose it when ready. Crit resets can rapidly reopen a combo route."
-      ],
-      [
-        "Pummel",
-        "Stage 3 / rapid inputs",
-        "Finish with three real hit checks, while mashing the activation key for its separate ten-input sequence."
-      ],
-      [
-        "Focused Fist",
-        "Stage 1 / optional charge",
-        "Release quickly or charge when there is room. Watch what Stage 2 choices will be ready after it."
-      ],
-      [
-        "Somersault Kick",
-        "Stage 2 / three hits",
-        "Three independent hit opportunities can trigger a Fighter cooldown reset."
-      ],
-      [
-        "Drop Kick",
-        "Stage 3 finisher",
-        "Finish a valid combo and adapt as soon as a reset changes what is ready."
-      ],
-      [
-        "Tumble",
-        "Movement and survival",
-        "Use it to keep up with targets or evade danger, not just because its cooldown is ready."
-      ],
-      [
-        "Ignite: Cyclone Drive",
-        "Arcana Stage 2",
-        "A combo follow-up that can trigger crit resets without having its own cooldown reset."
-      ],
-      [
-        "Ignite: Hammerblow",
-        "Arcana Stage 3",
-        "Finish the Arcana combo when it can connect; Fighter-only resets will not refresh this cooldown."
-      ]
+      ["Fire Within", "Build Fury", "Keep your Fury coming so you can afford your spenders and refresh Berserker’s Fury."],
+      ["Berserker’s Fury", "Keep it maxed", "Reach level 2 early and refresh as needed. Its long duration and low Fury cost make this a constant part of your damage."],
+      ["Piercing Gale", "Single-target Fury spender", "Your harder-hitting choice for one enemy or enemies lined up close in front. Spending Fury also activates Absolute Fury: 15% more damage for 10 seconds, without stacking with Rage Impact."],
+      ["Earthshaker", "Point-blank Fury spender", "Hit enemies all around you. Spend Fury to activate Absolute Fury and keep its 10-second damage boost rolling; it doesn't stack with Rage Impact."],
+      ["Radiant Storm", "Brawler’s nuke", "Your big burst hit. Unleash it as soon as it comes off cooldown, or save it for an imminent burst window. As a Fury spender, it also activates Absolute Fury, which doesn’t stack with Rage Impact."],
+      ["Ignite: Flurry of Fists", "Ignite combo opener", "Start the Arcana chain with a flurry of hits. From Link 5 onward, every critical hit cuts 20% of the full cooldown from all Ignite and Combo skills."],
+      ["Charging Strike", "Stage 1 opener", "Close the gap and start a Fighter combo when your follow-up is ready."],
+      ["Spinning Uppercut", "Stage 2 choice", "Keep your combo moving; critical resets may bring a follow-up back sooner than expected."],
+      ["Pummel", "Stage 3 rapid finish", "Land its three hit checks while hammering the key for the separate rapid-input sequence."],
+      ["Focused Fist", "Stage 1 / optional charge", "Tap for a quick opener or charge when you have the breathing room."],
+      ["Somersault Kick", "Stage 2 / three hits", "Three separate hits mean three chances for a Fighter cooldown reset."],
+      ["Drop Kick", "Stage 3 finisher", "Cap off the combo and be ready to go again if a critical reset opens the next route."],
+      ["Counter Punch", "Stage 2 animation cancel", "Your go-to cancel after a second-stage combo attack. You stay planted, and can cancel Counter Punch quickly to keep the next strike coming."],
+      ["Tumble", "Stage 2 animation cancel", "Another way to cancel a second-stage attack, with movement when you need it. Critical hits from Ignite or Combo skills reset Tumble's cooldown, so it's usually ready again."],
+      ["Ignite: Cyclone Drive", "Ignite Stage 2", "Spin into the next combo stage. From Link 5, each crit shortens all Ignite and Combo cooldowns by 20% of their full duration."],
+      ["Ignite: Hammerblow", "Ignite Stage 3", "Bring the chain home. From Link 5, every critical hit takes 20% of the full cooldown off all Ignite and Combo skills."]
     ]
   }
 };
