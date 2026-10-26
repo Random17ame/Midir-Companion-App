@@ -1,3 +1,6 @@
+Midir Companion 205 — Alban Anvil charges triple upgrade gold. Crom Bás Invaders has a visible Alchemic Sharpshooter landing-page shortcut.
+Midir Companion 203 — Crom Bás achievements, wave reward checkpoints, shared shop stone tracking, and Korean/Spanish UI additions.
+
 AI was used in making this app.
 
 # Midir Companion
@@ -31,3 +34,5 @@ AI was used in making this app.
 - Reports are based on recorded events; missing or uncertain evidence is not treated as verified gameplay.
 - Practice timings, simulated effects, and simulator probabilities are training/entertainment approximations, not verified in-game measurements.
 - See `CHANGELOG.md` for version history and `SKILL-ICON-AUDIT.md` for icon coverage notes.
+
+Crom Bás Invaders (Alchemic Sharpshooter): use mouse or WASD/arrows; skills 1–8; collect rewards, shop between attempts.

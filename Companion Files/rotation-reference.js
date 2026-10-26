@@ -287,19 +287,68 @@ window.MIDIR_ROTATION_REFERENCE={
   },
   "ev": {
     "name": "Explosive Vanguard",
-    "summary": "Fight as a lance-and-Mana-Shell specialist: prepare Shells and the lance damage buff, sustain Shells with Relentless Thrust, position for safe AoE, and convert Lance Charge bonuses into strong Dreadnought Burst windows. Assume fully ranked skills and Arcana Links; treat valuable reforges as build-dependent, not guaranteed perfect rolls.",
+    "summary": "Lance-centered burst built around maintaining Relentless Thrust's Mounted effect and Mana Shell capacity. Cycle Dreadnought Burst with Lance Charge, weave Thrust frequently, and use Blaze of Glory during a safe burst window. The contributor's rotation uses a 7/5 cooldown hat; adapt to your own reforge.",
     "skills": [
-      ["Recharge Shells", "Prepare shells and a weapon buff", "Reload your lance's Mana Shells and maintain the weapon damage bonus derived from Mana Bullets. At high Arcana Link, preparation becomes much easier; prepare before combat and refresh when needed rather than interrupting every attack chain."],
-      ["Relentless Thrust", "Sustain shells and enable mounted-charge bonuses", "Weave its quick thrusts between spenders to recover Mana Shells. It also grants Lance Charge Mount Bonus, so unmounted Lance Charges and Dreadnought Burst can benefit from horseback-related lance effects. Repeated consecutive uses eventually incur a cooldown; reset your rhythm with movement or other attacks."],
-      ["Arc Impact", "Short-range cleave with Flash Launcher synergy", "Hit the primary target and enemies along your lance's sweep. It inherits Flash Launcher damage enhancements, including the applicable bodywear, accessory, or Echostone reforge options. Take advantage of its resistance to interruption, but aim the attack where the group actually stands."],
-      ["Blast Zone", "Surrounding AoE with Grapple Shot synergy", "Use when enemies have gathered around you; it hits surrounding targets without requiring a designated primary target. Its damage benefits from Grapple Shot enhancements and its radius improves with Arcana Link, making positioning more important than selecting a single boss."],
-      ["Drill Charge", "Mobility and line clearing", "Travel through enemies while damaging everything in your path, including when escaping pressure. The distance scales in part with Lance Charge distance investments, such as the Max Distance reforge, while damage draws from Lance Impact. Watch its accumulated-use cooldown instead of expecting every dash to be immediately reusable."],
-      ["Dreadnought Burst", "Lance Charge-powered target burst", "Aim the thrust into a priority target to detonate around it. Its explosion inherits Lance Charge damage properties: charge-damage and main-target reforges, horseback bonuses when enabled, and relevant lance effects. Lance Charge cooldown reductions also improve this burst's availability; use it when your mount bonus and target alignment are ready."],
-      ["Blaze of Glory", "Commit your major finisher", "Reserve the large commitment for a stable target and a real damage window, ideally after preparing shells, pressure and target positioning. Do not spend it just because it is available when a boss is about to move or become invulnerable."],
-      ["Lance Charge", "Core lance gap-close and damage reference", "Use a clean approach at suitable distance to convert movement into a strong hit and set up the rest of the lance rotation. Charge Damage, Main Target Damage, cooldown, and distance reforges are meaningful but compete for slots; horseback-specific bonuses require a mount or the Lance Charge Mount Bonus."],
-      ["Lance Leap", "Create room for the next charge", "Leap away to restore spacing and gain an on-foot Lance Charge movement bonus. It is a positioning reset rather than a damage button; anticipate your movement direction and use it when melee range makes a charge awkward."],
-      ["Lance Impact", "Close-range separation and mount-bonus setup", "Strike to force separation and grant the mounted-charge benefit for an ensuing on-foot Lance Charge. It can also catch enemies lined up behind the target. Its damage feeds Drill Charge, so use it as part of the movement-and-charge toolkit rather than assuming it has a dedicated powerful reforge."],
-      ["Reforge priorities", "Build around reliable lines, not rare perfect breaks", "The existing Reforge Simulator includes Lance Charge Charge Damage on handwear/accessories, Main Target Damage on lances, cooldown reduction on headgear, distance on footwear and horseback damage options. Flash Launcher and Grapple Shot damage lines support Arc Impact and Blast Zone. Prioritize the effects your rotation actually uses; do not assume maximum or limit-break rolls."]
+      [
+        "Recharge Shells",
+        "Recovery if Mana Shells run low",
+        "Typically only needed after a mistake leaves fewer than five shells. Frequent Relentless Thrust weaving and Blaze of Glory's shell return should sustain a normal damage loop; avoid interrupting it for unnecessary recharges."
+      ],
+      [
+        "Relentless Thrust",
+        "Core weave · sustain Mounted and shells",
+        "Weave regularly to keep Mounted active and replenish Mana Shells. Mounted benefits Blaze of Glory, Dreadnought Burst, and Lance Charge. Start with Relentless Thrust before bursting; Lance Impact is generally less useful for this job."
+      ],
+      [
+        "Arc Impact",
+        "Boss-focused · Flash Launcher synergy",
+        "Arc Impact is especially useful against bosses and benefits from Flash Launcher damage reforges. Prioritize Flash Launcher Damage on chest/bodywear to strengthen this boss attack."
+      ],
+      [
+        "Blast Zone",
+        "Surrounding AoE · Grapple Shot synergy",
+        "Attack grouped enemies around you. Grapple Shot damage reinforces Blast Zone; a Blue Echostone is a suitable place for that reforge."
+      ],
+      [
+        "Drill Charge",
+        "Movement and finisher recovery",
+        "Use for line damage and repositioning. Following Blaze of Glory, the contributor uses two Relentless Thrusts and two Drill Charges before returning to the main sequence. Treat timing as build-dependent."
+      ],
+      [
+        "Dreadnought Burst",
+        "Mounted charge-powered boss burst",
+        "Use while Relentless Thrust's Mounted effect is active. Dreadnought Burst inherits relevant Lance Charge damage bonuses and cooldown interactions; weave it with repeated Lance Charges rather than treating it as an unrelated finisher."
+      ],
+      [
+        "Blaze of Glory",
+        "Major finisher · shells restored",
+        "Mounted applies to Blaze of Glory. It now returns 15 Mana Shells after the initial drain, allowing the skill to be used without forcing an immediate Recharge Shells recovery. Commit it during a safe attack window, then rebuild the normal combo."
+      ],
+      [
+        "Lance Charge",
+        "Main repeatable damage · Mounted scaling",
+        "Use repeatedly with Mounted active from Relentless Thrust. Lance Charge's horseback (Mounted) distance scales damage, making horseback distance preferable to ordinary distance on boots. Cooldown reforges determine how rapidly charges fit into the Dreadnought Burst cycle."
+      ],
+      [
+        "Lance Leap",
+        "Situational spacing",
+        "Keep as an optional way to create distance. It does not appear in the contributor's usual boss loop; positioning needs can still justify it."
+      ],
+      [
+        "Lance Impact",
+        "Not part of the routine boss loop",
+        "Although it can provide Mounted, Relentless Thrust is generally preferable because it simultaneously maintains shells and the buff. Keep Lance Impact as situational utility, not a standard rotation requirement."
+      ],
+      [
+        "Reforge priorities",
+        "Horseback / Mounted boss build",
+        "Boots: Lance Charge Horseback Distance over ordinary distance. Lance: Horseback Damage or Main Target Damage; put the other on a Red Echostone. Chest: Flash Launcher Damage for Arc Impact. Blue Echostone: Grapple Shot Damage for Blast Zone. Headgear: Lance Charge cooldown. These are player-tested priorities, not guaranteed perfect rolls."
+      ],
+      [
+        "Veteran rotation example · 7/5 hat",
+        "Timing example; 5/5 untested by contributor",
+        "Open Relentless Thrust for Mounted. Then Dreadnought Burst → Relentless Thrust → Lance Charge ×3; repeat until Blaze of Glory is ready. After Blaze of Glory: Relentless Thrust ×2 → Drill Charge ×2 → regular combo. This specific pacing was used with a 7/5 hat; a 5/5 hat may require adjustment."
+      ]
     ]
   },
   "ag": {
