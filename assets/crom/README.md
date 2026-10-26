@@ -1,0 +1,3 @@
+# Crom Bás Invaders — v208 visual direction
+
+`original-visual-concepts.png` is an original generated concept sheet based on the user-provided visual references. This is concept material, not a packed animation atlas. The shipped v208 game draws newly detailed characters on the canvas at actual gameplay scale for reliable visibility and no additional asset loading. The player archer has a hood and prominent bow; Ronaun, Gwallgof, Un Llygadog, Cari, Wyneb, Wraith, Melci, Irusan, Glas, and Giga Glas have individually coded silhouettes. Basic firebolt-like shots are orange and Ice Spear is an elongated cyan crystal. Subsequent work can replace these procedural drawings with dedicated transparent sprite sheets.
