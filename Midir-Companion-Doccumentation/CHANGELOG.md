@@ -1401,3 +1401,8 @@ The original changelog included the following EV Base Manager note outside a ver
 ### 301 (0.3.0) — Version-label correction (not a new version release)
 1. Corrected the application’s display to the established **0.3.0** release version, which belongs to build 300. This build introduced no new product version, gameplay changes or saved-data schema changes. [Source: user clarification, 2026-11-05.]
 2. Advanced PWA cache identifiers so installed copies can refresh the version display. [Source: release hygiene.]
+
+### 303 (0.3.0) — Mobile Secret Sauce disclosure fix
+1. Removed import, archive and original-report warnings from the default mobile Vault welcome card; those details now appear only after See Secret Sauce is enabled in Settings. [Source: user mobile screenshot and feedback, 2026-11-05.]
+2. Removed the mention of hidden importer achievements from the basic Achievement Book intro. Normal training shortcuts remain visible and the advanced data and controls are preserved. [Source: user Secret Sauce concealment requirement.]
+3. Refreshed PWA caches for GitHub Pages clients; application version remains 0.3.0 and saved-data formats are unchanged. [Source: release verification.]

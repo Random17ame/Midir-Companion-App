@@ -7,7 +7,7 @@
 ## Application shell
 
 - Launch locally through `Midir Companion.html` or host `index.html` over HTTPS. Navigation provides the Vault, Arcana Simulators, Debuff Academy and an Overview menu for other tools.
-- **See Secret Sauce** in Settings reveals extended import/analysis features while leaving basic Vault and Achievement Book access intact.
+- **See Secret Sauce** in Settings reveals extended import/analysis features while leaving basic Vault and Achievement Book access intact. With the option disabled, the mobile welcome card and basic achievements do not advertise imports, report archive limits or hidden report-only awards.
 
 ## UI and localization
 
