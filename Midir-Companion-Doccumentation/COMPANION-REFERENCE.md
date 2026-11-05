@@ -1,6 +1,6 @@
-# Architecture, import and persistence reference — 0.3.0
+# Architecture, import and persistence reference — 0.3.2a
 
-Only the current build 301 source is authoritative. This document describes its architecture as deployed; version **0.3.0** first belongs to build 300.
+Only the current 0.3.2a release source is authoritative. This document describes the architecture as deployed in version **0.3.2a**.
 
 ## Static application and runtime
 

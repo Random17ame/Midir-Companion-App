@@ -1214,3 +1214,33 @@ html[data-midir-mobile="true"] .sg-three-pages button{min-height:46px;flex:1 1 1
 .midir-report-reader-body{flex:1 1 auto;min-height:0;overflow:hidden;background:#111823}
 .midir-report-reader-frame{display:block;width:100%;height:100%;border:0;background:#111823}
 @media(max-width:350px){.midir-report-reader-controls{gap:3px;padding:5px}.midir-report-reader-controls button{padding:6px 7px}.midir-report-zoom-label{min-width:34px;font-size:.72rem}}
+
+
+/* 304 / 0.3.1: mobile Invaders console controls. Portrait: screen above controls;
+   landscape: skills / screen / joystick. Desktop remains unchanged. */
+.asci-mobile-layout .asci-touch-actions{flex:0 0 clamp(142px,22vw,202px);grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.asci-mobile-layout .asci-touch-skill{min-width:0;min-height:48px;padding:4px 2px!important;gap:2px}
+.asci-mobile-layout .asci-touch-skill img{width:clamp(23px,3.3vw,30px);height:clamp(23px,3.3vw,30px)}
+.asci-mobile-layout .asci-touch-skill span{font-size:9px;line-height:1.08;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.asci-mobile-layout .asci-touch-skill.locked{opacity:.42}
+.asci-mobile-layout .asci-touch-movement{flex:0 0 clamp(80px,13vw,130px)}
+.asci-mobile-layout .asci-joystick{width:clamp(80px,13vw,120px)}
+.asci-mobile-layout .asci-stageorbs{top:46px!important;bottom:auto!important;left:auto!important;right:7px!important;transform:none!important;width:auto!important;max-width:62%;padding:3px 5px!important}
+.asci-mobile-layout .asci-orb-row{gap:3px}
+.asci-mobile-layout .asci-orb{min-width:0!important}
+.asci-mobile-layout .asci-orb .craft-orb-ball{width:18px;height:18px}
+.asci-mobile-layout .asci-orb small{font-size:8px}
+@media (orientation:portrait){
+ .asci-mobile-layout .asci-mobile-hint{color:#cdd9eb;font-weight:400}
+ .asci-mobile-layout .asci-touch-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-around;gap:8px 5px;width:100%}
+ .asci-mobile-layout .asci-game.asci-stage{order:-1;flex:0 0 100%;width:100%;max-width:100%;min-width:0;aspect-ratio:800/620}
+ .asci-mobile-layout .asci-touch-actions{order:1;flex:1 1 0;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;min-width:0}
+ .asci-mobile-layout .asci-touch-movement{order:2;flex:0 0 clamp(92px,29vw,122px)}
+ .asci-mobile-layout .asci-touch-skill{min-height:52px}
+ .asci-mobile-layout .asci-touch-skill img{width:27px;height:27px}
+ .asci-mobile-layout .asci-touch-skill span{font-size:9px}
+ .asci-mobile-layout .asci-joystick{width:clamp(86px,26vw,112px)}
+ .asci-mobile-layout .asci-stageorbs{top:40px!important;right:4px!important;max-width:67%;padding:2px 4px!important}
+ .asci-mobile-layout .asci-orb .craft-orb-ball{width:15px;height:15px}
+ .asci-mobile-layout .asci-orb small{font-size:7px}
+}

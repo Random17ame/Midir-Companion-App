@@ -1,6 +1,6 @@
-# Midir Companion 0.3.0
+# Midir Companion 0.3.2a (hotfix)
 
-An offline-capable Mabinogi companion for analyzing compatible combat reports, tracking achievements, preparing characters, and practicing Arcana encounters and minigames. **Build 300** introduced version 0.3.0; **build 301** corrected the displayed version label only. AI was used in developing this application.
+An offline-capable Mabinogi companion for analyzing compatible combat reports, tracking achievements, preparing characters, and practicing Arcana encounters and minigames. Version 0.3.2a is a critical-neutral Rotation Highlights hotfix to version 0.3.2; build 300 introduced version 0.3.0. AI was used in developing this application.
 
 ## Launch
 

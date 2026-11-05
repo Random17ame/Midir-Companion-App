@@ -1,6 +1,6 @@
 # Current feature map
 
-**Version:** 0.3.0. All linked guides describe current implemented behavior; see the changelog for history.
+**Version:** 0.3.2a. All linked guides describe current implemented behavior; see the changelog for history.
 
 | Feature | What it does | Guide |
 |---|---|---|
@@ -21,3 +21,4 @@
 | Equipment simulators and economy | Reforge, Erg, Special Upgrade, Echostones and chest inventory. | [Read](features/15-EQUIPMENT-AND-ECONOMY.md) |
 | Settings and app shell | Navigation, Secret Sauce, accessibility, languages and PWA behavior. | [Read](features/16-SETTINGS-AND-APPLICATION.md) |
 | Arcana field guides | Ten Arcana landing pages with contextual practice and reference content. | [Read](features/17-ARCANA-FIELD-GUIDES.md) |
+| Mobile features and touch support | Current mobile interface, PWA, touch controls and outstanding game-by-game audit. | [Read](features/18-MOBILE-FEATURES.md) |

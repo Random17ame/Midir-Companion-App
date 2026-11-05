@@ -2634,7 +2634,7 @@ function rhBuild(){
   if(rhEncounterArcana(x.r,x.p,win).arc!==state.arcana)continue;
   const events=[];const hits=x.r.damageHitEvents||[],bossIds=new Set(win.targetIds.map(String));
   const preciseAvailable=x.r.damageHitSchemaVersion===1||hits.length>0;
-  if(preciseAvailable){for(const h of hits){const time=h.relativeMs/1000;if(h.playerId!==x.p.entityId||String(h.skillId)==='9999'||!bossIds.has(h.targetId)||time<win.start||time>win.end)continue;
+  if(preciseAvailable){for(const h of hits){const time=h.relativeMs/1000;if(String(h.playerId)!==String(x.p.entityId)||String(h.skillId)==='9999'||!bossIds.has(String(h.targetId))||time<win.start||time>win.end)continue;
    events.push({time,id:h.skillId,hits:1,crits:h.critical?1:0,damage:h.damage,critical:h.critical,precise:true});
   }}else{for(const group of x.p.damageEvents||[]){const time=Number(group.time);if(!Number.isFinite(time)||time<win.start||time>win.end)continue;
    for(const sk of group.skills||[]){const id=rhSkillId(sk),hits=rhSafe(sk.hits??sk.hitCount);if(!id||!hits)continue;
@@ -2649,7 +2649,12 @@ function rhBuild(){
     conditionHints:rhConditionHints(x.r,x.p.entityId,win.start,win.end,win.targetIds)});
   }
  }
- const gate2=pieces.some(p=>p.gate===2&&p.precise);const hasPrecise=pieces.some(p=>p.precise);const selected=gate2?pieces.filter(p=>p.gate===2&&p.precise):hasPrecise?pieces.filter(p=>p.precise):pieces;
+ // A precise boss-recipient hit is stronger scope evidence than a Gate 2 label.
+ // Consider every qualifying gate with actual boss-target hits. Only fall back
+ // to Gate 2 when there are no such precise windows anywhere in the reports.
+ const bossOnly=pieces.some(p=>p.precise);
+ const gate2=!bossOnly&&pieces.some(p=>p.gate===2);
+ const selected=bossOnly?pieces.filter(p=>p.precise):gate2?pieces.filter(p=>p.gate===2):pieces;
  const observed=new Map(),skillNames=new Map();
  for(const entry of selected)for(const s of entry.p.skills||[]){const id=rhSkillId(s);if(!id)continue;
   const hits=rhSafe(s.hitCount??s.hits),crits=Math.min(hits,rhSafe(s.criticalHits??s.critCount));const non=hits-crits,damage=rhSafe(s.nonCriticalDamage),critDamage=rhSafe(s.criticalDamage);
@@ -2668,10 +2673,35 @@ function rhBuild(){
   }
  }
  for(const entry of selected)for(const u of entry.useEvents||[])if(u.skillName&&!skillNames.has(u.skillId))skillNames.set(u.skillId,u.skillName);
- const baseline=new Map();let ratios=[];
+ const baseline=new Map();
  const selectedSkillIds=new Set(selected.flatMap(part=>part.events.map(e=>String(e.id))));
- for(const [id,o] of observed){if(excludedIds.has(String(id))||!selectedSkillIds.has(String(id)))continue;if(o.n>0&&o.d>0){const avg=o.d/o.n;baseline.set(id,{value:avg,estimated:false});if(o.c&&o.cd)ratios.push({id,crit:o.cd/o.c,ratio:(o.cd/o.c)/avg});}}
- for(const [id,o] of observed){if(excludedIds.has(String(id))||!selectedSkillIds.has(String(id))||baseline.has(id)||!o.c||!o.cd)continue;const crit=o.cd/o.c,nearest=ratios.slice().sort((a,b)=>Math.abs(a.crit-crit)-Math.abs(b.crit-crit))[0];if(nearest)baseline.set(id,{value:crit/nearest.ratio,estimated:true});}
+ // The character has one critical-damage multiplier shared across skills.
+ // Infer that multiplier from skills with BOTH ordinary and critical evidence.
+ // Weighted median resists noisy small samples; this is an estimate, not proof.
+ const critRatios=[];
+ for(const [id,o] of observed){
+  if(excludedIds.has(String(id))||!selectedSkillIds.has(String(id)))continue;
+  if(o.n>0&&o.d>0){
+   const ordinary=o.d/o.n;baseline.set(id,{value:ordinary,estimated:false});
+   if(o.c>0&&o.cd>0){
+    const ratio=(o.cd/o.c)/ordinary;
+    if(Number.isFinite(ratio)&&ratio>0)critRatios.push({ratio,weight:Math.min(o.n,o.c)});
+   }
+  }
+ }
+ critRatios.sort((a,b)=>a.ratio-b.ratio);
+ const totalWeight=critRatios.reduce((sum,r)=>sum+r.weight,0);
+ let criticalMultiplier=null,accumulatedWeight=0;
+ for(const r of critRatios){accumulatedWeight+=r.weight;
+  if(accumulatedWeight>=totalWeight/2){criticalMultiplier=r.ratio;break;}
+ }
+ // A crit-only skill can still contribute. Normalize its observed critical
+ // damage by this same player's measured multiplier, with no crit-score bonus.
+ if(criticalMultiplier){for(const [id,o] of observed){
+  if(excludedIds.has(String(id))||!selectedSkillIds.has(String(id))||baseline.has(id)||o.c<=0||o.cd<=0)continue;
+  const estimatedNormal=(o.cd/o.c)/criticalMultiplier;
+  if(Number.isFinite(estimatedNormal)&&estimatedNormal>0)baseline.set(id,{value:estimatedNormal,estimated:true});
+ }}
  // Only enforce constraints verified for a specific skill. A fixed cooldown must
  // never be inferred from the generic rotation-crafter default for all skills.
  const RH_RULES={
@@ -2774,12 +2804,20 @@ function rhBuild(){
      unscoredHits,hasEstimate:repeatEstimate,evidenceTier:'hit-inferred-cooldown-budget'};
   }
  }
- return {best,repeatable,gate2,eligible:eligible.length,encounters:selected.length,baseline};
+ return {best,repeatable,bossOnly,gate2,eligible:eligible.length,encounters:selected.length,baseline};
+}
+// The exporter labels Wireless Puppet activations with an " AI" suffix.
+// For Melodic Puppeteer these are active Acts, not passive procs. Preserve
+// skill IDs and raw labels in evidence; present the ordinary Act name in UI.
+function rhDisplaySkillName(name,arcana=state.arcana){
+ const raw=String(name||'');
+ return arcana==='mp'&&/^Act\s+\d+\s*:/i.test(raw)&&/\s+AI$/i.test(raw)
+  ?raw.replace(/\s+AI$/i,'').trim():raw;
 }
 function rhClock(s){const n=Math.floor(s);return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0')}
 function rhAbbr(name){const words=String(name||'').trim().split(/\s+/).filter(Boolean);return words.length<=1?(words[0]||'SK').slice(0,2).toUpperCase():words.slice(0,2).map(x=>x[0]).join('').toUpperCase()}
 function rhSkillIcon(name,id){
- const exact=window.MIDIR_ROTATION_ICONS?.[name];
+ const exact=window.MIDIR_ROTATION_ICONS?.[name]||window.MIDIR_ROTATION_ICONS?.[String(name||'').replace(/\s+AI$/i,'').trim()];
  if(exact)return exact;
  const numeric=id!=null?String(id):'';
  const byData=window.MIDIR_DATA?.arcana&&Object.values(window.MIDIR_DATA.arcana).flatMap(a=>Array.isArray(a.skills)?a.skills:[]).find(s=>String(s.id)===numeric||String(s.name||'').trim().toLowerCase()===String(name||'').trim().toLowerCase());
@@ -2792,28 +2830,29 @@ function rhTrackTitle(name,id){const icon=id==='__other'?'':rhSkillIcon(name,id)
 function rhEvidenceTimelineActions(w,seconds){
  const start=w.start,end=start+seconds;
  return (w.useEvents||[]).filter(u=>u.relativeMs/1000>=start&&u.relativeMs/1000<end)
-  .map(u=>({u,t:u.relativeMs/1000,count:u.hitCount,crits:u.criticalHits,damage:u.damage}));
+  .map(u=>({u:{...u,skillName:rhDisplaySkillName(u.skillName)},sourceSkillName:u.skillName,
+   t:u.relativeMs/1000,count:u.hitCount,crits:u.criticalHits,damage:u.damage}));
 }
 function rhVisualTimeline(w, actions, displayDetails, seconds, mode="best"){
  const events=actions.map((a,i)=>({t:a.t,id:String(a.u.skillId),name:a.u.skillName||w.skillNameById?.[String(a.u.skillId)]||'Unidentified skill',
   crits:a.crits||0,hitCount:a.count||0,noHit:!a.count,i})).sort((a,b)=>a.t-b.t||a.i-b.i);
  if(!events.length)return '<p class="hint">No skill uses identified inside this window.</p>';
- const counts=new Map();for(const e of events)counts.set(e.id,(counts.get(e.id)||0)+1);
- const frequent=[...counts.entries()].filter(([,n])=>n>2).sort((a,b)=>b[1]-a[1]).map(([id])=>id);
- const trackKeys=[...frequent];if(events.some(e=>!frequent.includes(e.id)))trackKeys.push('__other');
+ // Display a separate skill lane even for one-off puppet Acts; previously
+ // uncommon skills were collapsed into a generic Other skills lane.
+ const trackKeys=[...new Set(events.map(e=>state.arcana==='mp'&&/^Act\s+\d+\s*:/i.test(e.name)?'act:'+rhCanonicalName(e.name):'id:'+e.id))];
  const label=e=>`${e.name} · +${Math.max(0,e.t-w.start).toFixed(2)}s${e.hitCount?' · '+e.hitCount+' hits':''}${e.crits?' · '+e.crits+' critical hits':''}`;
  const chip=e=>`<span class="rh-tile${e.noHit?' no-hit':''}${e.crits?' has-crit':''}" tabindex="0" title="${esc(label(e))}" aria-label="${esc(label(e))}">${rhTileInner(e)}${e.crits?'<sup>✦'+e.crits+'</sup>':''}</span>`;
  const stream=`<div class="rh-flow-events">${events.map(chip).join('')}</div>`;
  const width=seconds===60?960:680;
- const trackHtml=trackKeys.map(id=>{const list=events.filter(e=>id==='__other'?!frequent.includes(e.id):e.id===id);
-  const name=id==='__other'?'Other skills':list[0]?.name||'Skill';
+ const trackHtml=trackKeys.map(trackKey=>{const list=events.filter(e=>(state.arcana==='mp'&&/^Act\s+\d+\s*:/i.test(e.name)?'act:'+rhCanonicalName(e.name):'id:'+e.id)===trackKey);
+  const name=list[0]?.name||'Skill',id=list[0]?.id;
   const marks=list.map(e=>{const pct=Math.max(0,Math.min(98,(e.t-w.start)/seconds*100));return `<span class="rh-track-event" style="left:${pct.toFixed(3)}%">${chip(e)}</span>`}).join('');
   return `<div class="rh-track-row"><div class="rh-track-name" title="${esc(name)}">${rhTrackTitle(name,id)}</div><div class="rh-track-lane">${marks}</div></div>`;
  }).join('');
  const ticks=Array.from({length:6},(_,i)=>`<span style="left:${i*20}%">${Math.round(seconds*i/5)}s</span>`).join('');
  const tracks=`<div class="rh-track-scroll"><div class="rh-track-content" style="min-width:${width}px"><div class="rh-track-axis"><div></div><div class="rh-track-ticks">${ticks}</div></div>${trackHtml}</div></div>`;
  const uid='rh-view-'+mode+'-'+seconds;
- return `<div class="rh-visual"><div class="rh-view-options"><input type="radio" id="${uid}-stream" name="${uid}" checked><label for="${uid}-stream">Single stream</label><input type="radio" id="${uid}-tracks" name="${uid}"><label for="${uid}-tracks">Skill tracks</label></div><div class="rh-stream-panel"><p class="hint">Skill Uses · ${events.length} in this window</p>${stream}</div><div class="rh-tracks-panel"><p class="hint">Position follows recorded time. Skills appearing once or twice share the Other skills track; hover or focus any tile for timestamps and hits.</p>${tracks}</div><p class="hint">✦ indicates critical hits. Skill Uses with no damage appear dimmed; multi-hit skills appear once per recognized use.</p></div>`;
+ return `<div class="rh-visual"><div class="rh-view-options"><input type="radio" id="${uid}-stream" name="${uid}" checked><label for="${uid}-stream">Single stream</label><input type="radio" id="${uid}-tracks" name="${uid}"><label for="${uid}-tracks">Skill tracks</label></div><div class="rh-stream-panel"><p class="hint">Skill Uses · ${events.length} in this window</p>${stream}</div><div class="rh-tracks-panel"><p class="hint">Position follows recorded time. Each recognized skill gets its own track; hover or focus a tile for timestamps and hits.</p>${tracks}</div><p class="hint">✦ indicates critical hits. Skill Uses with no damage appear dimmed; multi-hit skills appear once per recognized use.</p></div>`;
 }
 function rotationHighlightsView(){const result=rhBuild(),key=state.arcana;
  const panel=(seconds,mode="best")=>{const w=result[mode][seconds];if(!w)return `<section class="card"><h3>${seconds}-second ${seconds===10?'Peak Burst':'Peak Rotation'}</h3><p class="muted">${mode==='repeatable'?'No boss hits within the selected cooldown and hit rules.':'No recorded peak yet.'}</p></section>`;
@@ -2827,7 +2866,7 @@ function rotationHighlightsView(){const result=rhBuild(),key=state.arcana;
   const actionPanel=actions.length?`<details class="rh-actions"><summary>Skill Uses · ${actions.length}</summary><div class="rh-sequence">${actionRows}</div></details>`:'';
   return `<section class="card"><h3>${seconds}-second ${seconds===10?'Burst':'Rotation'} · ${mode==='repeatable'?'Cooldown-aware':'Recorded peak'}</h3><div class="rh-metric"><strong>${fmt(Math.round(w.score))}</strong><span>Boss Damage Score</span></div><p>${esc(w.target)} · Gate ${w.gate||'—'} · ${rhClock(w.start)}–${rhClock(w.start+seconds)}</p><p class="hint">${esc(w.r.name)} · ${w.details.length} recorded boss-hit events${w.hasEstimate?' · includes estimated non-critical averages':''}</p>${excludedNotice}${visualTimeline}${actionPanel}<details><summary>Damage Timeline</summary><div class="rh-sequence">${details}</div></details></section>`;
  };
- return `<h2>${esc(RH_ARCANA[key]||key)} · Rotation Highlights</h2><p class="muted">Your strongest recorded boss-hit sequences, with per-skill cooldown and hit-count rules. Skill resets and temporary cooldown overrides may affect these windows. Using a shared non-critical damage baseline across eligible runs of ${esc(state.characterName||'your character')} as this Arcana.</p><p class="hint">${result.eligible} imported player report(s) · ${result.encounters} qualifying boss interval(s) · ${result.gate2?'Gate 2 recordings prioritized':'Gate 2 unavailable; using other boss windows'}. ${key==='bb'?'Blazing Brawler preserves all registered hits and marks critical hits; cooldown anomalies are not rejected.':'Single-target-equivalent strikes use conservative caps; recorded hits are scored without assuming general skill cooldowns.'} Boss-target hits are used when available. Skill Uses include skills without damage when their identifying signatures are available. Rules can be tuned as more recordings become available.</p><div class="rh-results">${panel(10)}${panel(60)}</div><h3>Cooldown-aware Rotation Highlights</h3><p class="hint">Scores use the same Skill Uses timeline with per-skill cooldowns and maximum hits per use. New skills default to 0s cooldown and 1 hit per use; skill-specific overrides can be refined with future recordings.</p><div class="rh-results">${panel(10,"repeatable")}${panel(60,"repeatable")}</div><p class="hint">Midir 45 records are filtered to observed boss target IDs. When precise hits are absent, results are approximate one-second hit sequences and may include other targets.</p>`;
+ return `<h2>${esc(RH_ARCANA[key]||key)} · Rotation Highlights</h2><p class="muted">Your strongest recorded boss-hit sequences, with per-skill cooldown and hit-count rules. Skill resets and temporary cooldown overrides may affect these windows. Using a shared non-critical damage baseline across eligible runs of ${esc(state.characterName||'your character')} as this Arcana.</p><p class="hint">${result.eligible} imported player report(s) · ${result.encounters} qualifying boss interval(s) · ${result.bossOnly?'Boss-only hit evidence prioritized':result.gate2?'Boss-only hits unavailable; Gate 2 prioritized':'Boss-only hits and Gate 2 unavailable; using other encounter windows'}. ${key==='bb'?'Blazing Brawler preserves all registered hits and marks critical hits; cooldown anomalies are not rejected.':'Single-target-equivalent strikes use conservative caps; recorded hits are scored without assuming general skill cooldowns.'} Boss-target hits are used when available. Skill Uses include skills without damage when their identifying signatures are available. Rules can be tuned as more recordings become available.</p><div class="rh-results">${panel(10)}${panel(60)}</div><h3>Cooldown-aware Rotation Highlights</h3><p class="hint">Scores use the same Skill Uses timeline with per-skill cooldowns and maximum hits per use. New skills default to 0s cooldown and 1 hit per use; skill-specific overrides can be refined with future recordings.</p><div class="rh-results">${panel(10,"repeatable")}${panel(60,"repeatable")}</div><p class="hint">Midir 45 records are filtered to observed boss target IDs. When precise hits are absent, results are approximate one-second hit sequences and may include other targets.</p>`;
 }
 const rhReferenceOriginal=referencePage;
 referencePage=function(){let html=rhReferenceOriginal();if(!rhEligible().length)return html;const item=`<button class="rotation-shortcut" data-act="hub:highlights"><strong>Rotation Highlights</strong><span>See your best normalized 10-second and 60-second boss rotations from imported ${esc(RH_ARCANA[state.arcana])} runs.</span></button>`;return html.replace('<button class="rotation-shortcut" data-act="hub:craft">',item+'<button class="rotation-shortcut" data-act="hub:craft">');};

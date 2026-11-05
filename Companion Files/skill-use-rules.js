@@ -120,7 +120,7 @@ window.MIDIR_SKILL_USES=(()=>{
   const names=namesFor(report),byId=new Map();
   const get=id=>{id=String(id);if(!byId.has(id))byId.set(id,[]);return byId.get(id)};
   const config=id=>ruleFor(id,names.get(String(id))||'',overrides);
- const passive=id=>/^(?:redoubled offensive|flare|blast)$|\bai$/i.test(names.get(String(id))||'');
+ const passive=id=>/^(?:redoubled offensive|flare|blast)$/i.test(String(names.get(String(id))||'').trim());
   const add=(id,t,from,metadata={})=>{
    id=numericId(id);if(!id||!Number.isFinite(t)||passive(id))return null;
    const arr=get(id),r=config(id),cd=r.cooldown*1000,tol=from==='explicit'?100:from==='signature'?(id==='27205'?1200:350):from==='condition'?550:Math.max(200,r.actionWindow*1000);

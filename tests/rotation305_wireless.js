@@ -1,0 +1,17 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const dir=process.argv[2];const code=fs.readFileSync(dir+'/Companion Files/skill-use-rules.js','utf8');
+const context={window:{}};vm.createContext(context);vm.runInContext(code,context);
+const report={players:[{entityId:'p1',skills:[{skillId:'71007',name:'Act 7: Climactic Crash AI'}]}],skillUseEvents:[{playerId:'p1',skillId:'71007',relativeMs:1500,skillName:'Act 7: Climactic Crash AI'}],damageHitEvents:[{playerId:'p1',targetId:'boss',skillId:'71007',relativeMs:1510,damage:300,critical:false}]};
+const uses=context.window.MIDIR_SKILL_USES.recognize(report,'p1',{start:0,end:10,targetIds:['boss']});
+assert.equal(uses.length,1);assert.equal(uses[0].skillId,'71007');assert.equal(uses[0].hitCount,1);assert.equal(uses[0].damage,300);
+const app=fs.readFileSync(dir+'/Companion Files/app.js','utf8');
+const fn=app.match(/function rhDisplaySkillName\(name,arcana=state.arcana\)\{[\s\S]*?\n\}/);
+assert(fn,'missing UI canonical name');vm.runInContext(fn[0]+';this.display=rhDisplaySkillName',context);
+assert.equal(context.display('Act 7: Climactic Crash AI','mp'),'Act 7: Climactic Crash');
+assert.equal(context.display('Act 6: Crisis AI','mp'),'Act 6: Crisis');
+assert.equal(context.display('Act 7: Climactic Crash AI','bb'),'Act 7: Climactic Crash AI');
+assert.equal(context.display('Relentless Tempo AI','mp'),'Relentless Tempo AI');
+assert(app.includes('const bossOnly=pieces.some(p=>p.precise)'));
+assert(app.includes('const gate2=!bossOnly&&pieces.some(p=>p.gate===2)'));
+assert(app.includes('const trackKeys=[...new Set(events.map(e=>state.arcana'));
+console.log('PASS: Wireless Puppet Act active recognition, display labels, per-skill tracks, boss-only priority');

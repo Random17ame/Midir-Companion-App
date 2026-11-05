@@ -1,6 +1,6 @@
 # Vertrag — Giant Phase Survival Grounds
 
-**Applies to:** Midir Companion 0.3.0 (build 300; build 301 label correction).
+**Applies to:** Midir Companion 0.3.2 (build 305).
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

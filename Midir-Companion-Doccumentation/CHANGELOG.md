@@ -1,3 +1,20 @@
+## Midir Companion 0.3.2a — critical-neutral Rotation Highlights hotfix
+
+1. Use the same ordinary-damage reference for critical and non-critical hits of a skill. For crit-only skills, infer the character-wide critical multiplier from other skills with paired evidence and use it to estimate ordinary damage; retain estimated flags and critical annotations. (`Companion Files/app.js`; `tests/rotation032a_crit_neutral.js`)
+2. Refresh offline PWA caches for the code change without changing the 0.3.2 feature version. (`service-worker.js`)
+
+## Midir Companion 0.3.2 — build 305
+
+1. Rotation Highlights skill recognition: retain player-attributed puppet Act damage skills labeled `AI`, while excluding only known passive procs (`Companion Files/skill-use-rules.js`).
+2. Rotation Highlights scope selection: prefer actual boss-recipient precise hit windows across all gates; fall back to Gate 2 only when precise boss-only evidence is unavailable (`Companion Files/app.js`).
+3. Normalize Melodic Puppeteer Wireless Puppet `Act … AI` labels for the skill tracks while retaining active-skill recognition and source identity; show a track for every recognized skill (including one-off Puppet Acts), resolve bundled puppet skill icons for `AI`-suffixed labels, update docs and offline PWA cache (`Companion Files/app.js`, `service-worker.js`).
+
+## Midir Companion 0.3.1 — build 304
+
+1. Crom Bás Invaders: Correct Cari's ally shield to absorb the damage of two unupgraded Magnum Shots (36 damage); excess damage penetrates (`Companion Files/as-chicken-invaders.js`).
+2. Mobile Invaders: Add a button for every skill, retain hold-and-release for charging skills, arrange portrait playfield above controls and landscape controls beside playfield (`Companion Files/as-chicken-invaders.js`, `Companion Files/styles.css`).
+3. Compact mobile elemental-orb display at the game area's upper-right; update version and PWA shell cache (`Companion Files/styles.css`, `service-worker.js`).
+
 # Historical application changelog
 
 ### Build 302 (0.3.0) — Vertrag arena-edge visibility
@@ -31,9 +48,9 @@ This file records prior changes. For current behavior, use the [feature guides](
 
 # Midir Companion — Changelog
 
-**Current application version:** 0.3.0 (feature release build 300; build 301 corrected the version label). Historical release notes document behavior at the time and may describe mechanics later replaced or corrected.
+**Current application version:** 0.3.1 (build 304). Build 300 was the 0.3.0 feature release; build 301 only corrected its label. Historical release notes document behavior at the time and may describe mechanics later replaced or corrected.
 
-**For current behavior:** Use the [0.3.0 feature map](CURRENT-FEATURES.md), [architecture reference](COMPANION-REFERENCE.md), and [verification notes](VERIFICATION.md). This changelog retains historical descriptions only.
+**For current behavior:** Use the [current feature map](CURRENT-FEATURES.md), [architecture reference](COMPANION-REFERENCE.md), and [verification notes](VERIFICATION.md). This changelog retains historical descriptions only.
 
 - **Rotation Highlights:** The declared Arcana minimum-cooldown tables are not enforced by build-275 candidate scoring. It uses recognized skill-use anchors and attributable hit budgets; the result is an evidence-limited candidate, **not** a validated repeatable rotation.
 - **The Vault:** The Vault and compact Achievement Book remain accessible when Secret Sauce is off. The setting conceals report imports, report views, collectibles and importer-only features without erasing saved data.

@@ -24,7 +24,7 @@ with sync_playwright() as p:
  btn.click()
  assert page.locator('.asci-mobile-layout').count()==1
  assert page.locator('.asci-joystick').count()==1
- assert page.locator('[data-asci-touch]').count()==3
+ assert page.locator('[data-asci-touch]').count()==9
  assert page.evaluate('(()=>{let c=document.querySelector("#asci-canvas");return c.width/c.height})()')==800/620
  # Unlock using normal importState: no save-format changes.
  page.evaluate("window.MIDIR_AS_INVADERS.importState({...window.MIDIR_AS_INVADERS.exportState(),skills:{aqua:true,terra:true,anchor:true}})")

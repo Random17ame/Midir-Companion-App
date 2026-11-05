@@ -1,0 +1,20 @@
+const assert=require('assert'),fs=require('fs'),vm=require('vm');
+const app=fs.readFileSync(process.argv[2]+'/Companion Files/app.js','utf8');
+const start=app.indexOf(' const baseline=new Map();',app.indexOf('function rhBuild()'));
+const end=app.indexOf(' // Only enforce constraints verified',start);
+assert(start>0&&end>start);
+const block=app.slice(start,end);
+function evaluate(observations){const context={observed:new Map(observations),excludedIds:new Set(),selected:[{events:observations.map(x=>({id:x[0]}))}]};vm.createContext(context);vm.runInContext(block+';this.result=baseline;',context);return context.result;}
+let base=evaluate([['magnum',{n:4,d:72,c:2,cd:108}],['critOnly',{n:0,d:0,c:2,cd:540}]]);
+assert.equal(base.get('magnum').value,18,'ordinary reference');
+assert.equal(base.get('critOnly').value,90,'crit only must divide by same multiplier (3x)');
+assert.equal(base.get('critOnly').estimated,true);
+assert.equal(base.get('magnum').value,18,'crit and noncrit share the same score');
+base=evaluate([['magnum',{n:4,d:72,c:2,cd:108}],['critOnly',{n:0,d:0,c:20,cd:5400}]]);
+assert.equal(base.get('critOnly').value,90,'number of crits does not grant bonus');
+base=evaluate([['critOnly',{n:0,d:0,c:2,cd:540}]]);
+assert(!base.has('critOnly'),'no arbitrary multiplier when no paired evidence');
+const scoring=app.slice(app.indexOf('let score=0,hasEstimate=false'),app.indexOf('if(score>0&&',app.indexOf('let score=0,hasEstimate=false')));
+assert(scoring.includes('score+=credited*ref.value'));
+assert(!/critical|\.crits/.test(scoring));
+console.log('PASS: per-skill crit neutral, 3x character multiplier crit-only inference, no scoring bonus');
