@@ -1,0 +1,75 @@
+{
+  "root": "/mnt/data/comp268",
+  "passed": 17,
+  "total": 17,
+  "results": [
+    {
+      "test": "load all 24 modules",
+      "status": "PASS"
+    },
+    {
+      "test": "Vault accessible without Secret Sauce",
+      "status": "PASS"
+    },
+    {
+      "test": "Achievement Book opens",
+      "status": "PASS"
+    },
+    {
+      "test": "Debuff Academy loads",
+      "status": "PASS"
+    },
+    {
+      "test": "Debuff missing-status scenario",
+      "status": "PASS"
+    },
+    {
+      "test": "DD hub has Theta/Crafter, no legacy drill",
+      "status": "PASS"
+    },
+    {
+      "test": "Theta module opens",
+      "status": "PASS"
+    },
+    {
+      "test": "Theta menu controls available",
+      "status": "PASS"
+    },
+    {
+      "test": "DD Rotation Crafter opens",
+      "status": "PASS"
+    },
+    {
+      "test": "AS Crom B\u00e1s Invaders opens",
+      "status": "PASS"
+    },
+    {
+      "test": "EV Tower Defense opens",
+      "status": "PASS"
+    },
+    {
+      "test": "SG Rotation Crafter opens",
+      "status": "PASS"
+    },
+    {
+      "test": "HS Rotation Crafter opens",
+      "status": "PASS"
+    },
+    {
+      "test": "FA Rotation Crafter opens",
+      "status": "PASS"
+    },
+    {
+      "test": "EV Reforge Simulator opens",
+      "status": "PASS"
+    },
+    {
+      "test": "Settings available from sidebar",
+      "status": "PASS"
+    },
+    {
+      "test": "No page-level JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}

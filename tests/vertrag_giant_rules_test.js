@@ -1,0 +1,26 @@
+// Regression for living giant suppression and permanent time-trial defeat.
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+let src=fs.readFileSync(__dirname+'/../Companion Files/vertrag-survival.js','utf8');
+const suffix='window.__vtTest={getRun:()=>run,init,stompingGiants,hazardCount,spawnStomps,update,data,ARENA,newGiant};\n})();';
+assert(src.endsWith('})();\n'));src=src.slice(0,-6)+suffix;
+const elements={ 'vt-root':{innerHTML:''}, 'vt-canvas':{focus(){}}, 'vt-announcement':{textContent:''} };
+const context={window:{addEventListener(){}},document:{getElementById:id=>elements[id]||null,querySelector:()=>null,addEventListener(){}},localStorage:{getItem:()=>null,setItem(){}},performance:{now:()=>0},requestAnimationFrame:()=>1,cancelAnimationFrame:()=>{},Image:function(){},console};
+vm.createContext(context);vm.runInContext(src,context);const t=context.window.__vtTest;
+t.data.config.giants=4;t.data.config.giantOccupied=[false,false,false,false];t.init('endless');const r=t.getRun(),rad=t.data.config.stompRadius;
+assert.strictEqual(t.hazardCount(r),4,'four giants stomp when nobody is close');
+r.player.x=r.giants[0].x+2*rad*1.2-0.005;r.player.y=r.giants[0].y;
+assert.strictEqual(t.hazardCount(r),3,'at exactly the expanded quiet-zone radius the nearby giant is suppressed');
+r.stomps=[];t.spawnStomps();assert(r.stomps.length>=9&&r.stomps.length<=15,'only three giants contribute their stomp waves');
+r.player.x+=0.02;assert.strictEqual(t.hazardCount(r),4,'moving outside the expanded quiet-zone radius resumes its stomps');
+r.giants[1].alive=false;assert.strictEqual(t.hazardCount(r),3,'defeated giant never stomps');
+r.player.x=r.giants[0].x;r.player.y=r.giants[0].y;assert.strictEqual(t.hazardCount(r),2,'suppression and defeat combine');
+r.player.x=t.ARENA.x;r.player.y=t.ARENA.y;assert.strictEqual(t.hazardCount(r),3,'endless giant resumes after leaving');
+assert.strictEqual(r.giants.filter(g=>g.alive).length,3,'suppression did not defeat a giant');
+t.init('endless');const e=t.getRun();e.player.x=e.giants[0].x;e.player.y=e.giants[0].y;e.stompTimer=1e6;e.attackTimer=1e6;
+for(let i=0;i<60;i++)t.update(.05);
+assert.strictEqual(e.giants.filter(g=>g.alive).length,4,'endless giants do not die from proximity or elapsed time');
+t.init('trial');const trial=t.getRun(),g=trial.giants[0];trial.boss.x=g.x;trial.boss.y=g.y;trial.boss.mode='chargeWindup';trial.boss.until=1e6;trial.stompTimer=1e6;trial.attackTimer=1e6;trial.player.x=t.ARENA.x;trial.player.y=t.ARENA.y;
+for(let i=0;i<240;i++)t.update(.05);
+assert.strictEqual(g.alive,false,'time-trial giant dies from prolonged aura coverage');
+assert(!t.stompingGiants(trial).includes(g),'dead giant never contributes after death');
+console.log('PASS: giant proximity, boundary, wave count, resume, permanent defeat, endless persistence and trial defeat');

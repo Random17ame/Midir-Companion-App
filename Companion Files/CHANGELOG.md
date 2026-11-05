@@ -1,3 +1,201 @@
+### 285 (0.2.85) — Theta Shadow Flare casting rhythm
+
+- Set Shadow Flare cast/load duration to 5.0 seconds at Vivace 0%, reduced 0.5s per +10% shop tier to 1.0s at +80%; the existing note scheduler and offensive cast lock use the same duration. Twilight Surge timing, Thunder timing, all other game rules and saved upgrade levels remain unchanged. (`Companion Files/theta-rhythm.js`; `tests/theta285_cast_test.py`)
+
+### 284 (0.2.84) — Theta Seething Mana resource loop
+
+- Theta offensive hits now recover a provisional 0.5 Dorcha each when Seething Mana is OFF; skill-specific Dorcha costs remain in effect.
+- When Seething Mana is ON, normal hit recovery is disabled, its existing surcharge applies, and affordable offensive casts receive the existing +30% points boost. Hexshroud recovery remains independently additive.
+- Updated Theta guide and HUD to show the two modes. Previous profile fields, achievements, Lucky Strike, and Vivace upgrades are unchanged.
+
+### 283 (0.2.83) — Theta casting-speed and resource rules
+
+- Dark Erg Exchange: Vivace +10% casting speed per purchase, eight tiers, capped at +80%; separate Shadow Flare/Twilight Surge cast locks and next-Thunder cadence. Provisional cast times are explicit and cooldowns remain separate.
+- Documented Dark Diviner Dorcha costs, Seething Mana 0.6 surcharge, Render Mana/Render Dorcha interaction, Hexshroud Dorcha recovery, Thunderblight damage bonus and duration. Unspecified Twilight Surge direct cost is not fabricated.
+- Old Theta save key, upgrades, shop achievements, and customized cooldown overrides remain compatible. Focused headless Chromium tests cover higher-speed scheduling, impossible note overlap, costs, lockout, and shop persistence.
+- Sources: current user-approved Dark Diviner project handoff; Midir Arcana field guide; Mabinogi official Arcana and 2026 update notes (Nexon); current skill pages (mabi.gg).
+
+### 282 (0.2.82) — Subject Theta timing and resource actions
+1. Added explicit hit circles, timing pulses, and nearest-note millisecond countdown in the Theta rhythm highway (`theta-rhythm.js`).
+2. Split Render Mana, Render Dorcha, and Hexshroud into independent cooldown-based utility activations without rhythm-note scoring or overheat (`theta-rhythm.js`, `theta-rhythm.css`).
+3. Capped Dorcha at 15 and rebalanced provisional resources; raised initial MP to 250; added one-level Spirit Weapon Lucky Strike shop upgrade (10% chance for +20% maximum MP after Thunder cast) (`theta-rhythm.js`).
+4. Preserved existing save namespace and upgrade fields, desktop gameplay, mobile restrictions, and PWA cache isolation (`index.html`, `service-worker.js`).
+
+# Midir Companion — Changelog
+
+**Current bundled application:** Companion 279 (GitHub version 0.2.79). Release notes appear in descending version order. The entries below document the work recorded at each version; an older entry may describe behavior that was subsequently replaced or corrected.
+
+**Current behavior, not historical intent:** Consult the [verified Companion 275 documentation](../Midir-Companion-Documentation-275/README.md), the [feature map](../Midir-Companion-Documentation-275/CURRENT-FEATURES.md) and the [verification audit](../Midir-Companion-Documentation-275/VERIFICATION-AND-PACK-HISTORY.md) when a historical release note differs from the current application.
+
+- **Rotation Highlights:** The declared Arcana minimum-cooldown tables are not enforced by build-275 candidate scoring. It uses recognized skill-use anchors and attributable hit budgets; the result is an evidence-limited candidate, **not** a validated repeatable rotation.
+- **The Vault:** The Vault and compact Achievement Book remain accessible when Secret Sauce is off. The setting conceals report imports, report views, collectibles and importer-only features without erasing saved data.
+- **Duplicate reports:** A recognized duplicate prompts **Replace** or **Cancel**. There is no explicit **Keep both** choice for a recognized duplicate.
+- **Training models:** Simulators, their drop chances, encounter approximations and gameplay timings are Companion rules—not verified live Mabinogi measurements. EV Tower Range Lab remains an experimental training game.
+
+*Documentation integration note:* This copyediting and documentation-bundling pass does **not** increment the Companion application version or change executable code, assets or player-save contracts. The release history is retained below.
+
+---
+
+## Companion 279 — Mobile report-reading foundation and SG checklist
+- **Mobile-aware presentation:** On phone browsers, Vault shows a touch-friendly quick route to the existing Sacred Guardian Oath-maxing checklist (full and emergency modes); the checklist can open without completing the character-stat setup wizard. Existing checklist completion/order and full-backup data are reused. Desktop presentation and controls are unchanged.
+- **Conservative active retention:** Mobile defaults to ten active detailed reports instead of desktop's thirty. Overflow and incomplete imports move to the existing archive without deleting entries; optional permanent compaction still requires the existing explicit consent and external source files for recovery. A pre-import confirmation explains when new files may exceed the mobile cap.
+- **Storage precautions:** Phone import and reactivation paths request confirmation for files at or above 12 MiB or when browser storage estimates indicate low headroom. The warning explains transient parse memory requirements, external backups and browser quota uncertainty. A persistent Vault notice reminds users about source HTML and backup retention; backup restores also receive the large-file warning.
+- **Desktop-only games:** Hotkey-dependent Rotation Crafters, Theta, Vertrag, and other unadapted games are visibly disabled in phone mode with an N/A message. Reforge and Herb modules remain reachable for exploratory use, not yet verified on physical phones. Ordinary desktop operation is unaffected.
+- **Compatibility:** Existing saved-profile keys and version-2 backup format are unchanged; all existing application and 277/278 archive regression tests pass. Isolated Android-sized Chromium smoke tests cover mobile navigation, SG touch checkboxes, disabled desktop controls and the ten-active-report cap. Actual HTTPS-hosted Android/iOS large-import and IndexedDB persistence tests remain pending.
+
+---
+
+## Companion 278 — Fingerprint-verified compact archival and encounter-level Arcana
+- **True space reclamation:** After a one-time warning and approval, compact archive entries replace full report details, while their independent achievement credit, Arcana rotation winners and historical skill medians remain intact. Original HTML and cold structured-report copies are purged only after durable summary/profile commit. A failed commit retains recoverable full data.
+- **Reselect to reactivate:** Return to active requires the original structured export, validated by SHA-256 of the canonical parsed evidence. Filenames may differ. Newly imported reports also retain the original raw file digest; older 277 reports receive a parsed-evidence digest from their existing cold copy when available. Neither duplicate detection nor archive restoration relies solely on a filename.
+- **Backups:** The version-2 backup format is preserved; newly compacted reports now export lightweight metadata/ledgers, not the original reports or HTML. Save your source exports externally. Old version-2 backups containing full archived reports remain acceptable.
+- **Encounter Arcana correction:** Exclusive, player-attributed skill use/hit events identify Arcana independently per gate/attempt even if the session label is stale. This changes eligible encounter selection and archive categorization, not the Recorded Peak formula. Damage-only exports remain usable. Unresolvable conflicts are excluded from that Arcana rather than guessed; uncertain observations fall back to session metadata only if no exclusive skill evidence exists.
+- **Achievement separation:** Archived rotation comparisons never write award credit. Harmonic Saint survival-exemption checks use encounter evidence rather than the session-wide Arcana label.
+- **Verification:** Includes new SHA-256, reactivation, compaction durability/failure, and multi-gate Arcana regression fixtures. Real persistent-browser storage/restore requires follow-up user verification.
+
+---
+
+## Companion 277 — Reversible archive compaction and independent lifetime summaries
+- **Archive page:** Added a compact top-of-page lifetime achievements/collectibles ledger and an Arcana dropdown with four independent best-sequence categories: recorded 10s/60s and cooldown-aware 10s/60s. Archive entries can be returned to active or permanently deleted from the detailed report store.
+- **Archival summaries:** Save the source's qualifying achievement/award *counts by type* before discarding individual earned-milestone history beyond the 30 most recent active reports. The synthetic lifetime ledger unlocks the Achievement Book without re-verifying departed source events. Each source is deduplicated; replacements refresh new credits without counting prior credits twice. Retained collectibles likewise use banked balances.
+- **Rolling highlights:** Preserve one winner per Arcana and per 10/60-second scoring category; store compact skill-hit sequences and one median per skill. When another report archives, compare the incumbent and challenger using the same updated per-skill median. If the newer report contains no sample of a skill, its older archived median remains available. No archive comparison calls any achievement awarding path. The live Recorded Peak algorithm was not edited.
+- **Reversible memory unloading:** Archived reports' full structured details move into a new IndexedDB `cold` object store (database version 3). Report listing keeps a small metadata/summary record; full backup and return-to-active recover details from `cold`. The cold copy is retained on disk, rather than irreversibly thrown away, so reports remain restorable even when an old HTML original is missing.
+- **Migration safety:** Report-only milestones are evaluated before pruning; profile milestone rebuilding is deferred until IndexedDB hydration completes. Archived reports are excluded from active full-data analysis and won't be double-counted when manually reactivated. The 276 10-per-page and 30-active limits remain.
+- **Compatibility:** Main localStorage key, backup v2 format, report IDs, and independent minigame save keys remain unchanged. Existing 276 fixtures and a new archive-ledger test set run without changes to the original 275/276 gameplay features.
+- **Verification caveat:** JavaScript logic tests and isolated Chromium UI tests passed, but actual browser-origin IndexedDB v2→v3 migration, large real-backup round-trip, and quota/storage-failure rollback still require verification in a persistent browser profile. Save a 276-compatible backup externally before trying the new build.
+
+---
+
+## Companion 276 — Cooldown candidates, archival lists, Theta overheat and Vertrag trial fix
+- **Recorded Peak remains unchanged.** The separate cooldown-aware 10s and 60s candidates now consult the Arcana minimum-cooldown tables and provisional skill-shape durations. Continued DoT hits are retained within their originating use, invalid early reactivations are not credited as extra uses, and damage-only legacy reports remain eligible. Every canonical boss attempt/gate starts with a new cooldown history.
+- **The Vault** displays at most ten active reports per page, separates complete reports from an archived-report view, and automatically places old/incomplete reports and active entries beyond the newest 30 into the archive. Archive/unarchive is available for individual reports. A backup call-to-action appears at 20 active reports. Archived reports still retain their full structured data in IndexedDB/runtime, so historical achievements and Rotation Highlights can continue to use them. **True data unloading and rolling-summary-only archival are deferred** until an integrity-checked backup/rehydration workflow is established.
+- **Subject Theta** now uses overheat marks: five failed/incorrect inputs ends the attempt immediately without Sigils, and three consecutive successful notes reset the current marks. Existing achievement IDs and historical earned data are unchanged.
+- **Vertrag Time Trial and Endless** always begin with four living giants, regardless of selected stomp pressure. The pressure selector now controls initially unoccupied/stomping giants; zero does not constitute a clear, and all four must still be defeated in a Time Trial.
+- Launcher version label updated to **0.2.76**. Local storage keys and backup type/version remain unchanged. Added synthetic backup/achievement/legacy-report fixtures and focused tests.
+- **Verification limits:** Successful isolated Chromium gameplay smoke test and regression suite. A real browser-origin full backup restore and eventual archive unloading remain unverified; no schema-changing migration is claimed.
+
+---
+
+## Companion 275 — Vertrag eight-landmark arena floor
+- Replaced Vertrag’s gameplay floor image with the approved pale-stone and grassy arena featuring all eight turquoise inner-ring landmarks and the large north/south outer platforms.
+- Aligned the source image’s oval projection to the game’s circular teal collision boundary; removed duplicate programmatic landmark drawings.
+- Retained the four edge-positioned mage Disciples at 1, 5, 7 and 11 o’clock, the player-locked camera, variable wheel zoom, and click-to-move world-coordinate mapping.
+- Verified rendering in Chromium, zoom boundaries, giant suppression/defeat, and Companion-wide navigation tests.
+
+## Companion 272 — Vertrag player-locked camera
+- Hard-locked camera keeps the player at the center of the Vertrag arena viewport while the arena moves below.
+- Scroll wheel adjusts zoom from a dynamically calculated full-arena view to 265%, keeping Vertrag fully readable.
+- Click-to-move converts screen coordinates through the zoomed camera so destination and boundary logic still work.
+- Fixed HUD is unaffected by camera scale; in-game zoom display added.
+- Added dedicated camera regression checks for WASD, click-to-move, and zoom limits.
+
+## Companion 270 — Vertrag circular arena
+- Styled giant-phase stone arena floor and teal circular play boundary.
+- Eight clock-point floor markers; four temporary mage Disciples on cardinal positions.
+- Player, boss and stomp movement constrained to arena circle.
+
+## Companion 269 — Vertrag Arcana animations
+- Seven individual transparent player animation frames for each of the ten Arcana sprite sets: idle, locomotion, and damage/stagger states.
+- Movement is triggered by actual WASD or click-to-move displacement; hit and deadly/knockdown animations override locomotion.
+- Living giants use the existing staff Disciple sprite artwork as temporary arena stand-ins.
+
+## Companion 266 — Vertrag Giant Phase Survival framework
+- Added a universally accessible Vertrag survival trainer on every Arcana reference page, presented as Sacred Guardian field lessons.
+- Implemented eight provisional stomp-dodging stages, customizable movement controls, telegraphs, pursuit aura, boss strikes, scoring, vulnerability stacks, practice settings, awards, and progress saving.
+- Included Vertrag progress in profile backup and restore. Stomp timing/geometry and boss visuals await footage calibration.
+
+## Companion 245 — Melci Animation Frames
+- Added 32 dedicated Melci frames in `assets/crom/sprites/melci-action-atlas.png`, adapted from the original approved Melci art: 8 running, 8 Flame Burst, 8 Kunai Storm, and 8 landing/recovery frames.
+- Hooked atlas frame selection to the smooth Melci state machine rather than repeating the generic 4-frame enemy atlas.
+- Preserved the existing Flame Burst damage pulse cadence and Kunai target/jump/throw/landing sequence.
+- Ground shadows and attack targeting telegraphs remain anchored during airborne movement.
+- Previous gameplay balance and saved progression are unchanged.
+
+## Companion 241 — Crom Bás enemy depth and Cari/Wyneb formation variety
+- Spread normal wave combatants across staggered near/middle/far danger-zone bands with controlled spacing and per-wave variation.
+- Cari now patrols with gentle vertical drift rather than remaining on a fixed back-wall line.
+- Wyneb companion slimes spawn at varied diagonal/forward/back offsets around Cari without disrupting their pairing or chase/detonation mechanics.
+- Preserved the protected player approach, scripted boss placements, combat rules, saved progression and the Companion 240 animation work.
+
+## Companion 235 — Rotation Crafter grounded attack frames
+- Ground contact shadow and glow are independent, stationary SVG layers; attack movement affects only the character sprite.
+- Added two pre-rendered alternate artwork frames (windup and strike) per Crafter archetype, including Harmonic Saint, with distinct character-specific motion over the frame sequence.
+- Preserved approved sprite identities and weapon designs; existing skill timing, visual projectiles, and saved data are unchanged.
+- Added reduced-motion fallback to the static idle frames.
+
+## Companion 232 — Rotation Crafter framing fixes
+- Reframed all Crafter characters using stage-safe feet anchors, correcting top clipping while preserving approved artwork and existing animations.
+- Resized/repositioned Harmonic Saint and allied trainee sprites for the smaller support cards so heads and bodies remain visible.
+- Adjusted support-card height and alignment to keep the character portrait, name, and health bar separate.
+- No gameplay, save-data, or recognition changes.
+
+## Companion 231 — Alchemist artwork and Rotation Crafter attack motion
+- Adopted the approved Soul Liberator Alchemist character artwork, isolating the main character from its reference board for the Crafter.
+- Added archetype-specific sprite attack motion: bow draw/release, magic casting, dual-gun recoil, alchemy discharge, control-bar manipulation, shield brace, slashes, punches, and lance thrusts.
+- Kept existing skill timings, damage, cooldowns, and progression unchanged. Reduced-motion accessibility preference remains respected.
+- Animations are transform-based on static illustrations, not hand-drawn frame-by-frame sprite sheets.
+
+## Companion 230 — Approved Puppeteer art
+- Replaced the Rotation Crafter Puppeteer character image with the approved Soul Liberator Control Bars sprite.
+- Kept character interactions, skill logic, and all other visual assets unchanged.
+
+## Companion 229 — Crafter sprite mounting correction
+- Corrected the Rotation Crafter Puppeteer sprite so the control bars are mounted to the hands/wrists rather than loosely handheld.
+- Corrected the Rotation Crafter Alchemist sprite so the cylinder and guard cylinder read as forearm-mounted equipment rather than generic held weapons.
+- No functional changes; this is a targeted visual correction pass following the broader Crafter sprite upgrade.
+
+## Companion 227 — Sacred Guardian Oath-Maxing preparation
+- Added Little Fury Sword Relic rank C/B/A/S/EX for +20/30/45/60/70 Will, with the provided icon.
+- Added Ophelia’s Tears Persona: +100 Will, −20 Intelligence, −30 Strength, five-minute activation and a shared 30-minute cooldown, with persisted real-time timers.
+- Added full-preparation Alban Knights Emblem toggle and rune levels 0–5: Mind +5 Will, Mana +3 Magic Defense and Body +10 HP per level; Emergency Oath separately models the emblem already equipped and warns that changes are unavailable during combat / within 30 seconds of combat activity.
+- Added independently equipped Title and 2nd Title bonus entry fields accepting multiple signed stats, with parsing and unrecognized-entry feedback.
+- Applied +1 Defense per full 10 Strength, +1 Magic Defense per full 10 Will, and +1 Magic Protection per full 10 Intelligence (including negative deltas) to the prepared defensive stats of both Oath modes.
+- Added gear and Persona steps to Oath checklists, plus editable signed Strength, Will, and Intelligence for Doll Bags and Catering. Show stat conversions and persist equipment, timers and titles in standalone state and profile backups. Existing frozen snapshots remain frozen.
+
+## Companion 226 — Rotation Crafter visual cohesion pass
+- Reworked the Rotation Crafter stage art to better match the stylized Crom Bás Invaders look: darker cathedral staging, sprite-inspired characters, and Crom enemy target sprites.
+- Replaced several generic vector weapon placeholders with the provided equipment art where appropriate, including Control Bars for Melodic Puppeteer and Arcana-specific weapon silhouettes across the Crafter scenes.
+- Refreshed Harmonic Saint support-target presentation so allied trainees use the same stylized figure language as the Crafter instead of simple placeholder mannequins.
+- Audited adjacent minigame/storage visuals and prioritized the biggest cohesion gap: the Crafter’s generated stand-in sprites. Existing item/skill-icon-driven views were preserved where they already matched the platform’s art direction.
+
+## Companion 225
+
+### Secret Sauce & Settings
+
+- Added an unobtrusive menu → Settings page with optional See Secret Sauce (off by default).
+- Kept **The Vault** and its compact Achievement Book accessible when **See Secret Sauce** is off. Report imports, report views, collectibles, importer-specific awards and editing stay hidden in that mode; saved data is retained.
+- Kept full-profile backup/restore accessible from Settings, including all minigame progress and saved preferences.
+- Offered six accent colors, standard/large text, reduced motion, and 3–20 second expanded tooltip timing (default eight seconds); basic tooltips remain unchanged.
+- Preserved the 225 working-branch skill recognition rules and unified skill-use presentation, including Base64 effect type decoding.
+
+### Skill-specific use recognition
+
+- Added unified Skill Uses for remote players, built from per-skill action, effect, condition, and damage rules. No inferred/observed distinction is shown to users.
+- Default 0-second cooldown, one hit per use; individual tunable overrides for multi-hit and timed skills calibrated from the Rixi reference session.
+- Recognized nondamaging signature sequences for Anchor Rush, Rain Casting, Hydra Transmutation, Starlight Veil, Gravity Well, and additional named effects.
+- Decoded Base64-encoded `skillObservations.fieldTypes` into numeric protocol type arrays.
+- Rotation Highlights cooldown-aware scoring uses the unified skill-use engine, including remote actors.
+- The report inspector shows use counts, rules, and use timelines for each player.
+
+## Companion 224 — Rotation Highlights for observation-limited remote players
+- Fixed empty 10s / 60s candidate panels when one unknown-cooldown skill had previously disqualified an entire encounter; kept Recorded Peak calculations separate.
+- Added separate **evidence-limited candidates** using attributable skill-use evidence and limited hit budgets; these are not verified cast sequences. In build 275, the active scorer uses `MIDIR_SKILL_USES` rules rather than enforcing the declared ten-Arcana minimum-cooldown tables.
+- Kept unscored skill hits visible as explicitly excluded context, with a reason and per-skill counts. Damage-backed appearances never become confirmed casts.
+- Used actor-verified `0x7926` evidence as timing hints where present, and treated explicit source-attributed boss-condition metadata (`MNEI:2:...`, `MCDCASI:2:...`) as corroborating evidence rather than proof of cast count; never attributed recipient-only effects to their recipients as casters.
+- Merged partial action/condition evidence with unmatched hit-backed skill appearances in visual tracks, and fixed duplicate radio IDs between peak and cooldown panels.
+- Historical regression note: the `skill usage test.html` sample (Pihx, Harmonic Saint) exercised 10/60-second candidates and limited evidence, without populated `skillObservations`. Its unknown-cooldown exclusions are not a general rule for Companion 275; recognized zero-cooldown-default uses can be eligible when the required anchor and baseline exist.
+- Verified JavaScript syntax and sample-driven Node regressions. Full interactive browser QA is limited by the current test environment.
+
+## Companion 223 — Midir 45 skill-evidence import
+- Imported and retain `skillObservationSchemaVersion: 1` / `skillObservations` with precise session-relative and absolute timestamps, typed protocol fields, opcode, actor verification, and 64-bit-safe string entity IDs.
+- Preserved explicit local `0x6988` skill packets and precise positive `damageHitEvents` (crit, delayed, target, and timestamp) independently; keep optional older HTML compatible.
+- Interpret typed `0x7926` Combat Action skill IDs only with a verified actor. Treat `0x9093` and `0x9095` typed IDs and known cues as recipient-associated, not caster-confirmed actions.
+- Added a per-player, per-canonical-attempt Skill Discovery inspection table showing direct packets, verified action stages, approximate stage bursts, positive hits, and separately identified recipient-only effects and unresolved records.
+- Showed remote verified combat action bursts in Rotation Highlights beside local skill-packet evidence, without turning packet/hit counts into confirmed cast counts or attributing local events to other players.
+- Corrected debuff evidence matching so one player's `0x6988` packets do not suppress another player's precise hit evidence; treat internal `9999` pet/summon damage as non-actionable in rotations.
+- Kept the recognizable `Midir Companion.html` launcher and GitHub Pages `index.html` redirect.
+- Validation: JavaScript syntax checks, ZIP integrity, isolated Node unit/regression fixtures. No live post-update Midir 45 HTML was supplied; interactive browser QA remains pending.
+
 ## Companion 222
 - Added recognizable `Midir Companion.html` launcher.
 - Moved all supporting files to `Companion Files/` while preserving relative resource paths via HTML base URL.
@@ -14,7 +212,7 @@
 - Reduced overlay footprint to preserve enemy health bars and loot visibility.
 
 ## Companion 218 — Link I HP correction
-- Move the +2 maximum HP Link milestone from Link V to Link I. Link V retains its Tri-Assault and archery damage bonuses. Existing Link levels apply automatically without re-purchase.
+- Moved the +2 maximum HP Link milestone from Link V to Link I. Link V retains its Tri-Assault and archery damage bonuses. Existing Link levels apply automatically without re-purchase.
 
 ## Companion 217 — Link Progression
 - Ten purchasable cumulative Alchemic Sharpshooter Links using escalating Fragments.
@@ -22,20 +220,15 @@
 - Link V gives +2 maximum HP, +20% Tri damage, and modest archery scaling.
 - Added movement haste, wind width, Ignis radius, elemental charge, Terra duration, distance damage, and Link X adapted damage/defense effects.
 
-## Companion 215 — Responsive HUD, Shop Wallet, Pause Hotbar
-- Responsive stage preserves the 800×620 logical battlefield while resizing to the viewport.
-- Shop products scroll in their own pane with total currencies pinned in a bottom footer.
-- Moved hotbar editing out of the shop and into a paused-game drawer showing unlocked skills.
-- Drag-and-drop hotbar assignments save to the existing player profile without advancing combat.
+> **Superseded in Companion 218:** The +2 maximum-HP milestone moved from Link V to Link I.
 
-## Companion 215 — Responsive HUD, Shop Wallet, Pause Hotbar
-- Responsive game stage maintains the same 800×620 logical coordinate system while resizing to the browser viewport.
-- Shop purchase list now scrolls independently; owned currency remains pinned in the footer above items.
-- Removed hotbar editor from the shop. Pause screen now has an unlocked-skills drawer with drag-and-drop slot editing.
-- Hotbar changes persist to the existing profile and do not advance combat time.
+## Companion 215 — Responsive HUD, shop wallet and pause hotbar
+- Resized the game stage responsively while preserving its **800 × 620** logical battlefield coordinates.
+- Made the shop list independently scrollable, with owned currencies pinned in a persistent footer.
+- Moved hotbar editing from the shop to a paused-game drawer of unlocked skills.
+- Saved drag-and-drop hotbar assignments to the existing player profile without advancing combat time.
 
-# Companion 214
-
+## Companion 214
 - Added new Disciple sprite treatment: masked human underlings styled after Melci's coat.
 - Added Cauldron sprite treatment and slam/crack visual behavior for Irusan phase.
 - Reworked camp presentation with a cleaner forward-camp scene and a new procedurally drawn cathedral entrance.
@@ -48,8 +241,6 @@
 - Urgent Shot now buffs the damage of other skills for a short duration.
 - Rare health item drops added to enemy defeats.
 
----
-
 ## Companion 213 — Cathedral environments (first pass)
 - Added sixteen 800×620 fixed-angle top-down cathedral room backgrounds, selected every three non-rooftop waves. Base geometry and enemy hitboxes unchanged.
 - Glas on waves 20/40/50 receives distinct altar rooftop treatments: an intact roof at 20, a visible previous-fight breach at 40, and a corrupted, scarred summit at 50.
@@ -57,6 +248,12 @@
 - Added an approach-to-abyss vignette in camp and aligned the walk-in cathedral entry area and shop hit regions with the intended positions.
 - Added a camp Field Notes button with enemy hints and player progression summary; carried over customizable hotbar and shop close fix.
 - Art limitation: procedural environment pass with subtle architectural differences, not 16 fully hand-painted scenes. Browser testing blocked by this environment; syntax validation only.
+
+## Companion 212 — Camp and Hotbar Pass
+- Fixed the camp shop trap by preventing the shop trigger from immediately reopening when the close button is used.
+- Added a customizable drag-and-drop hotbar with skill icons and slot reassignment.
+- Added skill icons to the Dark Erg Shop unlock list.
+- Reworked the camp into a desolate pioneer staging ground with a cathedral approach to Crom Bás.
 
 ## Companion 211 — Ignis Plume and Aqua Volley skill pass
 - Ignis Plume leaves burning visual ground marks along its flight and detonates three times at the first enemy impact or map edge. Blast-radius growth is one-third of Crash Shot radius-upgrade growth.
@@ -80,14 +277,26 @@
 - Preserved v208 enemy behavior, collision bounds, projectile readability, Vault progression, shop and other games unchanged.
 - Art is a single idle frame per character (not a full animation sheet); source sprites are resized to gameplay scale. Future iteration can add animation frames and damage/recoil states.
 
-## 207 — Crom Bás Invaders routing repair
-- Move Crom Bás game routing inside the app scope so both entry points render the arcade game rather than Rotation Crafter.
-- Verify both navigation paths with browser click-through tests.
+## Companion 208 — Crom enemy identities, movement, and combat art
+- Renamed former Wyneb summoner into Un Llygadog; eliminated generic Llygadog placeholder from active pools.
+- Added Cari-paired Wyneb, which pursues after taking damage then locks in place with an invulnerable timed explosive warning radius.
+- Gwallgof now uses constant-distance stepping with progressively longer top-to-bottom traversal, including the bottom-center safe sector; Ronaun advances into side danger lanes.
+- Restricted ordinary ranged projectiles to Disciples, Cari, and Un Llygadog; Ronaun and Wraith keep their specials only.
+- Replaced generic enemy circles with distinct canvas fantasy silhouettes, added a hooded bow-wielding player, and rendered normal magic as fiery orange projectiles and Ice Spear as large blue crystal bolts.
+- Added original visual concept sheet under assets/crom/ for later transparent atlas development.
 
-## Companion 207 — Crom Bás Invaders navigation
-- Register the game directly among the Alchemic Sharpshooter shortcut cards, inside the proper Available pages grid.
-- Add Crom Bás Invaders to the Games & Simulators side menu with an explicit AS route.
-- Remove the late markup-injection workaround; retain the existing game renderer and click handling.
+## Companion 207
+
+### Crom Bás Invaders routing repair
+
+- Moved Crom Bás game routing inside the app scope so both entry points render the arcade game rather than Rotation Crafter.
+- Verified both navigation paths with browser click-through tests.
+
+### Crom Bás Invaders navigation
+
+- Registered the game directly among the Alchemic Sharpshooter shortcut cards, inside the proper Available pages grid.
+- Added Crom Bás Invaders to the Games & Simulators side menu with an explicit AS route.
+- Removed the late markup-injection workaround; retain the existing game renderer and click handling.
 
 ## Companion 205
 - Achievement Book opens as a page-turning popup, organized from Vault-exclusive awards to training and minigames.
@@ -105,15 +314,19 @@
 - Extended Korean and Spanish labels for Crom Bás Invaders.
 - Shared Special Upgrade stone chest remains the source of truth for stone purchases.
 
-## Version 202 — Giga Glas Ghaibhleann
+## Companion 202 — Giga Glas Ghaibhleann
 - Wave 50 now features Giga Glas: awakened opening, repeat elemental disciples, three-lane lasers, safe-lane blasts, persistent expanding puddles, Aqua Volley reflections and berserk last 10%.
 - Normal Glas encounters remain at waves 20 and 40.
 
-## Companion 201 — Glas Ghaibhleann
+## Companion 201
+
+### Glas Ghaibhleann
+
 - Element-matched orbs, shielded boss, telegraphed swipes and laser, phased reinforcements, elemental Disciples, purple lethal puddles.
 - Tri-Assault now expends charged elemental orbs from Ignis, Aqua, Terra and Ventus; no stat bonuses added.
 
-## Companion 201 — Irusan boss encounter
+### Irusan boss encounter
+
 - Multi-phase Irusan teleport swipe and tracked laser pattern, telegraphed red circles, alternate-key struggle, timed cauldron and transformation.
 - Half-health invulnerability, Cari reinforcements, accelerating finale, and Melci support during Irusan encounters.
 - Saved profile progression and all other minigames preserved.
@@ -128,16 +341,15 @@
 - Wyneb: lower health, occupancy-aware summons, triple corner summon.
 - Gwallgof: enhanced HP, scaling damage resistance, accelerating W-pattern, touch damage.
 - Wraith: staggered mid-wave arrivals, stackable short attack boosts, reactive dodges, cooldown-bound roar and Cari-style Ice Spear.
-- Preserve rolling attack budget and five-second intermissions.
+- Preserved rolling attack budget and five-second intermissions.
 
-## 197 — Crom Bás Invaders enemy pacing
+## Companion 197 — Crom Bás Invaders enemy pacing
 - Safe bottom-center sector; axis-aligned formation movement and special-only lateral dashes.
 - First ten waves feature one normal enemy type per wave, shared rolling 3-second attack budget, five-second transitions, and escalating post-25 and post-50 difficulty.
 - Disciple directional shots, collision shoves, and dash/aimed special attacks. Cari synchronized 5-second two-point ally shielding and freezing Ice Spear.
 - Increased loop rewards and preserved existing profile format.
 
 ## Companion 196 — Crom Bás Invaders (Alchemic Sharpshooter)
-
 - Added a 50-wave arcade shooter with Crom Bás-inspired enemies, Irusan/Glas boss waves, an archer protagonist, automatic 1-second Magnum Shots, mouse and WASD/arrow movement, pause/quit, and continuous looping at increased difficulty.
 - Dark Erg fragments unlock eight active skills and four persistent reforge tracks (including Crash Shot shrapnel count, radius and damage); chunks buy upgrade stones and cross-minigame bonuses between runs.
 - Hooked Dark Erg shop bonuses into Limit Break chances, 20× Huge Lucky herb gathering, Bandit ducats and EV tickets. Added six arcade achievements.
@@ -145,11 +357,10 @@
 - Initial visual/gameplay adaptation of Crom Bás; difficulty values and enemy behaviors are arcade designs, not exact dungeon simulations.
 
 ## Companion 195 — Special Upgrade achievements & save audit
-
 - Added 14 Special Upgrade and cross-system achievements, including Step 8 + Erg S50 + Limit Break on the same weapon.
 - Record milestone combinations at the moment of the Special Upgrade success or Limit Break roll, not from unrelated items.
-- Keep progression, stone rewards, recovery evidence and achievement counters in Special Upgrade saves and full Vault backups.
-- Track protected failures, recovery comebacks, step and stone milestones, and Storage Chest returns.
+- Kept progression, stone rewards, recovery evidence and achievement counters in Special Upgrade saves and full Vault backups.
+- Tracked protected failures, recovery comebacks, step and stone milestones, and Storage Chest returns.
 
 ## Companion 194 — Special Upgrade workshop polish
 - Condensed the anvil layout and stone picker for better use of desktop and mobile space.
@@ -157,33 +368,32 @@
 - Highlighted weapon-lock risk only when applicable, preserving existing upgrades, inventory, rewards, and save state.
 
 ## Companion 193 — Shared Special Upgrade Equipment
-- Move weapons from Reforge and Erg storage to the Special Upgrade anvil, then back to the Storage Chest without losing Reforge lines, Erg progression, or special-upgrade level and lock state.
+- Moved weapons from Reforge and Erg storage to the Special Upgrade anvil, then back to the Storage Chest without losing Reforge lines, Erg progression, or special-upgrade level and lock state.
 - All eligible simulator weapons may reach step 8; off-hand equipment is excluded from Erg and Special Upgrades.
 - Herb Collection rolls independent 1/250 standard Eweca/Ladeca and 1/400 protective Eweca/Ladeca chances for each newly gathered herb.
-- Preserve weapon special-upgrade state through existing local saves and full Vault backups.
+- Preserved weapon special-upgrade state through existing local saves and full Vault backups.
 
 ## Companion 192 — Special Upgrade Simulator
-
 - Arsenal Gunner Special Upgrade Anvil, ten stone variants, step 1–8 success and gold costs, protective stones, recovery essence, achievements.
 - Special Upgrade materials awarded through Herb Collection, Bandit Hunt, and Soul Liberator wave clears.
 - Adds Orb and Spellbook reforge categories; off-hand items remain ineligible for Erg.
 - Upgrade outcomes display step and type only, without stat bonuses.
 
-## 191 — Achievement Expeditions
+## Companion 191 — Achievement Expeditions
 - Added 47 new achievements spanning simulator exploration, cross-game mastery, equipment collections, and progression.
 - Added simulated Auction House sale milestones, including a single sale over 1 billion gold.
 - Tracked Limit Break reforges rolled specifically on an Erg S50 weapon, along with activity visits and map discovery.
 - Added collection milestones to the Vault Achievement Book and included new records in full profile backups.
 
-## 190 — Minigame Achievement Collection
+## Companion 190 — Minigame Achievement Collection
 - Added 50 minigame achievement types across Tower Range Lab, Pig Pursuit, Bandit Hunt, Herb Collection, Erg, Reforge, and Sacred Guardian Oath.
 - Persisted Dazzling purchases, Limit Break rolls, and Oath memory completions for Vault-backed achievement tracking.
 - Kept the Achievement Book compact; achievement progress uses saved game records.
 
 ## Companion 189 — Rotation Highlights cooldown-aware comparisons
 - Added separate cooldown-aware 10-second and 60-second windows alongside the unrestricted Recorded Peak selections.
-- Applied user-provided minimum skill cooldowns, Showstopper puppet resets, Stampede charges, Blazing Brawler critical cooldown reductions, and provisional EV overheat tracking.
-- Evaluated observed skill-use sequences across encounter context and excluded unknown cooldowns or insufficient cast timing from repeatable rankings.
+- The initial comparison design described user-supplied minimum cooldowns, Showstopper resets, Stampede charges, Blazing Brawler reductions and provisional EV overheat. **Current-build note:** these declared reference tables are not enforced by the Companion 275 scoring path.
+- The original release screened for insufficient timing evidence. In Companion 275, the candidate attributes hits using recognized skill-use anchors, per-use hit budgets and a noncritical or inferred damage baseline; it does **not** prove a globally legal rotation schedule.
 - Time Shift and Bachram Boost windows remain available under Recorded Peak rather than cooldown-aware results.
 - Kept combat reports, Vault backups and minigame save formats unchanged.
 
@@ -296,7 +506,7 @@
 ## Companion 168
 - Relentless Thrust now costs 5 Mana Shells per activation, before the existing Arcana Link consumption reduction.
 - It resolves as two quick jabs; all synchronized towers can hit all enemies in their respective areas on each jab.
-- Restore 15 Mana Shells once per successful jab, never per target or tower, capped by the shared reserve capacity; two hits result in a net +25 shells before capacity/Link adjustments.
+- Restored 15 Mana Shells once per successful jab, never per target or tower, capped by the shared reserve capacity; two hits result in a net +25 shells before capacity/Link adjustments.
 - Split the existing Relentless Thrust damage across its two jabs to avoid accidentally doubling total damage. If the first jab defeats every enemy, the second jab cannot restore shells.
 
 ## Companion 167
@@ -361,12 +571,6 @@
 - Audited game and simulator pages for visible hidden odds; preserved actionable cooldowns, item prices, configuration inputs and actual outcomes.
 - Policy for future updates: do not disclose internal probability tables or secret reward formulas in player-facing text unless explicitly requested.
 
-# Midir Companion — Changelog
-
-- Releases are listed newest first; older entries are retained for reference.
-- **EV Tower Range Lab (Companion 144 onward): Experimental prototype, not a completed feature.** Ranges, skill geometry, cooldown modeling, and balance require further validation.
-- Simulator rates and training models are not official in-game measurements.
-
 ## Companion 156
 - Condensed Bandit Hunt instructions into a compact five-action control legend and one brief gameplay tip.
 - Removed redundant introductory paragraphs and shortened the pre-game overlay instructions.
@@ -428,7 +632,7 @@
 ## Companion 145
 - Added ordered horizontal Skill Use event stream and switchable, time-aligned skill tracks to both peak-window cards.
 - Sparse skills (one or two appearances) share a compact Other skills track; frequent skills have dedicated rows.
-- Preserve critical hit markings, no-damage-use evidence, and damage-over-time aggregation; raw event lists remain expandable.
+- Preserved critical hit markings, no-damage-use evidence, and damage-over-time aggregation; raw event lists remain expandable.
 - No changes to normalized scoring, boss filtering, or existing Arcana training tools.
 
 ## Companion 144
@@ -442,7 +646,7 @@
 - Modern precise-hit stream presence is authoritative even when zero boss hits are found; no silent fallback to unrelated one-second AoE damage.
 - When Gate 2 precise boss evidence is available, compare only those attempts; otherwise prefer available precise evidence to legacy estimates.
 - Rotation Highlights shows observed Skill Use packets as a separate action timeline, including observed uses without matching positive boss hits. A 30-second preceding-use association is heuristic, not proof of casts.
-- Preserve Blazing Brawler critical-hit visualization and allow Rend Armor parry resets. Skill-use packets are not counted as one-to-one casts in cooldown rejection.
+- Preserved Blazing Brawler critical-hit visualization and allow Rend Armor parry resets. Skill-use packets are not counted as one-to-one casts in cooldown rejection.
 - Require Vault selected character and recorded Arcana. Original app routes retained.
 - Source schema is based on Midir 45 handoff; live recorded export testing still needed.
 
@@ -450,7 +654,7 @@
 - Read top-level canonical `encounters`, observed `skillUseEvents`, millisecond `damageHitEvents` with target identity, and observed `reviveEvents` / player `reviveTimes`, while preserving the embedded Companion v1 fallback.
 - Rotation Highlights preferentially filters precise hits to the boss entity IDs within each canonical attempt; the shared non-critical reference uses those observed boss hits. Gate 2 remains preferred when precise evidence exists. Precise source-hit counts no longer require the old multi-target scatter cap.
 - Achievement/debuff analysis uses canonical attempt completion evidence and prefers observed Skill Use for ambiguous debuff attribution, falling back to nearby hit evidence only when the observed-use stream is entirely unavailable. Retain previous death-based award criteria pending validation of full revival-aware survival requirements; revival evidence is stored rather than falsely assuming alive/dead intervals.
-- Preserve all pre-existing pages, achievements, stored profiles and raw report viewer. These source fields require validation against a compiled actual Midir 45 export.
+- Preserved all pre-existing pages, achievements, stored profiles and raw report viewer. These source fields require validation against a compiled actual Midir 45 export.
 
 ## Companion 141
 - Conditional Arcana Simulators page for the Vault selected character and matching Arcana.
@@ -460,17 +664,15 @@
 - Limitation: exported per-second events lack hit target and cast identity, so boss HP windows do not guarantee boss-only hits.
 
 ## Companion 140
-
 - Lucky Clover (Bunbun, condition 1138) and Foxyquinn’s Mark (condition 716) now form one tracked status category. Neither grants an extra debuff/achievement credit when both are present.
 - The New Debuff, Who This? exercise now generates one pet-mark missing group with two valid answers: Bunbun or Foxyquinn. Previously it incorrectly generated two independent missing groups.
 - Updated Debuff Field Guide, status cards, pet-source descriptions, coverage and achievement calculations. Raw condition IDs remain unchanged for evidence traceability.
 - Kept independent visual cards for both icons as they are distinct artwork despite their equivalent tracking role.
 
 ## Companion 139
-
-- Treat Ceraunus Lightning Wave (condition 504) and Mir Dragon Lightning Breath (condition 392) as interchangeable evidence of the same Lightning Debuff, with the same original icon.
+- Treated Ceraunus Lightning Wave (condition 504) and Mir Dragon Lightning Breath (condition 392) as interchangeable evidence of the same Lightning Debuff, with the same original icon.
 - Updated imported-condition analysis, pet coverage, time-overlap achievements (To the Nines and Perfectly Dressed), the Debuff Academy, and displayed condition labels. The shared slot is never double-counted.
-- Preserve the two-condition requirement for Brionac/Fragarach Protection Max and Magic Protection Max peel. Existing exports remain compatible.
+- Preserved the two-condition requirement for Brionac/Fragarach Protection Max and Magic Protection Max peel. Existing exports remain compatible.
 
 ## Companion 137
 - Editable Emergency snapshot cast sequence with insert, remove, reorder, reset and local persistence; drives live snapshot simulation and checklist.
@@ -488,8 +690,8 @@
 ## Companion 134
 - Reuse Midir Catering and Paladin transformation skill icons on Sacred Guardian buffs.
 - Put Edit Player Stats next to Oath thresholds and Rate Isn't a Lie music import next to Ally Music.
-- Import the saved Inspiring Enduring Melody Defense and Protection calculations from Rate Isn't a Lie, with a reversible source toggle.
-- Condense snapshot actions into a unified skill-style panel with minimal controls.
+- Imported the saved Inspiring Enduring Melody Defense and Protection calculations from Rate Isn't a Lie, with a reversible source toggle.
+- Condensed snapshot actions into a unified skill-style panel with minimal controls.
 
 ## Companion 133
 - Condensed Sacred Guardian available bonuses with skill icons and per-buff stat editing.
@@ -503,7 +705,6 @@
 - Kept buff selection available even when its modeled Oath contribution is zero and documented assumptions in developer notes.
 
 ## Companion 131
-
 - Corrected the *bonus caps* shown and used by the Sacred Guardian Oath threshold planner to +150 Defense/Magic Defense and +15 Protection/Magic Protection. The formula still adds 10% of prepared defensive stats, so the corresponding input thresholds remain 1,500 and 150. HP remains +15% capped at +3,000 (20,000 HP threshold).
 - Updated the internal Oath developer notes to distinguish pre-Oath stat thresholds from the resulting capped bonuses.
 
@@ -525,8 +726,8 @@
 ## Companion 127
 - Model Protection reforge levels 0–3 on boots without changing Inspiring Effect.
 - For levels 4–9, add one or two Protection-reforged accessories, each granting up to 3 levels while replacing 3 Inspiring Effect from the corresponding BFO accessory.
-- Preserve 16 Inspiring Effect for BFO, use the highest possible remaining Inspiring Effect for the selected Enduring protection total, and display the optimal boots/accessory split in the 0–9 comparison.
-- Keep all three target Bri music-build profiles, Oath preparation and saved user data otherwise unchanged.
+- Preserved 16 Inspiring Effect for BFO, use the highest possible remaining Inspiring Effect for the selected Enduring protection total, and display the optimal boots/accessory split in the 0–9 comparison.
+- Kept all three target Bri music-build profiles, Oath preparation and saved user data otherwise unchanged.
 
 ## Companion 126
 - Bri BFO profiles use 16 Inspiring Effect (instrument plus two accessories) and adjusted Music Buff Effect to target 65%, 69% and 75% BFO.
@@ -576,12 +777,12 @@
 - Place white and Cutting Chorus circles in chronological hit-time order, maintaining a continuous mouse-following path rather than jumping to unrelated positions.
 - Limit the distance between consecutive circles by their time separation; short gaps place notes close together and longer gaps permit wider movement across the field.
 - Gently curve and reflect the path near playfield edges so notes continue naturally from their previous location.
-- Preserve white-note rhythm, Link X Cutting Chorus intervals, input bindings, Hard Mode, scoring, and saved settings.
+- Preserved white-note rhythm, Link X Cutting Chorus intervals, input bindings, Hard Mode, scoring, and saved settings.
 
 ## Companion 118
 - Load the previously omitted rhythm module, fixing the Melodic Puppeteer activity shortcut.
-- Keep Begin, instructions, End Practice, results and replay controls inside the rhythm playfield.
-- Retain default Link X bonus and the verified 2-second ON / 4-second OFF Cutting Chorus intervals.
+- Kept Begin, instructions, End Practice, results and replay controls inside the rhythm playfield.
+- Retained default Link X bonus and the verified 2-second ON / 4-second OFF Cutting Chorus intervals.
 
 ## Companion 117
 - Added a mouse-and-key rhythm activity with white ordinary-skill notes and black Cutting Chorus notes, approach-ring timing, scoring, and an optional no-ABA-repeat hard mode.
@@ -597,11 +798,11 @@
 
 ## Companion 115
 - Require confirmation of a Limit Break before the next reforge roll.
-- Replace numerical reforge odds in the UI with a simple statement that Dazzling is better.
+- Replaced numerical reforge odds in the UI with a simple statement that Dazzling is better.
 - Tighten reforge line/value spacing and consolidate gold, ducats, items and resources into a slotted Storage Chest interface.
-- Add two-way Erg weapon transfers, preserving Erg progress, and prevent Erg weapons from being listed for sale.
-- Keep Erg Unlock Assist Potion purchasing on Erg Break, using the supplied potion icon; remove the duplicate Reforge shop purchase.
-- Preserve existing storage keys; add Erg weapon progress to optional full-backup training extras, while keeping older backups compatible.
+- Added two-way Erg weapon transfers, preserving Erg progress, and prevent Erg weapons from being listed for sale.
+- Kept Erg Unlock Assist Potion purchasing on Erg Break, using the supplied potion icon; remove the duplicate Reforge shop purchase.
+- Preserved existing storage keys; add Erg weapon progress to optional full-backup training extras, while keeping older backups compatible.
 
 ## Companion 114
 - Doubled Detonation Field radius from 47 to 94 diagram units.
@@ -712,7 +913,7 @@
 ## Companion 95
 - Rewrite FA Rotation Lab skill cards around pre-combat formulas, full four-element amplification, orb spending by Serpentcall and enemy-targeted Chemical Carnival, and Fangs/Water Cannon/Heat Buster rotation priorities.
 - Group Elemental Wave beside Heat Buster; explain Shock as Brionac activation and Flame Burst as Serpentcall support.
-- Remove Sand Burst and Life Drain from the Rotation Lab landing skill reference only; preserve simulator skill availability and combat behavior.
+- Removed Sand Burst and Life Drain from the Rotation Lab landing skill reference only; preserve simulator skill availability and combat behavior.
 
 ## Companion 94
 - Rewrote AG Rotation Lab landing skill cards to explain verified energy generation, full-bullet consumption, Crest dual-gun generation, and Fatal Scope aim/re-aim.
@@ -720,17 +921,17 @@
 - Reference wording only; no simulator or Vault behavior changed.
 
 ## Companion 93
-- Add Sole Survivor: verified Bri gate clear, selected player zero recorded deaths, every other party member at least one death in that gate.
-- Add Last One Standing: selected player deathless, all other identified non-Harmonic Saint party members have two deaths in the gate (normal revival exhausted); a Harmonic Saint may survive.
-- Add Against All Odds: verified Bri gate clear with at least two confirmed non-Harmonic Saint teammates recording two deaths each in that gate.
+- Added Sole Survivor: verified Bri gate clear, selected player zero recorded deaths, every other party member at least one death in that gate.
+- Added Last One Standing: selected player deathless, all other identified non-Harmonic Saint party members have two deaths in the gate (normal revival exhausted); a Harmonic Saint may survive.
+- Added Against All Odds: verified Bri gate clear with at least two confirmed non-Harmonic Saint teammates recording two deaths each in that gate.
 - Require complete timestamped party records; never treat negative HP or Deadly as a death. Missing Arcana information prevents permanent-down awards from being inferred.
-- Keep achievement history in existing storage and preserve original interactive HTML viewer.
+- Kept achievement history in existing storage and preserve original interactive HTML viewer.
 
 ## Companion 92
-- Add Perfectly Dressed: nine boss effects overlap continuously for six minutes on a verified clear.
-- Add Clockwork: five distinct verified Bri Leitt gate boss combats below half their gate mission allowances (20/20/30 minutes). Clearly label that measurement as observed boss combat, not complete mission duration.
-- Add The Long Haul: verified Gate 1/2 boss fights at least 17 minutes; Gate 3 fights over 25 minutes. Threshold omitted from in-app description.
-- Add Burst of Brilliance (10-second personal recorded hit group peak) and Never Off Duty (attributed debuff streak).
+- Added Perfectly Dressed: nine boss effects overlap continuously for six minutes on a verified clear.
+- Added Clockwork: five distinct verified Bri Leith gate boss combats below half their gate mission allowances (20/20/30 minutes). Clearly label that measurement as observed boss combat, not complete mission duration.
+- Added The Long Haul: verified Gate 1/2 boss fights at least 17 minutes; Gate 3 fights over 25 minutes. Threshold omitted from in-app description.
+- Added Burst of Brilliance (10-second personal recorded hit group peak) and Never Off Duty (attributed debuff streak).
 - Solo-survivor/only-deathless-party-member and finishing-strong boss-phase awards deferred: current exports do not prove continuous party alive state or boss-targeted final-phase hits.
 
 ## Companion 91
@@ -814,23 +1015,23 @@
 - The five AG resource marks support partial filling; other AG skills retain provisional training values.
 
 ## Companion 75
-- Remove retired Martyr’s Consecration; place Fateweaver, Golden Magic Wool and Virtuous Oath together in the correct order, with the user-provided wool icon. Add SG Bash and Rage Impact entries.
+- Removed retired Martyr’s Consecration; place Fateweaver, Golden Magic Wool and Virtuous Oath together in the correct order, with the user-provided wool icon. Add SG Bash and Rage Impact entries.
 - Detonation Field layering and Grapple Shot i-frame guidance; remove Shooting Rush from AG landing reference.
-- Add Arsenal Gunner Field & Firing Lane Lab, with multiple independently placed medium fields, an enemy-centered larger attack circle, draggable targets and linear shots (no cones).
-- Add five-mark resource training display to AG Rotation Crafter. Clearly mark as simplified because game tooltip uses numerical Transmutation Energy, and exact generation/spend conversions are unverified.
+- Added Arsenal Gunner Field & Firing Lane Lab, with multiple independently placed medium fields, an enemy-centered larger attack circle, draggable targets and linear shots (no cones).
+- Added five-mark resource training display to AG Rotation Crafter. Clearly mark as simplified because game tooltip uses numerical Transmutation Energy, and exact generation/spend conversions are unverified.
 
 ## Companion 74
-- Correct Terra Scourge as target-selected area damage, not ground-targeted; note the long cast opportunity cost.
+- Corrected Terra Scourge as target-selected area damage, not ground-targeted; note the long cast opportunity cost.
 - Rework Hexshroud around attacking afflicted enemies for Dorcha generation.
 - Rewrite Elemental Knight and Harmonic Saint skills in short, actionable terms.
-- Replace Harmonic Saint Playing Instrument reference card with Encore and its real icon.
+- Replaced Harmonic Saint Playing Instrument reference card with Encore and its real icon.
 - Rephrase the other Arcana references around real rotation decisions rather than dense tooltips; preserve provisional EV details.
 - Reference-only changes; existing simulator behavior retained.
 
 ## Companion 73
-- Hide the standalone Encounter Study navigation and homepage entry points pending its future redesign.
-- Keep its implementation and encounter-derived Vault records intact; requests to open the hidden module route back to the Vault.
-- Preserve Rotation Lab, Debuff Academy and the Vault.
+- Hid the standalone Encounter Study navigation and homepage entry points pending its future redesign.
+- Kept its implementation and encounter-derived Vault records intact; requests to open the hidden module route back to the Vault.
+- Preserved Rotation Lab, Debuff Academy and the Vault.
 
 ## Companion 72
 - The Harmonic Saint music calculator now has one permanently visible “Skill modifying reforges” section for all eight inputs.
@@ -863,8 +1064,8 @@
 ## Companion 66
 - 1–3 override assigned hotbar skills only during an active Stage 2 or Stage 3 combo selection.
 - Stage 1: Charging Strike, Focused Fist, Flurry of Fists; Stage 2: Spinning Uppercut, Somersault Kick, Cyclone Drive; Stage 3: Pummel, Drop Kick, Hammerblow.
-- Add on-screen selectable combo cards, preserve normal hotbar outside combos, prevent cancelled/cooling actions from advancing a stage.
-- Avoid binding browser-reserved F1-F3 for the combo.
+- Added on-screen selectable combo cards, preserve normal hotbar outside combos, prevent cancelled/cooling actions from advancing a stage.
+- Avoided binding browser-reserved F1-F3 for the combo.
 
 ## Companion 65
 - Flashing Steel only consumes a Bash stack when activated during its existing cooldown, without resetting the cooldown timer. Bash stacks decay one every 20 seconds without a new Bash.
@@ -897,47 +1098,47 @@
 - Enduring Melody calculator and on-stage buff announcements now use separate values.
 
 ## Companion 60
-- Add Enduring Melody Protection reforge (+1 flat base per level), Harvest Song Gathering Speed reforge, and independent Vivace Magic/Alchemy Casting Speed reforges (+1 percentage point of base per level for speed modifiers).
-- Apply modifiers to their corresponding base skill results only, preserving separately calculated performance tiers and local persistence.
-- Show the relevant modifier controls dynamically and reflect them in Harmonic Saint simulator text.
+- Added Enduring Melody Protection reforge (+1 flat base per level), Harvest Song Gathering Speed reforge, and independent Vivace Magic/Alchemy Casting Speed reforges (+1 percentage point of base per level for speed modifiers).
+- Applied modifiers to their corresponding base skill results only, preserving separately calculated performance tiers and local persistence.
+- Showed the relevant modifier controls dynamically and reflect them in Harmonic Saint simulator text.
 
 ## Companion 59
-- Add March Song-specific walking/mount speed reforge controls drawn from the supplied mabi.gg calculator, and apply the values exclusively to their matching speed result.
-- Add Normal/Excellent/Inspiring tier-specific effect bonuses without treating them as generic music buff stat.
+- Added March Song-specific walking/mount speed reforge controls drawn from the supplied mabi.gg calculator, and apply the values exclusively to their matching speed result.
+- Added Normal/Excellent/Inspiring tier-specific effect bonuses without treating them as generic music buff stat.
 - Persist the new settings in the existing calculator profile.
 
 ## Companion 58
-- Restore the Oath Workshop as a separate Rotation Lab page alongside Rotation Crafter.
+- Restored the Oath Workshop as a separate Rotation Lab page alongside Rotation Crafter.
 - Reuse the original full / quick / Wool modes and interactive snapshot controls.
 
 ## Companion 57
-- Update Harmonic Saint's Rotation Crafter so randomly spawned heal targets display full-body cartoon ally figures with their weapon silhouettes, instead of simple abstract blocks.
-- Preserve target labels, health bars, and healing pop feedback.
+- Updated Harmonic Saint's Rotation Crafter so randomly spawned heal targets display full-body cartoon ally figures with their weapon silhouettes, instead of simple abstract blocks.
+- Preserved target labels, health bars, and healing pop feedback.
 
 ## Companion 56
 - The Vault accepts Midir `.ndjson` session recordings, parses their raw event stream offline, and converts them into the existing Companion encounter/report model.
 - Group damage hits by second and preserve HP/condition evidence; avoid fabricating verified death/clear evidence where the event data is insufficient.
-- Preserve multiple-import behavior, repeat warnings, existing HTML import, awards and local profile state.
+- Preserved multiple-import behavior, repeat warnings, existing HTML import, awards and local profile state.
 
 ## Companion 55
-- Restore Herb Collection as its own Rotation Lab page.
-- Add eight randomly spawning colored herbs, randomized positions and a persistent counted-herb Storage Chest.
-- Keep herbs as quantities only; no special effects or sale mechanics.
+- Restored Herb Collection as its own Rotation Lab page.
+- Added eight randomly spawning colored herbs, randomized positions and a persistent counted-herb Storage Chest.
+- Kept herbs as quantities only; no special effects or sale mechanics.
 
 ## Companion 54
-- Keep reforge odds undisclosed in the UI, apply a normal-Reforge limit-break pity after 2,500 attempts without a limit break.
-- Add an Erg Break Simulator for Melodic Puppeteer with B/A/S starting routes, nine tiered taps per rank, rank promotion B50→A30 and A50→S30, S50 completion, variable success probabilities from saved Erg table, escalating secret fail stacks, an assist-potion inventory and shared gold, and a persistent weapon chest.
-- Allow transferring owned Reforge Storage Chest weapons into Erg Storage Chest while preserving reforge lines.
+- Kept reforge odds undisclosed in the UI, apply a normal-Reforge limit-break pity after 2,500 attempts without a limit break.
+- Added an Erg Break Simulator for Melodic Puppeteer with B/A/S starting routes, nine tiered taps per rank, rank promotion B50→A30 and A50→S30, S50 completion, variable success probabilities from saved Erg table, escalating secret fail stacks, an assist-potion inventory and shared gold, and a persistent weapon chest.
+- Allowed transferring owned Reforge Storage Chest weapons into Erg Storage Chest while preserving reforge lines.
 
 ## Companion 53
 - Save rolled items with their exact reforge/stim lines; keep in a persistent Storage Chest or list on the Auction House (not both).
 - Independently resolve each listing after a random 15–250 subsequent Reforge/Stim attempts and pay fictional gold based on the best eligible line.
-- Remove sold items from active listings and require a blocking Auction House sale notification to be acknowledged before further rolls. Completed sales remain visible in sales history.
-- Display earned gold, saved collection and pending listings in the simulator; preserve persistent progress across reloads.
+- Removed sold items from active listings and require a blocking Auction House sale notification to be acknowledged before further rolls. Completed sales remain visible in sales history.
+- Displayed earned gold, saved collection and pending listings in the simulator; preserve persistent progress across reloads.
 
 ## Companion 52
 - Adjust the normal weighted level RNG so a 1–20 range averages approximately level 7 (expected 7.0017), while lower levels remain more common.
-- Preserve Echostone one-line Stims, three-line Reforges, and the existing limit-break chance and ranges.
+- Preserved Echostone one-line Stims, three-line Reforges, and the existing limit-break chance and ranges.
 - This weighting remains a custom simulator choice, not real game odds.
 
 ## Companion 51
@@ -945,17 +1146,17 @@
 
 ## Companion 50
 - Echostone Stim remains a single line with no limit break.
-- Add talent-related effects drawn from the 777-row Full Reforge List, grouped by the Echostone page's color/talent descriptions.
-- Preserve exclusive color-specific effects, adding shared talent-related lines (including for Silver).
+- Added talent-related effects drawn from the 777-row Full Reforge List, grouped by the Echostone page's color/talent descriptions.
+- Preserved exclusive color-specific effects, adding shared talent-related lines (including for Silver).
 - Per-effect normal level maxima are drawn from source rows. Chance weights remain illustrative.
 - Talent mapping is generalized: individual Echostone pages may contain exceptions and should be audited later.
 
 ## Companion 49
 - Extract 777 reforge rows with item eligibility, default level ranges and limit break ranges from the user-saved Reforge/Full List HTML.
 - Extract 56 Echostone-exclusive rows with per-color eligibility and level caps from the user-saved Echostone HTML.
-- Correct Stimulant rolls to **one** attribute, while retaining **three** for Reforge. Never apply limit breaks to Stims.
+- Corrected Stimulant rolls to **one** attribute, while retaining **three** for Reforge. Never apply limit breaks to Stims.
 - Note that the saved wiki has no Silver-exclusive rows; the exclusive-only simulator correctly does not invent them.
-- Keep simulator probability model as user-requested fiction, not game odds.
+- Kept simulator probability model as user-requested fiction, not game odds.
 
 ## Companion 48
 - Removes placeholder Practice Workshop links from Arcana landing pages. Other Arcana pages retain Rotation Crafter, while unique future tools can be designed separately.
@@ -964,59 +1165,59 @@
 - Important limitation: the full linked wiki reforge and exclusive Echostone tables were not retrievable (403). The embedded pools are explicitly labeled partial starter examples; full item eligibility, exact ranges and rates are not verified. More complete data import remains pending.
 
 ## Companion 47
-- Remove the Bard/music overlay skill icon so buff announcements return to text-only presentation.
+- Removed the Bard/music overlay skill icon so buff announcements return to text-only presentation.
 - Resolve the remaining ambiguous skill icons by selecting the most modern-looking Midir variants for Charge, Counterattack, Natural Shield, and Stomp.
-- Remove Recovery from Harmonic Saint.
+- Removed Recovery from Harmonic Saint.
 - Bring melee Arcana closer to the strawman and refine Arcana-specific training animations: forward-facing swords for Elemental Knight, close shield-bash posture for Sacred Guardian, punch/kick motion for Blazing Brawler, forward recoil for Arsenal Gunner, a thrusting spear motion for Explosive Vanguard, no string lines and cross-shaped control bars for Melodic Puppeteer, and keep Forbidden Alchemist focused on projectile output.
 
 ## Companion 46
-- Remove the large icon from the Harmonic Saint on-screen buff announcement; retain clean center-stage buff text.
-- Expand local Midir skill icon mapping across the complete Rotation Crafter and Music simulator drawers and hotbars, including verified fighter `Combo:` name aliases.
+- Removed the large icon from the Harmonic Saint on-screen buff announcement; retain clean center-stage buff text.
+- Expanded local Midir skill icon mapping across the complete Rotation Crafter and Music simulator drawers and hotbars, including verified fighter `Combo:` name aliases.
 - Leave unknown or missing skill art as a neutral icon placeholder; no arbitrary substitutions.
 
 ## Companion 45
-- Add the active Bard skill icon to the center-stage overlay in **Rate isn't a Lie**, matching the in-game presentation more closely.
+- Added the active Bard skill icon to the center-stage overlay in **Rate isn't a Lie**, matching the in-game presentation more closely.
 - Continue using local Midir skill icons where available so the simulator resembles the actual buff pop-up style.
 
 ## Companion 44
-- Keep Bard dance animations continuously intense with repeated leaps, exaggerated movement, arm strumming, kicks and instrument swings until the performance is interrupted.
-- Move the music-buff announcement into the middle of the simulator field with contrast for readability, retaining all skill-specific buff lines.
+- Kept Bard dance animations continuously intense with repeated leaps, exaggerated movement, arm strumming, kicks and instrument swings until the performance is interrupted.
+- Moved the music-buff announcement into the middle of the simulator field with contrast for readability, retaining all skill-specific buff lines.
 - Respect reduced-motion preferences and preserve Escape, pointer-away and next-skill interruption behavior.
 
 ## Companion 43
 - Refine the **Rate isn't a Lie** simulator so **Harvest Song** displays all requested support lines: Gathering Success Rate, Production Success Rate, and Gathering Speed.
-- Keep the calculator expanded by default while preserving the ability to collapse it.
-- Preserve Escape and pointer-interrupt behavior so users can stop one performance and immediately play another.
+- Kept the calculator expanded by default while preserving the ability to collapse it.
+- Preserved Escape and pointer-interrupt behavior so users can stop one performance and immediately play another.
 
 ## Companion 42
-- Add Harmonic Saint's Music Buff Effect calculator (wiki-style inputs and performance tiers) and its Bard hotbar performance simulator.
+- Added Harmonic Saint's Music Buff Effect calculator (wiki-style inputs and performance tiers) and its Bard hotbar performance simulator.
 - Calculator begins expanded and can be collapsed without losing the stored settings.
 - Performances are associated with individual skill effects; Escape, clicking elsewhere, or starting a new skill interrupts the current animation without stopping the session.
 - Name in the performance banner comes from the Vault character field, or uses “your” when empty.
 
 ## Companion 41
-- Add all active skills identified in the supplied Combat, Puppetry, Music, Magic, Fighter, Dual Guns, Alchemy, Lance Combat and Holy Arts category/talent lists to the corresponding Arcana crafter pools, excluding passives and crafting.
-- Keep Arcana skills and existing customized cooldowns intact. New unverified cooldowns default to simulation zero (not a game mechanics claim) and can be edited in the builder.
-- Use user-matched Midir KartRider Water Balloon condition 598 art for the Kart Bomb Academy card.
+- Added all active skills identified in the supplied Combat, Puppetry, Music, Magic, Fighter, Dual Guns, Alchemy, Lance Combat and Holy Arts category/talent lists to the corresponding Arcana crafter pools, excluding passives and crafting.
+- Kept Arcana skills and existing customized cooldowns intact. New unverified cooldowns default to simulation zero (not a game mechanics claim) and can be edited in the builder.
+- Used user-matched Midir KartRider Water Balloon condition 598 art for the Kart Bomb Academy card.
 - Wiki is the explicit source for skill membership; skills are not assumed to be usable with every selected weapon/race/character.
 
 ## Companion 40
-- Fix the Rotation Crafter **Clear rotation** control so it clears the entire planned sequence reliably.
-- Add **per-skill customization** inside Build a Rotation, including editable cooldown, action-delay, and charged-skill hold time values. This supports user adjustments such as an Erg-modified Urgent Shot cooldown.
-- Expand **Alchemic Sharpshooter** with additional bow skills including Crash Shot, Mirage Missile, Arrow Revolver, Final Shot, and Support Shot.
+- Fixed the Rotation Crafter **Clear rotation** control so it clears the entire planned sequence reliably.
+- Added **per-skill customization** inside Build a Rotation, including editable cooldown, action-delay, and charged-skill hold time values. This supports user adjustments such as an Erg-modified Urgent Shot cooldown.
+- Expanded **Alchemic Sharpshooter** with additional bow skills including Crash Shot, Mirage Missile, Arrow Revolver, Final Shot, and Support Shot.
 - Generalize the **Rotation Crafter** so every Arcana now has a themed version using the same hotbar/rotation system with Arcana-appropriate visuals: bow archer, dual swords, staff caster, shield user, pistols, brawler, lance user, hand-cannon alchemist, puppeteer, and Harmonic Saint healer.
-- Add a first-pass **Harmonic Saint** party-healing scene that spawns 1–3 random ally targets with health bars when Begin is pressed, then shows healing feedback on relevant skills.
-- Preserve hidden research/source tracking for Skill Knowledge while keeping those citations out of the player-facing UI.
-- Add **Kart Bomb** coverage to Debuff Academy as a provisional increased-damage-taken source in the library and missing-debuff exercise; a temporary placeholder condition icon is used until a verified Midir icon is mapped.
+- Added a first-pass **Harmonic Saint** party-healing scene that spawns 1–3 random ally targets with health bars when Begin is pressed, then shows healing feedback on relevant skills.
+- Preserved hidden research/source tracking for Skill Knowledge while keeping those citations out of the player-facing UI.
+- Added **Kart Bomb** coverage to Debuff Academy as a provisional increased-damage-taken source in the library and missing-debuff exercise; a temporary placeholder condition icon is used until a verified Midir icon is mapped.
 
 ## Companion 39
-- Replace the provisional 25% per-skill orb increments with user-provided primary and secondary element gains: Ignis Plume Fire +36% / secondary +18%, Aqua Volley Water +52% / secondary +26%, Terra Scourge Earth +100% / secondary +62%, Ventus Howl Wind +78% / secondary +39%. Each orb is capped at 100%.
+- Replaced the provisional 25% per-skill orb increments with user-provided primary and secondary element gains: Ignis Plume Fire +36% / secondary +18%, Aqua Volley Water +52% / secondary +26%, Terra Scourge Earth +100% / secondary +62%, Ventus Howl Wind +78% / secondary +39%. Each orb is capped at 100%.
 - Let players select a different secondary element for each skill; default Plume to Water, Volley to Fire, Terra to Wind, and Ventus to Earth. Selection persists locally. The grey-until-full orb display shows exact percentages, and existing Golden Time and Tri-Assault consumption rules remain.
 - Values originate from prior user-supplied AS mechanics; no assumption about unverified skill activation packets is added.
 
 ## Companion 38
 - Swap the two Crafter hotbar rows: F1–F12 above 1–=.
-- Add four in-session four-step Alchemy Orb meters, grey until full, then Fire red, Water blue, Wind white and Earth brown. For exploratory practice, Ignis Plume, Aqua Volley, Ventus Howl and Terra Scourge each add one to the matching element; Golden Time fills all. These increments are **illustrative trainer assumptions**, not verified exact game orb-generation values.
+- Added four in-session four-step Alchemy Orb meters, grey until full, then Fire red, Water blue, Wind white and Earth brown. For exploratory practice, Ignis Plume, Aqua Volley, Ventus Howl and Terra Scourge each add one to the matching element; Golden Time fills all. These increments are **illustrative trainer assumptions**, not verified exact game orb-generation values.
 - Tri-Assault requires full Fire and Water orbs, spends both on activation, automatically animates three shots from one keypress, includes a 750ms pause between shots two and three, and displays brief edge fireworks on shot three. All other skill activations are suppressed until the third shot, and session termination cancels pending shots.
 - Retains all Companion-37 features and assets.
 
@@ -1029,36 +1230,48 @@
 ## Companion 36
 - Every Arcana's Rotation Lab now opens on the same **Skill Knowledge** landing structure, showing the Arcana's skills, roles, explanation and provenance. Existing AS Rotation Crafter, DD automaticity, Sacred Guardian Oath Workshop, and other Arcana practices remain accessible through **Available pages** buttons.
 - Alchemic Sharpshooter and Dark Diviner skill entries use prior project/user research; February 2026 and July 2025 official Nexon update information is preferred for recently changed AS damage/cooldowns. All unverified exact effects and skills in other Arcanas are explicitly provisional; keep this reference editable in `rotation-reference.js`. Official references: https://www.nexon.com/mabinogi/news/35462/february-quality-of-life-update and https://www.nexon.com/mabinogi/news/28264/arcana-faith-and-fury-update.
-- Add a separate AS **Positioning Lab** with 1–15 randomized enemies, placement/removal and drag-to-position controls, draggable character and aiming handle, adjustable firing angle/range, cone spread and line width, and an Attack action that briefly highlights and eliminates affected targets. Restore and randomize controls support repeated experiments. Geometry is intentionally illustrative and not calibrated to in-game Mabinogi hitboxes.
-- Retain all current Vault imports, awards, records, Arcana practices, CSS and local storage schema. No Midir exporter changes.
+- Added a separate AS **Positioning Lab** with 1–15 randomized enemies, placement/removal and drag-to-position controls, draggable character and aiming handle, adjustable firing angle/range, cone spread and line width, and an Attack action that briefly highlights and eliminates affected targets. Restore and randomize controls support repeated experiments. Geometry is intentionally illustrative and not calibrated to in-game Mabinogi hitboxes.
+- Retained all current Vault imports, awards, records, Arcana practices, CSS and local storage schema. No Midir exporter changes.
 - Verification: JS syntax and headless Chromium in-memory interaction tests across ten Arcana hubs, DD drill, AS crafter, and positioning interactions. Normal file-origin/IndexedDB workflow not re-verified in this release.
 
 ## Companion 35
 - Tighten the header, navigation, Vault heading, character selector, form spacing, and report rows without reducing the prominence or changing the styling of the three achievement collectible cards.
-- Keep import and milestone entry controls balanced on larger screens and stack cleanly on smaller screens. Maintain full-width saved milestones with Edit and Remove actions.
-- Condense saved-report metadata and action rows into clearer responsive layouts, keeping report viewing and removal behavior unchanged.
+- Kept import and milestone entry controls balanced on larger screens and stack cleanly on smaller screens. Maintain full-width saved milestones with Edit and Remove actions.
+- Condensed saved-report metadata and action rows into clearer responsive layouts, keeping report viewing and removal behavior unchanged.
 
 ## Companion 34
-- Move The Vault to the far-left position in the main navigation and preserve the requested tab order: **The Vault, Rotation Lab, Debuff Academy, Encounter Study**.
-- Replace the old left-side Overview control with a compact **three-line menu icon on the right** of the navigation row. The slide-out panel now opens from the **right side** of the screen and no longer shows “Overview” on the toggle itself.
-- Simplify the Vault header by removing the separate **Your Character** card. Character selection is now an inline field at the top of the Vault. A compact **Save** button appears only when the typed name differs from the currently saved tracked character.
-- Condense the **Add to Your Vault** controls so report import and backup actions occupy less space, while keeping **My Milestones** beside them. Saved personal milestones now render in their own **full-width** section below, with existing edit and remove controls preserved.
-- Keep existing encounter-aware records, debuff evidence, repeat-import behavior and collectible logic unchanged from Companion-33.
+- Moved The Vault to the far-left position in the main navigation and preserve the requested tab order: **The Vault, Rotation Lab, Debuff Academy, Encounter Study**.
+- Replaced the old left-side Overview control with a compact **three-line menu icon on the right** of the navigation row. The slide-out panel now opens from the **right side** of the screen and no longer shows “Overview” on the toggle itself.
+- Simplified the Vault header by removing the separate **Your Character** card. Character selection is now an inline field at the top of the Vault. A compact **Save** button appears only when the typed name differs from the currently saved tracked character.
+- Condensed the **Add to Your Vault** controls so report import and backup actions occupy less space, while keeping **My Milestones** beside them. Saved personal milestones now render in their own **full-width** section below, with existing edit and remove controls preserved.
+- Kept existing encounter-aware records, debuff evidence, repeat-import behavior and collectible logic unchanged from Companion-33.
 - Verification: JavaScript syntax validation plus package assembly checks. Full interactive browser-origin validation still recommended in normal Chrome/Edge.
 
 ## Companion 33
 - Added pure offline encounter/attempt analysis (`analysis.js`) over actual Midir-41 `midir-companion` v1 payloads. Logical Vertrag 7600→7601 pairs remain one attempt; recognized Gate 2 and Gate 3 boss entities create separate attempts. Verify clears conservatively from the existing explicit evidence. Show fastest **verified boss-attempt** time per encounter rather than conflating a multi-gate recording with dungeon completion. Time-bounded player deaths and all-target hit-group damage are labeled as such, never cast counts or exact boss-only damage.
-- Preserve observed **target and player condition intervals, attacker IDs, first-seen/spawn timestamps, skill IDs and grouped damage-hit timestamps** on import. In the Vault, list observed debuff categories per attempt, explain the provisional 10-group reference, and display evidence for selected character. Confirm source via the boss condition attacker entity ID, or infer a likely contributor only when a **unique** player has a recognized compatible skill hit within ±3 seconds of an ownerless condition. Do not give ownership to someone else if the packet has another attacker ID, infer unknown pet owners, or call hit events proven casts.
+- Preserved observed **target and player condition intervals, attacker IDs, first-seen/spawn timestamps, skill IDs and grouped damage-hit timestamps** on import. In the Vault, list observed debuff categories per attempt, explain the provisional 10-group reference, and display evidence for selected character. Confirm source via the boss condition attacker entity ID, or infer a likely contributor only when a **unique** player has a recognized compatible skill hit within ±3 seconds of an ownerless condition. Do not give ownership to someone else if the packet has another attacker ID, infer unknown pet owners, or call hit events proven casts.
 - Automatic encounter-specific rewards: **Debuff Contributor** for any defensible attributed application, **Quick Setup** for applications up to 10 seconds after recorded boss appearance, and **Reference Coverage Together** when all the currently listed groups were observed at least once. Last award is explicitly **provisional**, not a verified final full-game debuff set or continuous/simultaneous uptime; the complete set awaits user verification. Existing Bri survival collectibles retain their rules.
-- Allow repeat-session HTML imports, each with its own Vault entry and its own collectible/reward counting; show **possible repeat** warnings for matching recording signatures. Retain JSON→HTML attachment for older data-only entries. Removal remains per import. These are not cryptographic deduplication guarantees.
-- Correct initial language rerender failure caused by a hyphenated `aria-label` DOM dataset property. Restore Academy Flashcards by initializing the active deck IDs and valid icon set from the verified local condition-icon registry. Avoid stacking celebration dialogs on repeated imports. Improve confusing Gate 3 `Human` report label without altering original archived HTML.
-- Preserve original graphical per-skill highest-hit fields from the HTML report while minimizing the redundant saved report summary (full original remains in IndexedDB). Restore record-high hit, skill-hit, raw damage-total and damage-taken comparisons where **both reports contain one recognized matching boss encounter and have the same export target scope**; clearly label these as recording-scoped metrics, not confirmed boss-only hits. Keep localStorage profile keys, training modules, local illustrations, user notes, and one rolling changelog unchanged.
+- Allowed repeat-session HTML imports, each with its own Vault entry and its own collectible/reward counting; show **possible repeat** warnings for matching recording signatures. Retain JSON→HTML attachment for older data-only entries. Removal remains per import. These are not cryptographic deduplication guarantees.
+- Corrected initial language rerender failure caused by a hyphenated `aria-label` DOM dataset property. Restore Academy Flashcards by initializing the active deck IDs and valid icon set from the verified local condition-icon registry. Avoid stacking celebration dialogs on repeated imports. Improve confusing Gate 3 `Human` report label without altering original archived HTML.
+- Preserved original graphical per-skill highest-hit fields from the HTML report while minimizing the redundant saved report summary (full original remains in IndexedDB). Restore record-high hit, skill-hit, raw damage-total and damage-taken comparisons where **both reports contain one recognized matching boss encounter and have the same export target scope**; clearly label these as recording-scoped metrics, not confirmed boss-only hits. Keep localStorage profile keys, training modules, local illustrations, user notes, and one rolling changelog unchanged.
 - Verification: JS syntax, supplied sample export parsing, simulated Chromium UI navigation and repeated import/flashcard interaction. Full Windows EXE execution and live game verification not performed. Browser storage behavior needs validation in normal supported browser origin. No Midir-41 exporter changes in this release.
 
+> **Current-build clarification:** Companion 275 uses nine specified debuff condition groups for party-coverage awards, not this early provisional ten-group model. Recognized duplicate imports offer replacement or cancellation; only unmatched near-duplicates may coexist.
+
 ## Companion 32
-- Fix the sidebar Close button disappearing after opening: its static control now remains mounted while recent-training content rerenders in a separate child container.
+- Fixed the sidebar Close button disappearing after opening: its static control now remains mounted while recent-training content rerenders in a separate child container.
 - The Overview toggle opens and closes the panel. Escape and clicking outside the panel also dismiss it. Sidebar visibility and accessible expanded/hidden state remain synchronized.
 - Consolidated historical release notes 05–31 into one changelog; no application behavior changed.
+
+## Companion 5–31 — Condensed early release history (5–31)
+- **05–09:** Expanded offline foundations, collectible evidence, Arcana pages, and Sacred Guardian Oath Workshop.
+- **06, 11–16:** Added Midir skill and condition icons, shared/pet debuff recognition, and verified Lightning Debuff artwork.
+- **17–19, 21, 27:** Developed shuffled flashcards, persistent set-aside deck, procedural missing-debuff drills, and guided lesson artwork.
+- **10, 20, 22–25:** Reorganized Vault navigation, imported HTML viewing/removal, and illustrated collectibles.
+- **26–28:** Corrected Gate 1 collectible phase handling, exact character attribution, and Overview sidebar.
+- **29–30:** Added editable milestones, achievement catalog, and compact Vault layout.
+- **31:** Added English/Korean/Spanish selection with partial translation support.
+- Intermediate corrections and superseded implementations are represented by their final documented behavior rather than repeated as separate entries.
 
 ## Companion 17
 - Randomized icon flashcards; persistent set-aside and restore deck.
@@ -1081,29 +1294,102 @@
 - Created offline browser Companion with Midir HTML/JSON import, Alchemic Sharpshooter practice, Dark Diviner drills, Debuff Academy, encounter summaries, and personal records.
 - Established local persistence and conservative evidence rules for report-derived milestones.
 
-## Companion 5–31
-- **05–09:** Expanded offline foundations, collectible evidence, Arcana pages, and Sacred Guardian Oath Workshop.
-- **06, 11–16:** Added Midir skill and condition icons, shared/pet debuff recognition, and verified Lightning Debuff artwork.
-- **17–19, 21, 27:** Developed shuffled flashcards, persistent set-aside deck, procedural missing-debuff drills, and guided lesson artwork.
-- **10, 20, 22–25:** Reorganized Vault navigation, imported HTML viewing/removal, and illustrated collectibles.
-- **26–28:** Corrected Gate 1 collectible phase handling, exact character attribution, and Overview sidebar.
-- **29–30:** Added editable milestones, achievement catalog, and compact Vault layout.
-- **31:** Added English/Korean/Spanish selection with partial translation support.
-- Intermediate corrections and superseded implementations are represented by their final documented behavior rather than repeated as separate entries.
+## Unattributed legacy note
+
+The original changelog included the following EV Base Manager note outside a version section. Its release number was not documented, so no version is assigned here.
 
 - EV Base Manager: owned skill palette only; drag skills into the rotation, reorder repeated links, and view greyed-out cooldown icons with numeric timers.
 
-## Companion 208 — Crom enemy identities, movement, and combat art
-- Renamed former Wyneb summoner into Un Llygadog; eliminated generic Llygadog placeholder from active pools.
-- Added Cari-paired Wyneb, which pursues after taking damage then locks in place with an invulnerable timed explosive warning radius.
-- Gwallgof now uses constant-distance stepping with progressively longer top-to-bottom traversal, including the bottom-center safe sector; Ronaun advances into side danger lanes.
-- Restricted ordinary ranged projectiles to Disciples, Cari, and Un Llygadog; Ronaun and Wraith keep their specials only.
-- Replaced generic enemy circles with distinct canvas fantasy silhouettes, added a hooded bow-wielding player, and rendered normal magic as fiery orange projectiles and Ice Spear as large blue crystal bolts.
-- Added original visual concept sheet under assets/crom/ for later transparent atlas development.
 
+### 280 (0.2.80) — Mobile PWA foundation
+1. HTTPS installable web app manifest and locally created icon set; offline application shell, cautious on-demand asset cache, cache rotation on update.
+2. Opt-in home-screen install prompt on supported browsers; no automatic profile sync.
+3. Enabled touch-capable Bandit Hunt on mobile using existing action buttons and responsive board. Herb Gathering and Reforge Simulator remain accessible.
+4. Desktop-only keyboard/mouse modes remain disabled on phones. Retained 279 mobile import/storage guards.
 
-## Companion 212 — Camp and Hotbar Pass
-- Fixed the camp shop trap by preventing the shop trigger from immediately reopening when the close button is used.
-- Added a customizable drag-and-drop hotbar with skill icons and slot reassignment.
-- Added skill icons to the Dark Erg Shop unlock list.
-- Reworked the camp into a desolate pioneer staging ground with a cathedral approach to Crom Bás.
+### 281 (0.2.81) — Crom Bas Invaders mobile controller
+1. Mobile Invaders enabled; fixed 800:620 playfield with left hold/release skill buttons (Aqua Volley, Terra Scourge, Anchor Rush), right analog movement and landscape guidance.
+2. Reuse existing charges, placement, cooldowns and analog movement logic; avoid keyboard simulation and desktop input changes.
+3. Touch state resets on pause, navigation or lost capture; preserved all progress and save schema.
+4. Rotate PWA shell cache for the new game files.
+\n### 286 (0.2.86) — Twilight Surge residual gauge and burst value\n1. Seething Mana ON: completed spell casts add 5% to an independent Residual Dorcha gauge (not on hit); gauge caps at 100%.\n2. Twilight Surge is manually triggered at 100% charge and cooldown ready (36 seconds by default); consumes all charge, costs zero ordinary Dorcha and no Seething surcharge, and is removed from mandatory note generation.\n3. Damage-weighted Surge burst earns 1,600 base points before established combo/upgrade/Seething modifiers, displays readiness and gauge, and uses existing provisional cast lock.\n4. Preserved 285 Shadow Flare timing and existing save keys; added focused regression tests. Source: theta-rhythm.js, tests/theta286_surge_test.py.\n
+### 287 (0.2.87) — Twilight Surge timed lesson note
+1. Protocol 6 teaches Twilight Surge with an eight-second approach animation during the end of the 36-second cooldown after the first Surge. At the due point, an increasingly radiant, faster-pulsing reminder remains for six seconds, after which an uncast Surge automatically fails containment. The opening Surge must be used to complete this lesson.
+2. Protocols 7–10 preserve the same cooldown and persistent reminder but never auto-fail; the reminder remains separate from regular hit judgment and overheat.
+3. The protocol-6 offensive chart now offers a shorter Thunder cadence and less frequent Shadow Flare interrupts so the charged 20-cast Surge cycle is achievable. Existing cooldown/resource/scoring rules and player saves are preserved. Sources: Companion Files/theta-rhythm.js and tests/theta287_surge_note_test.py.
+
+### 288 (0.2.88) — Dark Diviner spell costs, Thunder/S50 and Hexshroud
+
+1. Thunder Intermediate Magic Seething cost table (1.3→0.6) and Advanced/Dark Diviner table (1.6→0.6), with Magic talent +0.5 Dorcha/cast and 50 MP Seething activation, based on supplied skill-cost screenshots.
+2. Thunder six-hit Hexshroud recovery, timed as separate rapid strikes; Polar Vortex small ongoing scoring/resource ticks.
+3. Thunder provisional baseline 1.30s and S50 1.00s load, independent of Vivace. Shadow Flare and Twilight Surge both use agreed Vivace 5.0–1.0s.
+4. Erg Simulator saved S50 Staff redemption into Theta and alternative 950-Sigil purchase. Saved-state compatibility maintained; tests/theta288_mechanics_test.py covers resource/timing/trade invariants.
+
+### 289 (0.2.89) — Theta shop focus and Ice Bolt
+1. Retired Mana Reservoir, Dark Economy, Hexshroud Extension and Ritual Precision from purchase and effects. Legacy upgrade fields remain in saved profiles without giving retired benefits; Containment Aura remains an optional visual-only particle purchase placed last.
+2. Ice Bolt unlock: five automatically timed one-second releases from a single activation, treated as five Bolt Magic casts for 0.5 Magic-talent Dorcha each, 0.9 Seething Dorcha cost each, +5% Residual charge each with Seething ON, and one Hexshroud recovery per hit. Existing note chart shifts during the automatic volley.
+3. Cross-game one-time Sigil purchases grant standard or protective red/blue stones to Special Upgrade and Erg Unlock Assist Potions to the shared Reforge/Erg inventory. Shop puts functional upgrades before cosmetic items.
+4. S50 Erg staff redemption, Shadow Flare Vivace timing, Surge lesson, 15-Dorcha cap, and prior saves preserved. Sources: Companion Files/theta-rhythm.js, Companion Files/reforge-simulator.js.
+
+### 290 (0.2.90) — Ice Bolt timing and Arcane Aesthetics
+1. Ice Bolt loads once for 1.00s, then releases five guaranteed-hit casts 0.30s apart (1.20s first-to-last). Each cast separately incurs Bolt-tier Seething cost, contributes 5% residual charge while ON, and triggers one Hexshroud recovery; all Dorcha is clamped to 15. Thunder remains one cast and six hits. [Source: user gameplay specifications, 2026-11-04.]
+2. Replaced cosmetic Containment Aura particle increments with saved, toggleable Arcane Aesthetics tiers: Thunder palette and alternate jagged bolt shapes; Shadow Flare projectile/flame variants; Polar Vortex seasonal snow/wind/heat/leaves/icicle motifs. Existing purchased ranks are honored. Purely visual; no point, resource or timing advantage. [Source: user cosmetic directions, 2026-11-04.]
+3. Version and offline cache updated to 0.2.90. [Source: cumulative build convention.]
+
+### 291 (0.2.91) — Theta cosmetic quality pass
+1. Refined Arcane Aesthetics so Thunder, Shadow Flare, and Polar Vortex variants use richer layered animation, stronger silhouette separation, and more themed particles/motion. The goal is to make cosmetic tiers feel worthwhile while staying purely visual. [Source: user request for a cosmetic quality pass, 2026-11-04.]
+2. Clarified the Cosmetic Studio descriptions so each tier explains what visual changes it unlocks. [Source: user request for cosmetics to feel high quality and worthwhile, 2026-11-04.]
+3. Updated the version and cache labels to 0.2.91. [Source: cumulative build convention.]
+
+### 292 (0.2.92) — Thunder feel pass
+1. Reworked Thunder presentation in Subject Theta so the base spell and cosmetic variants feel more satisfying to cast: visible staff-side charge source, multi-strand bolt travel, brighter target impact bursts, and mild screen shake. [Source: user request to focus on Thunder feel, 2026-11-04.]
+2. Added a lightweight layered Thunder cast / hit sound profile to better sell the cast and repeated strike sequence while keeping the rhythm game fully offline and self-contained. [Source: user request to make Thunder feel enthralling to use, 2026-11-04.]
+3. No scoring, cooldown, Dorcha, or cadence rules were changed; this is a presentation / feel pass only. [Source: preservation requirement.]
+4. Updated version and cache labels to 0.2.92. [Source: cumulative build convention.]
+
+### 293 (0.2.93) — Mobile utility access audit
+1. Provided direct mobile home shortcuts to Music Buff Effect Calculator, Special Upgrade, Erg Simulator, Oath Max setup, Emergency Oath, and Oath checklist. The calculator now runs in a standalone touch-friendly route instead of being blocked with the keyboard-based Bard performance simulator. [Source: user mobile availability request, 2026-11-04.]
+2. Added narrowly scoped mobile layout and touch-target adjustments for music forms, Special Upgrade, Erg and SG stat entry; desktop presentation remains unchanged. [Source: user mobile playability request, 2026-11-04.]
+3. Updated version and offline cache to 0.2.93. [Source: cumulative build convention.]
+
+### 294 (0.2.94) — Mobile menu, Achievement Book and music page
+1. Reunited the Music Buff Calculator and the Rate Isn't a Lie performance gag on one shared page for desktop and mobile. On phones, calculator inputs work and the simulator remains visible with Begin disabled; desktop Begin is unchanged. [Source: user mobile layout preference, 2026-11-04.]
+2. Improved the Achievement Book mobile dialog layout with scrollable book pages, persistent chapter-turn controls, and 44px mobile close/turn targets; the existing achievement filtering and Secret Sauce toggle are preserved. [Source: user request for full mobile book exploration, 2026-11-04.]
+3. Verified slide-out menu Settings and See Secret Sauce on mobile; no change to desktop menu behavior. Updated version and PWA cache labels. [Source: user mobile navigation verification request, 2026-11-04.]
+
+### 295 (0.2.97) — Mobile visual consistency and full-screen report reader
+1. Audited shared desktop/mobile palette, typography, navigation and card styles. Preserved desktop visual identity and retained compact mobile layout behavior. [Source: user visual-consistency review request, 2026-11-04.]
+2. Open saved interactive HTML reports in a dedicated full-screen phone reader, with fixed close, scatter jump, zoom in/out and fit controls. A viewer-only helper adjusts the chart display and enables point-tap tooltip interaction; original HTML remains saved unmodified and sandboxed. [Source: user request for mobile scatter visibility and zoom, 2026-11-04.]
+3. Desktop report inline and new-tab behaviors are unchanged. Version and offline cache updated to 0.2.97. [Source: cumulative build convention.]
+
+### 296 (0.2.97) — Theta visual clarity and overheat feedback pass
+1. Replaced Subject Theta's round bottom timing receivers with flatter on-track timing rings sized to cleanly contain incoming notes at the hit point, and removed the extra circular strike-line overlays above the keycaps. [Source: user visual feedback, 2026-11-04.]
+2. Reworked miss feedback so overheat is communicated through red energy flashing along the track edges, with a persistent red danger state and full-screen vignette at 4/5 overheat, instead of a large on-screen miss/overheat text counter. [Source: user visual feedback, 2026-11-04.]
+3. Cleaned the right-side Theta HUD to reduce overlapping text and shorten utility readouts while preserving cooldown/state information. [Source: user UI cleanup request, 2026-11-04.]
+4. Reduced Thunder impact occlusion over Theta so the boss reaction remains visible through the effect while keeping the improved cast feel. [Source: user feedback on Thunder readability, 2026-11-04.]
+5. Simplified the live status strip by removing the on-screen overheat counter. [Source: user feedback to minimize text.]
+
+### 297 (0.2.97) — Vertrag sprite cleanup
+1. Cleaned several Vertrag movement/attack sprite frames that were still carrying detached pieces of neighboring poses from the source sheet export. The affected frames now keep only the main silhouette plus very small VFX fragments, removing the stray body-piece bleed visible at the left/right edges during motion. [Source: user report, 2026-11-05.]
+2. Added extra transparent padding around all Vertrag boss frames so the scaled animation has more breathing room and is less prone to edge artifacts while moving. [Source: user report, 2026-11-05.]
+
+### 298 (0.2.98) — Large imports, sprite framing, Vertrag charge
+1. Increased individual report import and archive reactivation safety limit from 40 MB to 90 MB and parsed embedded JSON directly rather than constructing a full HTML DOM; multi-encounter recordings remain one report for achievement and duplicate-credit safety. [Source: 58.6 MB seven-encounter user export and request, 2026-11-05.]
+2. Vertrag now snapshots the player's position when charge windup begins, traverses the entire distance to that point, and uppercuts at that fixed endpoint even if the player moves. The telegraph shows the full path. [Source: user gameplay feedback, 2026-11-05.]
+3. Giant quiet zones and visual rings expanded by 20%, preserving the existing adjustable stomp radius and four-giant rule. [Source: user gameplay feedback, 2026-11-05.]
+4. Cleaned detached neighboring poses from shared Vertrag player animation frames; reviewed other game atlases for sprite sampling boundaries. [Source: user sprite feedback, 2026-11-05.]
+
+### 299 (0.2.99) — Theta & Vertrag usability
+1. Used bundled skill icons for Theta controls; condensed help into a Quick Guide and collapsible reference.
+2. Increased Theta base MP to 2,500, without altering skill costs or Lucky Strike percentages.
+3. Replaced Vertrag setup dropdowns with interactive giant occupation toggles over the arena and central Trial/Endless buttons; locked drill selectors no longer clutter the main menu.
+4. Added a player-facing overhead HP bar and default H potion key, included in customizable controls and compatible with older saves.
+
+### 300 (0.3.0) — Vertrag defensive state selection
+1. Added a four-choice defensive loadout screen between selecting Trial/Endless and entering Vertrag's arena: Easy (shield, Sacred Guardian-like), Normal (heavy breastplate), Hard (leather armor), Veteran (sunglasses). [Source: user request, 2026-11-05.]
+2. Reused the existing damage multipliers (8%, 52%, 100%, 160% respectively) and saved durability fields, retaining save compatibility and prior tuning. [Source: established Vertrag survival mechanics.]
+3. Moved the armor selector out of the arena preparation overlay, keeping giant toggles and time-trial duration controls intact; the selected defense tier is visible in the run header. [Source: user-requested two-step launch flow.]
+
+### 301 (0.3.0) — Version milestone
+1. Promoted the Companion version label from 0.2.100 to 0.3.0. No gameplay or saved-data schema changes. [Source: user request, 2026-11-05.]
+2. Advanced PWA cache identifiers so installed copies can refresh the version display. [Source: release hygiene.]

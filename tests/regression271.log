@@ -1,0 +1,17 @@
+PASS load all 24 modules
+PASS Vault accessible without Secret Sauce
+PASS Achievement Book opens
+PASS Debuff Academy loads
+PASS Debuff missing-status scenario
+PASS DD hub has Theta/Crafter, no legacy drill
+PASS Theta module opens
+PASS Theta menu controls available
+PASS DD Rotation Crafter opens
+PASS AS Crom Bás Invaders opens
+PASS EV Tower Defense opens
+PASS SG Rotation Crafter opens
+PASS HS Rotation Crafter opens
+PASS FA Rotation Crafter opens
+PASS EV Reforge Simulator opens
+PASS Settings available from sidebar
+PASS No page-level JavaScript errors

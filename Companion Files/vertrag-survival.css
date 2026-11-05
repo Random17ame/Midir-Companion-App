@@ -1,0 +1,35 @@
+.vt-shell{max-width:1100px;margin:12px auto}.vt-shell h2{margin-bottom:8px}.vt-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.vt-tabs button{min-height:38px}.vt-levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:16px 0}.vt-level{padding:16px;text-align:left;display:flex;flex-direction:column;gap:8px;min-height:75px}.vt-level small{opacity:.75}.vt-level.chosen{outline:2px solid #83d1ff}.vt-controls{display:flex;flex-wrap:wrap;gap:10px}.vt-controls button{min-width:135px;display:flex;justify-content:space-between;gap:10px}.vt-config{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:18px 0}.vt-config label{display:flex;flex-direction:column;gap:6px}.vt-config input{max-width:190px}.vt-hud{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:10px}.vt-hud strong{color:#9bd8f7}#vt-canvas{display:block;width:100%;max-width:850px;aspect-ratio:85/54;border:2px solid #648494;background:#15202a;border-radius:9px;margin:auto;outline-offset:4px}.vt-bars{margin:12px 0;display:flex;align-items:center;flex-wrap:wrap;gap:12px}.vt-meter{width:125px;height:11px;background:#38252b;border-radius:5px;overflow:hidden}.vt-meter i{display:block;height:100%;background:linear-gradient(90deg,#b95760,#5dd6ba)}.vt-award{padding:14px;border:1px solid #5554;border-radius:8px}.vt-award.earned{border-color:#7ad4ba;color:#b4fbe4}.vt-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px}.vt-results span{padding:14px;border:1px solid #7775;border-radius:7px;display:flex;justify-content:space-between}
+.vt-setup{margin:12px 0 7px}.vt-setup select{margin-top:5px;width:100%;max-width:245px;min-height:34px}.vt-guide{line-height:1.6;max-width:850px}.vt-guide p{margin:12px 0}.vt-details{margin-top:20px;border-top:1px solid #8da9b044;padding-top:10px}.vt-details summary{cursor:pointer;font-weight:600;padding:8px 0}.vt-records{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.vt-records span{padding:8px 12px;border:1px solid #7775;border-radius:6px}#vt-canvas{cursor:crosshair;touch-action:none}
+
+/* Build 299: giant-select arena in place of challenge dropdowns. */
+.vt-preview-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.vt-preview{position:relative;max-width:850px;margin:auto;aspect-ratio:85/54}
+#vt-setup-canvas{display:block;width:100%;height:100%;border:2px solid #648494;background:#14232c;border-radius:9px;cursor:pointer;touch-action:manipulation}
+.vt-preview-center{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);display:flex;align-items:center;flex-direction:column;gap:9px;padding:13px 17px;background:#101b2ce8;border:1px solid #5d998c88;border-radius:14px;min-width:230px;text-align:center;box-shadow:0 9px 25px #0009}
+.vt-mode-buttons{display:flex;gap:9px}.vt-mode-buttons button{font-size:1.04rem;min-width:105px;min-height:55px;font-weight:700}
+.vt-setup-compact{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}.vt-setup-compact span{font-size:.75rem;display:flex;align-items:center;gap:5px}.vt-setup-compact select{max-width:105px}
+.vt-giant-caption{position:absolute;bottom:5%;left:50%;transform:translateX(-50%);width:max-content;max-width:94%;font-size:.8rem;color:#e4f8f0;background:#091b2cc9;border-radius:6px;padding:7px 10px;text-align:center;pointer-events:none}
+.vt-preview-summary{text-align:center}
+@media(max-width:550px){.vt-preview-center{min-width:0;width:58%;padding:7px}.vt-mode-buttons{flex-direction:column}.vt-mode-buttons button{min-height:40px}.vt-giant-caption{font-size:.66rem}.vt-setup-compact{display:none}}
+
+/* Build 300: four-card defensive state picker after mode selection. */
+.vt-defense-head{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.vt-defense-head h2{margin-bottom:4px}
+.vt-defense-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.vt-defense-card{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;min-width:0;min-height:275px;padding:20px 12px 18px;color:#e5f6f5;border:1px solid #5c8892;background:linear-gradient(165deg,#172d38,#101a2c 72%);border-radius:14px;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.vt-defense-card:hover,.vt-defense-card:focus-visible{transform:translateY(-4px);border-color:#82e8d0;box-shadow:0 10px 27px #0007,0 0 0 1px #89ead066;outline:none}
+.vt-defense-card.vt-defense-last{border-color:#81b6af}
+.vt-defense-symbol{display:grid;place-items:center;font-family:'Segoe UI Emoji','Apple Color Emoji',sans-serif;font-size:3.2rem;line-height:1.25;min-height:70px;filter:drop-shadow(0 6px 12px #0009)}
+.vt-defense-symbol.guardian{color:#a9e1f3}.vt-defense-symbol.defensive{color:#d5e5fa}.vt-defense-symbol.standard{color:#ca9869}.vt-defense-symbol.fragile{color:#e9d09a}
+.vt-defense-title{font:700 1.45rem Georgia,serif;color:#f1f7ff}
+.vt-defense-gear{font-weight:700;color:#87decc;font-size:.93rem}
+.vt-defense-desc{font-size:.84rem;color:#c5d8dd;min-height:34px}
+.vt-defense-damage{margin-top:auto;padding:6px 10px;background:#25434a;border-radius:99px;font-size:.82rem;font-weight:700;color:#e3ffe9}
+.vt-defense-hint{font-size:.76rem;color:#9db9c3}
+.vt-defense-foot{margin-top:16px;text-align:center}
+@media(max-width:850px){.vt-defense-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vt-defense-card{min-height:240px}}
+@media(max-width:430px){.vt-defense-grid{gap:9px}.vt-defense-card{padding:12px 7px;min-height:260px}.vt-defense-symbol{font-size:2.45rem;min-height:56px}.vt-defense-title{font-size:1.18rem}.vt-defense-gear{font-size:.79rem}.vt-defense-desc{font-size:.72rem}.vt-defense-hint{font-size:.69rem}}
+@media(prefers-reduced-motion:reduce){.vt-defense-card{transition:none}.vt-defense-card:hover{transform:none}}
+
+.vt-defense-symbol svg{display:block;width:66px;height:66px;filter:drop-shadow(0 6px 9px #0008)}
+@media(max-width:430px){.vt-defense-symbol svg{width:53px;height:53px}}

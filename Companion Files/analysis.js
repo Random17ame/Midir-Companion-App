@@ -17,7 +17,7 @@ window.MIDIR_ANALYSIS = (() => {
   {id:'kartbomb',name:'Kart Bomb · Water Balloon (unique defense reduction)',statuses:[598],skills:[]},
   {id:'reversal',name:'Fateweaver · Aspect of Reversal (healing on hit)',statuses:[515],skills:[]}
  ];
- const bosses = new Map([[7585,{label:'Glenn Bearna · Primeval Winter (observed form 1)',key:'glenn-form1',formOnly:true}],[7586,{label:'Glenn Bearna · Primeval Winter (observed form 2)',key:'glenn-form2',formOnly:true}],[7587,{label:'Glenn Bearna · Primeval Winter (observed form 3)',key:'glenn-form3',formOnly:true}],[7602,{label:'Bri Leitt · Gate 2 — Bronntanas',key:'bri-g2'}],[7603,{label:'Bri Leitt · Gate 3 — Midir the Beloved',key:'bri-g3'}],[193364,{label:'Crom Bas · Irusan',key:'crom-irusan'}],[193359,{label:'Crom Bas · Giga Glas Ghaibhleann',key:'crom-glas'}],[195012,{label:'Rabbie Phantasm · Succubus Queen',key:'rabbie-queen'}]]);
+ const bosses = new Map([[7585,{label:'Glenn Bearna · Primeval Winter (observed form 1)',key:'glenn-form1',formOnly:true}],[7586,{label:'Glenn Bearna · Primeval Winter (observed form 2)',key:'glenn-form2',formOnly:true}],[7587,{label:'Glenn Bearna · Primeval Winter (observed form 3)',key:'glenn-form3',formOnly:true}],[7602,{label:'Bri Leith · Gate 2 — Bronntanas',key:'bri-g2'}],[7603,{label:'Bri Leith · Gate 3 — Midir the Beloved',key:'bri-g3'}],[193364,{label:'Crom Bas · Irusan',key:'crom-irusan'}],[193359,{label:'Crom Bas · Giga Glas Ghaibhleann',key:'crom-glas'}],[195012,{label:'Rabbie Phantasm · Succubus Queen',key:'rabbie-queen'}]]);
  const n=(v)=>(v===null||v===undefined||v==='')?null:(Number.isFinite(Number(v))?Number(v):null);
  function encounters(r){
   if(r.provenance!=='companion-v1')return [];
@@ -38,7 +38,7 @@ window.MIDIR_ANALYSIS = (() => {
    const ids=(l.entityIds||[l.firstEntityId,l.replacementEntityId]).filter(id=>id&&byId.has(id));
    const ts=ids.map(id=>byId.get(id));const start=n(l.start)??Math.min(...ts.map(t=>n(t.firstSeen)??0));const end=n(l.end)??Math.max(...ts.map(t=>n(t.lastSeen)??start));
    if(!Number.isFinite(start)||!Number.isFinite(end)||end<=start)continue;
-   result.push({key:`gate1:${i}`,group:'bri-g1',name:'Bri Leitt · Gate 1 — Vertrag',attempt:l.attemptIndex||i+1,start,end,duration:end-start,targetIds:ids,clear:l.completion==='verified-clear',evidence:l.evidence||'unverified',origin:'logical-encounter',spawnAt:n(byId.get(l.firstEntityId)?.firstSeen)??start,spawnObserved:byId.get(l.firstEntityId)?.seenAppear===true});
+   result.push({key:`gate1:${i}`,group:'bri-g1',name:'Bri Leith · Gate 1 — Vertrag',attempt:l.attemptIndex||i+1,start,end,duration:end-start,targetIds:ids,clear:l.completion==='verified-clear',evidence:l.evidence||'unverified',origin:'logical-encounter',spawnAt:n(byId.get(l.firstEntityId)?.firstSeen)??start,spawnObserved:byId.get(l.firstEntityId)?.seenAppear===true});
   }
   const hasGate1=result.some(x=>x.group==='bri-g1');
   for(const t of targets){const race=Number(t.raceId);
@@ -68,7 +68,11 @@ window.MIDIR_ANALYSIS = (() => {
   const ids=new Set(skillIds);
   if(ids.size===0)return [];
   // Prefer observed 0x6988 skill-use evidence; do not invent ownership from nearby hits.
-  if(Array.isArray(r.skillUseEvents)&&r.skillUseEvents.length){return r.skillUseEvents.filter(e=>String(e.playerId)===String(p.entityId)&&ids.has(Number(e.skillId))&&e.relativeMs/1000>=a.start&&e.relativeMs/1000<=a.end&&Math.abs(e.relativeMs/1000-time)<=seconds).map(e=>({skillId:Number(e.skillId),at:e.relativeMs/1000,method:'observed-skill-use'}));}
+  const explicit=(r.skillUseEvents||[]).filter(e=>String(e.playerId)===String(p.entityId)&&ids.has(Number(e.skillId))&&e.relativeMs/1000>=a.start&&e.relativeMs/1000<=a.end&&Math.abs(e.relativeMs/1000-time)<=seconds).map(e=>({skillId:Number(e.skillId),at:e.relativeMs/1000,method:'observed-skill-use'}));
+  if(explicit.length)return explicit;
+  // A local player's 0x6988 packets cannot suppress another player's evidence.
+  // Prefer precise target/player-attributed positive hits over legacy hit buckets.
+  if(r.damageHitSchemaVersion===1){return (r.damageHitEvents||[]).filter(e=>String(e.playerId)===String(p.entityId)&&ids.has(Number(e.skillId))&&e.relativeMs/1000>=a.start&&e.relativeMs/1000<=a.end&&Math.abs(e.relativeMs/1000-time)<=seconds).map(e=>({skillId:Number(e.skillId),at:e.relativeMs/1000,method:'nearby-positive-hit'}));}
   const hits=[];
   for(const e of p.damageEvents||[]){const at=n(e.time);
    if(at===null||at<a.start||at>a.end||Math.abs(at-time)>seconds)continue;

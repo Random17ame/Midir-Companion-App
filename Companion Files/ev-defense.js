@@ -60,15 +60,6 @@ function refreshEconomy(){const w=document.querySelector('.evtd-weapon'),m=docum
 // Material families follow the equipped weapon: the next weapon's recipe
 // begins dropping immediately. Later waves at the same tier improve the
 // chance of finding that family's materials. Internal rates stay off the UI.
-function dropMaterial(){
- const next=Math.min(4,profile.weapon+1),age=tierAge();
- if(Math.random()>Math.min(.64,.39+age*.035))return;
- const tier=(next>1&&Math.random()<.18)?next-1:next;
- const keys=Object.keys(recipeFor(tier));
- if(!keys.length)return;
- const id=keys[Math.floor(Math.random()*keys.length)];
- profile.materials[id]=(profile.materials[id]||0)+1;
-}
 function defeatedEnemyGold(){return 12}
 function waveClearGold(){return 22+profile.weapon*15}
 const weaponPower=w=>((w.min+w.max)/2+25*w.piercing)*(1+(w.gradeBonus||0)/100);
@@ -444,9 +435,9 @@ function bind(){
  const clearTip=()=>{clearTimeout(tipBasicTimer);clearTimeout(tipDetailedTimer);tipTarget=null;tooltip.hidden=true};
  const attachTipTitles=()=>{root.querySelectorAll('[title]').forEach(el=>{el.dataset.evtdOriginalTitle=el.getAttribute('title');el.removeAttribute('title')})};
  attachTipTitles();
- root.addEventListener('pointerover',e=>{const el=e.target.closest('[data-evtd-skill-tip],[data-evtd-original-title]');if(el===tipTarget)return;clearTip();if(!el||!root.contains(el))return;tipTarget=el;tipBasicTimer=setTimeout(()=>showTip(false),1200);tipDetailedTimer=setTimeout(()=>showTip(true),8000)});
+ root.addEventListener('pointerover',e=>{const el=e.target.closest('[data-evtd-skill-tip],[data-evtd-original-title]');if(el===tipTarget)return;clearTip();if(!el||!root.contains(el))return;tipTarget=el;tipBasicTimer=setTimeout(()=>showTip(false),1200);tipDetailedTimer=setTimeout(()=>showTip(true),Math.max(3000,Math.min(20000,Number(window.MIDIR_COMPANION_PREFS?.detailedTooltipSeconds||8)*1000)))});
  root.addEventListener('pointerout',e=>{if(tipTarget&&!tipTarget.contains(e.relatedTarget)&&tipTarget.contains(e.target))clearTip()});
- root.addEventListener('focusin',e=>{const el=e.target.closest('[data-evtd-skill-tip],[data-evtd-original-title]');if(!el)return;clearTip();tipTarget=el;tipBasicTimer=setTimeout(()=>showTip(false),1200);tipDetailedTimer=setTimeout(()=>showTip(true),8000)});
+ root.addEventListener('focusin',e=>{const el=e.target.closest('[data-evtd-skill-tip],[data-evtd-original-title]');if(!el)return;clearTip();tipTarget=el;tipBasicTimer=setTimeout(()=>showTip(false),1200);tipDetailedTimer=setTimeout(()=>showTip(true),Math.max(3000,Math.min(20000,Number(window.MIDIR_COMPANION_PREFS?.detailedTooltipSeconds||8)*1000)))});
  root.addEventListener('focusout',clearTip);
  root.addEventListener('click',()=>{clearTip();setTimeout(attachTipTitles,0)});
 
