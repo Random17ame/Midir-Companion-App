@@ -1,3 +1,11 @@
+# Historical application changelog
+
+### Build 302 (0.3.0) — Vertrag arena-edge visibility
+
+- Render the player, overhead HP indicator, and damage floaters after the arena-ground clipping pass so they remain fully visible at the outer giant positions; arena collision, movement boundaries, and damage rules are unchanged. Refresh PWA cache identifiers. (`Companion Files/vertrag-survival.js`, `service-worker.js`; `tests/vertrag302_edge_visibility_test.py`)
+
+This file records prior changes. For current behavior, use the [feature guides](CURRENT-FEATURES.md). Version **0.3.0** is assigned to build 300; build 301 corrected its label only.
+
 ### 285 (0.2.85) — Theta Shadow Flare casting rhythm
 
 - Set Shadow Flare cast/load duration to 5.0 seconds at Vivace 0%, reduced 0.5s per +10% shop tier to 1.0s at +80%; the existing note scheduler and offensive cast lock use the same duration. Twilight Surge timing, Thunder timing, all other game rules and saved upgrade levels remain unchanged. (`Companion Files/theta-rhythm.js`; `tests/theta285_cast_test.py`)
@@ -23,9 +31,9 @@
 
 # Midir Companion — Changelog
 
-**Current bundled application:** Companion 279 (GitHub version 0.2.79). Release notes appear in descending version order. The entries below document the work recorded at each version; an older entry may describe behavior that was subsequently replaced or corrected.
+**Current application version:** 0.3.0 (feature release build 300; build 301 corrected the version label). Historical release notes document behavior at the time and may describe mechanics later replaced or corrected.
 
-**Current behavior, not historical intent:** Consult the [verified Companion 275 documentation](../Midir-Companion-Documentation-275/README.md), the [feature map](../Midir-Companion-Documentation-275/CURRENT-FEATURES.md) and the [verification audit](../Midir-Companion-Documentation-275/VERIFICATION-AND-PACK-HISTORY.md) when a historical release note differs from the current application.
+**For current behavior:** Use the [0.3.0 feature map](CURRENT-FEATURES.md), [architecture reference](COMPANION-REFERENCE.md), and [verification notes](VERIFICATION.md). This changelog retains historical descriptions only.
 
 - **Rotation Highlights:** The declared Arcana minimum-cooldown tables are not enforced by build-275 candidate scoring. It uses recognized skill-use anchors and attributable hit budgets; the result is an evidence-limited candidate, **not** a validated repeatable rotation.
 - **The Vault:** The Vault and compact Achievement Book remain accessible when Secret Sauce is off. The setting conceals report imports, report views, collectibles and importer-only features without erasing saved data.
@@ -1357,12 +1365,12 @@ The original changelog included the following EV Base Manager note outside a ver
 2. Improved the Achievement Book mobile dialog layout with scrollable book pages, persistent chapter-turn controls, and 44px mobile close/turn targets; the existing achievement filtering and Secret Sauce toggle are preserved. [Source: user request for full mobile book exploration, 2026-11-04.]
 3. Verified slide-out menu Settings and See Secret Sauce on mobile; no change to desktop menu behavior. Updated version and PWA cache labels. [Source: user mobile navigation verification request, 2026-11-04.]
 
-### 295 (0.2.97) — Mobile visual consistency and full-screen report reader
+### 295 (0.2.95) — Mobile visual consistency and full-screen report reader
 1. Audited shared desktop/mobile palette, typography, navigation and card styles. Preserved desktop visual identity and retained compact mobile layout behavior. [Source: user visual-consistency review request, 2026-11-04.]
 2. Open saved interactive HTML reports in a dedicated full-screen phone reader, with fixed close, scatter jump, zoom in/out and fit controls. A viewer-only helper adjusts the chart display and enables point-tap tooltip interaction; original HTML remains saved unmodified and sandboxed. [Source: user request for mobile scatter visibility and zoom, 2026-11-04.]
-3. Desktop report inline and new-tab behaviors are unchanged. Version and offline cache updated to 0.2.97. [Source: cumulative build convention.]
+3. Desktop report inline and new-tab behaviors are unchanged. Version and offline cache updated to 0.2.95. [Source: cumulative build convention.]
 
-### 296 (0.2.97) — Theta visual clarity and overheat feedback pass
+### 296 (0.2.96) — Theta visual clarity and overheat feedback pass
 1. Replaced Subject Theta's round bottom timing receivers with flatter on-track timing rings sized to cleanly contain incoming notes at the hit point, and removed the extra circular strike-line overlays above the keycaps. [Source: user visual feedback, 2026-11-04.]
 2. Reworked miss feedback so overheat is communicated through red energy flashing along the track edges, with a persistent red danger state and full-screen vignette at 4/5 overheat, instead of a large on-screen miss/overheat text counter. [Source: user visual feedback, 2026-11-04.]
 3. Cleaned the right-side Theta HUD to reduce overlapping text and shorten utility readouts while preserving cooldown/state information. [Source: user UI cleanup request, 2026-11-04.]
@@ -1390,6 +1398,6 @@ The original changelog included the following EV Base Manager note outside a ver
 2. Reused the existing damage multipliers (8%, 52%, 100%, 160% respectively) and saved durability fields, retaining save compatibility and prior tuning. [Source: established Vertrag survival mechanics.]
 3. Moved the armor selector out of the arena preparation overlay, keeping giant toggles and time-trial duration controls intact; the selected defense tier is visible in the run header. [Source: user-requested two-step launch flow.]
 
-### 301 (0.3.0) — Version milestone
-1. Promoted the Companion version label from 0.2.100 to 0.3.0. No gameplay or saved-data schema changes. [Source: user request, 2026-11-05.]
+### 301 (0.3.0) — Version-label correction (not a new version release)
+1. Corrected the application’s display to the established **0.3.0** release version, which belongs to build 300. This build introduced no new product version, gameplay changes or saved-data schema changes. [Source: user clarification, 2026-11-05.]
 2. Advanced PWA cache identifiers so installed copies can refresh the version display. [Source: release hygiene.]
