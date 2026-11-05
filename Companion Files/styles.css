@@ -1244,3 +1244,124 @@ html[data-midir-mobile="true"] .sg-three-pages button{min-height:46px;flex:1 1 1
  .asci-mobile-layout .asci-orb .craft-orb-ball{width:15px;height:15px}
  .asci-mobile-layout .asci-orb small{font-size:7px}
 }
+
+/* 0.3.3: Cooldown overlays on Crom touch controls. */
+.asci-mobile-layout .asci-touch-skill{position:relative;overflow:hidden}
+.asci-mobile-layout .asci-touch-skill .asci-touch-cd{position:absolute;inset:auto 1px 1px;min-height:16px;line-height:16px;border-radius:3px;background:rgba(12,14,28,.85);color:#ffe0a2;font-size:11px;pointer-events:none;text-align:center}
+.asci-mobile-layout .asci-touch-skill .asci-touch-cd:empty{display:none}
+.asci-mobile-layout .asci-touch-skill.cooling{background:linear-gradient(to top,rgba(12,16,36,.78) var(--asci-cooldown),#293e58 var(--asci-cooldown));opacity:.7}
+.asci-mobile-layout .asci-touch-skill.cooling .asci-touch-cd{color:#ffe6c1}
+
+/* 0.3.3: Crom elemental orbs fill with their own element color.
+   Empty orbs stay grey; fully charged ones illuminate. Shared crafting orbs are unchanged. */
+.asci-orb[data-orb] .craft-orb-liquid{background:var(--orb-tint)}
+.asci-orb[data-orb].charged .craft-orb-ball{border-color:var(--orb-tint);box-shadow:0 0 5px color-mix(in srgb,var(--orb-tint) 55%,transparent),inset -5px -5px 9px #1b243499}
+.asci-orb[data-orb].full .craft-orb-ball{background:var(--orb-tint);border-color:var(--orb-tint);box-shadow:0 0 12px var(--orb-tint),inset -6px -6px 10px #16213055}
+
+/* 0.3.4: Rotation Crafter mobile touch targets and skill-drawer assignment. */
+.craft-touch-ghost{position:fixed;z-index:10050;pointer-events:none;transform:translate(-50%,-115%);padding:9px 13px;border:2px solid var(--accent);background:#1b3447;color:#fff;border-radius:10px;font-size:.85rem;font-weight:700;white-space:nowrap;box-shadow:0 6px 20px #000a}
+.craft-slot.craft-touch-target{outline:3px solid #58d9ce;outline-offset:-3px}
+.craft-slot.craft-touch-pressed{box-shadow:inset 0 0 0 3px #65d8bc;background:#31536b}
+@media(max-width:900px) and (pointer:coarse){
+ .craft-layout .craft-hotbar{overflow:visible}
+ .craft-layout .craft-hotbar-row{grid-template-columns:repeat(6,minmax(0,1fr));min-width:0;gap:5px}
+ .craft-layout .craft-slot{height:58px;touch-action:none}
+ .craft-layout .craft-slot img{width:30px;height:30px}
+ .craft-layout .craft-drawer{top:auto;bottom:0;left:0;right:0;width:100%;max-height:44dvh;border-radius:15px 15px 0 0;z-index:90;padding-bottom:max(15px,env(safe-area-inset-bottom));box-shadow:0 -10px 30px #000c}
+ .craft-layout .craft-skill-pick{touch-action:none;min-height:60px}
+ .craft-layout .craft-drawer-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .craft-layout .craft-skill-pick img{width:34px;height:34px}
+ .craft-layout .craft-skill-pick small,.craft-layout .craft-skill-pick .hint{display:none}
+ .craft-layout .craft-skill-pick strong{font-size:.78rem;overflow-wrap:anywhere}
+}
+@media(max-width:370px) and (pointer:coarse){.craft-layout .craft-hotbar-row{gap:3px}.craft-layout .craft-slot{height:52px}.craft-layout .craft-drawer-list{grid-template-columns:1fr}}
+
+/* Shared analog/D-pad control for mobile training arenas (0.3.5). */
+.midir-mobile-movement{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;touch-action:none;user-select:none;-webkit-user-select:none}
+.midir-analog-pad{position:relative;width:clamp(88px,25vw,132px);aspect-ratio:1;border:2px solid #92b1cb;border-radius:50%;background:radial-gradient(circle,#374f69,#182840 74%,#111a2c);box-shadow:inset 0 2px 17px #050c16;touch-action:none}
+.midir-mobile-knob{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44%;height:44%;border-radius:50%;background:linear-gradient(135deg,#9fd5e2,#4a6b92);border:2px solid #e5f7ff;pointer-events:none}
+.midir-mobile-movement small{font-size:10px;color:#bdd4e6;letter-spacing:.08em}
+.midir-move-switch{font-size:11px!important;line-height:1.1;min-height:30px!important;padding:5px!important;white-space:normal}
+.midir-dpad{width:clamp(94px,26vw,132px);aspect-ratio:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:1px;touch-action:none}
+.midir-dpad button{min-width:0;min-height:0;padding:0!important;background:#2e4860;border:1px solid #799bb0;border-radius:7px;font-size:17px!important;color:#e2f9ff;touch-action:none}
+.midir-dpad button.held{background:#5caec0}
+.midir-dpad [data-midir-dir=up]{grid-column:2;grid-row:1}.midir-dpad [data-midir-dir=left]{grid-column:1;grid-row:2}.midir-dpad span{grid-column:2;grid-row:2;display:grid;place-items:center;color:#517689}.midir-dpad [data-midir-dir=right]{grid-column:3;grid-row:2}.midir-dpad [data-midir-dir=down]{grid-column:2;grid-row:3}
+[data-midir-move-mode=analog] .midir-dpad,[data-midir-move-mode=dpad] .midir-analog-pad{display:none}
+.asci-mobile-layout .asci-touch-movement .midir-mobile-movement{width:100%}
+.vt-mobile-controls{display:none}
+.vt-touch-potion{min-height:84px;min-width:108px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;font-weight:700;background:linear-gradient(150deg,#275b67,#23344a);border:2px solid #88bec5;border-radius:16px;touch-action:manipulation}
+.vt-touch-potion:disabled{opacity:.65}.vt-touch-potion .vt-potion-cd{font-size:12px;color:#f9d3a4;min-height:16px}
+.vt-touch-row{display:flex;align-items:center;justify-content:space-around;gap:10px}
+.vt-touch-hint{text-align:center;font-size:12px;color:#bedde6;margin:6px}
+.vt-mobile-shell #vt-canvas{touch-action:none}
+@media(pointer:coarse){.vt-mobile-controls{display:block;margin-top:8px}.vt-mobile-shell .vt-desktop-potion{display:none}.vt-mobile-shell .vt-touch-row{max-width:740px;margin:0 auto}}
+@media(pointer:coarse) and (orientation:portrait){.vt-mobile-shell .vt-touch-row{width:100%;justify-content:space-between}.vt-mobile-shell .vt-touch-potion{flex:1;max-width:155px}.vt-mobile-shell .midir-mobile-movement{flex:0 0 clamp(110px,34vw,156px)}}
+@media(pointer:coarse) and (orientation:landscape){.vt-mobile-shell .vt-arena-row{display:flex;align-items:center;justify-content:space-between;gap:6px}.vt-mobile-shell .vt-arena-row #vt-canvas{flex:1;min-width:0;width:calc(100% - 225px);height:auto}.vt-mobile-shell .vt-touch-row{display:contents}.vt-mobile-shell .vt-touch-potion{order:-1;min-width:76px;max-width:95px}.vt-mobile-shell .midir-mobile-movement{order:2;min-width:90px;max-width:125px}.vt-mobile-shell .vt-touch-hint{display:none}}
+@media(pointer:coarse) and (orientation:landscape){.vt-mobile-shell .vt-mobile-controls{display:contents}.vt-mobile-shell .vt-touch-row{display:contents}.vt-mobile-shell .vt-arena-row #vt-canvas{max-width:none}}
+
+/* 0.3.6: touch-friendly AS / AG positioning, distinct orange fields vs purple artillery. */
+.position-touch-tools{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 10px}
+.position-touch-tools button{flex:1 1 145px;min-height:52px;text-align:center;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column}
+.position-touch-tools button small{font-size:.72rem;font-weight:500;opacity:.88}
+.ag-tool-field{border:2px solid #d58a36!important;background:#493222!important;color:#ffe7bd!important}
+.ag-tool-artillery{border:2px solid #987ce8!important;background:#30294b!important;color:#efe3ff!important}
+.ag-tool-field.selected{background:#93511b!important;box-shadow:0 0 0 2px #ffbb65 inset!important}
+.ag-tool-artillery.selected{background:#53428c!important;box-shadow:0 0 0 2px #d4bbff inset!important}
+.fb-targeting [data-fb],.fb-controls [data-fb]{min-height:44px}
+.fb-targeting button,.fb-controls button{touch-action:manipulation}
+@media(max-width:850px){.position-stage>.button-row button,.fb-shell>.button-row button{min-height:44px}.position-tools input[type=range],.fb-controls input[type=range]{min-height:30px}.fb-targeting select{min-height:44px}.fb-shell{margin-top:8px}}
+
+.fb-enemy{pointer-events:auto}
+
+/* 0.3.7: Bard performance uses Rotation Crafter's mobile grid and touch targets. */
+.craft-slot.music-touch-target{outline:3px solid #58d9ce;outline-offset:-3px}
+@media(pointer:coarse){.music-sim-layout .craft-slot,.music-sim-layout .craft-skill-pick{touch-action:none}}
+
+/* 0.3.8 mobile controls: independent pig direction/balance sticks and EV patrol/ability areas. */
+.ek-mobile-controls{display:none;gap:12px;justify-content:space-between;align-items:center;padding:12px 4px}.ek-control-unit{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;color:#e4f4e9;font-size:13px}.ek-touch-stick{width:clamp(100px,30vw,150px);height:clamp(100px,30vw,150px);border-radius:50%;background:radial-gradient(circle,#467a80,#193e4b);border:3px solid #9bc7c4;touch-action:none;display:grid;place-items:center;box-shadow:inset 0 6px 20px #0008}.ek-stick-knob{width:46%;height:46%;border-radius:50%;background:linear-gradient(135deg,#c4e8ee,#547b8c);box-shadow:0 4px 12px #0008;pointer-events:none}.evtd-mobile-controls{display:none}.evtd-mobile-skills>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.evtd-mobile-skills button{display:flex;align-items:center;gap:5px;min-width:0;padding:6px;background:#173949;color:#e8f7ff;border:1px solid #6a91a3;border-radius:8px;font-size:11px;text-align:left}.evtd-mobile-skills button img{width:25px;height:25px;object-fit:contain;flex-shrink:0}.evtd-mobile-skills button span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.evtd-mobile-skills button b{font-size:10px;color:#ffe39a;white-space:nowrap}.evtd-mobile-skills button:disabled{opacity:.4}.evtd-patrol-pad{display:flex;align-items:center;justify-content:center;gap:12px}.evtd-patrol-pad>div{display:flex;align-items:center;gap:8px}.evtd-patrol-pad button{min-width:56px;min-height:56px;border:2px solid #81d9b0;background:#204c52;color:white;border-radius:13px;font-size:20px;touch-action:manipulation}.evtd-patrol-pad span{font-size:11px;color:#cceadc}.evtd #evtd-board{touch-action:none}.evtd-inventory-tower [data-evtd-mobile-place]{min-height:36px;background:#275b51;color:#f3fff7;border:1px solid #94c9ae;border-radius:6px}.evtd-v177 .evtd-mobile-controls button:active{filter:brightness(1.4)}
+@media (pointer:coarse){.ek-mobile-controls{display:flex}.ek-pig-card .ek-pig-stage{max-height:65dvh}.ek-pig-overlay{overflow:auto}.ek-pig-overlay>span{line-height:1.22}.evtd-mobile-controls{display:flex;flex-direction:column;gap:9px;background:#112b3c;padding:8px;border-top:1px solid #527687}.evtd-v177 .evtd-game-shell{height:auto;min-height:0;overflow:visible}.evtd-v177 .evtd-battlefield{height:clamp(260px,52vw,490px);flex:0 0 auto}.evtd-v177 .evtd-hotbar{display:none}.evtd-v177 .evtd-action-bar{flex-wrap:wrap}.evtd-mobile-skills>strong{display:block;margin:0 0 5px;font-size:12px;color:#bce6f2}.evtd-patrol-pad{min-height:70px}}
+@media (pointer:coarse) and (orientation:landscape){.ek-mobile-controls{max-width:660px;margin:auto}.evtd-mobile-controls{flex-direction:row;align-items:stretch}.evtd-patrol-pad{width:35%;flex-direction:column;gap:3px}.evtd-mobile-skills{flex:1}.evtd-v177 .evtd-battlefield{height:clamp(230px,49dvh,430px)}}
+
+/* Cutting Chorus touch: aiming is separate from rhythm input. No direct-note tapping. */
+.mp-touch-aim{position:absolute;z-index:2;width:34px;height:34px;transform:translate(-50%,-50%);border:2px solid #77e9ef;border-radius:50%;pointer-events:none;box-shadow:0 0 0 10px #77e9ef22,0 0 12px #77e9efaa;background:#77e9ef22}
+.mp-touch-aim[hidden]{display:none!important}
+.mp-touch-keys{margin-top:12px;border:1px solid #40516d;padding:12px;border-radius:12px;background:#15243a}
+.mp-touch-keys p{margin:0 0 10px;color:#bcd0df;font-size:.85rem}
+.mp-touch-keys-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.mp-touch-keys button{min-width:0;min-height:66px;border-radius:12px;font-size:clamp(.72rem,2.8vw,1rem);font-weight:800;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.mp-touch-white{background:#e9f1fa!important;color:#152033!important;border:2px solid #a4b2ce!important}
+.mp-touch-black{background:#273045!important;color:#fff!important;border:2px solid #eecb71!important}
+.mp-touch-keys button:active{transform:scale(.96);filter:brightness(1.14)}
+@media (pointer:fine) and (min-width:901px){.mp-touch-keys{display:none}}
+@media (max-width:650px){.mp-rhythm-stage{height:55vh;min-height:330px}.mp-touch-keys button{min-height:72px}.mp-touch-keys-row{gap:5px}}
+
+/* 0.3.9: distinct Melodic Puppeteer/base puppet rhythm inputs. */
+.mp-touch-section-title{font-weight:750;font-size:.84rem;color:#b9d7e5;margin:12px 0 7px}
+.mp-touch-keys .mp-touch-keys-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.mp-touch-keys .mp-touch-chorus-row{grid-template-columns:minmax(145px,280px)}
+.mp-touch-keys button.mp-touch-skill{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:94px;padding:8px 4px;touch-action:manipulation;user-select:none;-webkit-user-select:none;white-space:normal}
+.mp-touch-skill img{height:35px;width:35px;object-fit:contain;image-rendering:auto}
+.mp-touch-skill-name{font-size:clamp(.64rem,2.3vw,.83rem);line-height:1.14;text-align:center;overflow-wrap:anywhere}
+.mp-touch-skill-cd{font-size:.69rem;font-weight:750;color:#377b60;background:#d4f1e1;padding:2px 7px;border-radius:12px;min-width:38px}
+.mp-touch-skill.on-cooldown{filter:saturate(.65);opacity:.70}
+.mp-touch-skill.on-cooldown .mp-touch-skill-cd{color:#fff;background:#934545}
+@media(max-width:420px){.mp-touch-keys .mp-touch-keys-row{grid-template-columns:repeat(3,minmax(0,1fr))}.mp-touch-keys button.mp-touch-skill{min-height:88px}}
+/* Mobile rhythm trainer: keep aiming surface and trigger bank visible together.
+   The bank scrolls independently so holding an aim pointer never scrolls the field. */
+@media (max-width:900px) and (orientation:portrait){
+ .mp-rhythm-stage{height:40dvh;min-height:238px}
+ .mp-touch-keys{max-height:40dvh;overflow-y:auto;overscroll-behavior:contain}
+ .mp-touch-keys button.mp-touch-skill{min-height:78px}
+ .mp-touch-skill img{width:30px;height:30px}
+}
+@media (max-width:900px) and (orientation:landscape){
+ .mp-rhythm-shell{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(210px,1fr);column-gap:10px;align-items:start}
+ .mp-rhythm-settings,.mp-rhythm-status,.mp-rhythm-shell>p.hint{grid-column:1/-1}
+ .mp-rhythm-stage{grid-column:1;height:70dvh;min-height:200px;margin:0}
+ .mp-touch-keys{grid-column:2;grid-row:2;margin:0;max-height:70dvh;overflow:auto;overscroll-behavior:contain;padding:7px}
+ .mp-touch-keys p{font-size:.72rem;line-height:1.2}
+ .mp-touch-keys .mp-touch-keys-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .mp-touch-keys button.mp-touch-skill{min-height:64px;padding:3px}
+ .mp-touch-skill img{width:24px;height:24px}
+ .mp-touch-section-title{margin:8px 0 4px}
+}

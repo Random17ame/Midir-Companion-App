@@ -23,7 +23,7 @@ with sync_playwright() as p:
  assert btn.count()==1 and not btn.is_disabled()
  btn.click()
  assert page.locator('.asci-mobile-layout').count()==1
- assert page.locator('.asci-joystick').count()==1
+ assert page.locator('.midir-analog-pad').count()==1
  assert page.locator('[data-asci-touch]').count()==9
  assert page.evaluate('(()=>{let c=document.querySelector("#asci-canvas");return c.width/c.height})()')==800/620
  # Unlock using normal importState: no save-format changes.
@@ -33,7 +33,7 @@ with sync_playwright() as p:
  page.evaluate('window.MIDIR_AS_INVADERS.bind()')
  # Simulate simultaneous separate touches: joystick moves and Aqua charges until release.
  result=page.evaluate('''()=>{
- const j=document.querySelector('.asci-joystick'),r=j.getBoundingClientRect();
+ const j=document.querySelector('.midir-analog-pad'),r=j.getBoundingClientRect();
  j.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,pointerId:21,clientX:r.left+r.width/2,clientY:r.top+r.height/2}));
  j.dispatchEvent(new PointerEvent('pointermove',{bubbles:true,pointerId:21,clientX:r.right,clientY:r.top+r.height/2}));
  const a=document.querySelector('[data-asci-touch="aqua"]');

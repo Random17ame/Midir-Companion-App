@@ -26,7 +26,7 @@ with sync_playwright() as p:
   assert page.locator('[data-asci-touch="urgent"]').count()==1
   assert page.locator('[data-asci-touch="golden"]').count()==1
   assert page.locator('[data-asci-touch="anchor"]').count()==1
-  rect=page.evaluate('''()=>{let game=document.querySelector('.asci-game').getBoundingClientRect(),actions=document.querySelector('.asci-touch-actions').getBoundingClientRect(),stick=document.querySelector('.asci-joystick').getBoundingClientRect(),orbs=document.querySelector('.asci-stageorbs').getBoundingClientRect();return {game:{x:game.x,y:game.y,right:game.right,bottom:game.bottom},actions:{x:actions.x,y:actions.y,right:actions.right},stick:{x:stick.x,y:stick.y},orbs:{x:orbs.x,y:orbs.y,right:orbs.right}}}''')
+  rect=page.evaluate('''()=>{let game=document.querySelector('.asci-game').getBoundingClientRect(),actions=document.querySelector('.asci-touch-actions').getBoundingClientRect(),stick=document.querySelector('.midir-analog-pad').getBoundingClientRect(),orbs=document.querySelector('.asci-stageorbs').getBoundingClientRect();return {game:{x:game.x,y:game.y,right:game.right,bottom:game.bottom},actions:{x:actions.x,y:actions.y,right:actions.right},stick:{x:stick.x,y:stick.y},orbs:{x:orbs.x,y:orbs.y,right:orbs.right}}}''')
   if height>width:
    assert rect['game']['bottom']<=rect['actions']['y']+3,rect
    assert rect['actions']['right']<rect['stick']['x']+10,rect

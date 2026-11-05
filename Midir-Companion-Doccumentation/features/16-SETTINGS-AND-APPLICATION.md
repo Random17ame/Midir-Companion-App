@@ -1,6 +1,6 @@
 # Settings, navigation and mobile app
 
-**Applies to:** Midir Companion 0.3.2 (build 305).
+**Applies to:** Midir Companion 0.3.4.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -28,3 +28,15 @@
 1. Application state, settings and mobile reader: [`app.js`](../../Companion%20Files/app.js), [`styles.css`](../../Companion%20Files/styles.css).
 2. PWA: [`pwa.js`](../../Companion%20Files/pwa.js).
 3. Application launcher: [`../index.html`](../../Companion%20Files/../index.html).
+
+## Mobile training interfaces
+
+- Crom Bás Invaders has dedicated skill buttons, a joystick, live touch-button cooldown labels, joystick-controlled Irusan struggle, and small color-coded elemental gauges. Portrait keeps the arena above the controls; landscape keeps buttons alongside it.
+- Subject Theta has touch-triggerable rhythm bubbles and timing targets, four combat lanes, separate utility controls and a Twilight Surge charge indicator. Keyboard bindings are retained.
+- Physical mobile/PWA ergonomics, orientation handling and storage permissions require device verification; browser tests are not a substitute for gameplay.
+
+## Source references for mobile features
+
+1. `Companion Files/as-chicken-invaders.js` and `Companion Files/styles.css`.
+2. `Companion Files/theta-rhythm.js` and `Companion Files/theta-rhythm.css`.
+3. `tests/release033_gameplay.py`.

@@ -1,6 +1,6 @@
 # Subject Theta: Containment
 
-**Applies to:** Midir Companion 0.3.2 (build 305).
+**Applies to:** Midir Companion 0.3.4.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -11,7 +11,7 @@
 
 ## Controls and failure
 
-- Offensive skills are rhythm judgments; Render Dorcha, Render Mana and Hexshroud are separate free-timing utility activations. Seething Mana is a toggle; Twilight Surge uses a separate player-triggered charged reminder. Keybinds are configurable.
+- The four rhythm highway lanes are Thunder, Thunderblight, Shadow Flare and Twilight Surge (the latter has its own charge/release behavior). Render Dorcha, Render Mana, Hexshroud and Polar Vortex activate separately from the rhythm lane. Ice Bolt is also outside the four rhythm lanes. Seething Mana is a toggle; Twilight Surge uses a separate player-triggered charged reminder. Keybinds are configurable. On touch devices, tapping a note bubble or its timing target activates the corresponding combat lane; the dedicated lane buttons below the track and utility panel also support touch. Twilight Surge displays a charging percentage and fill indicator. Keyboard controls remain available.
 - Five failed/incorrect inputs end a run; three consecutive successful judgments clear accumulated overheat. Misses flash red energy at the track edges; at four stacks the edge warning stays active with a red screen vignette until cleared.
 
 ## Resources and skills

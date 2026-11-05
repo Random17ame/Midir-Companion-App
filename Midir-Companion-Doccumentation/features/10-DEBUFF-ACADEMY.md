@@ -1,6 +1,6 @@
 # Debuff Academy
 
-**Applies to:** Midir Companion 0.3.2 (build 305).
+**Applies to:** Midir Companion 0.3.4.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

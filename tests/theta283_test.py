@@ -49,7 +49,7 @@ with sync_playwright() as p:
  page.locator('[data-theta="utility:render"]').click()
  rd=page.evaluate('''()=>{let r=__thetaAudit().run;return {mp:r.mp,dorcha:r.dorcha}}''')
  assert abs(rd['dorcha']-8)<1e-5,rd
- assert abs(rd['mp']-(man['mp']-(100+250*.1)))<1e-4,rd
+ assert abs(rd['mp']-(man['mp']-(100+2500*.1)))<1e-4,rd
  exported=page.evaluate('MIDIR_THETA.exportState()')
  assert exported['upgrades']['vivace']==8
  # Legacy save version has old stock CDs, but user-edited cooldown remains.

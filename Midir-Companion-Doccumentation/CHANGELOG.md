@@ -1,3 +1,30 @@
+## Midir Companion 0.3.9 — EV onboarding and mobile Cutting Chorus
+
+1. EV starter-weapon enemies have 12 HP in wave 1 and 17 HP in wave 2; later waves and upgraded weapons retain normal scaling. [1] `Companion Files/ev-defense.js`.
+2. Cutting Chorus on mobile separates touch-drag aiming from skill activation. Individual Melodic Puppeteer and base Puppet skill buttons are used for ordinary timing notes; Cutting Chorus has its own button. There is no direct tap-to-score mode. [2] `Companion Files/mp-rhythm.js`; [3] `Companion Files/styles.css`.
+3. Skill-button cooldowns use the existing Rotation Highlights minimums, with a provisional fixed +3-second Melodic Puppeteer penalty on numbered Puppet Acts. Cutting Chorus retains its 4s/2s Link toggle. Hard mode retains its two-prior-skill no-repeat rule. [2] `Companion Files/mp-rhythm.js`.
+4. Updated current documentation and offline cache identifiers; browser coverage: [4] `tests/mp039_touch_cooldown_test.py`; [5] `tests/regression_companion.py`.
+
+## Midir Companion 0.3.8 — Pig Pursuit and EV mobile access
+
+1. Pig Pursuit: independent touch sticks for carrot heading and rider counterbalance; retains keyboard/mouse controls and existing physics. (`Companion Files/ek-pig-pursuit.js`, `Companion Files/styles.css`; `tests/mobile038_pig_ev_test.py`)
+2. EV Tower Range Lab: mobile patrol pad, independent skill buttons with cooldowns, tap-to-place inventory towers, touch relocation, pinch zoom centered on gesture midpoint; existing desktop pointer-centered wheel zoom preserved. (`Companion Files/ev-defense.js`, `Companion Files/styles.css`; `tests/mobile038_pig_ev_test.py`)
+3. Enable Pig Pursuit and EV in mobile Arcana menus; preserve saved game data and refresh offline cache identifiers. Update current-state documentation. (`Companion Files/app.js`, `service-worker.js`, `Midir-Companion-Doccumentation/`)
+
+## Midir Companion 0.3.4 — Rotation Crafter mobile controls
+
+1. Rotation Crafter supports touch drag from the skills drawer to hotkey slots, tap-to-select assignment, and slot-to-slot swap or move on touchscreens. (`Companion Files/app.js`, `Companion Files/styles.css`; `tests/rotation034_touch_test.js`)
+2. Assigned mobile hotkeys trigger the existing casting engine, including press-and-hold charging, combo inputs, cooldowns, and rapid Pummel inputs; desktop keyboard behavior is unchanged. (`Companion Files/app.js`; `tests/rotation034_touch_test.js`)
+3. On touchscreens, the skill drawer opens as a bottom sheet and the 24 hotkeys display as compact six-column grids. Updated feature and mobile guides and refreshed offline cache identifiers. (`Companion Files/styles.css`, `Midir-Companion-Doccumentation/features/04-ROTATION-CRAFTER.md`, `Midir-Companion-Doccumentation/features/18-MOBILE-FEATURES.md`, `service-worker.js`)
+
+## Midir Companion 0.3.3 — mobile input and combat-interface updates
+
+1. Crom Bás Invaders: Irusan's struggle accepts alternating mobile-joystick directions; the touch controls expose live skill cooldowns. (`Companion Files/as-chicken-invaders.js`, `Companion Files/styles.css`; `tests/release033_gameplay.py`)
+2. Ronaun shields absorb one baseline Magnum Shot of damage before overflowing to HP. Defensive automatic ranged fire has a 115-unit proximity radius and uses the Magnum firing cadence, including Golden Time acceleration. (`Companion Files/as-chicken-invaders.js`; `tests/release033_gameplay.py`)
+3. Crom elemental orbs show their element colors as they fill and glow when full, retaining the compact mobile position: Fire red, Water blue, Wind white, Earth tan. (`Companion Files/as-chicken-invaders.js`, `Companion Files/styles.css`)
+4. Theta rhythm play uses four combat lanes (Thunder, Thunderblight, Shadow Flare, Twilight Surge), with free-timing abilities in a separate toolbar, touch-activated notes and lane buttons, and visible Surge-charge progress. Existing keyboard support stays in place. (`Companion Files/theta-rhythm.js`, `Companion Files/theta-rhythm.css`)
+5. Update current-state feature guides and refresh offline shell cache identifiers. (`service-worker.js`, `Midir-Companion-Doccumentation/`)
+
 ## Midir Companion 0.3.2a — critical-neutral Rotation Highlights hotfix
 
 1. Use the same ordinary-damage reference for critical and non-critical hits of a skill. For crit-only skills, infer the character-wide critical multiplier from other skills with paired evidence and use it to estimate ordinary damage; retain estimated flags and critical annotations. (`Companion Files/app.js`; `tests/rotation032a_crit_neutral.js`)
@@ -48,7 +75,7 @@ This file records prior changes. For current behavior, use the [feature guides](
 
 # Midir Companion — Changelog
 
-**Current application version:** 0.3.1 (build 304). Build 300 was the 0.3.0 feature release; build 301 only corrected its label. Historical release notes document behavior at the time and may describe mechanics later replaced or corrected.
+**Current application version:** 0.3.9. Build 300 was the 0.3.0 feature release; build 301 only corrected its label. Historical release notes document behavior at the time and may describe mechanics later replaced or corrected.
 
 **For current behavior:** Use the [current feature map](CURRENT-FEATURES.md), [architecture reference](COMPANION-REFERENCE.md), and [verification notes](VERIFICATION.md). This changelog retains historical descriptions only.
 
@@ -1423,3 +1450,22 @@ The original changelog included the following EV Base Manager note outside a ver
 1. Removed import, archive and original-report warnings from the default mobile Vault welcome card; those details now appear only after See Secret Sauce is enabled in Settings. [Source: user mobile screenshot and feedback, 2026-11-05.]
 2. Removed the mention of hidden importer achievements from the basic Achievement Book intro. Normal training shortcuts remain visible and the advanced data and controls are preserved. [Source: user Secret Sauce concealment requirement.]
 3. Refreshed PWA caches for GitHub Pages clients; application version remains 0.3.0 and saved-data formats are unchanged. [Source: release verification.]
+
+### 0.3.5 — Vertrag mobile controls
+- Added touch movement with shared analog/D-pad preference for Vertrag and Crom, including simultaneous D-pad directions. [1] `Companion Files/mobile-movement.js`; [2] `Companion Files/vertrag-survival.js`; [3] `Companion Files/as-chicken-invaders.js`.
+- Added Vertrag pinch zoom, potion cooldown button, and portrait/landscape controller layout. [2] `Companion Files/vertrag-survival.js`; [4] `Companion Files/styles.css`.
+
+### 0.3.6 — Mobile positioning labs
+
+1. AS Positioning Lab: enlarged touch aiming target and single-pointer ownership, keeping existing geometry (`Companion Files/app.js`, `Companion Files/styles.css`).
+2. AG Field & Firing Lane Lab: distinct orange field-placement and purple artillery-target modes, including target-centered field placement (`Companion Files/app.js`).
+3. AS/AG Target Frames: larger drag targets, explicit AG tool choices and a fix for target hit-testing on touch (`Companion Files/frame-bowling.js`, `Companion Files/styles.css`).
+4. Updated Positioning and Mobile Features current-state references; refreshed PWA cache keys.
+
+### 0.3.7 — Rate Isn’t a Lie mobile performance
+
+- Enable mobile Begin and touch Bard hotkeys with existing cooldown / performance rules.
+- Add touch drawer-to-slot drag, tap-then-assign, slot rearrangement and long-press clearing.
+- Remove stale mobile-menu restrictions on previously converted games.
+- Current references: [1] `Companion Files/app.js`; [2] `Companion Files/styles.css`; [3] `tests/music037_touch_test.py`; [4] `Midir-Companion-Doccumentation/features/18-MOBILE-FEATURES.md`.
+

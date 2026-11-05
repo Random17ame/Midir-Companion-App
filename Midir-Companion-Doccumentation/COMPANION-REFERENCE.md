@@ -1,6 +1,6 @@
-# Architecture, import and persistence reference — 0.3.2a
+# Architecture, import and persistence reference — 0.3.2
 
-Only the current 0.3.2a release source is authoritative. This document describes the architecture as deployed in version **0.3.2a**.
+Only the current build 305 source is authoritative. This document describes the architecture as deployed in version **0.3.2**.
 
 ## Static application and runtime
 

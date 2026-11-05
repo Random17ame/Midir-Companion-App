@@ -1,13 +1,12 @@
-# Midir Companion 0.3.2a — Documentation
+# Midir Companion 0.3.9 — Documentation
 
-This is the **current-state** documentation for the Midir Companion 0.3.2a application, including the 0.3.2a critical-hit normalization hotfix. Build 300 introduced 0.3.0, and build 304 introduced 0.3.1.
+This is the **current-state** documentation for the Midir Companion 0.3.9 application, maintained as a description of the current application behavior.
 
 This pack is intended for the GitHub repository root alongside `index.html` and `Companion Files/`. It contains no obsolete build-specific feature descriptions. Prior release changes belong in the **[historical changelog](CHANGELOG.md)**.
 
 ## Start here
 
-- [Current feature map — all 17 feature guides and dedicated mobile reference](CURRENT-FEATURES.md)
-- [Mobile features and touch support](features/18-MOBILE-FEATURES.md)
+- [Current feature map — all 18 feature guides](CURRENT-FEATURES.md)
 - [Architecture, import and save reference](COMPANION-REFERENCE.md)
 - [Design and verification principles](DESIGN-AND-TESTING-PRINCIPLES.md)
 - [Current verification limits](VERIFICATION.md)

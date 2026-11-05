@@ -1,6 +1,6 @@
-# Midir Companion 0.3.2a (hotfix)
+# Midir Companion 0.3.9
 
-An offline-capable Mabinogi companion for analyzing compatible combat reports, tracking achievements, preparing characters, and practicing Arcana encounters and minigames. Version 0.3.2a is a critical-neutral Rotation Highlights hotfix to version 0.3.2; build 300 introduced version 0.3.0. AI was used in developing this application.
+An offline-capable Mabinogi companion for analyzing compatible combat reports, tracking achievements, preparing characters, and practicing Arcana encounters and minigames. Version 0.3.9 adds separate touch aiming and rhythm keys for Cutting Chorus and lowers beginner EV enemy health in waves 1 and 2. AI was used in developing this application.
 
 ## Launch
 
@@ -17,7 +17,7 @@ Imports, achievements, and profiles are saved locally in your browser. GitHub Pa
 The current feature guides, source references, verification limits, and historical release log are maintained in one place:
 
 - **[Documentation home](Midir-Companion-Doccumentation/README.md)**
-- [Feature map and 17 feature guides](Midir-Companion-Doccumentation/CURRENT-FEATURES.md)
+- [Feature map and 18 feature guides](Midir-Companion-Doccumentation/CURRENT-FEATURES.md)
 - [Architecture, imports, backup, and storage](Midir-Companion-Doccumentation/COMPANION-REFERENCE.md)
 - [Current verification limits](Midir-Companion-Doccumentation/VERIFICATION.md)
 - [Historical changelog](Midir-Companion-Doccumentation/CHANGELOG.md)

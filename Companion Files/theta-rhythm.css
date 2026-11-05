@@ -19,3 +19,17 @@
 .theta-quick-skills span{display:flex;align-items:center;gap:7px;padding:8px;border:1px solid #718db13d;border-radius:8px;font-size:.82rem}
 .theta-full-reference{margin-top:14px}.theta-full-reference summary{cursor:pointer;padding:10px 0}
 @media(max-width:780px){.theta-game-header [data-theta]{padding:5px 7px}.theta-game-header .theta-skill-icon{width:26px;height:26px}}
+
+/* 0.3.3: Four rhythm lanes; independent free-timing utilities. */
+.theta-play-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-items:start}
+.theta-play-main{min-width:0}
+.theta-play-layout .theta-utility-panel{display:flex;flex-wrap:wrap;gap:5px;padding:9px;border:1px solid #574175;border-radius:11px;background:#171127}
+.theta-play-layout .theta-utility-panel [data-theta]{display:inline-flex;align-items:center;gap:5px;justify-content:center;min-height:46px;padding:7px;flex:1 1 96px}
+.theta-touch-lanes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:9px 0 0}
+.theta-touch-lanes button{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0;min-height:56px;background:#2a1a45;border:1px solid #9068b5;border-radius:10px;color:#f6e5ff;cursor:pointer;padding:5px;position:relative;touch-action:manipulation}
+.theta-touch-lanes button:active{background:#62408e;transform:translateY(1px)}
+.theta-touch-lanes button .theta-skill-icon{width:34px;height:34px}
+.theta-touch-lanes .theta-surge-action{border-color:#d7aa59}
+.theta-touch-lanes .theta-surge-fill{position:absolute;bottom:0;left:0;height:5px;width:var(--surge-charge);background:#ffd27e;border-radius:0 0 8px 8px;pointer-events:none}
+@media(min-width:1050px){.theta-play-layout{grid-template-columns:minmax(0,1fr) 168px}.theta-play-layout .theta-utility-panel{align-content:start}.theta-play-layout .theta-utility-panel [data-theta]{flex-basis:100%}}
+@media(max-width:700px){.theta-touch-lanes{gap:3px}.theta-touch-lanes button{flex-direction:column;min-height:65px;padding:4px 1px;font-size:10px}.theta-touch-lanes button .theta-skill-icon{width:28px;height:28px}.theta-play-layout .theta-utility-panel [data-theta]{flex:1 1 64px}.theta-play-layout .theta-utility-panel .theta-skill-icon{width:26px;height:26px}}

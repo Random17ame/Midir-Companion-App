@@ -1,8 +1,8 @@
-# Midir Companion — Application Files (0.3.2)
+# Midir Companion — Application Files (0.3.9)
 
 This directory contains the scripts, CSS, icons, sprites, and other assets used by Midir Companion. The app is launched through `../index.html` for HTTPS hosting or `../Midir Companion.html` for local desktop use. Keep its directory name and asset structure unchanged.
 
-**Application version:** 0.3.2. **Feature release:** build 300. **Build 301:** corrected version labeling, with no gameplay or save-data format changes.
+**Application version:** 0.3.9. New feature versions use semantic numbering; previous build identifiers are retained only in the historical changelog.
 
 ## Application overview
 
@@ -14,6 +14,6 @@ This directory contains the scripts, CSS, icons, sprites, and other assets used 
 
 ## Authoritative documentation
 
-For the current rules, architecture, 17 feature guides, and source references, see the [0.3.2 documentation home](../Midir-Companion-Doccumentation/README.md). The [historical changelog](../Midir-Companion-Doccumentation/CHANGELOG.md) is maintained **only there**; older release notes are not a substitute for the current feature descriptions.
+For the current rules, architecture, 18 feature guides, and source references, see the [0.3.9 documentation home](../Midir-Companion-Doccumentation/README.md). The [historical changelog](../Midir-Companion-Doccumentation/CHANGELOG.md) is maintained **only there**; older release notes are not a substitute for the current feature descriptions.
 
 **Do not copy any personal profile backups, combat exports, or private reports into a public GitHub repository.**

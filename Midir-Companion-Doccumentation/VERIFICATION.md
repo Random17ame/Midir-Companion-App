@@ -1,4 +1,4 @@
-# Current verification scope and known limitations — 0.3.2a
+# Current verification scope and known limitations — 0.3.4
 
 ## Confirmed from the shipped source
 

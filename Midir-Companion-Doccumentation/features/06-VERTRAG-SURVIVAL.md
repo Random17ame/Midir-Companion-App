@@ -1,6 +1,6 @@
 # Vertrag — Giant Phase Survival Grounds
 
-**Applies to:** Midir Companion 0.3.2 (build 305).
+**Applies to:** Midir Companion 0.3.5.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -28,3 +28,7 @@
 ### Arena-edge visibility
 
 The playable arena boundary constrains the player’s **position**, not the visible character silhouette: the player sprite, overhead HP bar, and floating hit numbers continue rendering across the visual perimeter when approaching the 1 and 11 o’clock giants. Ground hazards and arena effects remain clipped to the arena. (`Companion Files/vertrag-survival.js`)
+
+## Mobile controls
+
+On touch devices, Vertrag survival provides a right-side analog stick or four-way D-pad, a dedicated potion control with a live cooldown label, and two-finger arena pinch zoom. Portrait keeps the arena above controls; landscape places controls beside it. Touch selections work in giant setup and defense menus. Keyboard, left-click movement, and desktop wheel zoom remain supported. See `18-MOBILE-FEATURES.md`.
