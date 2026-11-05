@@ -1,6 +1,6 @@
 # Archives, profiles and backup
 
-**Applies to:** Midir Companion 0.3.9.
+**Applies to:** Midir Companion 0.3.10.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

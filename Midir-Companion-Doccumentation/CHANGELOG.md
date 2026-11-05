@@ -1,3 +1,9 @@
+## 0.3.9b — Mobile Arcana menu/cache visibility hotfix
+
+- Confirmed that the mobile route restriction list contains only the legacy keyboard-only drill. Converted games—including Vertrag, Rotation Crafter, Theta, Crom, Pig Pursuit, EV, positioning labs, Rate Isn’t a Lie, and Cutting Chorus—are not restricted.
+- Added a defensive cleanup for stale disabled-card decoration after mobile menu renders, an explicit 0.3.9b app header, refreshed service-worker cache identifiers, and mobile navigation regression coverage. No combat rules or saved data changed.
+- **Source references:** [1] `Companion Files/app.js` (`MIDIR_MOBILE_DESKTOP_ONLY`, mobile render); [2] `Midir Companion.html`; [3] `service-worker.js`; [4] `tests/mobile039b_menu_test.py`.
+
 ## Midir Companion 0.3.9 — EV onboarding and mobile Cutting Chorus
 
 1. EV starter-weapon enemies have 12 HP in wave 1 and 17 HP in wave 2; later waves and upgraded weapons retain normal scaling. [1] `Companion Files/ev-defense.js`.
@@ -1475,3 +1481,10 @@ The original changelog included the following EV Base Manager note outside a ver
 - Remove stale mobile-menu restrictions on previously converted games.
 - Current references: [1] `Companion Files/app.js`; [2] `Companion Files/styles.css`; [3] `tests/music037_touch_test.py`; [4] `Midir-Companion-Doccumentation/features/18-MOBILE-FEATURES.md`.
 
+
+## 0.3.10 — Localization audit and expansion
+
+- Expanded Korean and Spanish strings for legacy navigation, module settings and current minigame interfaces (source: `Companion Files/i18n.js`).
+- Added localization of changing text nodes, newly inserted game overlays and known canvas HUD labels, preserving English fallback and user/report data (source: `Companion Files/i18n.js`).
+- Added current-state Language Support guide and documented remaining untranslated long-form strings (source: `Midir-Companion-Doccumentation/features/19-LANGUAGE-SUPPORT.md`).
+- Updated visible version and offline shell cache for 0.3.10; no gameplay or saved-profile schema changes (sources: `Midir Companion.html`, `service-worker.js`).

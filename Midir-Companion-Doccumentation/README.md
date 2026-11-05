@@ -1,12 +1,12 @@
-# Midir Companion 0.3.9 — Documentation
+# Midir Companion 0.3.10 — Documentation
 
-This is the **current-state** documentation for the Midir Companion 0.3.9 application, maintained as a description of the current application behavior.
+This is the **current-state** documentation for the Midir Companion 0.3.10 application, maintained as a description of the current application behavior.
 
 This pack is intended for the GitHub repository root alongside `index.html` and `Companion Files/`. It contains no obsolete build-specific feature descriptions. Prior release changes belong in the **[historical changelog](CHANGELOG.md)**.
 
 ## Start here
 
-- [Current feature map — all 18 feature guides](CURRENT-FEATURES.md)
+- [Current feature map — all 19 feature guides](CURRENT-FEATURES.md)
 - [Architecture, import and save reference](COMPANION-REFERENCE.md)
 - [Design and verification principles](DESIGN-AND-TESTING-PRINCIPLES.md)
 - [Current verification limits](VERIFICATION.md)

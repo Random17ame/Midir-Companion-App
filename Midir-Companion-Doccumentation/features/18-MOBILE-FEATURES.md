@@ -1,6 +1,6 @@
 # Mobile Features and Touch Support
 
-**Applies to:** Midir Companion 0.3.9a.
+**Applies to:** Midir Companion 0.3.10.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -66,7 +66,7 @@ Physical-device validation is pending for simultaneous two-stick riding, long-pr
 
 **References:** `Companion Files/ek-pig-pursuit.js`, `Companion Files/ev-defense.js`, `Companion Files/styles.css`, `Companion Files/app.js`; focused test `tests/mobile038_pig_ev_test.py`.
 
-## Cutting Chorus rhythm controls (0.3.9 current)
+## Cutting Chorus rhythm controls (0.3.10 current)
 
 The implemented touch input preserves independent aiming and tapping, and the normal mobile Arcana hub route is available: touch-drag the playfield to aim, then activate a individual skill or Cutting Chorus button using another finger at the correct time. No direct tap-to-hit mode is provided because it would bypass the positioning/timing split. Desktop controls are unchanged. [1] `Companion Files/mp-rhythm.js`; [2] `Companion Files/styles.css`.
 

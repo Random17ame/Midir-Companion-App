@@ -3090,7 +3090,9 @@ render=function(){
 // Companion 281: mobile report reader, ten active imports, and touch-ready SG Oath checklist.
 // Desktop layout, controls and simulator behavior are untouched.
 // Only modules still requiring keyboard-specific controls stay gated on mobile.
+// Only the legacy drill lacks a mobile input design. All converted activities are available.
 const MIDIR_MOBILE_DESKTOP_ONLY=new Set(['drill']);
+const MIDIR_MOBILE_ENABLED_GAMES=['vertrag','craft','theta','position','ag-position','as-invaders','music-lie','rhythm','pig','ev-defense','bb-bandit','herbs','erg','reforge','oath','special'];
 const mobilePreviousAction=action;
 action=function(code){
  if(companionMobileMode()&&code==='mobile-open-settings')return page('settings');
@@ -3121,6 +3123,13 @@ render=function(){
  }
 
  if(state.page==='rotation'){
+  for(const b of document.querySelectorAll('[data-act^="hub:"]')){
+   const id=b.dataset.act.slice(4);
+   if(!MIDIR_MOBILE_DESKTOP_ONLY.has(id)){
+    b.disabled=false;b.classList.remove('mobile-desktop-only');b.removeAttribute('title');
+    b.querySelector('.mobile-na')?.remove();
+   }
+  }
   for(const b of document.querySelectorAll('[data-act^="hub:"]')){
    const id=b.dataset.act.slice(4);if(!MIDIR_MOBILE_DESKTOP_ONLY.has(id))continue;
    b.disabled=true;b.classList.add('mobile-desktop-only');b.title='N/A on mobile — requires a keyboard and mouse';

@@ -1,6 +1,6 @@
-# Architecture, import and persistence reference — 0.3.9
+# Architecture, import and persistence reference — 0.3.10
 
-The accompanying version **0.3.9** source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
+The accompanying version **0.3.10** source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
 
 ## Static application and runtime
 

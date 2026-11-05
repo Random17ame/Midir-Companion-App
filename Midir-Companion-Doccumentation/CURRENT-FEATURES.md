@@ -1,6 +1,6 @@
 # Current feature map
 
-**Version:** 0.3.9. All linked guides describe current implemented behavior; see the changelog for history.
+**Version:** 0.3.10. All linked guides describe current implemented behavior; see the changelog for history.
 
 | Feature | What it does | Guide |
 |---|---|---|
@@ -22,5 +22,7 @@
 | Settings and app shell | Navigation, Secret Sauce, accessibility, languages and PWA behavior. | [Read](features/16-SETTINGS-AND-APPLICATION.md) |
 | Arcana field guides | Ten Arcana landing pages with contextual practice and reference content. | [Read](features/17-ARCANA-FIELD-GUIDES.md) |
 | Mobile features and touch support | Install/offline behavior, touch controls, local storage and mobile verification limits. | [Read](features/18-MOBILE-FEATURES.md) |
+
+| Language support | English, Korean and Spanish text across navigation, pages and known game interfaces, with English fallback. | [Read](features/19-LANGUAGE-SUPPORT.md) |
 
 For the next Rotation Highlights verification pass, see [cooldown floors and skill-shape inventory](ROTATION-SKILL-RULES-INVENTORY.md).

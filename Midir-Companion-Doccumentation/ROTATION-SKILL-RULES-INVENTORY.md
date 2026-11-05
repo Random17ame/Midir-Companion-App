@@ -1,4 +1,4 @@
-# Rotation Highlights skill-rule inventory — 0.3.9
+# Rotation Highlights skill-rule inventory — 0.3.10
 
 **Scope:** Current implementation snapshot, extracted from the bundled application source. This is **not** a verified catalogue of live Mabinogi cooldowns, effective hitbox geometry or range. Historical changes remain in [CHANGELOG.md](CHANGELOG.md).
 
