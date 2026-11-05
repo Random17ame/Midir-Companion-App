@@ -1,6 +1,6 @@
 # Explosive Vanguard — Tower Range Lab
 
-**Applies to:** Midir Companion 0.3.4.
+**Applies to:** Midir Companion 0.3.9.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -25,6 +25,6 @@
 1. Gameplay: [`ev-defense.js`](../../Companion%20Files/ev-defense.js).
 2. Shell routing and achievements: [`app.js`](../../Companion%20Files/app.js).
 
-## Beginner wave vitality (0.3.9 current)
+## Beginner wave vitality
 
 With the starter weapon, wave 1 enemies have 12 HP and wave 2 enemies have 17 HP to support learning tower placement. Subsequent waves continue using the weapon-relative scaling model, and advanced weapon tiers are not affected by this beginner-specific override. [1] `Companion Files/ev-defense.js`.

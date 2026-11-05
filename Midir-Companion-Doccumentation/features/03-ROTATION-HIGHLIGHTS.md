@@ -1,6 +1,6 @@
 # Rotation Highlights
 
-**Applies to:** Midir Companion 0.3.4.
+**Applies to:** Midir Companion 0.3.9.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -25,6 +25,13 @@
 - Each accepted boss hit of a skill uses the same pooled **non-critical per-hit** reference damage whether the recorded hit was ordinary or critical. Critical hit flags only affect visual labels.
 - For skills observed only as critical hits, estimate their non-critical reference by dividing their average critical damage by the character’s shared critical-damage multiplier, inferred from other skills with both ordinary and critical observations. Flag these references as **estimated**. If the multiplier cannot be established, the skill remains unscored rather than assigning a fabricated baseline.
 
+## Skill-rule interpretation
+
+- **Cooldown floors** are the minimum accepted separation for cooldown-aware candidates, not a declaration of the skill’s actual base cooldown. A zero-second floor means no positive floor is enforced in that table; other effects, gear, links and skill-specific exceptions require separate verification.
+- **Skill-shape rules** currently describe hit budgets and timed multi-hit/DoT windows for a limited set of skills. They are not complete geometric hitbox definitions. Unspecified shapes and timings remain provisional.
+- Cutting Chorus training separately uses a provisional +3-second Melodic Puppeteer penalty for numbered Puppet Acts; this is **not** a verified live-game cooldown and is not a global overwrite of Rotation Highlights floors.
+- [Source-extracted inventory and validation plan](../ROTATION-SKILL-RULES-INVENTORY.md).
+
 ## Interpretation
 
 - Candidate rotation scores depend on imported evidence quality and registry coverage. They are not optimized damage predictions, simulated full combat logs or verified in-game cooldown schedules.
@@ -34,5 +41,5 @@
 
 1. Rotation calculations: [`analysis.js`](../../Companion%20Files/analysis.js), [`rotation-reference.js`](../../Companion%20Files/rotation-reference.js).
 2. Use and actor-evidence rules: [`skill-evidence.js`](../../Companion%20Files/skill-evidence.js), [`skill-use-rules.js`](../../Companion%20Files/skill-use-rules.js).
-3. Vault interface: [`app.js`](../../Companion%20Files/app.js).
+3. Vault interface and cooldown/shape maps: [`app.js`](../../Companion%20Files/app.js) (`RH_MIN_COOLDOWNS`, `RH_EXTRA_COOLDOWNS`, `RH_SKILL_SHAPES`).
 

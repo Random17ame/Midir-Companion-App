@@ -1,6 +1,6 @@
 # Achievement Book and personal records
 
-**Applies to:** Midir Companion 0.3.4.
+**Applies to:** Midir Companion 0.3.9.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

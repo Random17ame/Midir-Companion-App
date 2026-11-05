@@ -1,4 +1,4 @@
-# Current design and verification principles — 0.3.2
+# Current design and verification principles — 0.3.9
 
 ## Product and evidence contract
 
@@ -14,7 +14,9 @@
 3. Test source-specific attribution and per-encounter Arcana decisions against contradictory or missing observations.
 4. Test game mechanics independently of presentation: Theta timing/costs, Vertrag dash locked endpoints and giant quiet boundaries, and simulator inventory identity.
 5. For phone changes, check narrow viewport controls and overlays, PWA caching and touch input. Browser-emulated tests do not prove physical-phone performance.
-6. Update **affected current-state feature guides** and architecture references with each behavioral change; record the change history separately in `CHANGELOG.md`.
+6. When a mobile engine gains new touch handling, check that its **hub route is actually reachable** from a phone; implementation alone is not sufficient. Update **affected current-state feature guides** and architecture references with each behavioral change; record the change history separately in `CHANGELOG.md`.
+
+7. For Rotation Highlights rules, keep **cooldown floors**, **cast/action evidence**, **per-use hit budgets**, and **skill shapes/durations** separately identified. No zero floor is evidence of an actual zero cooldown; do not adopt training cooldown approximations as verified game values.
 
 ## Source and tests
 

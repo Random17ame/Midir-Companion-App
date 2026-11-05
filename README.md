@@ -20,6 +20,7 @@ The current feature guides, source references, verification limits, and historic
 - [Feature map and 18 feature guides](Midir-Companion-Doccumentation/CURRENT-FEATURES.md)
 - [Architecture, imports, backup, and storage](Midir-Companion-Doccumentation/COMPANION-REFERENCE.md)
 - [Current verification limits](Midir-Companion-Doccumentation/VERIFICATION.md)
+- [Rotation skill cooldown and shape inventory](Midir-Companion-Doccumentation/ROTATION-SKILL-RULES-INVENTORY.md)
 - [Historical changelog](Midir-Companion-Doccumentation/CHANGELOG.md)
 
 Source code and art live under `Companion Files/`. The accompanying `tests/` directory contains development regression tests and fixtures rather than required website resources.

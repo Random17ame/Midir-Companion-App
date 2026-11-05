@@ -10,6 +10,7 @@ This pack is intended for the GitHub repository root alongside `index.html` and 
 - [Architecture, import and save reference](COMPANION-REFERENCE.md)
 - [Design and verification principles](DESIGN-AND-TESTING-PRINCIPLES.md)
 - [Current verification limits](VERIFICATION.md)
+- [Rotation Highlights cooldown and skill-shape inventory](ROTATION-SKILL-RULES-INVENTORY.md)
 - [Historical changelog](CHANGELOG.md)
 
 ## Run and publish

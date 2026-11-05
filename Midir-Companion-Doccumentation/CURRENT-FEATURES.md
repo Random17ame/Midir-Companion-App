@@ -22,3 +22,5 @@
 | Settings and app shell | Navigation, Secret Sauce, accessibility, languages and PWA behavior. | [Read](features/16-SETTINGS-AND-APPLICATION.md) |
 | Arcana field guides | Ten Arcana landing pages with contextual practice and reference content. | [Read](features/17-ARCANA-FIELD-GUIDES.md) |
 | Mobile features and touch support | Install/offline behavior, touch controls, local storage and mobile verification limits. | [Read](features/18-MOBILE-FEATURES.md) |
+
+For the next Rotation Highlights verification pass, see [cooldown floors and skill-shape inventory](ROTATION-SKILL-RULES-INVENTORY.md).

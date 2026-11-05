@@ -1,6 +1,6 @@
 # Mobile Features and Touch Support
 
-**Applies to:** Midir Companion 0.3.9.
+**Applies to:** Midir Companion 0.3.9a.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -15,7 +15,7 @@
 - Mobile navigation, preparation calculators, simulations and report viewer use narrower touch-oriented layouts. The report viewer supports full-screen reading and independent chart zoom/navigation.
 - Crom Bás Invaders: portrait positions the game above nine skill buttons (left) and joystick (right); landscape positions controls beside the game. Charge skills are hold/release, other unlocked skills are tap. Buttons display cooldowns, the joystick alternation resolves Irusan's power struggle, and compact colored elemental orbs sit by the top-right HUD.
 - Subject Theta: four rhythm lanes (Thunder, Thunderblight, Shadow Flare, Twilight Surge), touch-responsive notes and target regions, lane buttons, a separate utility bar, and a charge indicator for Twilight Surge. The desktop keyboard bindings remain supported.
-- Other module/game input models can still rely on physical keyboards, pointer precision or different touch gestures; do not assume all games have complete touch parity.
+- Rotation Crafter and Rate Isn’t a Lie support touch hotkey assignment and casting; Pig Pursuit uses two simultaneous sticks; EV uses patrol/ability buttons and pinch zoom; AS/AG labs offer touch manipulation. Cutting Chorus is available from the mobile Arcana hub, with separate aiming and per-skill touch triggers. Physical-phone parity requires verification.
 
 ## Verification and limits
 
@@ -34,23 +34,23 @@ On touchscreens, the hotkey bar is laid out in six columns per row and the Skill
 
 **References:** `Companion Files/app.js` (`craftTouchBind`, `craftKeyDown`, `craftKeyUp`, `craftAssign`, `craftMove`); `Companion Files/styles.css` (mobile `.craft-layout` rules). Physical-device gestures still require verification.
 
-## Mobile movement controls (0.3.6 current behavior)
+## Mobile movement controls
 
 Crom Bás Invaders and Vertrag share a device-local analog/D-pad mode preference. The analog stick has immediate proportional movement with pointer capture; the D-pad supports diagonals from two simultaneous directions. Users can switch modes from each game’s movement panel. Vertrag places the field above potion and movement controls in portrait and between them in landscape; its field supports two-finger pinch zoom. The potion button displays its remaining cooldown. Giant occupation, difficulty selection, and menus remain touch-accessible. The mobile control preference is local to the device and does not change the desktop keyboard bindings. Physical-device validation is still recommended for responsiveness and ergonomics.
 
 Source references: [1] `Companion Files/mobile-movement.js`; [2] `Companion Files/vertrag-survival.js`; [3] `Companion Files/as-chicken-invaders.js`; [4] `Companion Files/styles.css`.
 
-## AS / AG Positioning Labs (0.3.6)
+## AS / AG Positioning Labs
 
 Alchemic Sharpshooter and Arsenal Gunner positioning labs have touch-drag interactions for player, targets (free mode) and aim controls. AG distinguishes **Detonation Field** placement with orange dashed circles and an orange button from **Heavy Artillery** targeting with a purple circle/button. The Target Frames challenge uses the same distinction, with fixed targets and touch-friendly Fire/Next controls. Existing geometry and scoring are unchanged.
 
 Source references: [1] `Companion Files/app.js` (`bindPositionEvents`, `bindAgPosition`); [2] `Companion Files/frame-bowling.js` (`bind`, `paint`, `results`); [3] `Companion Files/styles.css`. Verify target selection and finger dragging on physical phones.
 
-## Rate Isn’t a Lie performance (0.3.8)
+## Rate Isn’t a Lie performance
 
 The Harmonic Saint music calculator and the playful performance simulator are both available on mobile. Bard skills can be assigned from the bottom skill drawer using a touch drag or by tapping a skill and then an empty hotkey slot. Assigned skills can be dragged to rearrange; a long press during setup clears a slot. During a running performance, hotkey taps activate the same skill and cooldown logic as desktop keyboard keys, and active cooldowns appear on each button. The hotbar uses six columns per row in mobile layouts. These controls do not change buff-calculator values or in-game rate assumptions.
 
-The mobile hub restriction list now contains only Cutting Chorus Rhythm and the legacy generic drill; older gates for Rotation Crafter, Subject Theta, Vertrag and AS/AG positioning have been removed. The legacy generic drill route remains restricted. These changes need physical-device usability checks.
+The mobile hub restriction list retains only the legacy generic keyboard-only drill (`drill`). Rotation Crafter, Subject Theta, Vertrag and the positioning labs are no longer included in that list. Cutting Chorus now opens from its normal mobile Arcana hub entry; physical-phone validation is still pending.
 
 Source references: [1] `Companion Files/app.js` (`musicTouchBind`, `musicBuffFire`, `musicBuffBegin`, `MIDIR_MOBILE_DESKTOP_ONLY`); [2] `Companion Files/styles.css`; [3] `tests/music037_touch_test.py`.
 
@@ -68,7 +68,7 @@ Physical-device validation is pending for simultaneous two-stick riding, long-pr
 
 ## Cutting Chorus rhythm controls (0.3.9 current)
 
-Mobile play preserves independent aiming and tapping: touch-drag the playfield to aim, then activate a individual skill or Cutting Chorus button using another finger at the correct time. No direct tap-to-hit mode is provided because it would bypass the positioning/timing split. Desktop controls are unchanged. [1] `Companion Files/mp-rhythm.js`; [2] `Companion Files/styles.css`.
+The implemented touch input preserves independent aiming and tapping, and the normal mobile Arcana hub route is available: touch-drag the playfield to aim, then activate a individual skill or Cutting Chorus button using another finger at the correct time. No direct tap-to-hit mode is provided because it would bypass the positioning/timing split. Desktop controls are unchanged. [1] `Companion Files/mp-rhythm.js`; [2] `Companion Files/styles.css`.
 
 ## Cutting Chorus skill trigger panel
 

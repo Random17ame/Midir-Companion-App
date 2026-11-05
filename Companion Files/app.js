@@ -3090,7 +3090,7 @@ render=function(){
 // Companion 281: mobile report reader, ten active imports, and touch-ready SG Oath checklist.
 // Desktop layout, controls and simulator behavior are untouched.
 // Only modules still requiring keyboard-specific controls stay gated on mobile.
-const MIDIR_MOBILE_DESKTOP_ONLY=new Set(['rhythm','drill']);
+const MIDIR_MOBILE_DESKTOP_ONLY=new Set(['drill']);
 const mobilePreviousAction=action;
 action=function(code){
  if(companionMobileMode()&&code==='mobile-open-settings')return page('settings');

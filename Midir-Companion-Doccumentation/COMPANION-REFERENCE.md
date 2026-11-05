@@ -1,6 +1,6 @@
-# Architecture, import and persistence reference — 0.3.2
+# Architecture, import and persistence reference — 0.3.9
 
-Only the current build 305 source is authoritative. This document describes the architecture as deployed in version **0.3.2**.
+The accompanying version **0.3.9** source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
 
 ## Static application and runtime
 
@@ -25,7 +25,7 @@ Only the current build 305 source is authoritative. This document describes the 
 ## Practice games and integration
 
 - Dedicated game engines include `theta-rhythm.js`, `vertrag-survival.js`, `as-chicken-invaders.js`, `ev-defense.js`, `mp-rhythm.js` and others. Training rules, simulated rates and stored rewards are not official Mabinogi game measurements.
-- The UI can enable/disable game entry points by mobile capability; a module being available in source does not imply it supports phone play.
+- Mobile gameplay support varies by activity. Cutting Chorus has touch aiming and separate skill-trigger controls and is accessible through its mobile Arcana hub entry. The legacy generic keyboard-only drill remains gated; Cutting Chorus still needs physical-phone usability verification.
 
 ## Source references
 
@@ -33,3 +33,4 @@ Only the current build 305 source is authoritative. This document describes the 
 2. [Analysis](../Companion%20Files/analysis.js), [skill evidence](../Companion%20Files/skill-evidence.js), [use rules](../Companion%20Files/skill-use-rules.js)
 3. [PWA](../Companion%20Files/pwa.js), [manifest](../manifest.webmanifest), [service worker](../service-worker.js)
 4. [Theta](../Companion%20Files/theta-rhythm.js), [Vertrag](../Companion%20Files/vertrag-survival.js), [Invaders](../Companion%20Files/as-chicken-invaders.js)
+5. [Rotation Highlights cooldown floors and skill-shape rule inventory](ROTATION-SKILL-RULES-INVENTORY.md)

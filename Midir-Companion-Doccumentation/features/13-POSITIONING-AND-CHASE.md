@@ -1,13 +1,13 @@
 # Positioning, frame challenges and chase games
 
-**Applies to:** Midir Companion 0.3.6.
+**Applies to:** Midir Companion 0.3.9.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
 ## Activities
 
 - Includes class-themed positioning and aiming exercises, Frame Bowling, Elemental Knight pig pursuit, and Brawler Bandit Hunt. Input and scoring rules are local practice mechanics.
-- Some games use keyboard-first controls, while Bandit Hunt supports touch-friendly actions on mobile.
+- Pig Pursuit supports separate mobile Carrot and Rider Balance sticks; Bandit Hunt and the AS/AG positioning labs also have touch input. Desktop mouse/keyboard input remains available.
 
 ## Mobile positioning controls
 

@@ -75,7 +75,13 @@ This file records prior changes. For current behavior, use the [feature guides](
 
 # Midir Companion — Changelog
 
-**Current application version:** 0.3.9. Build 300 was the 0.3.0 feature release; build 301 only corrected its label. Historical release notes document behavior at the time and may describe mechanics later replaced or corrected.
+## 0.3.9a — Mobile Cutting Chorus access hotfix
+
+1. Allow Cutting Chorus to launch from the mobile Arcana hub; retain the keyboard-only legacy drill restriction. Existing two-touch aim and per-skill timing controls are unchanged. [1] `Companion Files/app.js`; [2] `Companion Files/mp-rhythm.js`.
+2. Correct the Music Lab and Mobile Features current-state guides and refresh the PWA shell caches. [3] `Midir-Companion-Doccumentation/features/12-MUSIC-AND-PUPPETEER.md`; [4] `Midir-Companion-Doccumentation/features/18-MOBILE-FEATURES.md`; [5] `service-worker.js`.
+
+
+**Current application version:** 0.3.9a. Build 300 was the 0.3.0 feature release; build 301 only corrected its label. Historical release notes document behavior at the time and may describe mechanics later replaced or corrected.
 
 **For current behavior:** Use the [current feature map](CURRENT-FEATURES.md), [architecture reference](COMPANION-REFERENCE.md), and [verification notes](VERIFICATION.md). This changelog retains historical descriptions only.
 
