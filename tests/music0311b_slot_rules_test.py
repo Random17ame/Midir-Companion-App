@@ -25,8 +25,8 @@ with sync_playwright() as pw:
   page.locator('nav button[data-page="rotation"]').click()
   page.locator('#rotation-lab-arcana').select_option('hs')
   page.locator('button[data-act="hub:music-lie"]').click()
-  assert page.locator('.music-gear-item').count()==8
-  assert page.locator('.music-gear-slot-placeholder').count()==1
+  assert page.locator('.music-gear-item').count()==9
+  assert page.locator('.music-gear-slot-placeholder').count()==0
   assert page.locator('[data-music-input="troubadourSetEffectBuff"]').count()==0
   assert not errors,errors
   if width==320:

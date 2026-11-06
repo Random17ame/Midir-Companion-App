@@ -1,6 +1,6 @@
 # Rotation Highlights
 
-**Applies to:** Midir Companion 0.3.11f.
+**Applies to:** Midir Companion 0.3.11i.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

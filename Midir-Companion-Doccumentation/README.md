@@ -1,6 +1,6 @@
-# Midir Companion 0.3.11c — Documentation
+# Midir Companion 0.3.11i — Documentation
 
-This is the **current-state** documentation for the Midir Companion 0.3.11f application, maintained as a description of the current application behavior.
+This is the **current-state** documentation for the Midir Companion 0.3.11i application, maintained as a description of the current application behavior.
 
 This pack is intended for the GitHub repository root alongside `index.html` and `Companion Files/`. It contains no obsolete build-specific feature descriptions. Prior release changes belong in the **[historical changelog](CHANGELOG.md)**.
 
@@ -23,10 +23,10 @@ The Companion is an independent training and analysis application. It does not c
 
 ## Next development phase
 
-The [Rotation Highlights next-chat handoff](ROTATION-HIGHLIGHTS-NEXT-CHAT-HANDOFF.md) describes the skill-cooldown, shape and activation-detection research plan. This is forward planning, separate from verified 0.3.11d behavior.
+The [Rotation Highlights next-chat handoff](ROTATION-HIGHLIGHTS-NEXT-CHAT-HANDOFF.md) describes the skill-cooldown, shape and activation-detection research plan. This is forward planning, separate from the implemented 0.3.11i application.
 
 **0.3.11a historical release:** [Hotfix release and tests](HOTFIX-0311A-RELEASE-AND-TESTS.md).  **0.3.11b release:** [Equipment editor and set-bonus changes](HOTFIX-0311B-EQUIPMENT-EDITOR-AND-TESTS.md). **0.3.11c release:** [Compact calculator and manual slot overrides](HOTFIX-0311C-COMPACT-MUSIC-CALCULATOR.md). **0.3.11d release:** [Theta judgment and on-deck notes](HOTFIX-0311D-THETA-TIMING.md).
 
-### 0.3.11f visible gameplay changes
+### Current release: 0.3.11i
 
-Vertrag now has a points-based shared-item shop and a bounded bouncing setup prompt. In Theta, Thunderblight upkeep notes reserve casting space before other spells; Thunder routes around them. See the current Vertrag and Theta guides for details and the historical changelog for numbered sources.
+The Music Calculator gear editor preserves internal scrolling and numeric focus while live results update. The preceding updates added the Blue Echostone slot (0.3.11h), nine-cell equipment arrangement (0.3.11g), Vertrag supply shop and Thunderblight-priority Theta scheduling (0.3.11f), and the earlier training and calculator improvements. See the [historical changelog](CHANGELOG.md) for version-specific source references.

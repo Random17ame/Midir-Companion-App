@@ -1,10 +1,10 @@
-# Rotation Highlights — Next Development Chat Handoff (Midir Companion 0.3.11f)
+# Rotation Highlights — Next Development Chat Handoff (Midir Companion 0.3.11i)
 
-**Scope:** Development roadmap and source-verified starting points. This is not a claim that unverified Mabinogi skill cooldowns or shapes are established. The authoritative current application and documentation are included in `Midir-Companion-0.3.11f-GitHub-Ready.zip`.
+**Scope:** Development roadmap and source-verified starting points. This is not a claim that unverified Mabinogi skill cooldowns or shapes are established. The authoritative current application and documentation are included in `Midir-Companion-0.3.11i-GitHub-Ready.zip`.
 
 ## Where we are
 
-- **Version baseline:** Midir Companion 0.3.11f. The latest release adds Vertrag training supplies and Theta upkeep scheduling on top of the prior Time Trial, progress-bar, timing and music changes; it intentionally **does not change Rotation Highlights mechanics**.
+- **Version baseline:** Midir Companion 0.3.11i. The latest release fixes music gear-editor scroll restoration and retains Vertrag training supplies and Theta upkeep scheduling on top of the prior Time Trial, progress-bar, timing and music changes; it intentionally **does not change Rotation Highlights mechanics**.
 - **Living rules:** `Companion Files/app.js` (`RH_MIN_COOLDOWNS`, `RH_EXTRA_COOLDOWNS`, `RH_SKILL_SHAPES`, `rhCooldownEvidence`), `Companion Files/skill-use-rules.js`, `Companion Files/skill-evidence.js`, `Companion Files/analysis.js`.
 - **Current inventory:** [`ROTATION-SKILL-RULES-INVENTORY.md`](ROTATION-SKILL-RULES-INVENTORY.md) lists 113 Arcana minimum cooldown floors, 15 additional floors, and nine explicit duration/hit budgets. These are **implemented rules**, not a verified live-game database.
 - **Source conventions:** A zero-second floor means no enforced positive minimum, **not** proof of a zero cooldown. A simulated Crafter or minigame cooldown is not automatically a Rotation Highlights floor.
@@ -43,11 +43,11 @@ Recommended per-test annotation: skill name and exporter ID, player/actor, serve
 
 ## First tasks for next chat
 
-1. Verify the 0.3.11f cumulative source archive and read `README.md`, `Midir-Companion-Doccumentation/README.md`, `features/03-ROTATION-HIGHLIGHTS.md`, `ROTATION-SKILL-RULES-INVENTORY.md`, and `DESIGN-AND-TESTING-PRINCIPLES.md`.
+1. Verify the 0.3.11i cumulative source archive and read `README.md`, `Midir-Companion-Doccumentation/README.md`, `features/03-ROTATION-HIGHLIGHTS.md`, `ROTATION-SKILL-RULES-INVENTORY.md`, and `DESIGN-AND-TESTING-PRINCIPLES.md`.
 2. Programmatically inventory the exact supported MP canonical names, exporter aliases/IDs, grouping signatures, cooldown floors and duration rules from source. Produce an evidence-gap table **without** changing behavior first.
 3. Establish a clean format for receiving the user's many video and combat-export files: naming, timestamp alignment, recording conditions, one-skill trials and confidence labels.
 4. Apply only validated skill-rule improvements with focused fixtures and document source references.
 
 ## Suggested opening message
 
-> We're continuing Midir Companion development from the cumulative **0.3.11f GitHub-ready archive**. First verify the ZIP and read the current documentation and `ROTATION-HIGHLIGHTS-NEXT-CHAT-HANDOFF.md`. After Theta field checks, the next priority is a source- and evidence-grounded overhaul of Rotation Highlights' minimum cooldown rules, skill shapes, hit grouping and activation detection, beginning with Melodic Puppeteer and Wireless Puppet acts. We'll contribute controlled gameplay videos and exporter evidence. Preserve boss-only → Gate 2 fallback, non-critical damage normalization, conservative player attribution, the current-state documentation format, and tested cross-module functionality. Don't invent mechanics; distinguish verified, estimated, provisional and unknown.
+> We're continuing Midir Companion development from the cumulative **0.3.11i GitHub-ready archive**. First verify the ZIP and read the current documentation and `ROTATION-HIGHLIGHTS-NEXT-CHAT-HANDOFF.md`. After Theta field checks, the next priority is a source- and evidence-grounded overhaul of Rotation Highlights' minimum cooldown rules, skill shapes, hit grouping and activation detection, beginning with Melodic Puppeteer and Wireless Puppet acts. We'll contribute controlled gameplay videos and exporter evidence. Preserve boss-only → Gate 2 fallback, non-critical damage normalization, conservative player attribution, the current-state documentation format, and tested cross-module functionality. Don't invent mechanics; distinguish verified, estimated, provisional and unknown.

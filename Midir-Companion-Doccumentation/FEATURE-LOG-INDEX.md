@@ -1,4 +1,4 @@
-# Feature guide index — 0.3.11f
+# Feature guide index — 0.3.11i
 
 Use [CURRENT-FEATURES.md](CURRENT-FEATURES.md) for the list and links to the current feature guides. Guides contain **only current behavior**; they are not per-feature development logs. The historical sequence is retained solely in [CHANGELOG.md](CHANGELOG.md).
 

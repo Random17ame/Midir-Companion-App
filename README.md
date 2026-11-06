@@ -1,6 +1,6 @@
-# Midir Companion 0.3.11f
+# Midir Companion 0.3.11i
 
-An offline-capable Mabinogi companion for analyzing compatible combat reports, tracking achievements, preparing characters, and practicing Arcana encounters and minigames. Version 0.3.11f adds a shared-inventory Training Points shop and an in-bounds setup prompt for Vertrag, plus priority scheduling for Thunderblight in Theta. Earlier time-trial, mobile and Music Calculator changes are preserved. English, Korean, and Spanish interface support is retained. AI was used in developing this application.
+An offline-capable Mabinogi companion for analyzing compatible combat reports, tracking achievements, preparing characters, and practicing Arcana encounters and minigames. Version 0.3.11i prevents the Music Calculator gear editor from jumping to the top after changing equipment values; it retains the one-line Blue Echostone equipment-slot support while retaining the 0.3.11f Vertrag shop and Theta Thunderblight scheduling changes. Earlier time-trial, mobile and Music Calculator changes are preserved. English, Korean, and Spanish interface support is retained. AI was used in developing this application.
 
 ## Launch
 
@@ -30,9 +30,21 @@ Source code and art live under `Companion Files/`. The accompanying `tests/` dir
 Midir Companion is independent of the Midir combat logger and does not capture live game traffic. Minigame resource costs, simulated damage and economy models are practice tools, not verified Mabinogi combat calculations. Browser storage capacity and large-report import memory use depend on the device and browser.
 
 
-### 0.3.11f current release
+### 0.3.11i — Gear editor stability
 
-Vertrag now awards Training Points for actual training performance and completed clears. The shop exchanges them for shared Special Upgrade stones, Reforge Simulator Erg Assist Potions and Dazzling Reforging Tools. The bouncing setup prompt stays within the canvas. Theta schedules Thunderblight upkeep ahead of other casts, moving Thunder to its next eligible cast window (including S50), with no modification to judgment or cooldown values. Test these mechanics on physical phones before deployment sign-off.
+The Music Calculator equipment editor now maintains its scroll position and numeric field focus when live calculations refresh. No music formula or saved-profile format changed in this patch.
+
+### 0.3.11h — Blue Echostone
+
+The center-right equipment cell supports one Blue Echostone reforge, with no enchants, Murias Water, grade or instrument upgrades. A matching Echostone reforge replaces same-name ordinary gear contributions only when its level exceeds each individual matching gear level. The equipment system migrates existing sets to an empty Echostone slot.
+
+### 0.3.11g — Equipment arrangement
+
+The equipment board now shows Accessory 1 / Hat / Accessory 2; Instrument / Body / Blue Echostone; Glove / Boot / Wing. The change was visual only at that version.
+
+### 0.3.11f — Vertrag shop and Theta priority
+
+Vertrag awards Training Points through play and successful clears, with a shop delivering Special Upgrade stones, Erg Unlock Assist Potions and Dazzling Reforging Tools to existing shared inventories. Its bouncing setup prompt stays inside the playfield. Theta schedules Thunderblight maintenance ahead of competing Thunder casts, including the S50 variant. Actual-phone testing remains a release follow-up.
 
 ### 0.3.11e prior release
 

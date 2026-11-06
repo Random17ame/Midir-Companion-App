@@ -38,7 +38,7 @@ with sync_playwright() as pw:
         p,errs=page_for(b,w,h)
         assert '+0 / 7 slots' in murias(p), murias(p)
         assert p.locator('[data-music-murias-override]').input_value()==''
-        assert p.locator('.music-gear-item').count()==8
+        assert p.locator('.music-gear-item').count()==9
         edit(p,'Wings')
         assert p.locator('[data-music-gear-murias]').count()==0
         close(p)

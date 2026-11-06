@@ -1,3 +1,32 @@
+## Midir Companion 0.3.11i — Music gear editor scroll stability
+
+1. Equipment editors retain their own scroll position across input edits and live calculator rerenders; numeric input focus is restored without triggering page scrolling. This does not change the formulas, inventory, overrides, item persistence, or skill bonuses. [1] `Companion Files/app.js` (`musicGearRefresh`, `musicBuffBind`).
+2. Verified reforge changes and numeric edits on phone portrait/landscape browser viewports; the existing Blue Echostone, item override, and general application regressions pass. Bumped the offline application cache. [2] `tests/music0311i_editor_scroll_test.py`; [3] `tests/music0311h_blue_echo_test.py`; [4] `service-worker.js`.
+
+## Midir Companion 0.3.11h — Blue Echostone music equipment slot
+
+1. Replaced the Music Calculator’s middle-right blank visual cell with an editable Blue Echostone, supporting one Blue-eligible reforge line sourced from the existing Reforge Simulator. Echostones have no enchant, Holy Water of Murias, instrument grade or special-upgrade inputs, and use the simulator’s normal maximum (not equipment limit breaks). [1] `Companion Files/app.js` (`musicEchoReforgeRule`, `musicGearReforgeLines`, `musicEnchantEditor`); [2] `Companion Files/styles.css`.
+2. Matching reforge-name precedence is exclusive: when the Blue Echostone level exceeds the highest individual gear roll of that name, the Echostone replaces all equipped matching gear contributions, not their sum; otherwise the normal gear sum remains. Inspiring Performance Rate is a separate, informational Echostone option. [1] `Companion Files/app.js` (`musicEchoActive`, `musicGearReforgeTotal`, `musicGearInspiringRate`).
+3. Existing saved buff sets migrate without altering their existing equipment IDs; new sets can share or independently copy an Echostone. Refreshed app/cache version and added phone-viewport and stacking regression tests. [1] `Companion Files/app.js` (`musicGearState`); [3] `tests/music0311h_blue_echo_test.py`; [4] `service-worker.js`.
+
+## 0.3.11g — Music Calculator equipment slot arrangement
+
+1. Reordered the existing 3×3 equipment grid to Accessory 1 / Hat / Accessory 2; Instrument / Body / blank; Gloves / Boots / Wings. Only visual placement changed: saved equipment IDs, enchants, reforges, bonuses, Murias totals, and sharing behavior are untouched. [1] `Companion Files/styles.css`.
+2. Updated current release identification and offline service-worker cache keys for deployment. [2] `service-worker.js`; [3] `README.md`.
+
+## 0.3.11f — Vertrag supply shop and Thunderblight scheduling
+
+1. Kept the Vertrag setup prompt bouncing over the southeast giant, constraining its label and arrow to the visible canvas rather than letting the upper-giant label run offscreen. [1] `Companion Files/vertrag-survival.js`.
+2. Introduced earned Training Points and a Vertrag supply shop, delivering upgrade stones, Erg Unlock Assist Potions and Dazzling Reforging Tools directly to their existing shared inventories. Quitting grants no points; completed runs and avoided attacks earn rewards. [1]; [2] `Companion Files/special-upgrade.js`; [3] `Companion Files/reforge-simulator.js`; [4] `Companion Files/vertrag-survival.css`.
+3. Changed Theta chart placement to reserve Thunderblight maintenance activations before other spells; both normal and S50 Thunder casts route around upkeep, and Shadow Flare retains its established cast rules. [5] `Companion Files/theta-rhythm.js`; [6] `tests/vertrag_theta_session0311f_test.py`; [7] `tests/theta285_cast_test.py`.
+4. Updated cumulative release metadata, offline cache version, and relevant tests/current-state documentation; the previous time-trial, music, mobile and Rotation Highlights mechanics remain unchanged. [8] `service-worker.js`; [9] `Midir Companion.html`.
+
+## 0.3.11e — Vertrag untimed fastest clear and visible giant bars
+
+1. Removed the 60–180s Time Trial selector/deadline; run time now counts upward until four giants are defeated, the player fails, or the player quits. Only successful clears update a separate fastest-time record (minimum per giant/defense setup). Old countdown-era trial records are retained and labeled legacy rather than silently treated as verified clears. [1] `Companion Files/vertrag-survival.js`.
+2. Reversed the **giant-attached** progress strips to full→empty, enlarged and contrasted them, and painted them last in screen coordinates outside the terrain/effect clipping mask. Bars remain with in-frame giants, including the bottom two, without an extra giant-status row. [1]; [2] `tests/vertrag0311e_trial_bars_test.py`.
+3. Updated current-state Vertrag guide, visible version and offline cache identifiers; preserved gameplay settings, imported profiles, Theta, music calculator and Rotation Highlights rules. [3] `Midir-Companion-Doccumentation/features/06-VERTRAG-SURVIVAL.md`; [4] `service-worker.js`; [5] `Midir Companion.html`.
+
 ## 0.3.9b — Mobile Arcana menu/cache visibility hotfix
 
 - Confirmed that the mobile route restriction list contains only the legacy keyboard-only drill. Converted games—including Vertrag, Rotation Crafter, Theta, Crom, Pig Pursuit, EV, positioning labs, Rate Isn’t a Lie, and Cutting Chorus—are not restricted.
@@ -1529,18 +1558,3 @@ The original changelog included the following EV Base Manager note outside a ver
 2. Removed overheat from unmatched/out-of-ring presses; only fully unplayed notes that leave the board raise the miss stack. Preserve five-miss failure, three-consecutive-hit reset, historical miss count, and unrelated skill timing/cooldown rules. [1]; [2]; [3] `tests/theta282_test.py`.
 3. Display the next actually scheduled note stationary at the far end before its approach window, without inventing skill uses. Close the chart promptly when its final note resolves. [1]; [2].
 4. Bumped visible release and offline caches; updated current Theta guide and current verification notes while leaving Rotation Highlights mechanics, user data and other simulator rules unchanged. [4] `service-worker.js`; [5] `Midir Companion.html`; [6] `Midir-Companion-Doccumentation/features/05-THETA-CONTAINMENT.md`.
-
-
-## 0.3.11e — Vertrag untimed fastest clear and visible giant bars
-
-1. Removed the 60–180s Time Trial selector/deadline; run time now counts upward until four giants are defeated, the player fails, or the player quits. Only successful clears update a separate fastest-time record (minimum per giant/defense setup). Old countdown-era trial records are retained and labeled legacy rather than silently treated as verified clears. [1] `Companion Files/vertrag-survival.js`.
-2. Reversed the **giant-attached** progress strips to full→empty, enlarged and contrasted them, and painted them last in screen coordinates outside the terrain/effect clipping mask. Bars remain with in-frame giants, including the bottom two, without an extra giant-status row. [1]; [2] `tests/vertrag0311e_trial_bars_test.py`.
-3. Updated current-state Vertrag guide, visible version and offline cache identifiers; preserved gameplay settings, imported profiles, Theta, music calculator and Rotation Highlights rules. [3] `Midir-Companion-Doccumentation/features/06-VERTRAG-SURVIVAL.md`; [4] `service-worker.js`; [5] `Midir Companion.html`.
-
-
-## 0.3.11f — Vertrag supply shop and Thunderblight scheduling
-
-1. Kept the Vertrag setup prompt bouncing over the southeast giant, constraining its label and arrow to the visible canvas rather than letting the upper-giant label run offscreen. [1] `Companion Files/vertrag-survival.js`.
-2. Introduced earned Training Points and a Vertrag supply shop, delivering upgrade stones, Erg Unlock Assist Potions and Dazzling Reforging Tools directly to their existing shared inventories. Quitting grants no points; completed runs and avoided attacks earn rewards. [1]; [2] `Companion Files/special-upgrade.js`; [3] `Companion Files/reforge-simulator.js`; [4] `Companion Files/vertrag-survival.css`.
-3. Changed Theta chart placement to reserve Thunderblight maintenance activations before other spells; both normal and S50 Thunder casts route around upkeep, and Shadow Flare retains its established cast rules. [5] `Companion Files/theta-rhythm.js`; [6] `tests/vertrag_theta_session0311f_test.py`; [7] `tests/theta285_cast_test.py`.
-4. Updated cumulative release metadata, offline cache version, and relevant tests/current-state documentation; the previous time-trial, music, mobile and Rotation Highlights mechanics remain unchanged. [8] `service-worker.js`; [9] `Midir Companion.html`.

@@ -1537,12 +1537,12 @@ html[data-midir-mobile="true"] .sg-three-pages button{min-height:46px;flex:1 1 1
 .music-gear-item[data-music-slot="Accessory 1"]{order:1}
 .music-gear-item[data-music-slot="Hat"]{order:2}
 .music-gear-item[data-music-slot="Accessory 2"]{order:3}
-.music-gear-item[data-music-slot="Gloves"]{order:4}
+.music-gear-item[data-music-slot="Gloves"]{order:7}
 .music-gear-item[data-music-slot="Body"]{order:5}
-.music-gear-item[data-music-slot="Wings"]{order:6}
-.music-gear-item[data-music-slot="Boots"]{order:7}
-.music-gear-item[data-music-slot="Instrument"]{order:8}
-.music-gear-slot-placeholder{order:9;min-height:136px;display:grid;place-items:center;border:1px dashed #59869a;border-radius:7px;color:#7498a8;font-size:28px;background:#123248}
+.music-gear-item[data-music-slot="Wings"]{order:9}
+.music-gear-item[data-music-slot="Boots"]{order:8}
+.music-gear-item[data-music-slot="Instrument"]{order:4}
+.music-gear-slot-placeholder{order:6;min-height:136px;display:grid;place-items:center;border:1px dashed #59869a;border-radius:7px;color:#7498a8;font-size:28px;background:#123248}
 .music-gear-slot-button{display:grid;justify-items:center;align-content:center;text-align:center;width:100%;min-width:0;min-height:108px;gap:2px;padding:4px;color:#e8f4fa;border:1px solid #719aae;border-radius:6px;background:linear-gradient(180deg,#255c74,#163e53);cursor:pointer}
 .music-gear-slot-button:focus-visible{outline:3px solid #f3d47e;outline-offset:2px}
 .music-gear-icon{font-size:34px;line-height:1.15;filter:drop-shadow(0 2px 2px #071e29)}
@@ -1661,3 +1661,6 @@ main:has(.music-compact-workspace) .rotation-back button{padding:5px 8px;min-hei
 .music-gear-murias-total label{display:grid;gap:2px;flex:1 1 140px;max-width:200px;font-size:.73rem}
 .music-gear-murias-total input{width:100%;min-width:0;max-width:190px;min-height:32px;padding:4px 7px;margin:0}
 .music-gear-murias-total button{min-height:32px;padding:4px 8px;font-size:.73rem}
+
+/* Blue Echostone replaces the former empty middle-right music equipment cell. */
+.music-gear-item[data-music-slot="Blue Echostone"]{order:6}

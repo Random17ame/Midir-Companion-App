@@ -35,7 +35,7 @@ with sync_playwright() as pw:
   assert not page.locator('.music-calc-extra').evaluate('(el)=>el.open')
   assert not page.locator('.music-gear-more').evaluate('(el)=>el.open')
   assert page.locator('.music-gear-item-actions button').count()==0, 'Duplicate tile copy/new controls consume extra height'
-  assert page.locator('.music-gear-item').count()==8
+  assert page.locator('.music-gear-item').count()==9
   metrics=page.evaluate('''()=>({
      screen:innerHeight, width:innerWidth, scrollWidth:document.documentElement.scrollWidth,
      result:(()=>{const r=document.querySelector('.music-result-dock').getBoundingClientRect();return {top:r.top,bottom:r.bottom,height:r.height}})(),

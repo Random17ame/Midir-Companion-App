@@ -1,4 +1,4 @@
-# Current verification scope and known limitations — 0.3.11f
+# Current verification scope and known limitations — 0.3.11i
 
 ## Confirmed from the shipped source
 
@@ -71,3 +71,11 @@ The 0.3.11e regression `tests/vertrag0311e_trial_bars_test.py` checks all four f
 ## 0.3.11f release checks
 
 `tests/vertrag_theta_session0311f_test.py` exercises shared shop delivery, shared inventory delivery and non-overlap of Thunder and Thunderblight at normal/S50 cast speeds in three browser viewports. `tests/vertrag0311e_trial_bars_test.py` retains giant-bar and fastest-time coverage; legacy Theta mechanics and the general application regression suite are retained. The browser test uses synthetic storage for wallet setup; **deployed storage, shop ergonomics and Theta timing feel require field checks**. 
+
+## 0.3.11h Blue Echostone checks
+
+The dedicated Blue Echostone browser test verifies the ninth equipment cell, single-line restriction, absence of enchant/Murias inputs, max levels, gear/echo precedence, and no horizontal overflow at 320×568, 390×844 and 844×390. Physical-device use and hosted profile migration have not been tested.
+
+## 0.3.11i music gear scroll behavior
+
+- Chromium editor scroll preservation and numeric field focus confirmed at 320 × 568, 390 × 844, and 844 × 390; Blue Echostone and item override tests plus 17 application regressions pass. Physical-phone keyboard behavior remains a field check.

@@ -1,8 +1,8 @@
-# Midir Companion — Application Files (0.3.11f)
+# Midir Companion — Application Files (0.3.11i)
 
 This directory contains the scripts, CSS, icons, sprites, and other assets used by Midir Companion. The app is launched through `../index.html` for HTTPS hosting or `../Midir Companion.html` for local desktop use. Keep its directory name and asset structure unchanged.
 
-**Application version:** 0.3.11f. New feature versions use semantic numbering; previous build identifiers are retained only in the historical changelog.
+**Application version:** 0.3.11i. New feature versions use semantic numbering; previous build identifiers are retained only in the historical changelog.
 
 ## Application overview
 
@@ -14,7 +14,7 @@ This directory contains the scripts, CSS, icons, sprites, and other assets used 
 
 ## Authoritative documentation
 
-For the current rules, architecture, 19 feature guides, and source references, see the [0.3.11f documentation home](../Midir-Companion-Doccumentation/README.md). The [historical changelog](../Midir-Companion-Doccumentation/CHANGELOG.md) is maintained **only there**; older release notes are not a substitute for the current feature descriptions.
+For the current rules, architecture, 19 feature guides, and source references, see the [0.3.11i documentation home](../Midir-Companion-Doccumentation/README.md). The [historical changelog](../Midir-Companion-Doccumentation/CHANGELOG.md) is maintained **only there**; older release notes are not a substitute for the current feature descriptions.
 
 **Do not copy any personal profile backups, combat exports, or private reports into a public GitHub repository.**
 
@@ -36,6 +36,6 @@ Flat timing rings sit inside the track, notes continue through the rings and bey
 
 See root README and current-state guides for EV onboarding, music equipment set switching, Enduring Defense reforge, and Theta mobile performance rendering. Rotation Highlights cooldown/shape evidence is unchanged.
 
-### 0.3.11f current visible features
+### 0.3.11i current visible features
 
 Vertrag has an in-bounds bouncing setup prompt and a Training Points shop using shared simulator inventories. Theta gives Thunderblight upkeep priority over Thunder (normal and S50 casting). The earlier time-trial, music equipment, and mobile-renderer mechanics are unchanged.
