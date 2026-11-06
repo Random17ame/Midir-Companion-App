@@ -1,6 +1,6 @@
 # Mobile Features and Touch Support
 
-**Applies to:** Midir Companion 0.3.10.
+**Applies to:** Midir Companion 0.3.11d.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -66,10 +66,22 @@ Physical-device validation is pending for simultaneous two-stick riding, long-pr
 
 **References:** `Companion Files/ek-pig-pursuit.js`, `Companion Files/ev-defense.js`, `Companion Files/styles.css`, `Companion Files/app.js`; focused test `tests/mobile038_pig_ev_test.py`.
 
-## Cutting Chorus rhythm controls (0.3.10 current)
+## Cutting Chorus rhythm controls (0.3.11 current)
 
 The implemented touch input preserves independent aiming and tapping, and the normal mobile Arcana hub route is available: touch-drag the playfield to aim, then activate a individual skill or Cutting Chorus button using another finger at the correct time. No direct tap-to-hit mode is provided because it would bypass the positioning/timing split. Desktop controls are unchanged. [1] `Companion Files/mp-rhythm.js`; [2] `Companion Files/styles.css`.
 
 ## Cutting Chorus skill trigger panel
 
-On touch screens, the trigger panel lists Melodic Puppeteer skills and base puppet skills separately, with a dedicated Cutting Chorus button. Each button displays its current **cooldown** state based on the current Rotation Highlights minimum rules; numbered Puppet Acts have a provisional +3s added. Hard mode tracks the last two distinct skill inputs, and aiming and triggering remain separate touches. PC mouse-and-keyboard play is preserved. Source: `Companion Files/mp-rhythm.js`, `Companion Files/styles.css`.
+On touch screens, the trigger panel shows Melodic Puppeteer skills and base puppet skills in a shared compact icon bank, with Cutting Chorus on its own row. Each button displays its current **cooldown** state based on the current Rotation Highlights minimum rules; numbered Puppet Acts have a provisional +3s added. Hard mode tracks the last two distinct skill inputs, and aiming and triggering remain separate touches. PC mouse-and-keyboard play is preserved. Source: `Companion Files/mp-rhythm.js`, `Companion Files/styles.css`.
+
+## Compact gameplay controls (current)
+
+- Vertrag keeps giant setup unobstructed by placing the Trial/Endless selector beneath the arena.
+- Pig Pursuit uses a one-line touch guide and a visible start button rather than a full-screen mouse/keyboard explanation.
+- Bandit Hunt's three responses are icon-only on touch screens (accessible names remain), with no awkward text wrapping.
+- Cutting Chorus uses a compact, non-scrollable bank of skill icons and cooldowns below its aiming area; the two inputs remain independent.
+- EV uses a compact touch onboarding panel with reachable confirmation, and a smaller independently scrollable shop.
+- Arsenal Gunner keeps placement mode selectors and primary attack commands above the arena.
+- Herb Collection uses an enlarged on-screen sprite with tightly matched clickable bounds.
+
+These are mobile UI changes only; precise usability on different physical-device sizes and browser scaling still requires device testing. See `06`, `09`, `12`, `13`, and `14` feature guides and the current release changelog.

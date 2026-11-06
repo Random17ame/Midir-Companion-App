@@ -1488,3 +1488,44 @@ The original changelog included the following EV Base Manager note outside a ver
 - Added localization of changing text nodes, newly inserted game overlays and known canvas HUD labels, preserving English fallback and user/report data (source: `Companion Files/i18n.js`).
 - Added current-state Language Support guide and documented remaining untranslated long-form strings (source: `Midir-Companion-Doccumentation/features/19-LANGUAGE-SUPPORT.md`).
 - Updated visible version and offline shell cache for 0.3.10; no gameplay or saved-profile schema changes (sources: `Midir Companion.html`, `service-worker.js`).
+
+## 0.3.11 — Mobile UI accessibility and Music Calculator enchant editor
+
+- Moved Vertrag mode buttons outside the giant setup arena; shortened Pig Pursuit onboarding and switched Bandit Hunt's mobile skill responses to icon-only controls (`vertrag-survival.css`, `ek-pig-pursuit.js`, `bb-bandit-flip.js`, `styles.css`).
+- Made Cutting Chorus's icon/cooldown bank compact without nested scrolling and auto-focused the gameplay view on start; retained separate aiming and triggering (`mp-rhythm.js`, `styles.css`).
+- Docked EV's tutorial with an accessible confirmation button and compacted its tower shop; moved Arsenal Gunner's targeting/firing actions above the arena (`ev-defense.js`, `app.js`, `styles.css`).
+- Aligned Herb Collection hit regions with enlarged visible herb sprites (`styles.css`).
+- Removed the duplicate Musical Knowledge reforge input and math; added an eight-slot Prefix/Suffix music enchant wizard with integer ranges and manual Enchant Effects override (`app.js`).
+- Updated the current-state feature guides, language labels and PWA cache names; retained gameplay scoring, saved profiles and Rotation Highlights rules (`i18n.js`, `service-worker.js`).
+
+
+## 0.3.11a — EV tutorial, switchable music gear, Theta mobile renderer
+
+1. Corrected EV Tower Defense's four-step onboarding: the Base Manager drawer displays the final confirmation itself, and completing step 4 closes it so Wave 1 can begin. [`Companion Files/ev-defense.js`](../Companion%20Files/ev-defense.js), [`styles.css`](../Companion%20Files/styles.css).
+2. Consolidated music enchants and reforges into eight-slot named buff-set tabs, each storing complete named physical items (Prefix/Suffix actual rolls, three reforge lines, and instrument-specific upgrades). Added shared-item reuse, independent copies, loadout switching, set comparison and per-set enchant manual override; retained 0.3.11 settings through visible, assignable legacy values. [`Companion Files/app.js`](../Companion%20Files/app.js).
+3. Removed March Song Mount Speed from results, kept Walking Speed, added Enduring Melody Defense reforge (+1 base Defense/level, max 3). Removed the redundant standalone reforge contributions without altering preexisting performance tier semantics. [`Companion Files/app.js`](../Companion%20Files/app.js).
+4. Added mobile low-cost rendering in Theta: smaller canvas buffer, approximately 30 FPS drawing throttle without slowing rhythm logic, reduced shake/glow/particles/cosmetics and optional Graphics Mode settings. Gameplay timing rules remain unchanged. [`Companion Files/theta-rhythm.js`](../Companion%20Files/theta-rhythm.js), [`theta-rhythm.css`](../Companion%20Files/theta-rhythm.css).
+5. Updated browser regression coverage, current-state guides, package version and service-worker caches; preserved assets, profiles, three UI languages, and Rotation Highlights roadmap. [`tests/mobile0311a_hotfix_test.py`](../tests/mobile0311a_hotfix_test.py), [`tests/mobile0311_music_test.py`](../tests/mobile0311_music_test.py), [`service-worker.js`](../service-worker.js). Physical-phone performance and persistence over a deployed HTTPS origin have not been certified.
+
+
+## 0.3.11b — Music Calculator equipment board and named set-effect precedence
+
+1. Replaced the multi-slot select list with an interactive eight-position equipment board; each slot opens a physical-item editor retaining named-tab sharing/copying, enchant prefixes/suffixes and overrides. [1] `Companion Files/app.js`, [2] `Companion Files/styles.css`.
+2. Reforge choices now use the existing Reforge Simulator table per slot: three lines maximum, duplicates filtered, normal and exceptional limit-break caps shown and enforced. Special Ethereal Chiffon Wings have no reforge lines. [1] `Companion Files/app.js`, [3] `Companion Files/reforge-data.js`, [4] `tests/music0311b_slot_rules_test.py`.
+3. Consolidated Seraphic glove, Troubadour body/hat/glove/boot and Special Ethereal Chiffon Wings effects into physical equipment. Instrument grade, special upgrades and instrument buff upgrades remain instrument-only. Buff duration and Fantastic Chorus effects are excluded. [1], [4]; supplied wiki HTML source captures.
+4. Named combination effects resolve using the highest equipped same-name bonus, not their sum: Seraphic BFO +5% overrides Troubadour BFO +3%, while Troubadour Enduring Melody +3% still applies. Legacy BFO set selections are capped under the same name until explicitly reassigned. [1], [4].
+5. Updated current-state guides, app version and service-worker shell/asset names, preserving EV/Theta gameplay, persisted profiles, localization and Rotation Highlights analysis rules. [5] `Midir Companion.html`, [6] `service-worker.js`, [7] `Midir-Companion-Doccumentation/features/12-MUSIC-AND-PUPPETEER.md`. Physical-device verification and deployed HTTPS persistence remain pending.
+
+## 0.3.11c — Compact Music Calculator and per-item manual enchant overrides
+
+1. Each of the eight physical music gear items now accepts an optional typed enchant contribution, replacing its own automatic Prefix/Suffix subtotal; blank/reset restores auto, and manual zero is valid. The existing per-buff-set overall Enchant Effects override still takes final precedence. Reforges, set effects, grades and instrument upgrades are not overridden. [1] `Companion Files/app.js` (`musicGearEnchantItemTotal`, `musicEnchantEditor`, `musicBuffBind`).
+2. Moved live music results above the equipment board with compact sticky display, and added a pinned preview in each item editor. Removed duplicate Copy/New controls from tiles (retained within item editors); collapsed additional input fields and manage/compare tools for more room to interact on mobile. [1] `Companion Files/app.js`; [2] `Companion Files/styles.css`.
+3. Added browser regression for item override precedence, shared instruments versus independent copies, save/reload and phone layouts. Updated current-state docs and offline cache IDs; preserved Rotation Highlights mechanics. [3] `tests/music0311c_compact_override_test.py`; [4] `service-worker.js`.
+4. Moved Holy Water of Murias from the miscellaneous global input into the seven eligible physical equipment slots (+1 each; wings excluded). Added a per-set manual Murias override with auto reset; legacy flat values migrate to that override without double-counting or inventing gear attribution. Shared items and independent copies retain distinct intended behavior. [1] `Companion Files/app.js`; [5] `tests/music0311c_murias_slots_test.py`.
+
+## 0.3.11d — Theta track judgment, missed-note failure and on-deck preview
+
+1. Moved flat timing indicators onto the track and aligned canvas note motion, touch selection and score judgment to one geometry: Perfect when a note is fully enclosed; Great/Good/OK for partial overlaps, with late overlap favored and a modest late scoring premium. Notes visibly leave the board after passing the indicator. [1] `Companion Files/theta-rhythm.js`; [2] `tests/theta0311d_judgment_test.py`.
+2. Removed overheat from unmatched/out-of-ring presses; only fully unplayed notes that leave the board raise the miss stack. Preserve five-miss failure, three-consecutive-hit reset, historical miss count, and unrelated skill timing/cooldown rules. [1]; [2]; [3] `tests/theta282_test.py`.
+3. Display the next actually scheduled note stationary at the far end before its approach window, without inventing skill uses. Close the chart promptly when its final note resolves. [1]; [2].
+4. Bumped visible release and offline caches; updated current Theta guide and current verification notes while leaving Rotation Highlights mechanics, user data and other simulator rules unchanged. [4] `service-worker.js`; [5] `Midir Companion.html`; [6] `Midir-Companion-Doccumentation/features/05-THETA-CONTAINMENT.md`.

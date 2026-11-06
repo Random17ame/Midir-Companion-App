@@ -38,12 +38,12 @@ with sync_playwright() as p:
  # Target drawing should run without errors (including successful particle/shader loop).
  page.wait_for_timeout(230)
  assert page.evaluate('__thetaAudit().run.dorcha')<=15
- # Damage note mis-timed still counts as failure while utilities do not.
- page.keyboard.press('a')
- assert page.evaluate('__thetaAudit().run.overheat')==1
+ # Empty/wrong-time presses have no penalty. Only fallen notes count as misses.
+ for _ in range(9):page.keyboard.press('a')
+ assert page.evaluate('__thetaAudit().run.overheat')==0
  # Persisted upgrade survives export/import of old and new profile structures.
  save=page.evaluate('MIDIR_THETA.exportState()')
  assert save['upgrades']['lucky']==1
  assert not errors,errors
- print('PASS Theta282 shop, utilities, cap, resource pool, timing chart, overheat, rendering')
+ print('PASS Theta282 shop, utilities, cap, resource pool, timing chart, ignored empty presses, rendering')
  browser.close()

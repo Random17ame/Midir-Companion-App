@@ -1,6 +1,6 @@
 # Vertrag — Giant Phase Survival Grounds
 
-**Applies to:** Midir Companion 0.3.10.
+**Applies to:** Midir Companion 0.3.11d.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -32,3 +32,7 @@ The playable arena boundary constrains the player’s **position**, not the visi
 ## Mobile controls
 
 On touch devices, Vertrag survival provides a right-side analog stick or four-way D-pad, a dedicated potion control with a live cooldown label, and two-finger arena pinch zoom. Portrait keeps the arena above controls; landscape places controls beside it. Touch selections work in giant setup and defense menus. Keyboard, left-click movement, and desktop wheel zoom remain supported. See `18-MOBILE-FEATURES.md`.
+
+## Setup accessibility (current)
+
+On touch screens and narrow viewports, the Trial/Endless mode selector is **below the giant-selection canvas**, not layered over the giants. All four giants remain directly tappable before choosing a mode; movement/combat rules are unchanged. [1] `Companion Files/vertrag-survival.css`.

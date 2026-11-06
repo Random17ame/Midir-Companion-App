@@ -1,6 +1,6 @@
 # Language Support — English, Korean and Spanish
 
-Version: Midir Companion 0.3.10
+Version: Midir Companion 0.3.11c
 
 Scope: Current implemented behavior only. Historical changes are recorded in `../CHANGELOG.md`.
 

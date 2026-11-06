@@ -1,6 +1,6 @@
 # Herb Collection and Precision Harvest
 
-**Applies to:** Midir Companion 0.3.10.
+**Applies to:** Midir Companion 0.3.11d.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -16,3 +16,7 @@
 
 1. Herb gameplay and save: [`herb-collection.js`](../../Companion%20Files/herb-collection.js).
 2. Shared stone rewards: [`special-upgrade.js`](../../Companion%20Files/special-upgrade.js).
+
+## Herb target geometry (current)
+
+Herb sprites in the gathering field scale to a legible 42×78 CSS-pixel frame, and the clickable button uses only a narrow 2-pixel border around the displayed sprite rather than a much larger transparent region. The random herb placement and timing mechanics are unchanged. [1] `Companion Files/styles.css`.

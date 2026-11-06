@@ -1,4 +1,4 @@
-# Current design and verification principles — 0.3.10
+# Current design and verification principles — 0.3.11d
 
 ## Product and evidence contract
 

@@ -1365,3 +1365,299 @@ html[data-midir-mobile="true"] .sg-three-pages button{min-height:46px;flex:1 1 1
  .mp-touch-skill img{width:24px;height:24px}
  .mp-touch-section-title{margin:8px 0 4px}
 }
+
+/* 0.3.11 mobile usability pass: unobstructed arenas, compact touch controls. */
+@media(pointer:coarse){
+ .ek-pig-overlay{padding:9px 12px;gap:7px;justify-content:center;overflow:hidden}
+ .ek-pig-overlay strong{font-size:1rem}.ek-pig-overlay span{font-size:.77rem;line-height:1.25}
+ .ek-pig-overlay .ek-overlay-button{font-size:.92rem;min-height:42px;padding:8px 18px}
+ .ek-desktop-help{display:none!important}
+ .ek-touch-help{display:block}
+ .bb-bandit-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .bb-bandit-actions button{justify-content:center;min-height:58px;min-width:0;padding:5px!important}
+ .bb-bandit-actions button .bb-action-caption{display:none}
+ .bb-bandit-actions button img{width:42px;height:42px;object-fit:contain}
+ .bb-bandit-actions .hint{font-size:.74rem}
+ .bb-bandit-active{gap:8px}.bb-active-details{min-width:0}
+ .bb-encounter-cue{font-size:.86rem;line-height:1.2}
+ .herb-pick{padding:2px;min-height:0;min-width:0}
+ .herb-pick .herb-icon{width:45px;height:76px}
+ .mp-rhythm-shell{--mp-stage-height:34dvh}
+ .mp-rhythm-stage{height:var(--mp-stage-height);min-height:230px}
+ .mp-touch-keys{max-height:none!important;overflow:visible!important;margin:6px 0 0;padding:6px;display:flex;flex-direction:column;gap:5px}
+ .mp-touch-keys p.mp-touch-hint{font-size:.7rem;margin:0;line-height:1.1}
+ .mp-touch-keys .mp-touch-keys-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px}
+ .mp-touch-keys button.mp-touch-skill{min-height:55px;max-height:60px;padding:3px 2px;gap:2px;border-radius:7px}
+ .mp-touch-skill img{height:27px!important;width:27px!important}
+ .mp-touch-skill-name{display:none}
+ .mp-touch-skill-cd{font-size:.61rem;min-width:0;padding:0 3px}
+ .mp-touch-keys .mp-touch-chorus-row{grid-template-columns:1fr!important}
+ .mp-touch-chorus-row .mp-touch-skill-name{display:inline;font-size:.72rem}
+ .mp-rhythm-overlay{padding:10px}
+ .mp-rhythm-overlay p{font-size:.8rem;line-height:1.25}
+ .evtd-v177 .evtd-tutorial:not([hidden]){top:auto;bottom:8px;left:8px;transform:none;width:calc(100% - 16px);max-height:min(38dvh,270px);overflow-y:auto;display:grid;grid-template-columns:auto 1fr;gap:5px;padding:8px 10px;border-width:2px;box-shadow:0 0 0 100vmax #07131b33,0 6px 14px #0009}
+ .evtd-v177 .evtd-tutorial-character{font-size:25px;flex:none;grid-row:1}
+ .evtd-v177 .evtd-tutorial-dialogue{grid-column:2;min-width:0}
+ .evtd-v177 .evtd-tutorial-title strong{font-size:.82rem}
+ .evtd-v177 .evtd-tutorial-title span{display:none}
+ .evtd-v177 .evtd-tutorial p{font-size:.77rem;line-height:1.2;margin:3px 0}
+ .evtd-v177 .evtd-tutorial>button{grid-column:1/-1;position:sticky;bottom:0;width:100%;min-height:43px;margin:0!important;font-size:.83rem}
+ .evtd-v177 .evtd-drawer{width:min(100%,380px);padding:8px;overscroll-behavior:contain}
+ .evtd-v177 .evtd-items{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+ .evtd-v177 .evtd-shop-tower{padding:4px;gap:3px}
+ .evtd-v177 .evtd-shop-tower>button:first-child{min-height:52px;padding:5px}
+ .evtd-v177 .evtd-shop-tower>button{font-size:.76rem;padding:5px;min-height:34px}
+ .evtd-v177 .evtd-shop-tower small{display:none}
+}
+.ek-touch-help{display:none}
+@media(pointer:coarse){.ek-touch-help{display:block}}
+/* Maintain music editor inside mobile viewport; manual overrides remain available. */
+.music-enchant-launch{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:6px}
+.music-enchant-launch button{font-size:.82rem;padding:6px 9px}
+.music-enchant-launch span{font-size:.76rem;color:#bcd5dc}
+.music-enchant-backdrop{position:fixed;inset:0;background:#06111ad9;z-index:3000;display:grid;place-items:center;padding:12px}
+.music-enchant-editor{width:min(540px,100%);max-height:calc(100dvh - 24px);overflow:auto;display:flex;flex-direction:column;gap:10px;padding:15px;background:#152636;color:#eaf4f6;border:1px solid #67a99f;border-radius:14px}
+.music-enchant-heading{display:flex;align-items:start;justify-content:space-between}
+.music-enchant-heading h3{margin:2px 0 0}.music-enchant-heading small{color:#a8c6cd}
+.music-enchant-heading button{font-size:22px;min-width:40px;min-height:40px}
+.music-enchant-choice{display:grid;grid-template-columns:minmax(0,2fr) minmax(100px,1fr);gap:9px}
+.music-enchant-choice label{display:grid;gap:5px;font-size:.87rem}
+.music-enchant-choice select{width:100%;min-width:0}
+.music-enchant-actions{display:flex;justify-content:space-between;gap:9px}
+.music-enchant-actions button{min-height:44px;flex:1}
+.music-enchant-total{display:flex;justify-content:space-between;gap:7px;flex-wrap:wrap;font-size:.78rem;color:#c4e6db}
+
+/* 0.3.11: AG attack/field controls remain visible alongside the arena. */
+.ag-stage-toolbar{display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:7px}
+.ag-stage-toolbar .position-touch-tools{margin:0;display:flex;gap:6px;flex-wrap:wrap}
+.ag-stage-toolbar .position-touch-tools button{display:flex;align-items:center;gap:5px;min-height:42px;padding:5px 10px;font-weight:700}
+.ag-action-icon{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+.ag-stage-actions{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.ag-stage-actions button{min-height:42px;padding:5px 9px}
+@media(max-width:700px), (pointer:coarse){
+ .ag-compact-layout{display:flex;flex-direction:column;gap:7px}
+ .ag-compact-layout>.card{margin-bottom:0;padding:8px}
+ .ag-stage-toolbar{display:grid;grid-template-columns:minmax(0,1fr);gap:5px}
+ .ag-stage-toolbar .position-touch-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+ .ag-stage-toolbar .position-touch-tools button{min-width:0;justify-content:center;font-size:.8rem;min-height:43px;padding:5px;gap:5px}
+ .ag-stage-toolbar .position-touch-tools .ag-action-icon{width:28px;height:28px}
+ .ag-stage-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+ .ag-stage-actions button{min-width:0;min-height:40px;padding:5px;font-size:.85rem;white-space:nowrap}
+ .ag-stage-actions button span{font-size:.73rem}
+ .ag-stage .position-arena{display:block;width:100%;height:auto;max-height:43dvh}
+ .ag-stage #ag-position-status{font-size:.73rem;line-height:1.2;margin:5px 0 0}
+ .ag-position-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .ag-position-tools h3{grid-column:1/-1;margin:0;font-size:.9rem}
+ .ag-position-tools label{font-size:.74rem;min-width:0}
+ .ag-position-tools label input[type=range]{width:100%;min-width:0}
+}
+@media(max-width:380px){.ag-stage-actions button span{font-size:.65rem}}
+/* Herb hit target follows an enlarged, legible sprite instead of a mostly transparent region. */
+.herb-pick{padding:2px}
+.herb-pick .herb-icon{width:42px;height:78px}
+.herb-pick .herb-icon img{width:100%;height:100%;object-fit:contain}
+@media(pointer:coarse){.herb-pick{min-width:0;min-height:0;padding:2px}.herb-pick .herb-icon{width:42px;height:78px}}
+@media(pointer:coarse){
+ /* Response icons already carry accessible action names; the desktop legend duplicates them and overflows on phones. */
+ .bb-bandit-legend,.bb-bandit-one-line{display:none}
+ .bb-bandit-toolbar .hint{display:none}
+}
+
+/* 0.3.11a: the final EV onboarding control remains tappable when Base Manager is open. */
+.evtd-tour-finish{display:block;position:sticky;top:0;z-index:12;width:100%;min-height:48px;margin:0 0 12px;padding:10px;background:#187d70;color:#fff;font-weight:700;border:2px solid #a6edd3;border-radius:9px}
+
+
+/* 0.3.11a: music buff equipment sets and touch-friendly item editor. */
+.music-gear-panel{min-width:0;overflow:visible}
+.music-gear-tabs{display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding:6px 0 10px}
+.music-gear-tabs button{flex:0 0 auto;min-height:44px;max-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music-gear-tab-tools{display:flex;gap:8px;align-items:end;flex-wrap:wrap;margin:4px 0 14px}
+.music-gear-tab-tools label{flex:1 1 170px;display:grid;gap:4px;min-width:0}
+.music-gear-tab-tools input,.music-gear-item select,.music-gear-totals input{width:100%;min-width:0}
+.music-gear-tab-tools button{min-height:42px}
+.music-gear-equipped{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:9px}
+.music-gear-item{min-width:0;border:1px solid var(--line);border-radius:10px;background:#102433;padding:12px;display:grid;align-content:start;gap:9px}
+.music-gear-item-title{display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.music-gear-item-title span{color:#acdcd6;font-size:.82rem}
+.music-gear-item>label{display:grid;gap:5px;font-size:.85rem}
+.music-gear-item-description{margin:0;overflow-wrap:anywhere;color:var(--muted);font-size:.85rem}
+.music-gear-item-actions{display:flex;flex-wrap:wrap;gap:6px}
+.music-gear-item-actions button{min-height:42px;flex:1 1 auto;padding:6px 9px;font-size:.82rem}
+.music-gear-totals{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:12px 0;padding:12px;border:1px solid var(--line);border-radius:10px}
+.music-gear-totals>label{display:grid;gap:5px;flex:1 1 210px}
+.music-gear-totals>button{min-height:42px}
+.music-gear-compare-scroll{overflow:auto;max-width:100%;border:1px solid var(--line);border-radius:9px}
+.music-gear-compare table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:.85rem}
+.music-gear-compare th,.music-gear-compare td{padding:9px 11px;text-align:right;border-bottom:1px solid var(--line)}
+.music-gear-compare th:first-child{text-align:left}
+.music-gear-compare tr.active{background:rgba(48,154,139,.22)}
+.music-gear-tier-values{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.music-gear-tier-values span{border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:.84rem}
+.music-gear-reforge{display:grid;grid-template-columns:minmax(0,2fr) minmax(75px,1fr);gap:8px}
+.music-gear-reforge label,.music-gear-instrument label,.music-enchant-editor>label{display:grid;gap:5px;font-size:.85rem;min-width:0}
+.music-gear-reforge select,.music-gear-reforge input,.music-gear-instrument select,.music-gear-instrument input,.music-enchant-editor>label input{width:100%;min-width:0}
+.music-gear-instrument{display:grid;gap:9px}
+.music-enchant-actions{position:sticky;bottom:-15px;padding:10px 0 4px;background:#152636;z-index:4}
+.music-gear-unassigned{border:1px solid #ac8756;border-radius:9px;padding:10px}
+.music-gear-legacy{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:6px 0}
+.music-gear-legacy select{max-width:100%;min-height:42px}
+@media(max-width:550px){.music-calculator-body{padding:0 7px 9px}.music-gear-tab-tools{align-items:stretch}.music-gear-tabs button{min-height:44px}.music-gear-reforge{grid-template-columns:minmax(0,1.6fr) minmax(70px,.6fr)}.music-enchant-backdrop{padding:6px}.music-enchant-editor{max-height:calc(100dvh - 12px);width:100%;padding:10px}.music-enchant-actions{bottom:-10px}}
+
+/* 0.3.11a: EV mobile patrol pad must not overflow the 320px screen or hide its arrows. */
+@media (pointer:coarse){
+ .evtd-mobile-controls,.evtd-patrol-pad{box-sizing:border-box;min-width:0;max-width:100%}
+ .evtd-patrol-pad{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;width:100%;justify-items:stretch}
+ .evtd-patrol-pad>strong{text-align:center}
+ .evtd-patrol-pad>div{display:grid;grid-template-columns:minmax(48px,1fr) auto minmax(48px,1fr);align-items:center;gap:6px;min-width:0;width:100%}
+ .evtd-patrol-pad button{min-width:48px;min-height:50px;width:100%}
+ .evtd-patrol-pad span{min-width:0;text-align:center}
+}
+@media (pointer:coarse) and (orientation:landscape){.evtd-patrol-pad{width:35%;flex:0 0 35%}}
+/* Fix intrinsic grid min-content from the EV action/shop rows forcing a 516px shell on a 296px phone card. */
+@media (pointer:coarse){
+ .evtd-v177{grid-template-columns:minmax(0,1fr);min-width:0;max-width:100%}
+ .evtd-v177 .evtd-game-shell{box-sizing:border-box;min-width:0;max-width:100%;width:100%}
+ .evtd-v177 .evtd-mobile-controls,.evtd-v177 .evtd-mobile-skills{min-width:0;max-width:100%;width:100%}
+}
+/* Keep the final EV onboarding control in the viewport in short landscape views. */
+@media (pointer:coarse) and (orientation:landscape) and (max-height:540px){
+ .evtd-v177 .evtd-drawer:not([hidden]){position:fixed;top:8px;bottom:8px;right:8px;z-index:1005;width:min(400px,58vw);max-height:calc(100dvh - 16px);overflow:auto}
+}
+@media (pointer:coarse) and (orientation:landscape) and (max-height:540px){
+ .evtd-v177 .evtd-tour-finish{position:fixed;top:14px;right:25px;width:calc(min(400px,58vw) - 34px);z-index:1010}
+}
+@media (pointer:coarse) and (orientation:landscape) and (max-height:540px){
+ /* Avoid a translated ancestor re-anchoring fixed onboarding controls off-screen. */
+ .evtd-v177{left:auto;transform:none}
+}
+
+/* 0.3.11b: familiar 3×3 equipment-slot board with touch-sized, individual editors. */
+.music-gear-equipped{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:750px;margin:9px auto 14px;gap:7px;padding:10px;background:linear-gradient(135deg,#133b50,#092d3d);border:1px solid #4a849d;border-radius:12px}
+.music-gear-item{background:#153f55;border:1px solid #6595a9;border-radius:7px;padding:5px;min-width:0;gap:4px;align-content:start}
+.music-gear-item[data-music-slot="Accessory 1"]{order:1}
+.music-gear-item[data-music-slot="Hat"]{order:2}
+.music-gear-item[data-music-slot="Accessory 2"]{order:3}
+.music-gear-item[data-music-slot="Gloves"]{order:4}
+.music-gear-item[data-music-slot="Body"]{order:5}
+.music-gear-item[data-music-slot="Wings"]{order:6}
+.music-gear-item[data-music-slot="Boots"]{order:7}
+.music-gear-item[data-music-slot="Instrument"]{order:8}
+.music-gear-slot-placeholder{order:9;min-height:136px;display:grid;place-items:center;border:1px dashed #59869a;border-radius:7px;color:#7498a8;font-size:28px;background:#123248}
+.music-gear-slot-button{display:grid;justify-items:center;align-content:center;text-align:center;width:100%;min-width:0;min-height:108px;gap:2px;padding:4px;color:#e8f4fa;border:1px solid #719aae;border-radius:6px;background:linear-gradient(180deg,#255c74,#163e53);cursor:pointer}
+.music-gear-slot-button:focus-visible{outline:3px solid #f3d47e;outline-offset:2px}
+.music-gear-icon{font-size:34px;line-height:1.15;filter:drop-shadow(0 2px 2px #071e29)}
+.music-gear-slot-button strong{font-size:.81rem;line-height:1.15}
+.music-gear-slot-button small{display:block;max-width:100%;min-width:0;color:#d2eced;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.69rem}
+.music-gear-slot-flags{font-size:.73rem;min-height:1.15em;color:#d6f8b8}
+.music-gear-item-description{display:none}
+.music-gear-item-actions{display:flex;gap:3px}
+.music-gear-item-actions button{min-height:32px;padding:3px 2px;flex:1 1 0;font-size:.72rem;white-space:nowrap}
+.music-gear-editor-quick{display:flex;flex-wrap:wrap;gap:8px}
+.music-gear-editor-quick button{flex:1;min-height:42px}
+.music-gear-set-editor{border:1px solid #4e8e8b;border-radius:8px;padding:9px;background:#0f2c38}
+.music-gear-set-editor label{display:grid;gap:6px}
+.music-gear-set-details{margin:6px 0 0;color:#bfe6d4;font-size:.86rem}
+.music-gear-reforge{grid-template-columns:minmax(0,1fr) minmax(68px,.25fr);align-items:start}
+.music-reforge-rule{grid-column:1/-1;color:#b9d4dc;font-size:.74rem;line-height:1.4}
+@media(max-width:550px){.music-gear-equipped{padding:5px;gap:4px}.music-gear-item{padding:3px}.music-gear-slot-button{min-height:96px;padding:3px}.music-gear-icon{font-size:29px}.music-gear-slot-button strong{font-size:.71rem}.music-gear-slot-button small{font-size:.62rem}.music-gear-slot-flags{font-size:.64rem}.music-gear-slot-placeholder{min-height:118px}.music-gear-item-actions button{font-size:.64rem;min-height:30px}.music-gear-reforge{grid-template-columns:minmax(0,1fr) minmax(64px,.32fr)}}
+/* Keep complete slot descriptions accessible to assistive technology while the visual board stays compact. */
+.music-gear-item-description{display:block;position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* 0.3.11c: minimal music calculator, always-visible live bonuses and slot overrides.
+   Keep all equipment editing in the existing per-item modal and preserve full
+   desktop access to advanced controls via explicit disclosures. */
+.music-compact-workspace,.music-compact-workspace .music-calculator-body{min-width:0;gap:7px}
+.music-compact-workspace .music-calculator-body>.card,.music-compact-workspace>.card{margin:0}
+.music-compact-workspace .music-calc-card{padding:10px 12px}
+.music-compact-workspace .music-gear-panel{min-width:0}
+.music-gear-panel-heading{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.music-gear-panel-heading h3{margin:0;font-size:1rem}
+.music-gear-panel-heading small{font-size:.76rem}
+.music-compact-workspace .music-gear-tabs{gap:5px;padding:3px 0 4px}
+.music-compact-workspace .music-gear-tabs button{padding:5px 10px;min-height:34px;font-size:.81rem}
+.music-compact-workspace .music-gear-equipped{max-width:490px;margin:3px auto 6px;padding:5px;gap:5px}
+.music-compact-workspace .music-gear-item{padding:3px;gap:0}
+.music-compact-workspace .music-gear-slot-button{min-height:76px;padding:3px;gap:0}
+.music-compact-workspace .music-gear-icon{font-size:26px;line-height:1}
+.music-compact-workspace .music-gear-slot-button strong{font-size:.77rem}
+.music-compact-workspace .music-gear-slot-button small{font-size:.66rem}
+.music-compact-workspace .music-gear-slot-flags{font-size:.69rem;min-height:1em}
+.music-compact-workspace .music-gear-slot-placeholder{min-height:78px}
+.music-compact-workspace .music-gear-item-actions{display:none}
+.music-gear-totals-compact{display:flex;gap:6px 12px;margin:4px 0 0;padding:7px 9px;align-items:center;font-size:.79rem}
+.music-gear-totals-compact>label{flex:1 1 150px;max-width:230px;font-size:.75rem}
+.music-gear-totals-compact input{margin:2px 0 0;min-height:34px;padding:5px 7px}
+.music-gear-totals-compact>button{min-height:34px;padding:5px 8px;font-size:.78rem}
+.music-gear-more,.music-calc-extra{min-width:0}
+.music-gear-more>summary,.music-calc-extra>summary{cursor:pointer;color:#c4edec;font-weight:600;padding:6px 4px;font-size:.83rem}
+.music-gear-more .music-gear-tab-tools{margin:8px 0 12px}
+.music-calc-extra .music-extra-group{border:1px solid var(--line);border-radius:7px;min-width:0;margin:8px 0;padding:8px}
+.music-calc-extra .music-extra-group legend{font-size:.82rem;color:var(--text);font-weight:600}
+.music-calc-extra .music-calc-grid{grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:7px}
+.music-calc-extra .music-calc-grid label{font-size:.78rem;gap:2px}
+.music-calc-extra .music-calc-grid input,.music-calc-extra .music-calc-grid select{margin:0;padding:5px;min-height:36px;font-size:.8rem}
+.music-result-dock{position:sticky;top:0;z-index:20;background:#0b2733;box-shadow:0 3px 12px #04121eaa;border-color:#478b90}
+.music-result-dock .music-result-heading label{display:flex;align-items:center;gap:9px;min-width:0;font-size:.78rem;white-space:nowrap}
+.music-result-dock .music-result-heading label span{flex:0 0 auto}
+.music-result-dock .music-result-heading select{margin:0;flex:1;min-width:0;width:auto;padding:4px 8px;min-height:34px;font-size:.82rem}
+.music-result-dock .music-result-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:6px 0 0}
+.music-result-dock .music-result-strip>div{padding:6px 8px;border-radius:7px;min-width:0}
+.music-result-dock .music-result-strip small{font-size:.7rem;line-height:1.2;margin:0 0 3px}
+.music-result-dock .music-result-strip strong{font-size:1.04rem;white-space:nowrap}
+.music-result-dock .music-gear-tier-values{gap:4px;margin-top:5px}
+.music-result-dock .music-gear-tier-values span{padding:2px 6px;border-radius:5px;font-size:.72rem}
+.music-gear-slot-manual{display:grid;grid-template-columns:1fr;gap:5px;border:1px solid #768b98;border-radius:8px;padding:9px;background:#233547}
+.music-gear-slot-manual label{display:grid;gap:4px;min-width:0}
+.music-gear-slot-manual label input{width:100%;min-height:40px;max-width:100%;margin:0}
+.music-gear-slot-manual small{font-size:.72rem;color:#c3d7e1}
+.music-gear-slot-manual button{min-height:38px}
+.music-gear-editor-head{position:sticky;top:-15px;z-index:6;background:#152636;padding:2px 0 6px;border-bottom:1px solid #426572}
+.music-gear-live-preview{display:flex;align-items:center;gap:4px 10px;flex-wrap:wrap;border:1px solid #458b91;border-radius:6px;padding:5px 8px;background:#0e313d;font-size:.74rem}
+.music-gear-live-preview small{font-size:.7rem;flex:1 1 100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music-gear-live-preview b{color:var(--gold)}
+.music-calculator-details:has(.music-compact-workspace){overflow:visible}
+main:has(.music-compact-workspace){padding-top:7px}
+main:has(.music-compact-workspace) .rotation-back{margin-bottom:6px}
+main:has(.music-compact-workspace) .rotation-back button{padding:5px 8px;min-height:33px;font-size:.8rem}
+@media(max-width:640px){
+ body:has(.music-compact-workspace) header{display:flex;flex-direction:row;align-items:center;padding:6px 10px 5px;gap:6px}
+ body:has(.music-compact-workspace) header h1{font-size:1.1rem;margin:0}
+ body:has(.music-compact-workspace) header p,body:has(.music-compact-workspace) header .eyebrow,body:has(.music-compact-workspace) header .tag,body:has(.music-compact-workspace) header .ai-disclaimer{display:none}
+ body:has(.music-compact-workspace) header .header-right{margin-left:auto;gap:0}
+ body:has(.music-compact-workspace) header .language-label{font-size:.65rem}
+ body:has(.music-compact-workspace) header select{width:auto;min-height:26px;padding:2px 4px}
+ body:has(.music-compact-workspace) .nav-shell{padding:0 5px}
+ body:has(.music-compact-workspace) nav{padding:0 0 3px}
+ body:has(.music-compact-workspace) nav button{padding:4px;font-size:.72rem}
+ main:has(.music-compact-workspace){padding:7px 5px 25px}
+ .music-compact-workspace .music-calc-card{padding:7px}
+ .music-result-dock{top:0}
+ .music-result-dock .music-result-heading label{gap:3px;flex-wrap:wrap}
+ .music-result-dock .music-result-heading label span{font-size:.68rem}
+ .music-result-dock .music-result-heading select{min-height:31px;font-size:.76rem}
+ .music-result-dock .music-result-strip{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:3px}
+ .music-result-dock .music-result-strip>div{padding:5px 2px;text-align:center}
+ .music-result-dock .music-result-strip small{font-size:.6rem}
+ .music-result-dock .music-result-strip strong{font-size:clamp(.73rem,3.5vw,.98rem)}
+ .music-result-dock .music-gear-tier-values span{font-size:.63rem;padding:2px 4px}
+ .music-compact-workspace .music-gear-slot-button{min-height:68px}
+ .music-compact-workspace .music-gear-slot-placeholder{min-height:70px}
+ .music-compact-workspace .music-gear-icon{font-size:22px}
+ .music-compact-workspace .music-gear-slot-button strong{font-size:.69rem}
+ .music-compact-workspace .music-gear-slot-button small{font-size:.60rem}
+ .music-compact-workspace .music-gear-slot-flags{font-size:.64rem}
+ .music-compact-workspace .music-gear-panel-heading small{display:none}
+ .music-gear-totals-compact{padding:5px;font-size:.72rem}
+ .music-gear-editor-head{top:-10px}
+ .music-gear-live-preview{gap:4px 6px;font-size:.70rem;padding:4px}
+}
+
+/* 0.3.11c — Murias Water is an item property, with a compact per-set override. */
+.music-gear-murias{display:flex;align-items:flex-start;gap:9px;padding:9px;border:1px solid #357a9a;border-radius:8px;background:#102c3b}
+.music-gear-murias input{width:20px;height:20px;flex-shrink:0;margin-top:2px}
+.music-gear-murias span{display:grid;gap:3px}
+.music-gear-murias small{font-size:.75rem;color:#bad5e4}
+.music-gear-murias-total{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;flex:1 1 100%;border-top:1px solid var(--line);padding-top:5px}
+.music-gear-murias-total label{display:grid;gap:2px;flex:1 1 140px;max-width:200px;font-size:.73rem}
+.music-gear-murias-total input{width:100%;min-width:0;max-width:190px;min-height:32px;padding:4px 7px;margin:0}
+.music-gear-murias-total button{min-height:32px;padding:4px 8px;font-size:.73rem}

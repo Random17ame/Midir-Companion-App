@@ -30,6 +30,7 @@ with sync_playwright() as playwright:
   assert page.evaluate('''()=>__mp_test.skillCooldownSeconds({id:'chorus'})''')==4
   page.locator('#mp-link').check()
   page.locator('#mp-start').click()
+  page.wait_for_timeout(160) # Allow 0.3.11 mobile stage auto-positioning to settle.
   assert page.evaluate('''()=>__mp_test.state.running''')
   # Simulate a live note centered under the aiming finger, just like a real note.
   stage=page.locator('#mp-rhythm-stage')
@@ -52,7 +53,7 @@ with sync_playwright() as playwright:
    page.evaluate('''()=>{const st=__mp_test.state;st.notes=[{kind:'white',t:st.elapsed,id:335,x:.48,y:.5,done:false}];document.querySelector('[data-mp-skill="touch-mp-downbeat"]').dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,pointerId:10,pointerType:'touch'}))}''')
    assert page.evaluate('''()=>__mp_test.state.hit''')==2,'separate skill key failed'
    css=page.evaluate('''()=>({aim:getComputedStyle(document.querySelector('#mp-rhythm-stage')).touchAction,panel:getComputedStyle(document.querySelector('.mp-touch-keys')).overflowY,stageH:document.querySelector('#mp-rhythm-stage').getBoundingClientRect().height,panelH:document.querySelector('.mp-touch-keys').getBoundingClientRect().height})''')
-   assert css['aim']=='none' and css['panel']=='auto',css
+   assert css['aim']=='none' and css['panel'] in ('visible','clip'),css # 0.3.11: no nested skill scrolling
   # Chorus can only be triggered by dedicated button on mobile.
   assert not failures,failures
   print('PASS MP rhythm',width,height,cd)

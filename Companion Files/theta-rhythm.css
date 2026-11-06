@@ -33,3 +33,6 @@
 .theta-touch-lanes .theta-surge-fill{position:absolute;bottom:0;left:0;height:5px;width:var(--surge-charge);background:#ffd27e;border-radius:0 0 8px 8px;pointer-events:none}
 @media(min-width:1050px){.theta-play-layout{grid-template-columns:minmax(0,1fr) 168px}.theta-play-layout .theta-utility-panel{align-content:start}.theta-play-layout .theta-utility-panel [data-theta]{flex-basis:100%}}
 @media(max-width:700px){.theta-touch-lanes{gap:3px}.theta-touch-lanes button{flex-direction:column;min-height:65px;padding:4px 1px;font-size:10px}.theta-touch-lanes button .theta-skill-icon{width:28px;height:28px}.theta-play-layout .theta-utility-panel [data-theta]{flex:1 1 64px}.theta-play-layout .theta-utility-panel .theta-skill-icon{width:26px;height:26px}}
+
+/* 0.3.11a: remove compositor glow in the responsive performance renderer. */
+@media(max-width:800px),(pointer:coarse){.theta-wrap canvas[data-performance="on"]{box-shadow:none}.theta-wrap canvas{touch-action:manipulation}}

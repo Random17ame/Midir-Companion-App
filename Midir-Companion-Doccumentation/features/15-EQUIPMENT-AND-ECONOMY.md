@@ -1,6 +1,6 @@
 # Equipment simulators, upgrades and economy
 
-**Applies to:** Midir Companion 0.3.10.
+**Applies to:** Midir Companion 0.3.11d.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

@@ -1,6 +1,6 @@
 # Explosive Vanguard — Tower Range Lab
 
-**Applies to:** Midir Companion 0.3.10.
+**Applies to:** Midir Companion 0.3.11d.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -28,3 +28,11 @@
 ## Beginner wave vitality
 
 With the starter weapon, wave 1 enemies have 12 HP and wave 2 enemies have 17 HP to support learning tower placement. Subsequent waves continue using the weapon-relative scaling model, and advanced weapon tiers are not affected by this beginner-specific override. [1] `Companion Files/ev-defense.js`.
+
+## Mobile first-wave onboarding and shop (current)
+
+The four onboarding stages retain their required actions, but present concise touch-specific instructions. The tutorial docks to the lower battlefield edge on mobile, scrolls within a limited height when needed, and keeps its confirmation control visible. The mobile shop uses compact two-column tower choices inside an independently scrollable drawer. Tower prices, damage, saved campaign data and later-wave scaling are unchanged. [1] `Companion Files/ev-defense.js`; [2] `Companion Files/styles.css`.
+
+## Mobile tutorial completion (0.3.11a)
+
+When tutorial step 3 opens the Base Manager, step 4 now provides its own prominent **I understand — start playing** control inside that drawer, avoiding the previous overlap with the underlying fixed tutorial panel. Confirming finishes onboarding and closes the drawer automatically, making the Start Wave control available. Chromium mobile automation has completed all four steps and begun Wave 1 with normal clicks. Physical-phone pinch/tower-placement ergonomics remain unverified. [1] `Companion Files/ev-defense.js`, [2] `Companion Files/styles.css`.

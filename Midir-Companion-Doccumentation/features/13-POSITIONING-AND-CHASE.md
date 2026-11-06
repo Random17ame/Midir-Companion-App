@@ -1,6 +1,6 @@
 # Positioning, frame challenges and chase games
 
-**Applies to:** Midir Companion 0.3.10.
+**Applies to:** Midir Companion 0.3.11d.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -32,3 +32,7 @@
 Pig Pursuit uses independent touch sticks: the carrot-direction stick points the pig toward a target while the rider-balance stick applies an opposite lean for stability. Both can be manipulated simultaneously. The desktop mouse/keyboard inputs, difficulty selection, collectible effects, world collisions and score model are unchanged. Physical-phone multitouch responsiveness is pending.
 
 **References:** `Companion Files/ek-pig-pursuit.js`, `Companion Files/styles.css`, `tests/mobile038_pig_ev_test.py`.
+
+## Compact mobile action UI (current)
+
+Arsenal Gunner places its Detonation Field and Heavy Artillery touch selectors and Commit/Randomize/Clear action buttons **above** the positioning arena, with icons where bundled skill artwork exists. Advanced firing parameters remain below the arena. Pig Pursuit's initial mobile overlay is a single brief instruction and a visible Begin Ride button; desktop keyboard explanation remains available only for desktop input. Bandit Hunt displays icon-only mobile response buttons with accessible skill names, avoiding wrapped multi-line labels. [1] `Companion Files/app.js`; [2] `Companion Files/ek-pig-pursuit.js`; [3] `Companion Files/bb-bandit-flip.js`; [4] `Companion Files/styles.css`.

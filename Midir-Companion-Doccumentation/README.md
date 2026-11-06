@@ -1,6 +1,6 @@
-# Midir Companion 0.3.10 — Documentation
+# Midir Companion 0.3.11c — Documentation
 
-This is the **current-state** documentation for the Midir Companion 0.3.10 application, maintained as a description of the current application behavior.
+This is the **current-state** documentation for the Midir Companion 0.3.11d application, maintained as a description of the current application behavior.
 
 This pack is intended for the GitHub repository root alongside `index.html` and `Companion Files/`. It contains no obsolete build-specific feature descriptions. Prior release changes belong in the **[historical changelog](CHANGELOG.md)**.
 
@@ -20,3 +20,9 @@ For local desktop use, extract the full application together and open `Midir Com
 The Companion is an independent training and analysis application. It does not capture live gameplay or authenticate Mabinogi accounts. Simulated economy rates and training damage models are not official game data.
 
 **Data safety:** Export full-profile backups regularly, retain original combat-report exports, and do not assume mobile and desktop saves synchronize. Different browser origins store separate profiles. AI was used in developing the application.
+
+## Next development phase
+
+The [Rotation Highlights next-chat handoff](ROTATION-HIGHLIGHTS-NEXT-CHAT-HANDOFF.md) describes the skill-cooldown, shape and activation-detection research plan. This is forward planning, separate from verified 0.3.11d behavior.
+
+**0.3.11a historical release:** [Hotfix release and tests](HOTFIX-0311A-RELEASE-AND-TESTS.md).  **0.3.11b release:** [Equipment editor and set-bonus changes](HOTFIX-0311B-EQUIPMENT-EDITOR-AND-TESTS.md). **0.3.11c release:** [Compact calculator and manual slot overrides](HOTFIX-0311C-COMPACT-MUSIC-CALCULATOR.md). **0.3.11d release:** [Theta judgment and on-deck notes](HOTFIX-0311D-THETA-TIMING.md).
