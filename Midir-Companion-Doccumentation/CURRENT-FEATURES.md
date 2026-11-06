@@ -1,6 +1,6 @@
 # Current feature map
 
-**Version:** 0.3.11d. All linked guides describe current implemented behavior; see the changelog for history.
+**Version:** 0.3.11f. All linked guides describe current implemented behavior; see the changelog for history.
 
 | Feature | What it does | Guide |
 |---|---|---|

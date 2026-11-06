@@ -4,7 +4,7 @@ let src=fs.readFileSync(__dirname+'/../Companion Files/vertrag-survival.js','utf
 const suffix='window.__vtTest={getRun:()=>run,init,stompingGiants,hazardCount,spawnStomps,update,data,ARENA,newGiant};\n})();';
 assert(src.endsWith('})();\n'));src=src.slice(0,-6)+suffix;
 const elements={ 'vt-root':{innerHTML:''}, 'vt-canvas':{focus(){}}, 'vt-announcement':{textContent:''} };
-const context={window:{addEventListener(){}},document:{getElementById:id=>elements[id]||null,querySelector:()=>null,addEventListener(){}},localStorage:{getItem:()=>null,setItem(){}},performance:{now:()=>0},requestAnimationFrame:()=>1,cancelAnimationFrame:()=>{},Image:function(){},console};
+const context={window:{addEventListener(){}},document:{getElementById:id=>elements[id]||null,querySelector:()=>null,addEventListener(){}},localStorage:{getItem:()=>null,setItem(){}},performance:{now:()=>0},navigator:{maxTouchPoints:0},matchMedia:()=>({matches:false}),requestAnimationFrame:()=>1,cancelAnimationFrame:()=>{},Image:function(){},console};
 vm.createContext(context);vm.runInContext(src,context);const t=context.window.__vtTest;
 t.data.config.giants=4;t.data.config.giantOccupied=[false,false,false,false];t.init('endless');const r=t.getRun(),rad=t.data.config.stompRadius;
 assert.strictEqual(t.hazardCount(r),4,'four giants stomp when nobody is close');

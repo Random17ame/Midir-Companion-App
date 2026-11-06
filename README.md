@@ -1,6 +1,6 @@
-# Midir Companion 0.3.11d
+# Midir Companion 0.3.11f
 
-An offline-capable Mabinogi companion for analyzing compatible combat reports, tracking achievements, preparing characters, and practicing Arcana encounters and minigames. Version 0.3.11d adds on-track geometric Theta judgments, late-overlap scoring, miss-only failure and a visible on-deck note to the cumulative 0.3.11c release. English, Korean, and Spanish interface support is retained. AI was used in developing this application.
+An offline-capable Mabinogi companion for analyzing compatible combat reports, tracking achievements, preparing characters, and practicing Arcana encounters and minigames. Version 0.3.11f adds a shared-inventory Training Points shop and an in-bounds setup prompt for Vertrag, plus priority scheduling for Thunderblight in Theta. Earlier time-trial, mobile and Music Calculator changes are preserved. English, Korean, and Spanish interface support is retained. AI was used in developing this application.
 
 ## Launch
 
@@ -30,7 +30,15 @@ Source code and art live under `Companion Files/`. The accompanying `tests/` dir
 Midir Companion is independent of the Midir combat logger and does not capture live game traffic. Minigame resource costs, simulated damage and economy models are practice tools, not verified Mabinogi combat calculations. Browser storage capacity and large-report import memory use depend on the device and browser.
 
 
-### 0.3.11d current release
+### 0.3.11f current release
+
+Vertrag now awards Training Points for actual training performance and completed clears. The shop exchanges them for shared Special Upgrade stones, Reforge Simulator Erg Assist Potions and Dazzling Reforging Tools. The bouncing setup prompt stays within the canvas. Theta schedules Thunderblight upkeep ahead of other casts, moving Thunder to its next eligible cast window (including S50), with no modification to judgment or cooldown values. Test these mechanics on physical phones before deployment sign-off.
+
+### 0.3.11e prior release
+
+Vertrag Time Trial is now a race to defeat all four giants in the shortest elapsed time, not a countdown. The old selectable 60–180s timer is removed from setup, and the elapsed clock keeps running until all giants fall, the player dies, or the player ends the run. Only successful clears create a new fastest record, grouped by stomp configuration and defense tier; older countdown-trial records remain preserved but are labeled as unverified legacy times. Giant-attached remaining-health strips now start full and drain to empty, and render **above arena effects outside the circular ground clip** so the lower giants' bars are visible when their giants are in frame. No separate four-giant progress HUD was added. Gameplay, defense rules, Theta, music equipment and Rotation Highlights are otherwise unchanged.
+
+### 0.3.11d prior release
 
 Theta's flat target rings now sit on the playable highway. Perfect requires the entire elliptical note inside the target, with Great / Good / OK for partial overlaps. Late partial overlaps outrank comparable early overlaps; late non-Perfect notes also receive a small score preference. Empty presses do not count as misses. A note becomes a miss only after falling past the bottom edge; five accumulated misses end a run, while three consecutive successful judgments clear the active miss stack. The next real scheduled note remains on deck at the far end until it enters its approach, with no fabricated activations. Rhythm cooldowns, skills, saved-state keys, low-cost mobile rendering and Rotation Highlights rules remain unchanged.
 

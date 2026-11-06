@@ -1,6 +1,6 @@
 # Herb Collection and Precision Harvest
 
-**Applies to:** Midir Companion 0.3.11d.
+**Applies to:** Midir Companion 0.3.11f.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

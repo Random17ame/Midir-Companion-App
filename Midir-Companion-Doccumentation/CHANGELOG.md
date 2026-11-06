@@ -1529,3 +1529,18 @@ The original changelog included the following EV Base Manager note outside a ver
 2. Removed overheat from unmatched/out-of-ring presses; only fully unplayed notes that leave the board raise the miss stack. Preserve five-miss failure, three-consecutive-hit reset, historical miss count, and unrelated skill timing/cooldown rules. [1]; [2]; [3] `tests/theta282_test.py`.
 3. Display the next actually scheduled note stationary at the far end before its approach window, without inventing skill uses. Close the chart promptly when its final note resolves. [1]; [2].
 4. Bumped visible release and offline caches; updated current Theta guide and current verification notes while leaving Rotation Highlights mechanics, user data and other simulator rules unchanged. [4] `service-worker.js`; [5] `Midir Companion.html`; [6] `Midir-Companion-Doccumentation/features/05-THETA-CONTAINMENT.md`.
+
+
+## 0.3.11e — Vertrag untimed fastest clear and visible giant bars
+
+1. Removed the 60–180s Time Trial selector/deadline; run time now counts upward until four giants are defeated, the player fails, or the player quits. Only successful clears update a separate fastest-time record (minimum per giant/defense setup). Old countdown-era trial records are retained and labeled legacy rather than silently treated as verified clears. [1] `Companion Files/vertrag-survival.js`.
+2. Reversed the **giant-attached** progress strips to full→empty, enlarged and contrasted them, and painted them last in screen coordinates outside the terrain/effect clipping mask. Bars remain with in-frame giants, including the bottom two, without an extra giant-status row. [1]; [2] `tests/vertrag0311e_trial_bars_test.py`.
+3. Updated current-state Vertrag guide, visible version and offline cache identifiers; preserved gameplay settings, imported profiles, Theta, music calculator and Rotation Highlights rules. [3] `Midir-Companion-Doccumentation/features/06-VERTRAG-SURVIVAL.md`; [4] `service-worker.js`; [5] `Midir Companion.html`.
+
+
+## 0.3.11f — Vertrag supply shop and Thunderblight scheduling
+
+1. Kept the Vertrag setup prompt bouncing over the southeast giant, constraining its label and arrow to the visible canvas rather than letting the upper-giant label run offscreen. [1] `Companion Files/vertrag-survival.js`.
+2. Introduced earned Training Points and a Vertrag supply shop, delivering upgrade stones, Erg Unlock Assist Potions and Dazzling Reforging Tools directly to their existing shared inventories. Quitting grants no points; completed runs and avoided attacks earn rewards. [1]; [2] `Companion Files/special-upgrade.js`; [3] `Companion Files/reforge-simulator.js`; [4] `Companion Files/vertrag-survival.css`.
+3. Changed Theta chart placement to reserve Thunderblight maintenance activations before other spells; both normal and S50 Thunder casts route around upkeep, and Shadow Flare retains its established cast rules. [5] `Companion Files/theta-rhythm.js`; [6] `tests/vertrag_theta_session0311f_test.py`; [7] `tests/theta285_cast_test.py`.
+4. Updated cumulative release metadata, offline cache version, and relevant tests/current-state documentation; the previous time-trial, music, mobile and Rotation Highlights mechanics remain unchanged. [8] `service-worker.js`; [9] `Midir Companion.html`.

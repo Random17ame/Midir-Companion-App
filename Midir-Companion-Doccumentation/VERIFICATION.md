@@ -1,4 +1,4 @@
-# Current verification scope and known limitations — 0.3.11d
+# Current verification scope and known limitations — 0.3.11f
 
 ## Confirmed from the shipped source
 
@@ -63,3 +63,11 @@ Run current `tests/regression_companion.py`, `tests/module_binding_test.py`, The
 - `tests/theta0311d_judgment_test.py` validates ring placement, full-note Perfect containment, all partial tiers, stronger late judgments, ignored extra/mis-timed inputs, visible on-deck note (including while another note approaches), track-exit miss deadline, five-miss failure, three-hit reset, and overall historical Miss total at 320×568, 390×844 and 844×390.
 - Updated `tests/theta282_test.py` to test the newly intended harmless unmatched press behavior, replacing its now-obsolete wrong-time overheat assertion. All nine preexisting Theta tests remain release-gating.
 - Physical-device latency, sustained FPS, touch/keyboard timing feel and deployed cache refresh must still be tested after publishing. Automated Chromium tests do not prove smoothness on a particular phone.
+
+## 0.3.11e Vertrag verification
+
+The 0.3.11e regression `tests/vertrag0311e_trial_bars_test.py` checks all four foreground bars outside the floor clip, drain percentage and defeated state, countdown removal, continued play past legacy duration, and fastest successful-clear records at phone portrait, landscape and desktop dimensions. Existing Vertrag survival, giant-rule, defense and arena-edge tests remain part of the release gate. **Physical-device legibility and deployed service-worker upgrades remain field checks.**
+
+## 0.3.11f release checks
+
+`tests/vertrag_theta_session0311f_test.py` exercises shared shop delivery, shared inventory delivery and non-overlap of Thunder and Thunderblight at normal/S50 cast speeds in three browser viewports. `tests/vertrag0311e_trial_bars_test.py` retains giant-bar and fastest-time coverage; legacy Theta mechanics and the general application regression suite are retained. The browser test uses synthetic storage for wallet setup; **deployed storage, shop ergonomics and Theta timing feel require field checks**. 

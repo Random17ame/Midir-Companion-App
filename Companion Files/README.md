@@ -1,8 +1,8 @@
-# Midir Companion — Application Files (0.3.11d)
+# Midir Companion — Application Files (0.3.11f)
 
 This directory contains the scripts, CSS, icons, sprites, and other assets used by Midir Companion. The app is launched through `../index.html` for HTTPS hosting or `../Midir Companion.html` for local desktop use. Keep its directory name and asset structure unchanged.
 
-**Application version:** 0.3.11d. New feature versions use semantic numbering; previous build identifiers are retained only in the historical changelog.
+**Application version:** 0.3.11f. New feature versions use semantic numbering; previous build identifiers are retained only in the historical changelog.
 
 ## Application overview
 
@@ -14,7 +14,7 @@ This directory contains the scripts, CSS, icons, sprites, and other assets used 
 
 ## Authoritative documentation
 
-For the current rules, architecture, 19 feature guides, and source references, see the [0.3.11d documentation home](../Midir-Companion-Doccumentation/README.md). The [historical changelog](../Midir-Companion-Doccumentation/CHANGELOG.md) is maintained **only there**; older release notes are not a substitute for the current feature descriptions.
+For the current rules, architecture, 19 feature guides, and source references, see the [0.3.11f documentation home](../Midir-Companion-Doccumentation/README.md). The [historical changelog](../Midir-Companion-Doccumentation/CHANGELOG.md) is maintained **only there**; older release notes are not a substitute for the current feature descriptions.
 
 **Do not copy any personal profile backups, combat exports, or private reports into a public GitHub repository.**
 
@@ -24,10 +24,18 @@ For the current rules, architecture, 19 feature guides, and source references, s
 Mobile UX refinements keep critical in-game controls visible for Vertrag, Pig Pursuit, Bandit Hunt, Cutting Chorus, EV, AG and Herb Collection. Music Calculator now includes an eight-slot enchant editor and no longer duplicates Musical Knowledge reforge values. See the updated `Midir-Companion-Doccumentation` current-state guides; release history remains in its `CHANGELOG.md`.
 
 
-### 0.3.11d current Theta correction
+### 0.3.11e prior Vertrag correction
+
+Time Trial has no selected countdown and is scored by fastest complete clear. The four remaining-progress bars remain attached to the giants, drain from full to empty, and render after terrain clipping and effects. Old countdown-trial times are preserved separately as legacy records. No additional giant-status HUD is displayed.
+
+### 0.3.11d prior Theta correction
 
 Flat timing rings sit inside the track, notes continue through the rings and beyond the track edge, and full enclosure is required for Perfect. Partial overlaps score Great / Good / OK, favoring late presses. Wrong/out-of-ring inputs are harmless; five genuinely unplayed notes cause failure, and three consecutive hits clear the active miss stack. A real queued note is drawn at the far end during timing gaps. No Rotation Highlights or gear calculations changed.
 
 ### 0.3.11c previous hotfix
 
 See root README and current-state guides for EV onboarding, music equipment set switching, Enduring Defense reforge, and Theta mobile performance rendering. Rotation Highlights cooldown/shape evidence is unchanged.
+
+### 0.3.11f current visible features
+
+Vertrag has an in-bounds bouncing setup prompt and a Training Points shop using shared simulator inventories. Theta gives Thunderblight upkeep priority over Thunder (normal and S50 casting). The earlier time-trial, music equipment, and mobile-renderer mechanics are unchanged.

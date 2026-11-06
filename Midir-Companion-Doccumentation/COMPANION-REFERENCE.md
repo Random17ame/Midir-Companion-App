@@ -1,6 +1,6 @@
-# Architecture, import and persistence reference — 0.3.11d
+# Architecture, import and persistence reference — 0.3.11f
 
-The accompanying version **0.3.11d** source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
+The accompanying version **0.3.11f** source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
 
 ## Static application and runtime
 

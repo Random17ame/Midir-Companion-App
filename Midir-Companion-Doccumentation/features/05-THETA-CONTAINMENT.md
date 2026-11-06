@@ -1,6 +1,6 @@
 # Subject Theta: Containment
 
-**Applies to:** Midir Companion 0.3.11d.
+**Applies to:** Midir Companion 0.3.11f.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -14,6 +14,10 @@
 - The four rhythm highway lanes are Thunder, Thunderblight, Shadow Flare and Twilight Surge (the latter has its own charge/release behavior). Render Dorcha, Render Mana, Hexshroud and Polar Vortex activate separately from the rhythm lane. Ice Bolt is also outside the four rhythm lanes. Seething Mana is a toggle; Twilight Surge uses a separate player-triggered charged reminder. Keybinds are configurable. On touch devices, tapping a note bubble or its timing target activates the corresponding combat lane; the dedicated lane buttons below the track and utility panel also support touch. Twilight Surge displays a charging percentage and fill indicator. Keyboard controls remain available.
 - A **Perfect** judgment requires the note to fit completely within its flat indicator. A partial overlap gives **Great**, **Good**, or **OK** based on coverage, with later partial overlaps favored over equivalent early ones. Notes continue visibly beyond the target and only count as missed after falling off the end of the track. Empty, incorrect-lane or out-of-ring presses do **not** add misses. **Five accumulated fallen notes** fail the run; **three consecutive successful judgments** clear the active miss stack (not the historical Miss total). Four stacks trigger an edge warning and red vignette.
 - The next actually scheduled rhythm note is shown stationary **on deck** at the far end when it is not yet within its approach window, including during other visible notes; no fake casts are created, and the run closes promptly after its last scheduled event is resolved.
+
+## Upkeep scheduling
+
+Thunderblight now reserves its intended maintenance activation before the rest of a chart is scheduled. Shadow Flare and Thunder avoid that reserved input/recovery interval; Thunder is shifted to the next valid cast window rather than presented simultaneously with Thunderblight. The reservation takes into account both ordinary Thunder and the faster Erg S50 cast. This does **not** modify Thunderblight’s modeled cooldown, the scoring windows, or the uninterrupted rhythm clock.
 
 ## Resources and skills
 
