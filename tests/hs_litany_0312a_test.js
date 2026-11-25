@@ -1,0 +1,45 @@
+/* 0.3.12a targeted mechanics: fixed boosts, S50 Dark Erg, Spirit augments, Murias relics. */
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const root=process.argv[2]||'.',ctx={window:{MIDIR_I18N:{language:()=> 'en'}},document:{}};
+vm.createContext(ctx);for(const f of ['reforge-data.js','hs-litany-lab.js'])vm.runInContext(fs.readFileSync(`${root}/Companion Files/${f}`,'utf8'),ctx);
+const api=ctx.window.MIDIR_HS_LITANY;const zero=api.initial();
+assert.equal(zero.version,6);assert.deepEqual([...api.calc(zero).healing],[97,106]);
+const pulse=api.initial();pulse.boosts.pulse.enabled=true;assert.equal(api.calc(pulse).hPct,20);assert.equal(api.calc(pulse).pPct,20);
+pulse.boosts.pulse.pct=100;assert.equal(api.calc(pulse).hPct,20);assert(!api.view(pulse).includes('data-hsl-open="boost:pulse"'));
+const amulet=api.initial();amulet.boosts.amulet.enabled=true;amulet.boosts.amulet.heal=6.6;amulet.boosts.amulet.party=999;amulet.boosts.amulet.pct=90;
+assert.equal(api.calc(amulet).healing[1],113);assert.equal(api.calc(amulet).party[1],227);
+const maxAmulet=api.initial();maxAmulet.boosts.amulet.enabled=true;maxAmulet.boosts.amulet.heal=99;assert.equal(api.calc(maxAmulet).healing[1],118);
+const dark=api.initial();dark.wandType='soul';dark.ergRank='S';dark.ergLevel=50;dark.darkErgLevel=50;
+assert.equal(api.calc(dark).darkEligible,true);assert.equal(api.calc(dark).darkPct,25);
+assert(api.view(dark).includes('data-hsl-open="slot:wand"'));
+dark.darkErgLevel=12;assert.equal(api.calc(dark).darkPct,6);
+dark.darkErgPctOverride='7.5';assert.equal(api.calc(dark).darkPct,8);
+dark.ergLevel=49;assert.equal(api.calc(dark).darkPct,0);assert.equal(api.calc(dark).darkEligible,false);
+dark.ergLevel=50;dark.ergRank='A';assert.equal(api.calc(dark).darkPct,0);
+dark.ergRank='S';dark.wandType='none';assert.equal(api.calc(dark).darkPct,0);
+const spirit=api.initial();spirit.wandType='tikka';spirit.boosts.spirit.enabled=true;spirit.spirit.attack.training=5;spirit.spirit.attack.attunement=5;spirit.spirit.attack.control=5;spirit.spirit.baseMP=4000;
+let v=api.calc(spirit);assert.equal(v.spiritMax,15);assert.equal(v.spiritAwakenPct,0);assert.deepEqual([...v.healing],[107*1.05,131*1.05]);assert.deepEqual([...v.party],[205*1.05,242*1.05]);
+spirit.spirit.awakeningActive=true;spirit.spirit.awakening.buff=5;v=api.calc(spirit);assert.equal(v.spiritAwakenPct,25);assert.equal(v.hPct,30);assert.equal(v.pPct,30);
+spirit.boosts.spirit.enabled=false;v=api.calc(spirit);assert.equal(v.spiritMax,0);assert.equal(v.spiritAwakenPct,0);assert.deepEqual([...v.healing],[97,106]);
+spirit.boosts.spirit.enabled=true;spirit.spirit.exclusive.luckyBlessing=5;assert.equal(api.calc(spirit).healing[1],131*1.30);
+const r=api.initial();r.boosts.relics.enabled=true;
+for(const relic of r.relics){relic.enabled=true;relic.level=10;}
+let rc=api.calc(r);assert.equal(rc.relicEffect.echoesPct,10);assert.equal(rc.relicEffect.pulseSeconds,5);assert.equal(rc.relicEffect.pallSeconds,5);assert.equal(rc.echoesBonus,22.7);
+assert.deepEqual([...rc.healing],[97,106]);assert.deepEqual([...rc.party],[205,227]);
+r.relics[0].prefix.selection='custom';r.relics[0].suffix.selection='custom';r.relics[0].prefix.heal=5;r.relics[0].suffix.magicAttack=12;r.relics[0].prefix.name='Named Prefix';r.relics[0].suffix.name='Named Suffix';
+rc=api.calc(r);assert.equal(rc.healing[1],111);assert.equal(rc.party[1],227);assert.equal(rc.echoesBonus,22.7);assert.equal(rc.enchantMagicAttack,12);
+r.relics[0].suffix.selection='Gift';assert.equal(api.calc(r).pPct,5);r.relics[0].enabled=false;assert.equal(api.calc(r).healing[1],106);assert.equal(api.calc(r).echoesBonus,0);
+r.boosts.relics.enabled=false;assert.equal(api.calc(r).relicEffect.pulseSeconds,0);
+const capped=api.hydrate({...r,version:5,relics:[{enabled:true,level:56,skill:'echoes'}],spirit:{attack:{training:88,ultimate:4}}});
+assert.equal(capped.relics[0].level,10);assert.equal(capped.spirit.attack.training,5);assert.equal(capped.spirit.attack.ultimate,1);
+const early=api.hydrate({version:2,spiritHealFlat:6,spiritPct:4,darkErgPct:25,ergRank:'S',ergLevel:50});
+assert.equal(early.boosts.spirit.enabled,true);assert.equal(early.spirit.attack.training,3);assert.equal(early.spirit.attack.attunement,4);assert.equal(early.darkErgLevel,50);
+const legacy=api.initial();legacy.version=4;legacy.boosts.cultivation={enabled:true,heal:8};legacy.boosts.refinement={enabled:true,pct:3};
+const migrated=api.hydrate(legacy);assert.equal(migrated.boosts.spirit.enabled,true);assert.equal(migrated.spirit.attack.training,4);assert.equal(migrated.spirit.attack.attunement,3);
+for(const code of ['en','ko','es']){ctx.window.MIDIR_I18N.language=()=>code;const h=api.view(zero);
+ assert(h.includes('data-hsl-open="boost:relics"'));assert(h.includes('data-hsl-open="boost:spirit"'));
+ if(code==='en')assert(!/[\uac00-\ud7a3]/.test(h));
+ if(code==='ko')assert(h.includes('무리아스 유물')&&h.includes('정령 무기'));
+ if(code==='es')assert(h.includes('Reliquias de Murias')&&h.includes('Arma espiritual'));
+}
+console.log('PASS 0.3.12a Litany mechanics, migration, language, equipment prerequisites and relics');

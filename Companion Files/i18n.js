@@ -40,6 +40,25 @@ const localization0311a={
 for(const lang of ['ko','es'])Object.assign(dict[lang],localization0311a[lang]);
 
 
+// 0.3.12: new Oath boost-card editor, statuses and compact Litany UI.
+const localization0312={
+ ko:{'Little Fury Sword Relic':'리틀 퓨리 소드 유물',"Ophelia's Tears":'오필리아의 눈물','Alban Knights Emblem':'알반 기사단 문장','Rank':'등급','Relic rank':'유물 등급','Choose rank to equip':'등급을 선택해 착용','Not equipped':'미착용','Ready to activate':'사용 가능','Cooldown':'재사용 대기','Active':'활성','Edit':'편집','Close':'닫기','Done':'완료','Oath titles':'서약 타이틀','Titles & stat conversion':'타이틀 및 능력치 환산','Current stat conversions':'현재 능력치 환산','Conversions are applied once after all selected bonuses.':'선택한 모든 보너스를 합산한 뒤 환산 효과가 한 번 적용됩니다.','Unrecognized':'인식할 수 없음','No title bonuses':'타이틀 보너스 없음','Title Bonus':'타이틀 보너스','2nd Title Bonus':'2차 타이틀 보너스','Equipped':'착용 중','Include in Full Oath':'전체 서약 준비에 포함','Emergency emblem':'긴급 서약 문장','Emergency gear already equipped':'긴급 상황에서 미리 착용한 문장','Rune of Mind':'마음의 룬','Rune of Mana':'마나의 룬','Rune of Body':'육체의 룬','Tenacious Taunt Duration emblem':'인내의 도발 지속 시간 문장','Alban Knights defensive emblem':'알반 기사단 방어 문장','Other emblem / none':'기타 문장 / 없음','Emergency Oath uses the emblem already equipped. You cannot swap while in combat.':'긴급 서약에는 이미 착용한 문장만 적용됩니다. 전투 중에는 교체할 수 없습니다.','Persona bonus':'페르소나 보너스','Duration':'지속 시간','minutes':'분','Shared cooldown':'공유 재사용 대기','Activate Persona':'페르소나 활성화','End Persona':'페르소나 종료','Will':'의지','Magic Defense':'마법 방어','Level':'레벨','Available buffs':'사용 가능한 버프','Boosts':'추가 효과','Edit to set values':'편집하여 설정','Companion 0.3.12 · Offline':'컴패니언 0.3.12 · 오프라인'},
+ es:{'Little Fury Sword Relic':'Reliquia Espada de Furia Menor',"Ophelia's Tears":'Lágrimas de Ofelia','Alban Knights Emblem':'Emblema de los Caballeros Alban','Rank':'Grado','Relic rank':'Grado de reliquia','Choose rank to equip':'Elige un grado para equipar','Not equipped':'Sin equipar','Ready to activate':'Listo para activar','Cooldown':'Enfriamiento','Active':'Activo','Edit':'Editar','Close':'Cerrar','Done':'Listo','Oath titles':'Títulos del Juramento','Titles & stat conversion':'Títulos y conversión de atributos','Current stat conversions':'Conversión actual de atributos','Conversions are applied once after all selected bonuses.':'Las conversiones se aplican una vez tras sumar todos los bonos seleccionados.','Unrecognized':'No reconocido','No title bonuses':'Sin bonos de título','Title Bonus':'Bono de título','2nd Title Bonus':'Bono de segundo título','Equipped':'Equipado','Include in Full Oath':'Incluir en Juramento completo','Emergency emblem':'Emblema de emergencia','Emergency gear already equipped':'Emblema ya equipado para emergencia','Rune of Mind':'Runa de la Mente','Rune of Mana':'Runa de Maná','Rune of Body':'Runa del Cuerpo','Tenacious Taunt Duration emblem':'Emblema de duración de Provocación tenaz','Alban Knights defensive emblem':'Emblema defensivo de los Caballeros Alban','Other emblem / none':'Otro emblema / ninguno','Emergency Oath uses the emblem already equipped. You cannot swap while in combat.':'El Juramento de emergencia usa el emblema ya equipado. No se puede cambiar en combate.','Persona bonus':'Bono de persona','Duration':'Duración','minutes':'minutos','Shared cooldown':'Enfriamiento compartido','Activate Persona':'Activar persona','End Persona':'Finalizar persona','Will':'Voluntad','Magic Defense':'Defensa mágica','Level':'Nivel','Available buffs':'Bonificaciones disponibles','Boosts':'Bonificaciones','Edit to set values':'Editar para configurar','Companion 0.3.12 · Offline':'Companion 0.3.12 · Sin conexión'}
+};
+for(const lang of ['ko','es'])Object.assign(dict[lang],localization0312[lang]);
+// 0.3.12a release marker; keep 0.3.12 historical keys for backwards compatibility.
+Object.assign(dict.ko,{'Companion 0.3.12r Draft · Offline':'컴패니언 0.3.12r 초안 · 오프라인'});
+Object.assign(dict.es,{'Companion 0.3.12r Draft · Offline':'Companion 0.3.12r Borrador · Sin conexión'});
+Object.assign(dict.ko,{'Companion 0.3.12d · Offline':'컴패니언 0.3.12c · 오프라인'});
+Object.assign(dict.es,{'Companion 0.3.12d · Offline':'Companion 0.3.12c · Sin conexión'});
+Object.assign(dict.ko,{'Companion 0.3.12b · Offline':'컴패니언 0.3.12b · 오프라인'});
+Object.assign(dict.es,{'Companion 0.3.12b · Offline':'Companion 0.3.12b · Sin conexión'});
+Object.assign(dict.ko,{'Companion 0.3.12a · Offline':'컴패니언 0.3.12a · 오프라인'});
+Object.assign(dict.es,{'Companion 0.3.12a · Offline':'Companion 0.3.12a · Sin conexión'});
+
+// Language selector itself respects the active language.
+Object.assign(dict.ko,{'Language':'언어'});Object.assign(dict.es,{'Language':'Idioma'});
+
 const store='midir-companion-language';
 let locale='en';try {const v=localStorage.getItem(store);if(['en','ko','es'].includes(v))locale=v;}catch(e){}
 const originals=new WeakMap();

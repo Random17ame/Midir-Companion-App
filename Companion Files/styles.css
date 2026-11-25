@@ -1664,3 +1664,482 @@ main:has(.music-compact-workspace) .rotation-back button{padding:5px 8px;min-hei
 
 /* Blue Echostone replaces the former empty middle-right music equipment cell. */
 .music-gear-item[data-music-slot="Blue Echostone"]{order:6}
+
+/* Harmonic Saint Resonant Litany draft, contained without changing existing calculator styling. */
+.hsl-lab{display:grid;gap:14px;max-width:1150px;margin:auto}.hsl-header{background:linear-gradient(130deg,rgba(129,89,157,.18),rgba(60,117,144,.09));border:1px solid rgba(192,166,220,.36);padding:18px;border-radius:15px}.hsl-header h2{margin:0 0 8px}.hsl-header p{margin:8px 0 0;line-height:1.55}.hsl-tag{display:inline-block;font-size:.78rem;border:1px solid #ad9358;padding:3px 8px;border-radius:9px;color:#f5d998}.hsl-dashboard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.hsl-stat{border:1px solid #56607066;border-radius:12px;padding:10px 13px;background:rgba(100,125,155,.08);min-width:0}.hsl-stat>span,.hsl-stat small{font-size:.8rem;color:var(--muted,#bbb);display:block}.hsl-stat strong{font-size:1.18rem}.hsl-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.hsl-panel{margin:0!important}.hsl-panel h3{margin:0 0 11px}.hsl-inputgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.hsl-field{display:flex;flex-direction:column;gap:4px;min-width:0}.hsl-field span{font-size:.82rem;line-height:1.4}.hsl-field input,.hsl-field select{width:100%;min-width:0;padding:8px;background:#171e2a;border:1px solid #64728a;color:#f2f2f6;border-radius:7px;font-size:.95rem}.hsl-checkbox{display:flex;align-items:center;gap:7px;font-size:.84rem;line-height:1.4}.hsl-checkbox input{width:16px;height:16px;flex:none}.hsl-checks{display:grid;gap:9px;margin:12px 0}.hsl-gear,.hsl-breaks{margin:0!important}.hsl-gear>summary,.hsl-breaks>summary{cursor:pointer;font-size:1.02rem;margin-bottom:6px}.hsl-slot{display:grid;grid-template-columns:minmax(170px,1fr) 3fr;gap:12px;align-items:center;border-top:1px solid #56607066;padding:10px 0}.hsl-slot-attrs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.hsl-debuffs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:14px 0}.hsl-debuff{display:flex;gap:7px;align-items:center;padding:6px;border:1px solid #56607066;border-radius:7px}.hsl-debuff>.hsl-checkbox{flex:1;min-width:96px}.hsl-debuff .hsl-field{width:68px;flex:none}.hsl-debuff .hsl-field input{padding:5px}.hsl-results{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hsl-result-row{display:flex;flex-direction:column;gap:6px;padding:12px;border:1px solid #56607066;border-radius:10px}.hsl-result-row small{color:var(--muted,#bbb)}.hsl-warning{padding:11px;border:1px solid #ad935877;border-radius:8px;background:#ad93580f;line-height:1.5}.hsl-calibration{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}.hsl-calibration span{padding:9px;background:#4a556233;border-radius:8px}.hsl-note a{color:#9ccded}.hsl-reset{background:#344862;border-radius:7px;padding:7px 12px;border:1px solid #627797;color:#fff}.hsl-lab .hint{font-size:.84rem;line-height:1.55}
+@media(max-width:760px){.hsl-cols,.hsl-dashboard,.hsl-results{grid-template-columns:1fr}.hsl-slot{grid-template-columns:1fr}.hsl-slot-attrs{grid-template-columns:repeat(3,minmax(0,1fr))}.hsl-debuffs{grid-template-columns:1fr}}
+@media(max-width:440px){.hsl-inputgrid{grid-template-columns:1fr}.hsl-field span{font-size:.78rem}.hsl-slot-attrs{grid-template-columns:1fr 1fr}.hsl-debuff .hsl-field{width:60px}}
+
+/* EV-based Litany reforge selectors */
+.hsl-slot-editor{min-width:0;display:grid;gap:7px}.hsl-slot-reforges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.hsl-slot-reforges .hsl-field span{font-weight:600}.hsl-reforge-summary{line-height:1.55;padding:10px 12px;background:rgba(92,140,175,.1);border:1px solid rgba(124,155,179,.35);border-radius:9px}.hsl-reforge-summary strong{font-weight:650}
+@media(max-width:580px){.hsl-slot-reforges{grid-template-columns:1fr}.hsl-slot{grid-template-columns:1fr}}
+
+/* Litany v3: compact Music-gear style slots, pinned result, mobile-friendly editor. */
+.hsl-lab{max-width:980px;gap:8px}.hsl-lab .card{margin:0!important}
+.hsl-topsticky{position:sticky;top:2px;z-index:105;background:#0e1e2b;border:1px solid #5987a4;border-radius:12px;box-shadow:0 4px 16px #0006;padding:8px}
+.hsl-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.hsl-head h2{font-size:1.04rem;margin:0;display:flex;gap:6px;align-items:center}.hsl-head h2 img{width:23px;height:23px;image-rendering:auto}
+.hsl-switch{display:flex;gap:3px}.hsl-switch button{font-size:.79rem;min-height:32px;padding:4px 8px}.hsl-resultbar{display:flex;align-items:center;gap:8px;margin-top:6px}.hsl-metric{display:grid;grid-template-columns:1fr;min-width:0;flex:1;border-radius:7px;background:#204053;padding:5px 9px;border:1px solid #50788b}.hsl-metric small{display:flex;align-items:center;gap:5px;font-size:.72rem;color:#c6dde7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hsl-metric small img{width:19px;height:19px}.hsl-metric strong{font-size:clamp(.95rem,2.5vw,1.45rem);line-height:1.3;white-space:nowrap}.hsl-stack{display:grid;font-size:.7rem;gap:2px;min-width:52px}.hsl-stack select{min-height:30px}
+.hsl-card{padding:10px!important}.hsl-section-title{display:flex;align-items:center;justify-content:space-between;gap:7px}.hsl-section-title h3{margin:0;font-size:1rem}.hsl-section-title>span{font-size:.79rem}.hsl-help{display:inline-grid;place-items:center;border:0;background:transparent;color:#b7cadd;cursor:help;font-size:.85rem;min-width:24px;min-height:24px}
+.hsl-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;background:linear-gradient(135deg,#133b50,#092d3d);border:1px solid #4a849d;border-radius:11px;padding:7px;max-width:510px;margin:8px auto}
+.hsl-gear-cell{display:grid;justify-items:center;align-content:center;text-align:center;gap:0;min-width:0;min-height:77px;border:1px solid #719aae;border-radius:7px;padding:4px;background:linear-gradient(180deg,#255c74,#163e53);color:#e8f4fa;cursor:pointer}.hsl-gear-cell:not(.is-on){filter:saturate(.68);opacity:.82}.hsl-gear-cell:focus-visible{outline:2px solid #f3d47e;outline-offset:2px}.hsl-gear-cell strong{font-size:.73rem}.hsl-gear-cell small{font-size:.64rem;max-width:98%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:1em}.hsl-gear-cell>span:last-child{font-size:.63rem;color:#caebba;min-height:1em}.hsl-gear-emoji{font-size:24px}
+.hsl-weapon{display:grid;gap:7px}.hsl-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;align-items:end}.hsl-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;align-items:end}.hsl-field{font-size:.8rem}.hsl-field span{font-size:.76rem}.hsl-field input,.hsl-field select{padding:6px;min-height:36px;font-size:.87rem}.hsl-erg{display:flex;align-items:center;gap:6px;flex-wrap:wrap;border-radius:7px;padding:5px 6px;background:#3d505c33}.hsl-erg>strong{font-size:.82rem}.hsl-erg .hsl-field{min-width:58px;flex:0 1 105px}.hsl-erg .hsl-field:has(input){min-width:90px;flex:1}.hsl-erg .hsl-field span:empty{display:none}
+.hsl-boostboard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin-top:8px}.hsl-boost{display:flex;justify-content:space-between;align-items:center;gap:4px;border:1px solid #576e7e;border-radius:7px;padding:4px 6px;min-width:0}.hsl-boost label{display:flex;align-items:center;gap:5px;min-width:0;font-size:.78rem;line-height:1.2}.hsl-boost label>span:last-child{min-width:0;overflow-wrap:anywhere}.hsl-boost input{flex:none;width:16px;height:16px}.hsl-boosticon{width:21px;height:21px;display:grid;place-items:center;font-size:17px;flex:none}.hsl-boosticon img{width:21px;height:21px}.hsl-boost button{font-size:.73rem;min-height:29px;padding:4px 7px;flex:none}
+.hsl-settings>summary{cursor:pointer;font-size:.88rem;font-weight:650}.hsl-settings .hsl-two{margin-top:9px}.hsl-debuffs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:8px 0}.hsl-debuff-row{display:grid;grid-template-columns:1fr 68px 68px;gap:4px;align-items:center;border:1px solid #5e6b7866;border-radius:6px;padding:4px}.hsl-debuff-row .hsl-field input{padding:4px;min-height:30px}.hsl-debuff-row .hsl-toggle{font-size:.72rem}.hsl-breakpoints{display:grid;gap:6px;font-size:.81rem}
+.hsl-footer{font-size:.7rem;color:#aabecd;display:grid;gap:7px;padding:6px}.hsl-footer a{color:#b0d9fa}.hsl-footer button{justify-self:start;font-size:.75rem}.hsl-toggle{display:inline-flex;align-items:center;gap:5px;font-size:.81rem}.hsl-toggle input{width:17px;height:17px}
+.hsl-modal{position:fixed;inset:0;z-index:3000;background:#06111ae8;display:grid;place-items:center;padding:8px}.hsl-editor{display:flex;flex-direction:column;gap:0;width:min(540px,100%);max-height:calc(100dvh - 16px);border:1px solid #67a99f;border-radius:12px;background:#152636;color:#eaf4f6;overflow:hidden}.hsl-editor-head{display:flex;justify-content:space-between;align-items:start;padding:9px 11px;background:#173c50;border-bottom:1px solid #54788c;gap:9px}.hsl-editor-head>div{display:grid;gap:3px}.hsl-editor-head strong{font-size:.95rem}.hsl-editor-head small{font-size:.77rem;color:#ceeadb}.hsl-editor-head button{font-size:24px;min-width:34px}.hsl-editor-scroll{overflow:auto;overscroll-behavior:contain;min-height:0;max-height:calc(100dvh - 135px);padding:10px;display:grid;gap:7px}.hsl-editor-scroll h4{font-size:.86rem;margin:6px 0 0;border-top:1px solid #68869b;padding-top:7px}.hsl-editor-scroll .hsl-line{display:grid;grid-template-columns:32px minmax(0,1.5fr) minmax(0,1fr);gap:6px;align-items:end}.hsl-line>small{font-size:.68rem}.hsl-line .hsl-field>span{font-size:.7rem}.hsl-editor-scroll details>summary{cursor:pointer}.hsl-editor footer{padding:8px;background:#173c50;display:flex;justify-content:end}.hsl-editor footer button{min-width:100px}.hsl-editor .hsl-three .hsl-field{min-width:0}
+@media(max-width:580px){.hsl-gear-cell{min-height:66px;padding:2px}.hsl-gear-emoji{font-size:20px}.hsl-gear-cell strong{font-size:.67rem}.hsl-board{padding:4px;gap:3px}.hsl-boostboard{grid-template-columns:1fr 1fr}.hsl-boost{padding:3px}.hsl-metric strong{font-size:1rem}.hsl-editor-scroll .hsl-line{grid-template-columns:23px minmax(0,1fr) minmax(0,.70fr)}.hsl-debuffs{grid-template-columns:1fr}.hsl-debuff-row{grid-template-columns:1fr 65px 65px}.hsl-topsticky{top:0}}
+@media(max-width:350px){.hsl-boostboard{grid-template-columns:1fr}.hsl-head h2{font-size:.87rem}.hsl-switch button{font-size:.68rem;padding:3px}.hsl-three .hsl-field span{font-size:.65rem}.hsl-three .hsl-field input{padding:4px}}
+
+/* 0.3.11i Litany equipment draft v4: paired wand/offhand and SG-inspired boost buttons. */
+/* 0.3.12d: Robe completes the 3×3 equipment board; Echostone lives directly beneath it. */
+.hsl-board>.hsl-gear-cell[data-hsl-open="slot:echo"]{grid-column:3;grid-row:4}
+.hsl-head{flex-wrap:wrap}
+.hsl-head-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.hsl-top-reset{font-size:.76rem;min-height:32px;padding:4px 9px;border:1px solid #567c91;border-radius:8px;background:#173448;color:#cbe7ec;cursor:pointer;white-space:nowrap}
+.hsl-top-reset:hover{background:#27536a;border-color:#8ab7ce}
+.hsl-wand-controls{display:grid;gap:7px;padding:8px;border:1px solid #4e7991;border-radius:9px;background:linear-gradient(135deg,#21475a,#172a3b)}
+.hsl-wand-controls>.hsl-field{max-width:100%}
+.hsl-boostboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.hsl-boost{border:1px solid #536f84;border-radius:10px;background:linear-gradient(150deg,#192d40,#142435);padding:4px;gap:4px;transition:border-color .12s,background .12s,box-shadow .12s}
+.hsl-boost:hover{border-color:#a1c7d4;background:linear-gradient(150deg,#224257,#193448)}
+.hsl-boost.is-on{border-color:#77c7a9;background:linear-gradient(145deg,#1c544c,#1b3944);box-shadow:inset 3px 0 #82ddb5}
+.hsl-boost .hsl-boost-toggle{display:flex;align-items:center;gap:7px;flex:1;cursor:pointer;min-height:43px;padding:4px 5px;border-radius:7px}
+.hsl-boost .hsl-boost-toggle:focus-within{outline:2px solid #e7d2a0;outline-offset:-2px}
+.hsl-boost .hsl-boost-toggle input{accent-color:#72d1b3;flex:none;width:16px;height:16px;cursor:pointer}
+.hsl-boost .hsl-boosticon{width:29px;height:29px;display:grid;place-items:center;flex:none;border:1px solid #697f91;border-radius:7px;background:#152435;color:#dfd6a1}
+.hsl-boost .hsl-boosticon img{height:26px;width:26px;object-fit:contain}
+.hsl-boost .hsl-boostname{font-size:.81rem;line-height:1.16;font-weight:600;overflow-wrap:anywhere}
+.hsl-boost .hsl-boost-edit{border:1px solid #627d91;background:#263d51;border-radius:8px;padding:5px 8px;min-height:34px;white-space:nowrap;cursor:pointer;color:#e1eef5;font-size:.72rem}
+.hsl-boost .hsl-boost-edit:hover{background:#395c74;border-color:#a3cbe3}
+.hsl-settings>summary{padding:6px 8px;border:1px solid #476c82;border-radius:8px;background:#1b3648;cursor:pointer}
+.hsl-settings>summary:hover{background:#29516a}
+.hsl-settings[open]>summary{border-color:#78b1b9;background:#28515e}
+@media(max-width:580px){.hsl-head{align-items:start}.hsl-head-actions{flex:1 1 auto;justify-content:flex-end}.hsl-top-reset{padding:4px 6px}.hsl-boostboard{gap:4px}.hsl-boost{padding:3px;gap:2px}.hsl-boost .hsl-boost-toggle{gap:4px;padding:3px;min-height:42px}.hsl-boost .hsl-boosticon{height:26px;width:26px}.hsl-boost .hsl-boosticon img{height:23px;width:23px}.hsl-boost .hsl-boost-edit{padding:3px 5px;min-height:30px}}
+@media(max-width:350px){.hsl-head-actions{width:100%;justify-content:space-between}.hsl-boostboard{grid-template-columns:1fr}.hsl-boost .hsl-boostname{font-size:.79rem}}
+
+/* 0.3.12 — SG and Harmonic Saint: shared, compact, clickable boost-card language.
+   SG relic / persona / emblem now sit beside the other Oath preparation buffs. */
+.sg-bonus-row.sg-extra-boost{transition:background .14s ease,border-color .14s ease;cursor:default}
+.sg-bonus-row.sg-extra-boost:hover{border-color:#93bfd0;background:#213b4b}
+.sg-bonus-row.sg-extra-boost.sg-extra-on{border-color:#6cbaa6;background:linear-gradient(145deg,rgba(33,74,69,.8),rgba(23,50,65,.85))}
+.sg-bonus-row.sg-extra-boost>input{accent-color:#91bff0;width:15px;height:15px;cursor:pointer}
+.sg-bonus-row.sg-extra-boost .sg-bonus-edit{margin-left:auto;border:1px solid #526b7e;border-radius:8px;color:#e3eff7;background:#243b50;cursor:pointer}
+.sg-bonus-row.sg-extra-boost .sg-bonus-edit:hover{border-color:#b2d6ec;background:#315570}
+.sg-titles-compact{padding:9px 13px;margin:8px 0 12px}
+.sg-titles-compact details>summary{cursor:pointer;font-weight:700;padding:5px 2px;color:#d5e7f3}
+.sg-titles-compact .sg-gear-grid{grid-template-columns:1fr;margin-top:10px;max-width:680px}
+.sg-titles-compact .sg-gear-card{padding:9px 13px}
+.sg-boost-modal{position:fixed;inset:0;z-index:1110;display:flex;align-items:center;justify-content:center;padding:12px}
+.sg-boost-modal-backdrop{position:absolute;inset:0;background:rgba(2,9,17,.82)}
+.sg-boost-dialog{position:relative;z-index:1;display:flex;flex-direction:column;width:min(580px,100%);max-height:min(88dvh,780px);padding:0;overflow:hidden;box-shadow:0 12px 48px #0009;border:1px solid #668c9e;border-radius:13px;background:#152538;color:#edf5fc}
+.sg-boost-dialog>header{padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#21364b;border-bottom:1px solid #526b7e}
+.sg-boost-dialog>header button{width:34px;height:34px;border:1px solid #58778d;border-radius:8px;color:#edf5fc;background:#284054;font-size:20px;cursor:pointer}
+.sg-boost-modal-scroll{min-height:0;overflow:auto;display:grid;gap:12px;align-content:start;padding:16px}
+.sg-boost-modal-scroll label{display:grid;gap:6px;color:#dbe8ef;font-size:.85rem}
+.sg-boost-modal-scroll select{width:100%;min-width:0;background:#0d1b2a;color:#edf3ff;border:1px solid #526778;border-radius:7px;padding:8px}
+.sg-boost-modal-scroll .sg-gear-emblem{display:flex;align-items:center;gap:8px}
+.sg-boost-dialog>footer{display:flex;justify-content:flex-end;padding:10px 14px;border-top:1px solid #526b7e}
+.sg-boost-dialog>footer button{background:#2c5b6a;border:1px solid #76a8b7;border-radius:8px;padding:8px 16px;color:#fff;cursor:pointer}
+.sg-boost-dialog .sg-rune-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:520px){.sg-boost-dialog .sg-rune-grid{grid-template-columns:1fr}.sg-boost-dialog{max-height:92dvh}.sg-bonus-grid{grid-template-columns:1fr}}
+
+/* Screenshot-matched Litany boosts: four cards across on desktop, two on tablet. */
+.hsl-boostboard{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.hsl-boost{min-height:76px;padding:8px 9px;border:1px solid rgba(118,169,181,.35);background:rgba(25,51,63,.7);border-radius:10px;align-items:center}
+.hsl-boost.is-on{background:rgba(33,70,67,.76);border-color:#7bc6a9;box-shadow:none}
+.hsl-boost .hsl-boost-toggle{padding:0;gap:8px;min-width:0;min-height:58px;align-items:center}
+.hsl-boost .hsl-boost-toggle input{accent-color:#91bff0;width:15px;height:15px}
+.hsl-boost .hsl-boosticon{width:38px;height:38px;flex:none;border-radius:7px;background:#071625;border-color:#3c5870;font-size:22px}
+.hsl-boost .hsl-boosticon img{width:36px;height:36px}
+.hsl-boost .hsl-boostcopy{display:flex;flex-direction:column;min-width:0;gap:5px;align-self:center}
+.hsl-boost .hsl-boostname{font-size:.86rem;line-height:1.22}
+.hsl-boost .hsl-boostsummary{font-size:.71rem;line-height:1.32;color:#7ee8d2;overflow-wrap:anywhere}
+.hsl-boost:not(.is-on) .hsl-boostsummary{color:#b9c7d6}
+.hsl-boost .hsl-boost-edit{padding:4px 8px;align-self:flex-start;margin-left:auto;font-size:.74rem;background:#22384c;min-height:31px}
+@media(max-width:1150px){.hsl-boostboard{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.hsl-boostboard{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.hsl-boostboard{grid-template-columns:1fr;gap:6px}.hsl-boost{min-height:64px;padding:6px 8px}.hsl-boost .hsl-boost-toggle{min-height:48px}}
+
+/* 0.3.12a — Litany augment tree, relic editors and conditional wand Dark Erg. */
+.hsl-darkerg{display:grid;gap:6px;padding:7px 9px;border:1px solid #785f9d;border-radius:8px;background:rgba(80,53,111,.17)}
+.hsl-darkerg>strong{font-size:.82rem;color:#d8c7ff}
+.hsl-spirit-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;align-items:start}
+.hsl-augmentgroup{display:grid;gap:5px;border:1px solid #476985;border-radius:9px;background:rgba(15,33,52,.7);padding:6px;min-width:0}
+.hsl-augmentgroup>h4{border-top:0!important;margin:0!important;padding:3px 1px 5px!important;color:#bee1e9}
+.hsl-augmentgroup>div{display:grid;gap:5px}
+.hsl-augment{display:flex;flex-direction:column;gap:3px;padding:5px;border-radius:6px;background:rgba(57,85,114,.22);min-width:0}
+.hsl-augment>strong{font-size:.69rem;line-height:1.24;min-height:26px;overflow-wrap:anywhere}
+.hsl-augment .hsl-field>span{font-size:.65rem}
+.hsl-augment .hsl-field select{min-width:0;width:100%;font-size:.76rem;padding:4px}
+.hsl-spirit-metric{padding:6px 8px;display:flex;flex-direction:column;justify-content:center;align-items:center;border:1px solid #527f8d;border-radius:7px;background:rgba(16,57,71,.43);min-width:0;text-align:center}
+.hsl-spirit-metric small{font-size:.69rem;color:#b9dcd7}
+.hsl-spirit-metric strong{font-size:.96rem;color:#f6f5c0}
+.hsl-relic-slot{border:1px solid #63809a;border-radius:9px;padding:9px;display:grid;gap:7px;background:rgba(14,31,48,.52)}
+.hsl-relic-head{display:flex;gap:8px;align-items:center}
+.hsl-relic-head>img{width:29px;height:29px;object-fit:contain}
+.hsl-relic-head>strong{flex:1;font-size:.86rem}
+.hsl-relicaffix{display:grid;gap:5px;border-top:1px solid #416377;padding-top:6px}
+.hsl-relicaffix h4{margin:0!important;padding:0!important;border:none!important}
+.hsl-relicaffix .hsl-three{gap:5px}
+@media(max-width:580px){.hsl-spirit-cols{grid-template-columns:1fr;gap:7px}.hsl-augmentgroup>div{grid-template-columns:repeat(2,minmax(0,1fr))}.hsl-augment>strong{min-height:0}.hsl-relicaffix .hsl-three{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:350px){.hsl-augmentgroup>div{grid-template-columns:repeat(2,minmax(0,1fr))}.hsl-relic-head{flex-wrap:wrap}}
+
+/* 0.3.12b: imported report auto-rotate layout; rotation stays OS-controlled. */
+.midir-report-reader{width:100%;width:100dvw;max-width:100dvw;height:100%;height:100dvh;max-height:100dvh;box-sizing:border-box;overflow:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
+.midir-report-reader-head{padding-top:max(6px,env(safe-area-inset-top,0px));padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px))}
+.midir-report-reader-frame{min-height:0}
+@media (orientation:landscape) and (max-height:550px){
+ .midir-report-reader-head{padding-top:3px;padding-bottom:3px}
+ .midir-report-reader-title small,.midir-report-reader-hint{display:none}
+ .midir-report-reader-controls{padding-top:3px;padding-bottom:3px;justify-content:flex-start}
+ .midir-report-reader-controls button{min-height:36px;padding:5px 8px}
+ .midir-report-close{min-height:36px;padding:5px 9px}
+ .midir-report-reader-title strong{font-size:.88rem}
+}
+/* Isolated leaderboard evidence: visual hit histogram and separate use markers. */
+.burst-entry{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:9px 10px;border:1px solid var(--line);border-radius:9px;margin:9px 0}
+.burst-entry strong,.burst-entry small{display:block}.burst-entry small{color:var(--muted)}
+.burst-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:10px 0}
+.burst-summary>div{border:1px solid var(--line);border-radius:8px;padding:9px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.burst-summary small{color:var(--muted)}.burst-summary strong{font-size:clamp(1.05rem,2.6vw,1.5rem);font-variant-numeric:tabular-nums}
+.burst-visual{height:82px;border-radius:7px;background:#0e1928;position:relative;overflow:hidden;border:1px solid #34455a}
+.burst-window{position:absolute;inset:0 auto 0;pointer-events:none;background:rgba(244,184,85,.09);border-left:1px solid rgba(249,207,117,.6);border-right:1px solid rgba(249,207,117,.6)}
+.burst-hit-track{position:absolute;left:0;right:0;top:5px;height:43px}
+.burst-hit-track i{position:absolute;bottom:0;width:max(.45%,2px);background:#6fd0fd;border-radius:2px 2px 0 0}
+.burst-use-track{position:absolute;left:0;right:0;bottom:5px;height:24px;border-top:1px solid #46586e}
+.burst-use-track b{position:absolute;bottom:2px;width:3px;height:13px;background:#f8c976;opacity:.85}
+.burst-axis{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin:2px 0 8px}
+.burst-use-list{display:flex;gap:6px;flex-wrap:wrap;max-height:160px;overflow-y:auto;margin:7px 0}
+.burst-use-marker{display:inline-block;font-size:.78rem;padding:5px 7px;border:1px solid var(--line);border-radius:6px}
+.burst-use-marker time{color:#f8c976}
+@media(max-width:480px){.burst-summary{gap:5px}.burst-summary>div{padding:6px}.burst-entry .button-row{gap:5px}}
+
+/* 0.3.12e · Ogham Rune Inventory and EV Reroll draft */
+.ogham-system{display:grid;gap:12px;min-width:0}.ogham-system .card{min-width:0}
+.ogham-main-grid{display:grid;grid-template-columns:minmax(340px,1.03fr) minmax(360px,1fr);gap:14px;align-items:start}.ogham-main-loadout,.ogham-main-inventory{min-width:0}.ogham-main-inventory{display:grid;gap:10px}.ogham-main-inventory .ogham-inventory-panel{margin-top:0}.ogham-top,.ogham-section-head,.ogham-ev-tabs{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.ogham-top label{display:flex;flex-direction:column;gap:4px;min-width:130px;flex:1}.ogham-top select,.ogham-system input,.ogham-system select{background:#102132;color:var(--text);border:1px solid #49657b;border-radius:7px;padding:8px 9px;max-width:100%;min-width:0}.ogham-section-head{justify-content:space-between;margin:0 0 9px}.ogham-section-head h3{margin:0}.ogham-system label{color:var(--text);font-size:.88rem}.ogham-system small{color:#b4c8d9}.ogham-word-symbol{display:inline-grid;place-items:center;flex-shrink:0;width:37px;height:37px;border:1px solid #8b739e;border-radius:8px;background:linear-gradient(145deg,#322841,#111f2b);color:#ecd9fa;font-size:24px;line-height:1;font-family:'Segoe UI Symbol','Noto Sans Symbols 2',serif}.ogham-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.ogham-slot{border:1px solid #3e5367;border-radius:10px;padding:8px;min-width:0;display:grid;gap:6px;background:#182b3a}.ogham-slot>span{font-size:.72rem;color:#bdd1e6}.ogham-slot>div{display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:wrap}.ogham-slot strong{font-size:.85rem;overflow-wrap:anywhere}.ogham-slot select{font-size:.76rem;width:100%}.ogham-combinations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.ogham-combo{background:#142337;border:1px solid #425671;border-radius:9px;padding:10px;min-width:0;display:grid;gap:7px}.ogham-combo.ready{border-color:#79af9c}.ogham-combo strong{overflow-wrap:anywhere;font-size:.92rem}.ogham-combo-words{display:flex;gap:4px;flex-wrap:wrap;align-items:center}.ogham-combo-words>span{display:inline-flex;align-items:center;gap:3px;padding:3px 5px;border-radius:6px;background:#243447;font-size:.73rem}.ogham-combo-words .ogham-word-symbol{width:19px;height:19px;border-radius:3px;font-size:13px}.ogham-combo-words .missing{opacity:.55;border:1px dashed #9f7c70}.ogham-upcoming{color:#ebbf7f!important}.ogham-recommend{padding:8px;margin-top:9px;background:#132337;border-radius:7px}.ogham-recommend summary{cursor:pointer}.ogham-recommend p{margin:8px 0;font-size:.82rem}.ogham-inventory{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr));gap:8px;margin:11px 0}.ogham-rune-card{min-width:0;border:1px solid #41556b;background:#1a293a;border-radius:9px;padding:9px;display:grid;gap:9px}.ogham-rune-card[hidden]{display:none}.ogham-rune-main{display:flex;align-items:center;gap:9px;min-width:0}.ogham-rune-main>div{min-width:0;display:grid;gap:3px;overflow-wrap:anywhere}.ogham-rune-main small{font-size:.75rem}.ogham-rune-actions{display:flex;justify-content:flex-end;gap:6px}.ogham-rune-actions button{padding:5px 9px}.ogham-edit-overlay{position:fixed;inset:0;z-index:500;background:#06101edb;display:flex;align-items:center;justify-content:center;padding:14px}.ogham-editor{width:min(640px,100%);max-height:calc(100dvh - 28px);overflow:auto;display:grid;gap:10px;margin:0}.ogham-editor header{display:flex;align-items:center;justify-content:space-between;background:none;padding:0}.ogham-editor label{display:grid;gap:4px;min-width:0}.ogham-editor h4{margin:5px 0 0}.ogham-line{display:grid;grid-template-columns:minmax(0,1fr) 90px;gap:8px}.ogham-sim-line{display:grid;grid-template-columns:auto auto minmax(0,1fr) 92px;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid #405169}.ogham-sim-line input[type=checkbox]{width:18px;height:18px}.ogham-sim-lines{margin:12px 0}.ogham-sim-totals{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.ogham-sim-totals>*{background:#1d3448;border:1px solid #40556a;border-radius:7px;padding:7px 9px}.ogham-ev-tabs{margin:8px 0 15px}.ogham-ev-tabs button[aria-pressed=true]{border-color:var(--accent);font-weight:750}
+@media(max-width:850px){.ogham-slots{grid-template-columns:repeat(3,minmax(0,1fr))}.ogham-combinations{grid-template-columns:1fr}}
+@media(max-width:540px){.ogham-slots{grid-template-columns:repeat(2,minmax(0,1fr))}.ogham-top label{min-width:100px}.ogham-sim-line{grid-template-columns:auto auto minmax(0,1fr);}.ogham-sim-line [data-og-sim-level]{grid-column:3}.ogham-line{grid-template-columns:minmax(0,1fr) 65px}.ogham-system .card{padding:10px}.ogham-rune-card{grid-template-columns:1fr}}
+
+.ogham-word-image{object-fit:contain;padding:3px}
+
+/* 0.3.12f · Ogham chest-backed rerolls, isolated from owned-rune inventory. */
+.ogham-practice-cost{display:grid;gap:5px;padding:11px 13px;margin:12px 0;border:1px solid #506a66;background:#1b3235;border-radius:10px}
+.ogham-practice-cost strong{color:#ffdf9e}.ogham-practice-cost span{color:#a6e3cd}.ogham-practice-cost small{line-height:1.5;overflow-wrap:anywhere}
+.ogham-catalog-import{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 6px;font-size:.85rem}.ogham-catalog-import input{max-width:100%;font-size:.8rem}
+#ogham-sim-feedback{min-height:1.2em;color:#f4c989;font-size:.82rem}.ogham-sim-line select{min-width:0;max-width:100%}
+
+
+/* 0.3.12g game-inspired Ogham board: compact pentagon, touch-first inventory. */
+.ogham-system .ogham-loadout-panel{background:radial-gradient(ellipse at 50% 42%,#203446 0%,#111e2c 72%);border-color:#587082}
+.ogham-board{position:relative;width:min(100%,480px);aspect-ratio:1.17;margin:1px auto 0;isolation:isolate}
+.ogham-board:before{content:"";position:absolute;inset:5% 9%;border-radius:50%;background:radial-gradient(circle,#34516c2c 0%,#2d42500d 50%,transparent 75%);box-shadow:inset 0 0 40px #080f1a55;pointer-events:none}
+.ogham-board-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;filter:drop-shadow(0 0 5px #6ba8ae32)}
+.ogham-board-lines polygon,.ogham-board-lines path{fill:none;stroke:#709da77a;stroke-width:.55;stroke-linejoin:round}
+.ogham-board-lines path{stroke:#b6a0e42d;stroke-width:.3;stroke-dasharray:1.5 2}
+.ogham-board-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-content:center;text-align:center;width:18%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#456576 0%,#223949 52%,#111f30 80%);box-shadow:0 0 17px #83b2b73b,inset 0 0 10px #9fbacb30;border:1px solid #6c8e9f7d;color:#e4ecfa;pointer-events:none}
+.ogham-board-center>span{font-size:clamp(22px,4.5vw,36px);line-height:1}.ogham-board-center small{font-size:.67rem;color:#d8ebf0}
+.ogham-system .ogham-slot{position:absolute;width:clamp(68px,22%,101px);min-width:0;display:grid;justify-items:center;gap:2px;transform:translate(-50%,-50%);border:0;background:transparent;padding:0;overflow:visible;z-index:2}
+.ogham-position-top{left:50%;top:13%}.ogham-position-left{left:14%;top:40%}.ogham-position-right{left:86%;top:40%}.ogham-position-lower-left{left:27%;top:85%}.ogham-position-lower-right{left:73%;top:85%}
+.ogham-system .ogham-socket{position:relative;display:grid;place-items:center;width:100%;aspect-ratio:1;background:linear-gradient(150deg,#8a93a4,#3c5972 39%,#1a2838 70%,#8fa5b0);padding:4px;cursor:pointer;clip-path:polygon(50% 0,96% 26%,88% 83%,50% 100%,12% 83%,4% 26%);border:0;border-radius:0;color:inherit;filter:drop-shadow(0 3px 4px #050c16);transition:transform .14s,filter .14s}
+.ogham-system .ogham-socket-inner{width:100%;height:100%;display:grid;place-items:center;clip-path:polygon(50% 0,96% 26%,88% 83%,50% 100%,12% 83%,4% 26%);background:radial-gradient(circle at 50% 42%,#3d516b 0%,#17273a 65%,#0a1621 100%);box-shadow:inset 0 0 20px #050b16}
+.ogham-system .ogham-socket:focus-visible,.ogham-system .ogham-rune-pick:focus-visible{outline:3px solid #c9e6ff;outline-offset:3px}
+.ogham-system .ogham-socket:not(:disabled):hover{transform:scale(1.07);filter:drop-shadow(0 0 8px #a0d5e27a)}
+.ogham-system .ogham-slot.ogham-drop-over .ogham-socket,.ogham-system .ogham-slot.ogham-picked .ogham-socket{background:linear-gradient(140deg,#f1d49e,#f4f0d3,#8cb8f2);filter:drop-shadow(0 0 10px #f5e0a9a1)}
+.ogham-system .ogham-socket-locked .ogham-socket{opacity:.45;cursor:not-allowed}
+.ogham-socket-glyph{font-size:clamp(18px,4vw,29px);color:#b8cfe4;opacity:.8}
+.ogham-socket-caption{font-size:.65rem;color:#d6e3f2;text-shadow:0 1px 3px #08121e;max-width:116px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.1;pointer-events:none}
+.ogham-system .ogham-rune-art{position:relative;display:grid;place-items:center;width:67px;height:67px;flex:none;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 30% 20%,#c4e6f7 0%,#466788 12%,#2a3c59 48%,#131a2a 76%,#4b4c5f 100%);border:2px solid #879baf;border-radius:12px;box-shadow:inset 0 0 0 3px #0d1f2b,inset 0 0 14px #020810,0 2px 6px #0009}
+.ogham-rune-art.ogham-tier-fine{border-color:#8dacc0;filter:saturate(.84)}
+.ogham-rune-art.ogham-tier-exquisite{border-color:#b89fee;background:radial-gradient(circle at 30% 20%,#ecd8ff 0%,#775f9e 15%,#3e2b5e 55%,#17132d 84%)}
+.ogham-rune-art.ogham-tier-masterwork{border-color:#e3bf7c;background:radial-gradient(circle at 27% 20%,#ffe6a9 0%,#aa8953 14%,#55422a 52%,#1b2035 83%);box-shadow:inset 0 0 0 3px #1c2332,inset 0 0 20px #261208,0 0 6px #d6b56f40}
+.ogham-rune-art .ogham-rune-etched{position:relative;z-index:2;transform:rotate(-7deg);filter:drop-shadow(0 1px 3px #050912)}
+.ogham-system .ogham-rune-art .ogham-word-symbol{width:40px;height:45px;background:none;border:0;border-radius:0;font-size:38px;color:#dfe9fa;text-shadow:0 0 9px #ccdff6}
+.ogham-rune-art.ogham-tier-masterwork .ogham-word-symbol{color:#ffebac;text-shadow:0 0 8px #fff0c1}
+.ogham-rune-art .ogham-rune-facets{position:absolute;inset:4px;border-radius:8px;border:1px solid #daeafa38;clip-path:polygon(50% 0,100% 25%,85% 100%,15% 100%,0 25%);background:linear-gradient(135deg,#ffffff1f 0%,transparent 35%,#ffffff0d 50%,transparent 70%);pointer-events:none}
+.ogham-system .ogham-socket-rune{width:76%;height:78%;border-radius:0;border:0;background:transparent;transform:none;box-shadow:none}
+.ogham-system .ogham-socket-rune .ogham-rune-facets{display:none}
+.ogham-system .ogham-socket-rune .ogham-word-symbol{width:32px;height:34px;font-size:29px}
+.ogham-action-hint{text-align:center;min-height:1.3em;font-size:.77rem;color:#9ad2e5;margin:3px 0 8px}
+.ogham-system .ogham-compact-combos{border-top:1px solid #476075;padding:7px 4px 3px}
+.ogham-compact-combos summary{cursor:pointer;font-size:.84rem;color:#bed6ed;display:flex;gap:8px;align-items:center}
+.ogham-compact-combos summary span{color:#a4e6c0}
+.ogham-compact-combos .ogham-combinations{margin-top:10px}
+.ogham-system .ogham-inventory{grid-template-columns:repeat(auto-fill,minmax(min(100%,205px),1fr));gap:8px}
+.ogham-system .ogham-rune-card{grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:6px;gap:4px;background:linear-gradient(140deg,#233248,#172634);border-color:#405670;transition:border-color .15s,background .15s}
+.ogham-system .ogham-rune-card.ogham-picked{border-color:#e3c683;background:linear-gradient(140deg,#504932,#233a46);box-shadow:0 0 0 1px #e3c683}
+.ogham-system .ogham-rune-pick{border:0;border-radius:7px;min-width:0;width:100%;padding:4px;text-align:left;background:none;display:flex;gap:9px;align-items:center;color:inherit;cursor:pointer}
+.ogham-rune-label{display:grid;gap:4px;min-width:0;overflow-wrap:anywhere}.ogham-rune-label strong{font-size:.85rem}.ogham-rune-label small{font-size:.69rem;color:#bacde0}.ogham-equipped-tag{color:#91dab9!important}
+.ogham-system .ogham-rune-actions{display:flex;gap:3px;align-items:center}.ogham-system .ogham-rune-actions button{padding:4px 6px;font-size:.72rem}.ogham-system .ogham-rune-actions button.danger{font-size:16px;padding:4px 7px}
+.ogham-rune-pick.ogham-dragging{opacity:.4}.ogham-inventory-panel.ogham-drop-over{outline:2px dashed #bcd7ea;outline-offset:-5px}
+@media(max-width:540px){.ogham-board{width:min(100%,355px);aspect-ratio:1.04}.ogham-system .ogham-slot{width:23%}.ogham-system .ogham-socket{padding:3px}.ogham-system .ogham-socket-caption{font-size:.58rem;max-width:85px}.ogham-system .ogham-rune-art{width:54px;height:54px}.ogham-system .ogham-rune-art .ogham-word-symbol{font-size:30px}.ogham-system .ogham-socket-rune{width:82%;height:80%}.ogham-system .ogham-socket-rune .ogham-word-symbol{font-size:25px}.ogham-system .ogham-inventory{grid-template-columns:1fr}.ogham-system .ogham-rune-card{grid-template-columns:minmax(0,1fr) auto}}
+
+/* Two-tap occupied sockets: select for compact details, tap again to unequip. */
+.ogham-selected-details{display:flex;align-items:flex-start;gap:11px;padding:9px 11px;margin:4px auto 1px;width:min(100%,510px);border:1px solid #718c9b;border-radius:9px;background:linear-gradient(140deg,#20364a,#142636);box-shadow:inset 0 0 14px #071522}
+.ogham-system .ogham-detail-rune{width:48px;height:48px;border-radius:8px;flex-shrink:0}
+.ogham-system .ogham-detail-rune .ogham-word-symbol{font-size:26px}
+.ogham-detail-body{display:grid;gap:3px;flex:1;min-width:0}.ogham-detail-body>strong{font-size:.86rem}.ogham-detail-body>small{font-size:.72rem}
+.ogham-detail-lines{display:grid;gap:2px;margin-top:4px}.ogham-detail-line{display:flex;justify-content:space-between;align-items:baseline;gap:9px;font-size:.74rem}.ogham-detail-line>span{overflow-wrap:anywhere}.ogham-detail-line>b{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600;color:#c2e4ed}
+.ogham-detail-notes{overflow-wrap:anywhere}.ogham-detail-prompt{color:#e6d296!important;margin-top:4px}
+@media(max-width:540px){.ogham-selected-details{padding:7px;gap:8px}.ogham-system .ogham-detail-rune{width:40px;height:40px}.ogham-detail-line{font-size:.69rem}}
+
+/* 0.3.12h: true-center Ogham letter ink and optically equalize 26 rune symbols.
+   SVG text is normalized by its painted bounding box in ogham-runes.js. */
+.ogham-glyph-symbol{display:grid;place-items:center;overflow:visible}
+.ogham-glyph-svg{display:block;width:100%;height:100%;overflow:visible;flex:none}
+.ogham-glyph-strokes{font-family:'Noto Sans Ogham','Segoe UI Symbol','DejaVu Sans',serif;fill:currentColor;stroke:none;paint-order:normal}
+.ogham-rune-art .ogham-rune-etched{width:100%;height:100%;display:grid;place-items:center;transform:none;filter:drop-shadow(0 1px 3px #050912)}
+.ogham-system .ogham-rune-art .ogham-glyph-symbol{width:74%;height:80%;font-size:inherit}
+.ogham-system .ogham-socket-rune .ogham-glyph-symbol{width:82%;height:88%}
+.ogham-system .ogham-detail-rune .ogham-glyph-symbol{width:76%;height:84%}
+.ogham-system .ogham-combo-words .ogham-glyph-symbol{width:19px;height:19px}
+.ogham-system .ogham-rune-art .ogham-word-image{width:72%;height:78%;object-fit:contain;object-position:center}
+.ogham-system .ogham-socket-rune .ogham-word-image{width:82%;height:88%}
+
+/* 0.3.12i: visual, game-inspired 26-word rune picker. Text/stone identity stays
+   visible when an image is missing; the picker is touch-sized and scrollable. */
+.ogham-picker-overlay{padding:max(8px,env(safe-area-inset-top,0px)) 9px max(8px,env(safe-area-inset-bottom,0px));z-index:560}
+.ogham-word-picker{width:min(680px,100%);max-height:calc(100dvh - 18px);display:flex;flex-direction:column;gap:0;min-height:0;overflow:hidden;margin:0;border:1px solid #6c839a;background:#101d2b;box-shadow:0 18px 55px #000b}
+.ogham-word-picker>header{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;padding:13px 15px 11px;border-bottom:1px solid #405671;background:#203247}
+.ogham-word-picker>header h3{margin:0 0 5px;font-size:1.07rem}
+.ogham-word-picker>header small{font-size:.73rem;line-height:1.3}
+.ogham-word-picker>header button{flex:none;min-width:36px;min-height:36px;border-radius:8px;background:#24394e;border:1px solid #5c758e;color:#e5f1fe;font-size:22px;cursor:pointer}
+.ogham-picker-content{min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:10px 12px;display:grid;gap:11px;scrollbar-gutter:stable}
+.ogham-picker-section h4{font-size:.8rem;color:#ccdfef;margin:0 0 8px}
+.ogham-picker-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.ogham-system .ogham-picker-tile{min-width:0;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;color:#e5edf6;border:1px solid #4b627c;border-radius:7px;background:#08111d;padding:7px 4px 6px;transition:background .15s,border-color .15s}
+.ogham-system .ogham-picker-tile:is(:hover,:focus-visible){outline:2px solid #a7d5ef;outline-offset:1px;background:#22384d;border-color:#a7d5ef}
+.ogham-system .ogham-picker-tile:active{background:#33516b}
+.ogham-system .ogham-picker-rune{width:66px;height:66px;border-radius:8px;box-shadow:inset 0 0 0 2px #09131e,0 2px 5px #000c}
+.ogham-system .ogham-picker-rune.ogham-game-reference-art{background:#090f17;border-color:#3a5262}
+.ogham-system .ogham-picker-rune.ogham-game-reference-art.ogham-special-word{border-color:#a47c56}
+.ogham-system .ogham-picker-rune .ogham-game-plate-image{width:90%;height:90%;object-fit:contain;padding:0;filter:drop-shadow(0 2px 2px #000b)}
+.ogham-system .ogham-picker-word{font-size:.76rem;font-weight:650;line-height:1.16;overflow-wrap:anywhere;text-align:center}
+.ogham-word-picker>footer{display:flex;justify-content:flex-end;padding:9px 14px;border-top:1px solid #405671;background:#172638}
+.ogham-word-picker>footer button{padding:7px 15px;min-height:36px}
+.ogham-system .ogham-editor-word-pick{display:flex;align-items:center;gap:12px;width:100%;padding:8px;border-radius:9px;border:1px solid #607d95;background:#162a3a;text-align:left;color:#e9f2fb;cursor:pointer}
+.ogham-system .ogham-editor-word-pick:hover{background:#253b50;border-color:#9bc2df}
+.ogham-system .ogham-editor-word-pick>.ogham-rune-art{width:57px;height:57px}
+.ogham-system .ogham-editor-word-pick>span:nth-child(2){display:grid;gap:3px;flex:1}
+.ogham-system .ogham-editor-word-pick>span:nth-child(2) strong{font-size:.9rem}
+.ogham-system .ogham-editor-word-pick>span:nth-child(2) small{font-size:.72rem}
+.ogham-system .ogham-editor-word-pick>span:last-child{font-size:25px;line-height:1;color:#add4ef}
+.ogham-system .ogham-rune-art.ogham-game-reference-art .ogham-rune-facets{opacity:.25}
+.ogham-system .ogham-rune-art.ogham-game-reference-art .ogham-game-plate-image{width:91%;height:92%;padding:0;filter:drop-shadow(0 2px 2px #000a)}
+@media(max-width:500px){.ogham-picker-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.ogham-system .ogham-picker-tile{padding:6px 2px;min-height:89px}.ogham-system .ogham-picker-rune{width:55px;height:55px}.ogham-system .ogham-picker-word{font-size:.67rem}.ogham-picker-content{padding:9px 7px;gap:9px}.ogham-word-picker>header{padding:10px}}
+@media(max-width:350px){.ogham-picker-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ogham-system .ogham-picker-rune{width:61px;height:61px}}
+/* Modal headers/footers must override the page-wide header/footer styles. */
+.ogham-system .ogham-word-picker{padding:0}
+.ogham-word-picker>header{box-sizing:border-box;width:100%;max-width:none;margin:0;flex-direction:row;align-items:center;flex-wrap:nowrap}
+.ogham-word-picker>header>div{min-width:0;flex:1}
+.ogham-word-picker>footer{box-sizing:border-box;width:100%;max-width:none;margin:0;flex-direction:row;align-items:center}
+
+/* 0.3.12j · Ogham inventory organization: visible, searchable, never foldered. */
+.ogham-system .ogham-inventory-tools{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(150px,1fr);gap:10px;align-items:end;margin:8px 0 5px}
+.ogham-system .ogham-inventory-tools label{display:grid;gap:4px;min-width:0;font-size:.76rem;color:#b8cbe0}
+.ogham-system .ogham-inventory-tools input,.ogham-system .ogham-inventory-tools select{min-width:0;width:100%;box-sizing:border-box}
+.ogham-system .ogham-search-status{display:block;min-height:0;margin:0 0 5px;color:#a9dcf1;font-size:.74rem}
+.ogham-system .ogham-search-status:empty{display:none}
+.ogham-system .ogham-rune-card{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-content:start;gap:5px;position:relative}
+.ogham-system .ogham-rune-pick{min-height:62px}
+.ogham-system .ogham-rune-actions{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end;align-items:center;min-width:0}
+.ogham-system .ogham-rune-actions button{min-height:29px;min-width:29px;padding:3px 7px}
+.ogham-system .ogham-order-controls{display:inline-flex;align-items:center;gap:3px;margin-right:auto}
+.ogham-system .ogham-order-controls button{padding:3px 8px;font-weight:700;font-size:.89rem}
+.ogham-system .ogham-rune-actions button:disabled{opacity:.26;cursor:not-allowed}
+.ogham-system .ogham-favorite-toggle{font-size:1.12rem!important;color:#9aaabc;background:#24374b;border:1px solid #526c82;border-radius:7px;line-height:1}
+.ogham-system .ogham-rune-card.ogham-favorite .ogham-favorite-toggle{color:#ffd58c;background:#503d27;border-color:#a98d58}
+.ogham-system .ogham-group-tag{display:inline-block;justify-self:start;max-width:100%;margin-top:2px;padding:2px 6px;font-size:.7rem;color:#b4e2ed;background:#254556;border:1px solid #406777;border-radius:5px;overflow-wrap:anywhere}
+.ogham-system .ogham-rune-card.ogham-search-match{border-color:#79c0df;box-shadow:inset 0 0 0 1px #6db2d35c,0 0 10px #6db2d321;background:linear-gradient(140deg,#294458,#172b3b)}
+.ogham-system .ogham-rune-card.ogham-search-muted{opacity:.62}
+.ogham-system .ogham-rune-card.ogham-search-muted:focus-within,.ogham-system .ogham-rune-card.ogham-search-muted:hover{opacity:1}
+.ogham-system .ogham-search-hit{display:none;font-size:.7rem;line-height:1.3;color:#f4dc9d;overflow-wrap:anywhere}
+.ogham-system .ogham-rune-card.ogham-search-match .ogham-search-hit:not(:empty){display:block}
+@media(max-width:540px){.ogham-system .ogham-inventory-tools{grid-template-columns:minmax(0,1fr);gap:5px}.ogham-system .ogham-rune-card{grid-template-columns:minmax(0,1fr);gap:4px}.ogham-system .ogham-rune-actions{justify-content:flex-end}.ogham-system .ogham-order-controls{margin-right:auto}}
+
+/* 0.3.12k Ogham: two distinct collections, one shared pentagon. */
+.ogham-system .ogham-inventory-tools.card{display:grid;grid-template-columns:minmax(0,2fr) minmax(145px,1fr);gap:10px;padding:10px 12px;margin:8px 0}
+.ogham-system .ogham-inventory-panel{margin-top:10px}
+.ogham-system .ogham-simulated-panel{border-color:#728a73;background:linear-gradient(150deg,#1e302f,#172a32)}
+.ogham-simulated-panel .ogham-section-head h3{color:#b8e6d0}
+.ogham-sim-save{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:9px 0}
+.ogham-sim-save button{border:1px solid #738e8c;background:#25463d;color:#e0f5e8;border-radius:7px;padding:8px 12px;cursor:pointer}
+.ogham-sim-save button:disabled{opacity:.45;cursor:not-allowed}
+.ogham-sim-save small{font-size:.74rem;color:#a6c9bf;flex:1 1 100%}
+.ogham-system .ogham-simulated-panel .ogham-rune-card{border-color:#5b7a77}
+@media(max-width:540px){.ogham-system .ogham-inventory-tools.card{grid-template-columns:1fr}.ogham-sim-save button{flex:1 1 auto}}
+
+/* 0.3.12j Ogham five-rune effects and non-destructive set comparison */
+.ogham-system .ogham-totals-panel,.ogham-system .ogham-compare-panel{margin:10px 0;padding:0;border:1px solid #3d5970;border-radius:10px;background:#172a36;overflow:hidden}
+.ogham-system .ogham-totals-panel>summary,.ogham-system .ogham-compare-panel>summary{padding:12px 15px;cursor:pointer;font-weight:750;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.ogham-system .ogham-totals-panel>summary span,.ogham-system .ogham-compare-panel>summary span{font-size:.72rem;color:#a6c6d6;font-weight:400}
+.ogham-system .ogham-details-inner{padding:3px 14px 14px}
+.ogham-totals-list{margin:9px 0;display:grid;gap:3px}
+.ogham-total-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #395163;padding:7px 2px}
+.ogham-total-row span{min-width:0;overflow-wrap:anywhere}.ogham-total-row span small{display:block;font-size:.69rem;color:#9eb8c7}.ogham-total-row strong{font-variant-numeric:tabular-nums;white-space:nowrap}
+.ogham-compare-config,.ogham-compare-synergies{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ogham-compare-config>div,.ogham-compare-synergies>div{min-width:0;border:1px solid #334f61;border-radius:8px;padding:10px;background:#1b303c}
+.ogham-system .ogham-compare-panel h4,.ogham-system .ogham-totals-panel h4{margin:8px 0;font-size:.85rem}
+.ogham-compare-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+.ogham-compare-slot{border:1px solid #3e6074;border-radius:7px;background:#15232b;min-width:0;min-height:78px;color:inherit;padding:4px;display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center}
+.ogham-compare-slot .ogham-rune-art{width:37px;height:40px;max-width:100%}
+.ogham-compare-slot small{font-size:.56rem;line-height:1.2;text-align:center;max-width:100%;overflow-wrap:anywhere}
+button.ogham-compare-edit{cursor:pointer}button.ogham-compare-edit:hover{border-color:#96c3d0}button.ogham-compare-edit:disabled{opacity:.45;cursor:default}
+.ogham-compare-empty{font-size:1.5rem;color:#a3bdd0}
+.ogham-compare-actions,.ogham-compare-picker-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.ogham-compare-actions button,.ogham-compare-picker-actions button{background:#263f50;color:#dfedf6;border:1px solid #5b7d94;border-radius:6px;padding:7px 9px;cursor:pointer}
+.ogham-compare-inline-picker{margin-top:12px;border:1px solid #355160;border-radius:9px;padding:10px;background:#152733}
+.ogham-compare-inline-picker .ogham-section-head{margin-bottom:6px}
+.ogham-compare-inline-picker .ogham-section-head h4{margin:0}
+.ogham-compare-inline-picker .ogham-compare-picker-actions{margin-top:0}
+.ogham-compare-slot.ogham-compare-picking{border-color:#b7e6ef;box-shadow:0 0 0 1px #b7e6ef,0 0 10px #89cfe13b;background:#233b49}
+.ogham-compare-table-wrap{overflow-x:auto;margin:9px 0}.ogham-compare-table{width:100%;border-collapse:collapse;font-size:.79rem;min-width:490px}
+.ogham-compare-table th,.ogham-compare-table td{padding:7px 9px;border-bottom:1px solid #395163;text-align:right;font-variant-numeric:tabular-nums}
+.ogham-compare-table th:first-child,.ogham-compare-table td:first-child{text-align:left;min-width:150px;overflow-wrap:anywhere;font-variant-numeric:normal}
+.ogham-compare-table thead{background:#263e4f}.ogham-compare-synergy{display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px;border-top:1px solid #355164;padding:5px 0;font-size:.76rem}
+.ogham-compare-synergy span{color:#a3d7c6}
+.ogham-compare-picker-overlay{z-index:1100}.ogham-compare-picker{width:min(850px,96vw);max-height:min(85vh,850px);overflow:auto;padding:16px}
+.ogham-compare-picker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:7px;margin:12px 0}
+.ogham-compare-pick-card{display:flex;align-items:center;text-align:left;gap:8px;min-width:0;min-height:75px;background:#1c2e3b;color:inherit;border:1px solid #496579;border-radius:7px;padding:7px;cursor:pointer}
+.ogham-compare-pick-card .ogham-rune-art{width:47px;height:53px;flex:none}.ogham-compare-pick-card span:last-child{min-width:0;overflow-wrap:anywhere;font-size:.78rem}
+.ogham-compare-pick-card small{display:block;color:#a7c2cd;font-size:.65rem}.ogham-compare-pick-card.selected{border-color:#c1e8ad}
+@media(max-width:980px){.ogham-main-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.ogham-compare-config,.ogham-compare-synergies{grid-template-columns:1fr}.ogham-system .ogham-details-inner{padding:4px 10px 12px}.ogham-compare-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ogham-compare-picker{padding:10px}.ogham-compare-table{font-size:.72rem}}
+
+/* 0.3.12k: Live equipped Set A vs seeded, independently editable Set B. */
+.ogham-compare-meta{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}
+.ogham-compare-meta span{border:1px solid #436575;border-radius:6px;background:#1d3542;padding:5px 9px;font-size:.77rem}
+.ogham-compare-slot.ogham-compare-same{border-color:#496a6a}
+.ogham-compare-slot.ogham-compare-diff{border-color:#bea56c;background:#302f2b}
+.ogham-compare-slot-status{font-size:.56rem;letter-spacing:.01em;line-height:1.1;color:#e0c890;white-space:normal;overflow-wrap:anywhere;text-align:center}
+.ogham-compare-same .ogham-compare-slot-status{color:#9fc5bd}
+.ogham-compare-equal{font-size:.77rem;color:#b9d9c9;margin:8px 0 0}
+.ogham-compare-effect-same{opacity:.72}
+.ogham-compare-effect-increase .ogham-compare-delta,.ogham-compare-effect-decrease .ogham-compare-delta{font-weight:750;color:#f4d49c}
+.ogham-compare-synergy-change{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;border-bottom:1px solid #385265;padding:5px 0;font-size:.76rem}
+.ogham-compare-synergy-change span{color:#e9c788;font-variant-numeric:tabular-nums}
+@media(max-width:390px){.ogham-compare-slots{gap:2px}.ogham-compare-slot{padding:2px;min-height:78px}.ogham-compare-slot .ogham-rune-art{width:30px;height:35px}.ogham-compare-slot-status{font-size:.48rem}}
+
+/* 0.3.12l · Ogham minimalist editor and spatial grouping. */
+.ogham-system .ogham-editor{width:min(590px,100%)}
+.ogham-system .ogham-editor input[hidden],.ogham-system .ogham-editor [hidden]{display:none!important}
+.ogham-system .ogham-line{grid-template-columns:minmax(0,1fr) minmax(66px,80px);gap:6px 9px;align-items:end;padding:9px 0;border-bottom:1px solid #385069}
+.ogham-system .ogham-line>label{min-width:0}
+.ogham-system .ogham-line select,.ogham-system .ogham-line input{width:100%;max-width:100%;box-sizing:border-box;overflow:hidden;text-overflow:ellipsis}
+.ogham-system .ogham-line-level select{font-variant-numeric:tabular-nums;text-align:center;padding-inline:6px}
+.ogham-system .ogham-line-bonus{grid-column:1/-1;display:block;min-width:0;color:#addacb;font-size:.75rem;padding-left:1px;overflow-wrap:anywhere;line-height:1.45}
+.ogham-system .ogham-section-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.ogham-system .ogham-section-actions button{white-space:normal;font-size:.77rem;padding:6px 9px}
+.ogham-system .ogham-inventory{align-items:start}
+.ogham-system .ogham-group-box{position:relative;box-sizing:border-box;grid-column:1/-1;min-width:0;padding:9px 9px 10px;border:1px solid #6d8ca1;border-radius:12px;background:linear-gradient(135deg,#24394b,#182c3d 55%,#1a2a39);box-shadow:inset 0 1px 0 #d7e8f114;outline-offset:2px}
+.ogham-system .ogham-simulated-panel .ogham-group-box{border-color:#678a80;background:linear-gradient(135deg,#28403c,#152e35)}
+.ogham-system .ogham-group-box.ogham-group-selected,.ogham-system .ogham-group-box:focus-visible{border-color:#e6ce93;outline:1px solid #ccbe97}
+.ogham-system .ogham-group-head{display:flex;align-items:center;gap:8px;justify-content:space-between;min-height:30px;margin-bottom:5px}
+.ogham-system .ogham-group-handle{display:flex;align-items:center;gap:9px;min-height:28px;padding:3px 7px;background:transparent;border:0;color:#bbd6e3;text-align:left;cursor:grab;touch-action:none}
+.ogham-system .ogham-group-handle span{font-size:1.35rem;line-height:1;color:#94c4d5}
+.ogham-system .ogham-group-handle small{font-size:.7rem}
+.ogham-system .ogham-group-handle:active{cursor:grabbing}
+.ogham-system .ogham-group-caption{position:relative;display:inline-block;max-width:100%;padding:0 5px;color:#e5e5c2;font-size:.72rem;font-weight:600;overflow-wrap:anywhere}
+.ogham-system .ogham-group-tools{display:flex;align-items:center;gap:4px;transition:opacity .15s}
+.ogham-system .ogham-group-tools button{font-size:.78rem;line-height:1;min-height:28px;min-width:28px;padding:5px 8px}
+.ogham-system .ogham-group-remove{opacity:0;pointer-events:none;border:1px solid #a76c6c;color:#f3b4b4;background:#402d34;transition:opacity .13s}
+.ogham-system .ogham-group-box:hover .ogham-group-remove,.ogham-system .ogham-group-box:focus-within .ogham-group-remove,.ogham-system .ogham-group-box.ogham-group-selected .ogham-group-remove{opacity:1;pointer-events:auto}
+.ogham-system .ogham-group-runes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,205px),1fr));gap:7px;min-height:48px;align-items:start}
+.ogham-system .ogham-group-runes .ogham-rune-card{margin:0;min-width:0}
+.ogham-system .ogham-group-empty{grid-column:1/-1;align-self:center;font-size:.72rem;color:#a8bbc9;padding:9px 6px}
+.ogham-system .ogham-rune-pick{touch-action:none}
+.ogham-system .ogham-rune-card.ogham-drop-center,.ogham-system .ogham-group-box.ogham-drop-center{outline:2px solid #e5cb8f;outline-offset:-2px;background:#3b493e}
+.ogham-system .ogham-rune-card.ogham-drop-edge{box-shadow:inset 4px 0 #78cce3,inset -4px 0 #78cce3}
+.ogham-system .ogham-group-box.ogham-search-match{border-color:#87cbd8}
+.ogham-system .ogham-group-box.ogham-search-muted{opacity:.73}
+.ogham-touch-ghost{position:fixed;left:0;top:0;z-index:1200;pointer-events:none;padding:5px 10px;border:1px solid #c8d9a8;border-radius:8px;background:#293e51eb;color:#f1f4df;font-size:.8rem;box-shadow:0 4px 15px #0008}
+@media(max-width:540px){.ogham-system .ogham-line{grid-template-columns:minmax(0,1fr) 64px}.ogham-system .ogham-group-runes{grid-template-columns:1fr}.ogham-system .ogham-section-actions{justify-content:flex-start}.ogham-system .ogham-group-box{padding:6px}.ogham-system .ogham-group-tools button{padding:3px 6px;min-height:27px;min-width:27px}}
+
+/* 0.3.12l: single Item Type selector and compact rune roll cost. */
+.ogham-rune-item .reforge-controls{margin-bottom:12px}
+.ogham-rune-item .reforge-controls label{max-width:290px;width:100%}
+.ogham-sim-word-choice{display:grid;gap:4px;min-width:145px;flex:1;align-content:start}
+.ogham-sim-word-choice>small{color:var(--text)}
+#ogham-sim-word-picker{display:flex;align-items:center;gap:9px;min-width:0;min-height:49px;text-align:left;background:#172b3c;border:1px solid #49657b;border-radius:8px;color:var(--text);padding:4px 10px;cursor:pointer}
+#ogham-sim-word-picker .ogham-rune-art{width:40px;height:40px;flex:none}
+#ogham-sim-word-picker>span:nth-child(2){display:grid;gap:2px;min-width:0;flex:1}
+#ogham-sim-word-picker>span:nth-child(2) small{font-size:.7rem}
+.ogham-sim-action-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ogham-roll-price{display:grid;gap:2px;min-width:154px;padding:7px 11px;border:1px solid #426479;border-radius:8px;background:#162b39;line-height:1.25}
+.ogham-roll-price small{font-size:.68rem}.ogham-roll-price strong{font-size:.95rem}.ogham-roll-price span{font-size:.72rem;color:#b5cdd4}
+.ogham-sim-balances{display:block;margin:-2px 0 8px;font-size:.72rem}
+.ogham-sim-line{grid-template-columns:auto auto minmax(0,1fr) 72px}
+.ogham-sim-line-bonus{grid-column:3/-1;justify-self:start;font-size:.73rem;overflow-wrap:anywhere}
+@media(max-width:540px){.ogham-sim-line{grid-template-columns:auto auto minmax(0,1fr) 58px}.ogham-sim-action-row>.primary{flex:0 0 auto}.ogham-roll-price{flex:1 1 148px;min-width:0}}
+
+/* 0.3.12l visual refinement: distinct result cards, independent lock and quality states. */
+#ogham-sim-root .ogham-sim-lines{display:grid;gap:8px;margin:6px 0}
+#ogham-sim-root .ogham-sim-line{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:9px 12px;background:#192d40;border:1px solid #3d5870;border-radius:9px;min-width:0}
+#ogham-sim-root .ogham-sim-lock{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid #4b6981;border-radius:7px;color:#b7d6ef;background:#20384e;cursor:pointer;flex:none}
+#ogham-sim-root .ogham-sim-lock:focus-visible{outline:2px solid #a5e5ef;outline-offset:2px}
+#ogham-sim-root .ogham-sim-lock:disabled{opacity:.42;cursor:not-allowed}
+#ogham-sim-root .ogham-sim-line-readout{min-width:0;display:grid;gap:3px;overflow-wrap:anywhere;line-height:1.35}
+#ogham-sim-root .ogham-sim-line-readout small{font-size:.79rem;color:#b4c8d9}
+#ogham-sim-root .ogham-sim-level-value{font-weight:700;color:#b4d9f0;white-space:nowrap;text-align:right}
+#ogham-sim-root .ogham-sim-level-value small{font-weight:400;color:inherit}
+#ogham-sim-root .ogham-sim-line.is-high{border-color:#a88a45;background:linear-gradient(100deg,#2c2a24,#192d40)}
+#ogham-sim-root .ogham-sim-line.is-high .ogham-sim-line-readout strong,#ogham-sim-root .ogham-sim-line.is-high .ogham-sim-level-value,#ogham-sim-root .ogham-sim-line.is-high .ogham-sim-line-readout small{color:#f5d27d}
+#ogham-sim-root .ogham-sim-line.is-perfect{box-shadow:inset 0 0 0 1px #d8b45b65}
+#ogham-sim-root .ogham-sim-line.is-locked{border-color:#8795a4;background:#242e3b;box-shadow:inset 3px 0 #8795a4}
+#ogham-sim-root .ogham-sim-line.is-locked .ogham-sim-lock{color:#e1e6eb;background:#354250;border-color:#8795a4}
+#ogham-sim-root .ogham-sim-line.is-locked.is-perfect{box-shadow:inset 3px 0 #8795a4,inset 0 0 0 1px #d8b45b65}
+#ogham-sim-root .hint{margin:0;line-height:1.45}
+#ogham-sim-root .ogham-sim-save,#ogham-sim-root .ogham-sim-action-row{margin:0;gap:8px}
+#ogham-sim-feedback:empty{display:none}
+.ogham-system .ogham-rune-art .ogham-rune-etched{position:absolute;inset:0;display:grid;place-items:center;width:100%;height:100%;transform:none}
+.ogham-system .ogham-rune-art .ogham-game-plate-image{display:block;width:92%;height:92%;object-fit:contain;object-position:center;margin:0;min-width:0;max-width:100%;max-height:100%}
+.reforge-current-item{width:160px;max-width:100%;min-width:0;flex:0 0 160px;border-color:#56748a;gap:8px;padding:14px;background:#142336}
+.reforge-current-item .equipment-icon-preview{margin:0;width:100%;min-height:70px}
+.reforge-current-item .equipment-icon-preview img{width:76px;height:76px;max-width:100%;object-fit:contain}
+.reforge-current-name{color:#f1d398;text-align:center;overflow-wrap:anywhere;max-width:100%}
+.reforge-current-item #reforge-roll{width:100%}
+@media(max-width:540px){#ogham-sim-root .ogham-sim-line{grid-template-columns:44px minmax(0,1fr);gap:4px 9px;padding:8px}#ogham-sim-root .ogham-sim-lock{grid-row:1/3}#ogham-sim-root .ogham-sim-level-value{grid-column:2;text-align:left;font-size:.8rem}.reforge-current-item{width:100%;flex:1 1 100%;grid-template-columns:70px minmax(0,1fr);justify-items:stretch;text-align:left}.reforge-current-item .equipment-icon-preview{grid-row:1/3}.reforge-current-item .reforge-current-name{text-align:left}.reforge-current-item #reforge-roll{grid-column:2}}
+
+/* Shared herb sprites: reuse gathering art, scaled to resource displays. */
+.reforge-slot-icon .herb-storage-icon{width:34px;height:34px;max-width:100%}
+.reforge-slot-icon .herb-storage-icon img{width:100%;height:100%;object-fit:contain}
+.ogham-herb-list{display:flex;flex-wrap:wrap;align-items:center;gap:3px 9px;min-width:0}
+.ogham-herb-amount{display:inline-flex;align-items:center;gap:4px;max-width:100%;vertical-align:middle;margin-inline-end:4px}
+.ogham-herb-amount .herb-resource-icon{width:16px;height:24px;flex:none}
+.ogham-herb-amount .herb-resource-icon img{width:100%;height:100%;object-fit:contain}
+
+/* 0.3.12q–r — bounded, drag-first Ogham inventories with grade-colored compact tiles. */
+.ogham-system .ogham-main-inventory{gap:8px}
+.ogham-system .ogham-main-inventory .ogham-inventory-tools{margin:0}
+.ogham-system .ogham-inventory,.ogham-system .ogham-group-runes{grid-template-columns:repeat(auto-fill,minmax(min(100%,100px),1fr));gap:6px;align-content:start;align-items:start}
+.ogham-system .ogham-inventory,.ogham-system .ogham-compare-inline-picker .ogham-compare-picker-grid{max-height:282px;overflow-y:auto;overflow-x:hidden;scrollbar-gutter:stable;scrollbar-color:#526f86 #142435;scrollbar-width:thin;box-sizing:border-box;padding:3px 5px 9px 3px;margin:6px 0;min-height:38px;touch-action:pan-y}
+.ogham-system .ogham-inventory:focus-visible,.ogham-system .ogham-compare-picker-grid:focus-visible{outline:2px solid #a7d5ef;outline-offset:2px}
+.ogham-system .ogham-rune-card{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:3px;padding:4px;align-content:start;min-width:0;border-radius:8px}
+.ogham-system .ogham-rune-pick{position:relative;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:2px;min-height:0;text-align:center;cursor:grab;touch-action:pan-y}
+.ogham-system .ogham-rune-pick:active{cursor:grabbing}
+.ogham-system .ogham-rune-pick .ogham-rune-art{width:45px;height:45px;border-radius:8px;touch-action:none}
+.ogham-system .ogham-rune-pick .ogham-rune-art,.ogham-system .ogham-compare-pick-card .ogham-rune-art{border-color:#8899aa}
+.ogham-system .ogham-rune-pick .ogham-rune-art.ogham-tier-fine,.ogham-system .ogham-compare-pick-card .ogham-rune-art.ogham-tier-fine{border-color:#6ea8ff;box-shadow:inset 0 0 0 2px #0d1f2b,inset 0 0 10px #071322,0 0 0 1px #6ea8ff35}
+.ogham-system .ogham-rune-pick .ogham-rune-art.ogham-tier-exquisite,.ogham-system .ogham-compare-pick-card .ogham-rune-art.ogham-tier-exquisite{border-color:#b784ff;box-shadow:inset 0 0 0 2px #161225,inset 0 0 10px #0a0916,0 0 0 1px #b784ff38}
+.ogham-system .ogham-rune-pick .ogham-rune-art.ogham-tier-masterwork,.ogham-system .ogham-compare-pick-card .ogham-rune-art.ogham-tier-masterwork{border-color:#e9c36b;box-shadow:inset 0 0 0 2px #1c2332,inset 0 0 14px #261208,0 0 0 1px #e9c36b45}
+.ogham-system .ogham-rune-label{display:block;width:100%;min-width:0;line-height:1.2}
+.ogham-system .ogham-rune-label strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.73rem}
+.ogham-system .ogham-rune-pick .ogham-equipped-tag{position:absolute;right:1px;top:1px;background:#17372e;border:1px solid #507f6a;border-radius:5px;padding:1px 3px;font-size:.58rem;line-height:1.15}
+.ogham-system .ogham-rune-actions{display:flex;flex-wrap:nowrap;justify-content:center;gap:2px;width:100%}
+.ogham-system .ogham-rune-actions button,.ogham-system .ogham-rune-actions button.danger{display:grid;place-items:center;min-width:0;flex:1 1 0;min-height:27px;padding:1px;font-size:.8rem;border-radius:5px}
+.ogham-system .ogham-rune-actions button.danger{font-size:1rem}
+.ogham-system .ogham-rune-card .ogham-search-hit{font-size:.64rem;max-height:2.65em;overflow:hidden;line-height:1.3}
+.ogham-system .ogham-group-box{padding:5px}
+.ogham-system .ogham-group-head{min-height:25px;margin-bottom:3px}
+.ogham-system .ogham-compare-inline-picker .ogham-compare-picker-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,94px),1fr));gap:6px}
+.ogham-system .ogham-compare-inline-picker .ogham-compare-pick-card{flex-direction:column;text-align:center;gap:4px;padding:6px 3px;min-height:80px}
+.ogham-system .ogham-compare-inline-picker .ogham-compare-pick-card .ogham-rune-art{width:43px;height:43px}
+.ogham-system .ogham-compare-inline-picker .ogham-compare-pick-card span:last-child{font-size:.71rem}
+@media(max-width:540px){.ogham-system .ogham-inventory,.ogham-system .ogham-compare-inline-picker .ogham-compare-picker-grid{max-height:260px}.ogham-system .ogham-inventory,.ogham-system .ogham-group-runes{grid-template-columns:repeat(auto-fill,minmax(min(100%,96px),1fr))}.ogham-system .ogham-rune-actions button,.ogham-system .ogham-rune-actions button.danger{min-height:32px}}
+.ogham-system .ogham-main-inventory .ogham-inventory-panel{margin:0;padding:12px}
+.ogham-system .ogham-main-inventory .ogham-section-head{margin-bottom:4px}
+.ogham-system .ogham-inventory>p.hint{grid-column:1/-1;margin:5px 0}
+.ogham-system .ogham-inventory::-webkit-scrollbar,.ogham-system .ogham-compare-picker-grid::-webkit-scrollbar{width:8px}
+.ogham-system .ogham-inventory::-webkit-scrollbar-track,.ogham-system .ogham-compare-picker-grid::-webkit-scrollbar-track{background:#142435;border-radius:6px}
+.ogham-system .ogham-inventory::-webkit-scrollbar-thumb,.ogham-system .ogham-compare-picker-grid::-webkit-scrollbar-thumb{background:#526f86;border-radius:6px}
+@media(min-width:981px){.ogham-system .ogham-main-inventory{display:flex;flex-direction:column;max-height:590px}.ogham-system .ogham-main-inventory .ogham-inventory-tools,.ogham-system .ogham-main-inventory .ogham-search-status{flex:none}.ogham-system .ogham-main-inventory .ogham-inventory-panel{display:flex;flex-direction:column;flex:0 1 auto;min-height:0}.ogham-system .ogham-main-inventory .ogham-section-head{flex:none}.ogham-system .ogham-main-inventory .ogham-inventory{flex:0 1 auto;min-height:38px}}
+@media(min-width:981px){.ogham-system .ogham-inventory,.ogham-system .ogham-group-runes{grid-template-columns:repeat(auto-fill,minmax(min(100%,92px),1fr))}}
