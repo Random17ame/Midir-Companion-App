@@ -1,6 +1,6 @@
-# Midir Companion 0.3.12r Draft — Documentation
+# Midir Companion 0.3.13 Draft — Documentation
 
-This is the **current-state** documentation for the Midir Companion 0.3.12r Draft application, maintained as a description of the current application behavior.
+This is the **current-state** documentation for the Midir Companion 0.3.13 Draft application, maintained as a description of the current application behavior.
 
 This documentation folder is part of the GitHub repository, alongside the application files and root `README.md`. Feature guides document current behavior; release notes and the historical changelog remain inside this folder.
 
@@ -15,9 +15,11 @@ This documentation folder is part of the GitHub repository, alongside the applic
 - [Rotation Highlights cooldown and skill-shape inventory](ROTATION-SKILL-RULES-INVENTORY.md)
 - [Historical changelog](CHANGELOG.md)
 
-## Current release: 0.3.12r Draft
+## Current release: 0.3.13 Draft
 
-**0.3.12r Rune simulator (cumulative):** Bordered result cards, icon-only locks, gold high rolls, centered local stone art and a prominent Reforge item panel.  One EV Item Type selector, automatically rolled (read-only) effect lines, Gold-only zero-lock pricing, the **same live Storage Chest** as ordinary Reforges, and per-rune reroll/spending ledgers with confirmation-based Disassemble refunds. The catalog importer is no longer visible in player UI. [Ogham guide](features/22-OGHAM-RUNE-INVENTORY-AND-SIMULATOR.md); [release](RELEASE-0.3.12R.md).
+**Native session ZIP importing:** Midir 49.a universal HTML bundles, legacy HTML ZIPs, offline integrity checks, stable recording identity, original interactive HTML retention, and consolidated results. [Vault guide](features/01-VAULT-AND-IMPORTS.md) · [release](RELEASE-0.3.13.md).
+
+**Rune simulator (cumulative):** Bordered result cards, icon-only locks, gold high rolls, centered local stone art and a prominent Reforge item panel.  One EV Item Type selector, automatically rolled (read-only) effect lines, Gold-only zero-lock pricing, the **same live Storage Chest** as ordinary Reforges, and per-rune reroll/spending ledgers with confirmation-based Disassemble refunds. The catalog importer is no longer visible in player UI. [Ogham guide](features/22-OGHAM-RUNE-INVENTORY-AND-SIMULATOR.md); [release](RELEASE-0.3.12R.md).
 
 **Ogham inventory and comparisons:** Desktop inventories sit beside the equipped board; mobile stacks them below. The Set B chooser appears inline beneath the comparison rows, and equipped sockets omit the redundant inner frame. Awakening Level now supports **0–50** per Arcana, with the same five socket unlocks at 1/5/10/15/20 and no additional bonus above 20. Two distinct visible collections for tracked and simulated runes; both can equip into the current Arcana's five sockets. Persistent favorite, group, manual order, multiple sorts and effect-aware searches keep nonmatches visible. Equipped Effects displays combined attribute totals. Compare Sets always uses the live equipped loadout as Set A and initializes Set B from A; B can share rune IDs, change slots and show numeric/synergy differences without applying equipment. [Current Ogham guide](features/22-OGHAM-RUNE-INVENTORY-AND-SIMULATOR.md); [release details](RELEASE-0.3.12K.md).
 
@@ -42,6 +44,9 @@ The Harmonic Saint Litany Lab adds three Murias Relic effect/enchant slots, vide
 Resonant Litany / Dissonance Lab is documented in [Harmonic Saint guide](features/20-HARMONIC-SAINT-LITANY-DRAFT.md). The **boost cards** now match the SG Oath Maxing visual pattern with icon, checkbox, compact values and Edit action. Sacred Guardian’s **relic, Ophelia’s Tears, and Alban Knights Emblem** were moved from an oversized equipment/persona panel into the same Available buffs grid, with their rank, timer and rune/emergency controls preserved behind Edit. UI vocabulary is updated for English, Korean and Spanish. See the [SG guide](features/08-SACRED-GUARDIAN-OATH.md) and [language guide](features/19-LANGUAGE-SUPPORT.md).
 
 ## Release history and change records
+
+- [0.3.13 — Native offline session ZIP importing](RELEASE-0.3.13.md)
+- [0.3.12r — Grade-colored Rune inventory borders](RELEASE-0.3.12R.md)
 
 - [0.3.12q — Compact, scrollable Rune inventories](RELEASE-0.3.12Q.md)
 - [0.3.12p — White/Golden Herb artwork correction and cumulative release](RELEASE-0.3.12P.md)

@@ -1,3 +1,10 @@
+## 0.3.13 — Native offline session ZIP importing (2026-11-25)
+
+1. Add a local classic ZIP reader for STORE/raw DEFLATE, bounded extraction, CRC-32, safe paths and v1 Midir 49.a manifest/metadata/SHA-256 validation. Accept legacy HTML ZIPs; reject invalid manifests/nested ZIPs and identify retired data-only entries as unsupported. [1] `Companion Files/session-bundle.js`; [2] `reference/midir-49a/SESSION-BUNDLE-SPEC.md`.
+2. Reuse the existing HTML parser and original report viewer; add durable recording identity, exact duplicate detection, scope variants and revision metadata. Preserve first chosen same-scope revision; upgrade strictly broader scopes under the same local ID. No combat evidence interpretation changes. [3] `Companion Files/app.js`; [2].
+3. Commit validated HTML and report details together, roll back an entry if profile index save fails, report batch progress/results, and protect chosen ZIP/identified HTML from destructive compaction. Restrict viewer external resources through CSP and sandbox. [3]; [4] `Midir Companion.html`.
+4. Update release labels, localization, cache IDs, current guides and bundled producer contract. Add synthetic fixture and adversarial tests. [5] `Companion Files/i18n.js`; [6] `service-worker.js`; [7] `tests/0313_bundle_reader_test.js`; [8] `tests/0313_bundle_browser_test.py`.
+
 ## 0.3.12r — Grade-colored Rune inventory borders (2026-11-25)
 
 1. Applied explicit compact inventory border colors by Rune grade: blue for Fine, purple for Exquisite, gold for Masterwork, and neutral gray when no grade is assigned. The color cue is limited to the compact inventory tiles and inline compare chooser; equipped sockets remain visually unchanged. [1] `Companion Files/styles.css`.

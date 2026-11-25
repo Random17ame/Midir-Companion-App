@@ -1,6 +1,6 @@
 # Sacred Guardian — Oath Workshop
 
-**Applies to:** Midir Companion 0.3.12r.
+**Applies to:** Midir Companion 0.3.13.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

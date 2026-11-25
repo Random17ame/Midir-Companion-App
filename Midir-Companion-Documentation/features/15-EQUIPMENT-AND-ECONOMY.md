@@ -1,6 +1,6 @@
 # Equipment simulators, upgrades and economy
 
-**Applies to:** Midir Companion 0.3.12r.
+**Applies to:** Midir Companion 0.3.13.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -30,7 +30,7 @@
 3. Special Upgrade: [`special-upgrade.js`](../../Companion%20Files/special-upgrade.js).
 4. Chest, save and economy integration: [`app.js`](../../Companion%20Files/app.js).
 
-## Ogham Rune practice and the Storage Chest (current, 0.3.12r)
+## Ogham Rune practice and the Storage Chest (current, 0.3.13)
 
 The EV Reforge Simulator uses **one Item Type selector** for normal equipment, Echostone and Rune, rather than separate mode buttons. Rune opens the 26-stone visual word picker and read-only randomly rolled effect lines, with lock toggles and the next-roll cost. **Unlocked rerolls cost Gold only (5,000)**; locked lines add the documented Companion-practice Herb cost. Each rune retains its own reroll count and spending ledger, with a confirmation-based **Disassemble** practice refund. See [Ogham rune inventory and simulator](22-OGHAM-RUNE-INVENTORY-AND-SIMULATOR.md) for exact rules.
 

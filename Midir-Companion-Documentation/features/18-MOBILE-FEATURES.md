@@ -1,6 +1,6 @@
 # Mobile Features and Touch Support
 
-**Applies to:** Midir Companion 0.3.12r.
+**Applies to:** Midir Companion 0.3.13.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -8,7 +8,7 @@
 
 - Midir Companion can be served over HTTPS (including GitHub Pages) and installed from a compatible mobile browser. Its cached application shell can run offline after the assets have been fetched.
 - User profiles, detailed reports and achievements live in each browser's local storage / IndexedDB; there is no mobile-to-PC cloud synchronization. Export full-profile backups before clearing storage or changing devices.
-- Importing large reports can exhaust mobile memory even below the 90 MiB per-file cap. Mobile keeps up to ten active detailed reports by default, with older reports archived.
+- Importing large reports can exhaust mobile memory even below the 90 MiB per-file cap. Mobile keeps up to ten active detailed reports by default, with older reports archived. ZIP and identified HTML imports remain viewable when archived; a ZIP is limited to 128 MiB compressed and declared uncompressed total on mobile, and actual memory/quota may be lower. Use smaller bundles on constrained phones.
 
 ## Mobile interface and controls
 

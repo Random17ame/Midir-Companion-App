@@ -1,6 +1,6 @@
 # Personal Bests — 30-second Boss Burst Comparisons
 
-**Applies to:** Midir Companion 0.3.12r. Supplementary evidence only; **not** a normal combat-report import or all-session Rotation Highlights.
+**Applies to:** Midir Companion 0.3.13. Supplementary evidence only; **not** a normal combat-report import or all-session Rotation Highlights.
 
 ## Import formats
 

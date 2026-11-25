@@ -1,15 +1,15 @@
-# Current design and verification principles — 0.3.12r
+# Current design and verification principles — 0.3.13
 
 ## Product and evidence contract
 
 - Use the same dark palette and recognizable Mabinogi icons across desktop and mobile. Prefer compact on-screen controls, clear status cues, and optional expanded explanations over long default text.
 - Keep training simulations separate from imported combat analysis. Treat missing actor/boss/debuff evidence as unknown, not confirmation.
-- Keep saved identifiers and backup compatibility stable across releases. Preserve original imported files outside the browser for archive reactivation.
+- Keep saved identifiers and backup compatibility stable across releases. Preserve original imported files outside the browser for backup and legacy archive reactivation. A ZIP is a transport container, not new combat evidence; validate before committing and retain original HTML.
 - New features must not silently change other games, simulators or the historical achievement ledger.
 
 ## Release versioning
 
-- New features increment the numeric patch and reset the letter (0.3.12r → 0.3.13). Minor adjustments, fixes, visual and compatibility updates increment the letter (0.3.12r → 0.3.12r).
+- New features increment the numeric patch and reset the letter (0.3.12r → 0.3.13). Minor adjustments, fixes, visual and compatibility updates increment the letter (0.3.12r → 0.3.12s).
 - Each completed cumulative release updates the visible version, archive name, shell/art cache IDs, current guide/index headers, versioned release notes, numbered-source changelog and verification record. Keep historical release/test identifiers and persisted schema versions intact.
 
 ## Acceptance checks

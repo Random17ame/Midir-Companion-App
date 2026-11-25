@@ -1,7 +1,15 @@
-# Midir Companion 0.3.12r Draft
+# Midir Companion 0.3.13 Draft
 
-**Documentation:** [Current features](Midir-Companion-Documentation/CURRENT-FEATURES.md) · [Documentation index](Midir-Companion-Documentation/README.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.12R.md)
+**Documentation:** [Current features](Midir-Companion-Documentation/CURRENT-FEATURES.md) · [Documentation index](Midir-Companion-Documentation/README.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.13.md)
 
+
+## Release 0.3.13 — Native Offline Session ZIP Importing
+
+- Import Midir 49.a ZIP bundles directly through the existing Vault chooser or drag-and-drop. Supports STORE, raw DEFLATE and older manifest-free HTML ZIPs, with no network dependency.
+- Validate bundle manifests, safe paths, CRC-32, optional SHA-256 and metadata agreement before saving each HTML report. Preserve original interactive reports and their existing analysis.
+- Identify recordings across individual and batch imports; skip exact duplicates, record scope variants and revisions, and prefer a strictly broader scope without adding another recording.
+- Keep chosen ZIP and identified HTML reports viewable in the Archive; older compact-only imports retain their previous recovery workflow. Batch progress and separate result counts are shown beside the import controls.
+- [Import guide](Midir-Companion-Documentation/features/01-VAULT-AND-IMPORTS.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.13.md).
 
 ## Release 0.3.12r — Grade-Colored Rune Inventory Borders
 

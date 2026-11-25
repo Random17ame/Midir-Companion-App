@@ -2143,3 +2143,6 @@ button.ogham-compare-edit{cursor:pointer}button.ogham-compare-edit:hover{border-
 .ogham-system .ogham-inventory::-webkit-scrollbar-thumb,.ogham-system .ogham-compare-picker-grid::-webkit-scrollbar-thumb{background:#526f86;border-radius:6px}
 @media(min-width:981px){.ogham-system .ogham-main-inventory{display:flex;flex-direction:column;max-height:590px}.ogham-system .ogham-main-inventory .ogham-inventory-tools,.ogham-system .ogham-main-inventory .ogham-search-status{flex:none}.ogham-system .ogham-main-inventory .ogham-inventory-panel{display:flex;flex-direction:column;flex:0 1 auto;min-height:0}.ogham-system .ogham-main-inventory .ogham-section-head{flex:none}.ogham-system .ogham-main-inventory .ogham-inventory{flex:0 1 auto;min-height:38px}}
 @media(min-width:981px){.ogham-system .ogham-inventory,.ogham-system .ogham-group-runes{grid-template-columns:repeat(auto-fill,minmax(min(100%,92px),1fr))}}
+
+/* 0.3.13 bundle import feedback */
+#bundle-import-status{overflow-wrap:anywhere;white-space:pre-wrap;max-height:12em;overflow:auto;margin:.55rem 0 0}

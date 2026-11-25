@@ -1,6 +1,6 @@
-# Architecture, import and persistence reference — 0.3.12r Draft
+# Architecture, import and persistence reference — 0.3.13 Draft
 
-The accompanying **0.3.12r Draft** cumulative source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
+The accompanying **0.3.13 Draft** cumulative source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
 
 ## Static application and runtime
 
@@ -10,16 +10,16 @@ The accompanying **0.3.12r Draft** cumulative source is authoritative for this r
 
 ## Report evidence and imports
 
-- Compatible HTML/JSON/NDJSON imports are capped at **90 MiB per file**. Parsing can additionally fail when device RAM/quota is insufficient.
+- Compatible HTML/JSON/NDJSON imports and individual ZIP entries are capped at **90 MiB per file**. Parsing can additionally fail when device RAM/quota is insufficient.
 - Embedded structured report JSON is read from HTML source without constructing a full report DOM; the entire file is still loaded as text during import.
 - Multi-encounter recordings stay one session; importer gate subdivision is **not implemented**.
 - Player and Arcana attribution requires encounter-appropriate actor evidence. Imported hit events, skill observations and boss-state records are different evidence types. Unobserved events are not invented.
-- The Vault tracks original reports, active details, archived compact summaries and lifetime achievements. Reactivating a compact archived entry requires an evidence-matching original export.
+- `session-bundle.js` validates classic ZIP bundles, manifests and SHA-256, then the same individual importer stores original HTML and normalized evidence. Durable recording identities and scope/revision metadata live in the existing report detail store. ZIP and identified HTML archives retain original HTML and details. The Vault also tracks older compact summaries and lifetime achievements. Reactivating a compact archived entry requires an evidence-matching original export.
 
 ## Browser storage and backups
 
 - User preferences, gameplay state and simulated inventories use application/local-module browser storage; report HTML and archive-related records use IndexedDB where available.
-- Full-profile export is a JSON object with `type: "midir-companion-backup"` and `version: 2`; it includes supported training module state. A compacted archive may not contain the original HTML or full detail.
+- Full-profile export is a JSON object with `type: "midir-companion-backup"` and `version: 2`; it includes supported training module state. An older compacted archive may not contain the original HTML or full detail; new protected reports retain the chosen original HTML.
 - Desktop supports up to 30 active detailed reports; the mobile policy defaults to 10. Never treat a GitHub repository as a private user-data store. Back up before browser resets, origin changes or migration between desktop and phone.
 
 ## Practice games and integration

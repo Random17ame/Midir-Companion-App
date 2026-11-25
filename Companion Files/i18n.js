@@ -47,8 +47,8 @@ const localization0312={
 };
 for(const lang of ['ko','es'])Object.assign(dict[lang],localization0312[lang]);
 // 0.3.12a release marker; keep 0.3.12 historical keys for backwards compatibility.
-Object.assign(dict.ko,{'Companion 0.3.12r Draft · Offline':'컴패니언 0.3.12r 초안 · 오프라인'});
-Object.assign(dict.es,{'Companion 0.3.12r Draft · Offline':'Companion 0.3.12r Borrador · Sin conexión'});
+Object.assign(dict.ko,{'Companion 0.3.13 Draft · Offline':'컴패니언 0.3.13 초안 · 오프라인'});
+Object.assign(dict.es,{'Companion 0.3.13 Draft · Offline':'Companion 0.3.13 Borrador · Sin conexión'});
 Object.assign(dict.ko,{'Companion 0.3.12d · Offline':'컴패니언 0.3.12c · 오프라인'});
 Object.assign(dict.es,{'Companion 0.3.12d · Offline':'Companion 0.3.12c · Sin conexión'});
 Object.assign(dict.ko,{'Companion 0.3.12b · Offline':'컴패니언 0.3.12b · 오프라인'});
@@ -80,6 +80,8 @@ function t(raw){if(locale==='en')return raw; const lead=raw.match(/^\s*/)[0],tai
 }
 const lastLocalized=new WeakMap();
 function shouldSkip(node){const p=node.parentElement;return !p||Boolean(p.closest('script,style,textarea,code,pre,iframe,.award-run-name,.player-name,.user-content,[data-i18n-skip]'));}
+Object.assign(dict.ko,{'Use exported Midir HTML reports, session ZIP bundles, or NDJSON recordings. ZIP reports retain their original interactive HTML. Restore a Companion backup with Restore profile backup.':'Midir HTML 보고서, 세션 ZIP 묶음 또는 NDJSON 기록을 사용하세요. ZIP 보고서는 원본 대화형 HTML을 보존합니다. 프로필 백업 복원으로 백업을 복원하세요.'});
+Object.assign(dict.es,{'Use exported Midir HTML reports, session ZIP bundles, or NDJSON recordings. ZIP reports retain their original interactive HTML. Restore a Companion backup with Restore profile backup.':'Usa informes HTML de Midir, paquetes ZIP de sesiones o grabaciones NDJSON. Los informes ZIP conservan el HTML interactivo original. Restaura una copia mediante Restaurar copia del perfil.'});
 function translateNode(node){
  if(!node||node.nodeType!==3||shouldSkip(node))return;
  const prior=lastLocalized.get(node),current=node.nodeValue;
