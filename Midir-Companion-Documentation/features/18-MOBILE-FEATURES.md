@@ -1,8 +1,15 @@
 # Mobile Features and Touch Support
 
-**Applies to:** Midir Companion 0.3.13.
+**Applies to:** Midir Companion 0.3.15.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
+
+## Shared presentation (0.3.14a)
+
+- At narrow widths, use a compact header, wrapping navigation, two-column Arcana and mobile quick-tool cards, tighter spacing, and shorter return labels. Decorative header/footer copy is omitted on phones; existing version and language controls remain available in the ordinary header.
+- Arcana strategy text follows the tool links in Skill Knowledge. Advanced Vault storage and memory guidance is available in a collapsed-by-default disclosure rather than an always-visible block.
+- Theta’s title and currency stack in portrait. Tables and other intentionally scrollable content keep their own scroll containers; no blanket horizontal page clipping is used to conceal overflow.
+- Verified default route and selected editor states in Chromium at 320/390/1200px, including actual mobile user agent, local image resources, selected Korean/Spanish larger-text views and advanced Vault. This is not exhaustive physical-device or populated-profile certification.
 
 ## Installation and persistence
 
@@ -78,7 +85,7 @@ On touch screens, the trigger panel shows Melodic Puppeteer skills and base pupp
 
 - Vertrag keeps giant setup unobstructed by placing the Trial/Endless selector beneath the arena.
 - Pig Pursuit uses a one-line touch guide and a visible start button rather than a full-screen mouse/keyboard explanation.
-- Bandit Hunt's three responses are icon-only on touch screens (accessible names remain), with no awkward text wrapping.
+- Bandit Hunt's five-column region fits the available width without board scrolling. Its three responses are icon-only on touch screens (accessible names remain), inside a viewport-bounded encounter dialog; travel buttons open or revisit adjacent regions.
 - Cutting Chorus uses a compact, non-scrollable bank of skill icons and cooldowns below its aiming area; the two inputs remain independent.
 - EV uses a compact touch onboarding panel with reachable confirmation, and a smaller independently scrollable shop.
 - Arsenal Gunner keeps placement mode selectors and primary attack commands above the arena.

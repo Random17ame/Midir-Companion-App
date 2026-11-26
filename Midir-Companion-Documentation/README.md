@@ -1,6 +1,6 @@
-# Midir Companion 0.3.13 Draft — Documentation
+# Midir Companion 0.3.15 Draft — Documentation
 
-This is the **current-state** documentation for the Midir Companion 0.3.13 Draft application, maintained as a description of the current application behavior.
+This is the **current-state** documentation for the Midir Companion 0.3.15 Draft application, maintained as a description of the current application behavior.
 
 This documentation folder is part of the GitHub repository, alongside the application files and root `README.md`. Feature guides document current behavior; release notes and the historical changelog remain inside this folder.
 
@@ -15,7 +15,13 @@ This documentation folder is part of the GitHub repository, alongside the applic
 - [Rotation Highlights cooldown and skill-shape inventory](ROTATION-SKILL-RULES-INVENTORY.md)
 - [Historical changelog](CHANGELOG.md)
 
-## Current release: 0.3.13 Draft
+## Current release: 0.3.15 Draft
+
+**Bandit Hunt:** Connected 5×5 regions, persistent cleared and stolen locations, responsive encounter controls and net hunt-loot losses. [Chase guide](features/13-POSITIONING-AND-CHASE.md) · [release](RELEASE-0.3.15.md).
+
+**Presentation refinement:** Compact shared mobile chrome and tool navigation, strategy guidance below available pages, expandable advanced Vault storage guidance, and Theta portrait overflow fix. [Mobile guide](features/18-MOBILE-FEATURES.md) · [release](RELEASE-0.3.14A.md).
+
+**Sacred Guardian:** Echostone baseline inference, Confirm/Apply/Reset and three-color recommendations with reserved slots; conservative stat-cap-aware preparation advice with observed primary stats; direct Enduring Melody values or live Music Buff Calculator results with round-trip navigation; no separate title or fine-tuning panels; persona cooldown override. [Oath guide](features/08-SACRED-GUARDIAN-OATH.md) · [release](RELEASE-0.3.14.md).
 
 **Native session ZIP importing:** Midir 49.a universal HTML bundles, legacy HTML ZIPs, offline integrity checks, stable recording identity, original interactive HTML retention, and consolidated results. [Vault guide](features/01-VAULT-AND-IMPORTS.md) · [release](RELEASE-0.3.13.md).
 
@@ -45,6 +51,11 @@ Resonant Litany / Dissonance Lab is documented in [Harmonic Saint guide](feature
 
 ## Release history and change records
 
+- [0.3.15 — Bandit Hunt exploration](RELEASE-0.3.15.md)
+- [0.3.14a — Mobile presentation refinement](RELEASE-0.3.14A.md)
+- [0.3.14 — Sacred Guardian Echostone planning](RELEASE-0.3.14.md)
+- [0.3.13b — Sacred Guardian stat-cap recommendations](RELEASE-0.3.13B.md)
+- [0.3.13a — Sacred Guardian checklist refinement](RELEASE-0.3.13A.md)
 - [0.3.13 — Native offline session ZIP importing](RELEASE-0.3.13.md)
 - [0.3.12r — Grade-colored Rune inventory borders](RELEASE-0.3.12R.md)
 

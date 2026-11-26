@@ -1,6 +1,6 @@
 # Positioning, frame challenges and chase games
 
-**Applies to:** Midir Companion 0.3.13.
+**Applies to:** Midir Companion 0.3.15.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 
@@ -35,4 +35,14 @@ Pig Pursuit uses independent touch sticks: the carrot-direction stick points the
 
 ## Compact mobile action UI (current)
 
-Arsenal Gunner places its Detonation Field and Heavy Artillery touch selectors and Commit/Randomize/Clear action buttons **above** the positioning arena, with icons where bundled skill artwork exists. Advanced firing parameters remain below the arena. Pig Pursuit's initial mobile overlay is a single brief instruction and a visible Begin Ride button; desktop keyboard explanation remains available only for desktop input. Bandit Hunt displays icon-only mobile response buttons with accessible skill names, avoiding wrapped multi-line labels. [1] `Companion Files/app.js`; [2] `Companion Files/ek-pig-pursuit.js`; [3] `Companion Files/bb-bandit-flip.js`; [4] `Companion Files/styles.css`.
+Arsenal Gunner places its Detonation Field and Heavy Artillery touch selectors and Commit/Randomize/Clear action buttons **above** the positioning arena, with icons where bundled skill artwork exists. Advanced firing parameters remain below the arena. Pig Pursuit's initial mobile overlay is a single brief instruction and a visible Begin Ride button; desktop keyboard explanation remains available only for desktop input. Bandit Hunt displays icon-only mobile response buttons in a centered encounter dialog with accessible skill names, avoiding wrapped multi-line labels. [1] `Companion Files/app.js`; [2] `Companion Files/ek-pig-pursuit.js`; [3] `Companion Files/bb-bandit-flip.js`; [4] `Companion Files/styles.css`.
+
+## Bandit Hunt — trade road exploration (0.3.15)
+
+- Begin at Camp in a 5×5 region. Resolve a location on the corresponding edge to open a new region to the north, south, east or west; a previously visited region is always reachable from its adjacent region. Coordinates and a return arrow identify travel; the current region is kept in memory for the active hunt.
+- Flipped encounters, chain-sweep rewards and stolen prizes remain resolved for the entire hunt. No automatic replacement or repeat payout; adjacent rewards and pressure remain region-local. New terrain is generated on first entry. End Hunt and start another to generate a fresh map; leaving and reopening the tool within the same page retains the run, but full reloads do not.
+- The same Counter Punch (1), Charging Strike (2), Tumble (3) and wildlife wait rules apply. A centered encounter dialog keeps artwork, timer and response controls visible. Streak pressure, lucky rewards, five payout tiers and cross-module earnings remain.
+- A wrong response permanently forfeits that location and all still-hidden adjacent prizes; a timeout forfeits that location. Either also steals up to the encounter's base reward from net current-hunt earnings already credited to Storage Chest. The debit cannot exceed either net hunt earnings or the balance above the starting chest amount. Earned ducats from completed hunts remain protected. End Hunt records net earnings.
+- Help and records are collapsible. The current hunt map is not included in persistent profile backups; existing lifetime records and balances remain compatible.
+
+Sources: [1] `Companion Files/bb-bandit-flip.js`; [2] `Companion Files/reforge-simulator.js`; [3] `Companion Files/styles.css`; [4] `tests/bandit0315_map_browser_test.py`.

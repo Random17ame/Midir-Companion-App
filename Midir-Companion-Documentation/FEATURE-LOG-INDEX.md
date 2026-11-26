@@ -1,4 +1,4 @@
-# Feature guide index — 0.3.13
+# Feature guide index — 0.3.15
 
 Use [CURRENT-FEATURES.md](CURRENT-FEATURES.md) for the list and links to the current feature guides. Guides contain **only current behavior**; they are not per-feature development logs. The historical sequence is retained solely in [CHANGELOG.md](CHANGELOG.md). Version-specific summaries are filed as `RELEASE-0.3.12X.md` in this documentation directory, never at the repository root.
 

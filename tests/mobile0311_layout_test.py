@@ -35,11 +35,14 @@ with sync_playwright() as pw:
  print('PIG: PASS launch button fits overlay')
  # Bandit
  arc('bb');hub('bb-bandit')
+ page.evaluate('()=>{window.__oldRandom=Math.random;Math.random=()=>0.3}')
  page.locator('#bb-start-hunt').click()
+ page.evaluate('()=>{Math.random=window.__oldRandom}')
  # Need start a tile; game selects tile by tapping
  page.locator('[data-bb-flip]').first.click()
  page.locator('.bb-bandit-actions button').first.wait_for()
  assert page.locator('.bb-bandit-actions button .bb-action-caption').first.evaluate('(el)=>getComputedStyle(el).display')=='none'
+ page.locator('[data-bb-input="counter"]').click()
  print('BANDIT: PASS icon-only response buttons')
  # MP
  arc('mp');hub('rhythm')

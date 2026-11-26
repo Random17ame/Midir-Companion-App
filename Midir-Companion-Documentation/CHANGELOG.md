@@ -1,3 +1,36 @@
+## 0.3.15 — Bandit Hunt exploration (2026-11-26)
+
+1. Replace the endlessly recycled 9×9 board with connected 5×5 regions. Resolve edge locations to expand; return to earlier regions with unchanged tile identities and outcomes during the hunt. Keep reaction skills, timing, streak pressure, lucky rewards and payout tiers. [1] `Companion Files/bb-bandit-flip.js`.
+2. Permanently remove forfeited prizes from the map; a miss also debits up to its base reward from current-hunt earnings, never exceeding net hunt earnings or the balance above the starting chest amount. Record net earnings. [1]; [2] `Companion Files/reforge-simulator.js`.
+3. Fit the map to available width, place the encounter in a viewport-bounded dialog, compact the HUD, collapse help and records, localize new controls and cache all existing encounter artwork. [1]; [3] `Companion Files/styles.css`; [4] `Companion Files/i18n.js`; [5] `service-worker.js`.
+4. Add browser tests for persistent locations, region navigation, losses and narrow/landscape response controls; retain the cumulative responsive audit and existing profile format. [6] `tests/bandit0315_map_browser_test.py`; [7] `tests/mobile0314a_presentation_test.py`; [8] `tests/bandit0315_integration_browser_test.py`.
+
+## 0.3.14a — Mobile presentation refinement (2026-11-26)
+
+1. Tighten shared narrow-screen header/navigation, Arcana tool grid, back controls, content spacing, mobile quick tools and slide-out menu; remove decorative mobile header/footer copy without deleting settings or simulator controls. [1] `Companion Files/styles.css`.
+2. Place Arcana strategy guidance under Skill Knowledge after tool links, remove repetitive introduction text, shorten return labels and collapse advanced Vault storage/memory guidance behind a disclosure; retain all six mobile shortcuts and storage warnings. [2] `Companion Files/app.js`; [3] `Companion Files/i18n.js`.
+3. Resolve Theta portrait currency/header overflow by stacking its title and currency; retain independently scrollable content elsewhere without global clipping. [4] `Companion Files/theta-rhythm.css`.
+4. Add responsive route smoke audit including mobile UA, local images, selected editor states, larger text and Korean/Spanish layouts. Refresh visible release labels and cache namespaces. [5] `tests/mobile0314a_presentation_test.py`; [6] `service-worker.js`; [7] `Midir Companion.html`.
+
+## 0.3.14 — Sacred Guardian Echostone planning (2026-11-26)
+
+1. Add a compact Echostone summary/editor in Oath Max and Emergency Oath. Collect optional DEX and infer minimum Red/Silver/Blue/Yellow rolls from observed values above 2750; Black remains manual. Confirm initial configuration without changing stats; Apply exact cap-bypassing equipment deltas. Reset or a new completed stat disclosure clears confirmation, while canceling a draft preserves the prior baseline. [1] `Companion Files/app.js`; [2] `Companion Files/styles.css`.
+2. Compare actual entered available rolls across up to three distinct colors; reserve equipped stones and suggest improvements without reducing another Oath contribution. No invented rolls or automatic equipment changes. Keep ordinary stat-cap assumptions; use fractional incremental conversion and nearest-integer displays, with unrounded Oath calculations and frozen snapshots preserved. [1].
+3. Add localized editor labels, offline stone assets, additive save fields, current documentation and browser regression. [3] `Companion Files/i18n.js`; [4] `service-worker.js`; [5] `tests/sg0314_echostone_browser_test.py`; [6] `features/08-SACRED-GUARDIAN-OATH.md`.
+
+## 0.3.13b — Sacred Guardian stat-cap recommendations (2026-11-26)
+
+1. Extend saved character-sheet setup with optional STR/WILL/INT, preserving observed defensive totals and old profiles. Model ordinary primary gains using shared headroom below 2,450; assume unified hard cap 2,750 for max-Arcana planning. Unknown/at-cap primary bonuses are not projected. Convert incremental STR/WILL per 10 and INT per 20; direct bonuses and frozen snapshots remain independent. [1] `Companion Files/app.js`.
+2. Distinguish useful/potential, uncertain/optional, and confirmed Oath-capped advice on ordinary and gear buff cards. Do not discourage a buff merely because primary gain is uncertain. Skip only when all affected positive Oath thresholds are already capped without that candidate in a confirmed profile. [1]; [2] `Companion Files/styles.css`; [3] `Companion Files/i18n.js`.
+3. Verify at 1200/390/320px; refresh version and cache namespaces. [4] `tests/sg0313b_caps_browser_test.py`; [5] `service-worker.js`; [6] `Midir Companion.html`.
+
+## 0.3.13a — Sacred Guardian checklist refinement (2026-11-26)
+
+1. Remove separate titles from prepared stats and checklist steps; character-sheet totals already include titles. Retain old title settings as inert metadata and preserve frozen snapshots. Remove redundant fine-tuning panel while retaining individual effect editors. [1] `Companion Files/app.js`.
+2. Replace Ally Music sliders with Enduring Melody Edit: four independent flat values, or live Inspiring calculator results, direct calculator navigation and return. Migrate old manual/BFO-estimated values once and keep existing linked mode. [1]; [2] `Companion Files/styles.css`.
+3. Add explicit simulated persona cooldown override and activation; normal cooldown still applies. [1].
+4. Update localized labels, release/cache IDs and documentation. [3] `Companion Files/i18n.js`; [4] `service-worker.js`; [5] `Midir Companion.html`; [6] `tests/sg0313a_editor_browser_test.py`.
+
 ## 0.3.13 — Native offline session ZIP importing (2026-11-25)
 
 1. Add a local classic ZIP reader for STORE/raw DEFLATE, bounded extraction, CRC-32, safe paths and v1 Midir 49.a manifest/metadata/SHA-256 validation. Accept legacy HTML ZIPs; reject invalid manifests/nested ZIPs and identify retired data-only entries as unsupported. [1] `Companion Files/session-bundle.js`; [2] `reference/midir-49a/SESSION-BUNDLE-SPEC.md`.

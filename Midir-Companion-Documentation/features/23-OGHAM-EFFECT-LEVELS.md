@@ -1,4 +1,4 @@
-# Ogham effect levels · 0.3.13
+# Ogham effect levels · 0.3.15
 
 The offline catalog contains **97 effect entries** transcribed from the English official Arcana: New Awakening Part 1 update: 52 Talent effects, 45 Arcana effects. Every effect has a discrete level list, 10 levels for Arcana and some Talent flat bonuses, 20 levels for the remaining Talent bonuses.
 

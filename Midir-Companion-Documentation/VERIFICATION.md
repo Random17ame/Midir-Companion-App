@@ -1,3 +1,35 @@
+## 0.3.15 — Bandit Hunt exploration (2026-11-26)
+
+- **PASS:** `tests/bandit0315_map_browser_test.py` at 320×568, 390×844, 844×390 and 1200×844: edge unlock, stable IDs on return, no card recycling, wrong-response and timeout loss, starting-wallet floor, re-entering the tool, response bounds, reset on new hunt. Deterministic encounter fixture and wallet test double.
+- **PASS:** `tests/bandit0315_integration_browser_test.py` at 320, 390 and 1200px: actual application rendering, original encounter art, viewport-bounded controls, shared Reforge Ducat credit/debit and eight permanently stolen adjacent prizes; uses local storage test double. `tests/mobile0311_layout_test.py` seven gameplay layouts passed.
+- **PASS:** all 109 offline CORE paths resolve, including 28 encounter artworks; JavaScript syntax.
+- **PASS:** `tests/mobile0314a_presentation_test.py` 119 route/state checks with no overflow or page errors; `tests/regression_companion.py .` 17/17 and `tests/interaction_test.py .` 9/9. Existing prior test limitations remain.
+- **Limits:** active map state is in memory only; full reload ends the active exploration (already credited ducats remain). Real device reaction timing, actual browser restart storage, Safari/Firefox and hosted PWA refresh remain unverified. Region-local chain and pressure do not cross region boundaries.
+
+## 0.3.14a — Mobile presentation refinement (2026-11-26)
+
+- **PASS:** `tests/mobile0314a_presentation_test.py`: 40 route/state checks each at 320 and 390px with mobile UA/touch and 39 at 1200px, no document-level horizontal overflow or page-level errors. Default Vault/Debuff/Settings, ten Arcana hubs, distinct accessible tool routes, Music Calculator, SG dashboard/Echostone editor, advanced Vault and selected Korean/Spanish larger-text views. Uses actual markup, local image responses and an injected storage double. Visual review of 32 initial portrait screenshots; not an exhaustive review of all interactive states or user data.
+- **PASS:** `tests/sg0314_echostone_browser_test.py`, `tests/ogham0312q_compact_inventory_browser_test.py`, `tests/hs_litany_0312d_gear_browser_test.py` at 1200/390/320px; `tests/mobile0311_layout_test.py` seven gameplay layouts; `tests/mobile0311a_viewports_test.py` EV/Theta at 320x568, 390x844 and 844x390; core 17/17 and general interactions 9/9.
+- **Limits:** real phones, Safari/Firefox, every language and large-text combination, populated report layouts, every game/editor state, actual IndexedDB reload and hosted PWA refresh are not certified. Existing mechanics and saved-state schemas unchanged. Prior verification limits still apply.
+
+## 0.3.14 — Sacred Guardian Echostone planning (2026-11-26)
+
+- **PASS:** `tests/sg0314_echostone_browser_test.py` at 1200/390/320px: initial inference, Confirm without double-counting, Apply exact cap-bypassing deltas, 404.5 → 405 and 404.4 → 404, reversible swaps, three-color validation, reserved-slot alternatives, state export/import, Reset, fresh baseline setup, cancel preservation, Yellow inference and inconsistent above-cap inputs. Uses an injected localStorage test double.
+- **PASS:** `tests/sg0313a_editor_browser_test.py` and `tests/sg0313b_caps_browser_test.py` at all three widths (latter updated for optional DEX and exact fractional conversion); core 17/17, general interactions 9/9, modified JavaScript syntax, all 81 offline CORE paths.
+- **Limits:** no real device or hosted PWA refresh certification; real origin-bound reload/persistence remains untested. Fixed soft/hard cap and nearest-integer display are planning assumptions. Alternative rolls and reserved colors must be disclosed; recommendations do not sacrifice one current Oath benefit for another or infer awakening effects. Existing historical import and Reforge limitations remain unchanged.
+
+## 0.3.13b — Sacred Guardian stat-cap recommendations (2026-11-26)
+
+- **PASS:** `tests/sg0313b_caps_browser_test.py` at 1200/390/320px: observed inputs, 2006 WILL / 396 M.DEF, capped INT, exact soft-cap boundary, unknown stats, shared headroom, direct emblem bonuses, incremental conversion, neutral versus skip advice, profile migration and frozen snapshot retention.
+- **PASS:** `tests/sg0313a_editor_browser_test.py` at all three widths; `tests/regression_companion.py .` 17/17; `tests/interaction_test.py .` 9/9.
+- **Limits:** fixed max-Arcana assumptions chosen by the user, not independently certified game thresholds. Echostone slot optimization and variable Arcana progression not implemented. Browser tests use a localStorage test double; physical devices, actual persisted reload and hosted PWA refresh remain unverified. Older historical utility tests that assume a five-step stat wizard are not part of this fresh run.
+
+## 0.3.13a — Sacred Guardian checklist refinement (2026-11-26)
+
+- **PASS:** `tests/sg0313a_editor_browser_test.py` at 1200/390/320px: title exclusion, frozen snapshot preservation, legacy manual migration, four independent decimal inputs, saved values, live calculator navigation/return and persona cooldown override. Uses injected localStorage test double.
+- **PASS:** `tests/companion0312_boost_cards_test.py` and `tests/music0312c_browser_test.py` at all three widths; core regression 17/17, general interaction 9/9, JavaScript syntax.
+- **Remaining checks:** hosted PWA cache refresh, physical mobile devices and actual persisted browser reload remain unverified; existing 0.3.13 import field limitations remain.
+
 ## 0.3.13 — Native offline session ZIP importing (2026-11-25)
 
 - **PASS:** `node tests/0313_bundle_reader_test.js <extracted fixture directory>` — all nine Midir 49.a sample ZIPs, 128 reports including 6,000 hits, exact HTML, STORE/DEFLATE equivalence, overlapping IDs/scopes, raw DEFLATE descriptors, UTF-8, duplicate/traversal paths, links, encrypted/unsupported flags, CRC, declared/actual output limits, invalid manifest, nested archive, and SHA-256 fallback vectors.

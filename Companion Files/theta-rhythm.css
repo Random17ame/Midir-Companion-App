@@ -36,3 +36,15 @@
 
 /* 0.3.11a: remove compositor glow in the responsive performance renderer. */
 @media(max-width:800px),(pointer:coarse){.theta-wrap canvas[data-performance="on"]{box-shadow:none}.theta-wrap canvas{touch-action:manipulation}}
+
+/* 0.3.14a — prevent the currency block forcing portrait overflow. */
+@media(max-width:680px){
+ .theta-wrap .theta-head{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:12px;margin:6px 0 12px;min-width:0}
+ .theta-wrap .theta-head>div{min-width:0}
+ .theta-wrap .theta-head h2{font-size:1.35rem;line-height:1.2}
+ .theta-wrap .theta-head p{font-size:.85rem;margin:5px 0 0}
+ .theta-wrap .theta-head small{letter-spacing:normal}
+ .theta-wrap .theta-currency{display:flex;gap:8px;align-items:center;min-width:0;text-align:start;justify-self:start}
+ .theta-wrap .theta-currency strong{font-size:1rem}
+ .theta-wrap .theta-layout{grid-template-columns:minmax(0,1fr);gap:9px}
+}

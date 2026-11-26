@@ -1,6 +1,6 @@
 # Explosive Vanguard — Tower Range Lab
 
-**Applies to:** Midir Companion 0.3.13.
+**Applies to:** Midir Companion 0.3.15.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

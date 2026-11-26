@@ -1,4 +1,4 @@
-# Current design and verification principles — 0.3.13
+# Current design and verification principles — 0.3.15
 
 ## Product and evidence contract
 
@@ -9,7 +9,7 @@
 
 ## Release versioning
 
-- New features increment the numeric patch and reset the letter (0.3.12r → 0.3.13). Minor adjustments, fixes, visual and compatibility updates increment the letter (0.3.12r → 0.3.12s).
+- New features increment the numeric patch and reset the letter (0.3.15 → 0.3.16). Minor adjustments, fixes, visual and compatibility updates increment the letter (0.3.15 → 0.3.15a).
 - Each completed cumulative release updates the visible version, archive name, shell/art cache IDs, current guide/index headers, versioned release notes, numbered-source changelog and verification record. Keep historical release/test identifiers and persisted schema versions intact.
 
 ## Acceptance checks
@@ -27,3 +27,5 @@
 
 - [Tests directory](../tests/) — regression scripts and browser checks.
 - [Application source](../Companion%20Files/app.js) and module-specific source files linked from the feature guides.
+
+- Prioritize functional controls in the narrow-screen first view; move secondary explanation into contextual help or below primary tools. Resolve overflow at its source rather than globally clipping the document. Preserve meaningful local scrolling, keyboard access and touch controls.

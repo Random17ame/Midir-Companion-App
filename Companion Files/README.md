@@ -1,8 +1,8 @@
-# Midir Companion — Application Files (0.3.13 Draft)
+# Midir Companion — Application Files (0.3.15 Draft)
 
 This directory contains the scripts, CSS, icons, sprites, and other assets used by Midir Companion. The app is launched through `../index.html` for HTTPS hosting or `../Midir Companion.html` for local desktop use. Keep its directory name and asset structure unchanged.
 
-**Application version:** 0.3.13 Draft. New features increment the numeric patch version and reset the letter (0.3.12r → 0.3.13); minor adjustments, fixes and visual changes increment the letter (0.3.12r → 0.3.12s). Historical release and test identifiers remain stable.
+**Application version:** 0.3.15 Draft. New features increment the numeric patch version and reset the letter (0.3.15 → 0.3.16); minor adjustments, fixes and visual changes increment the letter (0.3.15 → 0.3.15a). Historical release and test identifiers remain stable.
 
 ## Application overview
 

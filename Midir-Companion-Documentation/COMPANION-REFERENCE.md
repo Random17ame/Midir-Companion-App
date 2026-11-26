@@ -1,6 +1,6 @@
-# Architecture, import and persistence reference — 0.3.13 Draft
+# Architecture, import and persistence reference — 0.3.15 Draft
 
-The accompanying **0.3.13 Draft** cumulative source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
+The accompanying **0.3.15 Draft** cumulative source is authoritative for this reference. Historical implementation changes are documented in [CHANGELOG.md](CHANGELOG.md).
 
 ## Static application and runtime
 
@@ -34,3 +34,7 @@ The accompanying **0.3.13 Draft** cumulative source is authoritative for this re
 3. [PWA](../Companion%20Files/pwa.js), [manifest](../manifest.webmanifest), [service worker](../service-worker.js)
 4. [Theta](../Companion%20Files/theta-rhythm.js), [Vertrag](../Companion%20Files/vertrag-survival.js), [Invaders](../Companion%20Files/as-chicken-invaders.js)
 5. [Rotation Highlights cooldown floors and skill-shape rule inventory](ROTATION-SKILL-RULES-INVENTORY.md)
+
+### Sacred Guardian Echostone state (0.3.14)
+
+The existing SG workshop state v1 stores `playerStats.echo` (`confirmed`, `rolls`, `available`, `reserved`) and optional `dex` alongside exact `base` stats. This is additive; legacy profiles have no confirmed equipment and derive minimum rolls from above-cap observed primary stats. A Confirm is descriptive, an Apply is a delta, and a Reset or completed fresh stat disclosure clears confirmation without retroactively modifying snapshots. See [Oath guide](features/08-SACRED-GUARDIAN-OATH.md).

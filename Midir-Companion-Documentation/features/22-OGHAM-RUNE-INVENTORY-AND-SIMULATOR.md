@@ -1,4 +1,4 @@
-# Ogham Runes — Inventory, Five-Socket Arcana Loadouts and Practice Rerolls (0.3.13 draft)
+# Ogham Runes — Inventory, Five-Socket Arcana Loadouts and Practice Rerolls (0.3.15 draft)
 
 **Implementation:** `Companion Files/ogham-runes.js`, `Companion Files/ogham-effect-levels.js`, `Companion Files/app.js`, `Companion Files/styles.css`. Ogham data is stored under the existing `state.ogham` profile field and travels with normal profile backups. It is not applied automatically to damage, Rotation Highlights, healing, Oath or achievement math.
 

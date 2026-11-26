@@ -1,6 +1,8 @@
 # Arcana field guides
 
-**Applies to:** Midir Companion 0.3.13.
+**Applies to:** Midir Companion 0.3.15.
+
+Available simulator links appear before the Arcana strategy summary, which is retained in Skill Knowledge. Tool links use a compact two-column grid on narrow screens.
 
 **Scope:** Current implemented behavior only. Historical changes are recorded in [`CHANGELOG.md`](../CHANGELOG.md).
 

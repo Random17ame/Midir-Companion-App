@@ -1,6 +1,6 @@
 # Harmonic Saint — Resonant Litany / Dissonance Lab (0.3.12d)
 
-**Applies to:** Midir Companion 0.3.13, cumulative release. The feature is reached from Harmonic Saint beside **Rate Isn't a Lie**. The calculation is a configurable planning tool, not a certified reproduction of the game engine. User-facing mechanics commentary is limited to one footer disclaimer and optional hover tooltips. [1]
+**Applies to:** Midir Companion 0.3.15, cumulative release. The feature is reached from Harmonic Saint beside **Rate Isn't a Lie**. The calculation is a configurable planning tool, not a certified reproduction of the game engine. User-facing mechanics commentary is limited to one footer disclaimer and optional hover tooltips. [1]
 
 ## Compact display and navigation
 

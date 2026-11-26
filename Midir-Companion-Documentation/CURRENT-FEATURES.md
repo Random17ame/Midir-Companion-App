@@ -1,6 +1,10 @@
 # Current feature map
 
-**Version:** 0.3.13 (November 25 cumulative revision). All linked guides describe current implemented behavior; see the changelog for history.
+**Version:** 0.3.15 (November 26 cumulative revision).
+
+**Presentation:** The shared narrow-screen layout prioritizes tools and controls; Arcana strategy text follows the tool links, advanced Vault storage notes are expandable, and Theta’s portrait header fits the viewport. See the [mobile guide](features/18-MOBILE-FEATURES.md).
+
+Sacred Guardian now includes an Echostone editor and recommendations with inferred minimum rolls, a confirmed equipment baseline, incremental swaps, and three-color constraints. It uses observed primary stats, a conservative 2,450 soft-cap model, and distinct useful/uncertain/confirmed Oath-capped buff recommendations. See [Oath guide](features/08-SACRED-GUARDIAN-OATH.md). All linked guides describe current implemented behavior; see the changelog for history.
 
 **Harmonic Saint Litany (current):** locale-aware Recovery/Dissonance calculator with corrected whole-number enchant and Murias rolls, a Robe-complete 3×3 equipment board, Echostone below, independent boosts, grade/Erg selectors and pinned output. See [`features/20-HARMONIC-SAINT-LITANY-DRAFT.md`](features/20-HARMONIC-SAINT-LITANY-DRAFT.md).
 
@@ -14,12 +18,12 @@
 | Subject Theta: Containment | Dark Diviner rhythm-combat trainer, resource management and ten protocols. | [Read](features/05-THETA-CONTAINMENT.md) |
 | Vertrag Survival Grounds | Giant-stomp arena, locked-position dash, customizable controls and defensive loadouts. | [Read](features/06-VERTRAG-SURVIVAL.md) |
 | Crom Bás Invaders | Alchemic Sharpshooter arcade shooter with persistent progression. | [Read](features/07-CROM-INVADERS.md) |
-| Sacred Guardian Oath Workshop | Oath Max and Emergency Oath with compact, editable buff cards for the relic, persona and emblem; preparation checklists. | [Read](features/08-SACRED-GUARDIAN-OATH.md) |
+| Sacred Guardian Oath Workshop | Oath Max and Emergency Oath with compact editable buff cards, direct Enduring Melody values or live calculator link, persona cooldown override, Echostone equipment planning and preparation checklists. | [Read](features/08-SACRED-GUARDIAN-OATH.md) |
 | Explosive Vanguard Tower Range Lab | Experimental route-and-tower defense game. | [Read](features/09-EXPLOSIVE-VANGUARD.md) |
 | Debuff Academy | Effect lessons, flash cards and recognition exercises. | [Read](features/10-DEBUFF-ACADEMY.md) |
 | Achievement Book and records | Imported evidence milestones and local minigame progression. | [Read](features/11-ACHIEVEMENTS-AND-RECORDS.md) |
 | Music and Melodic Puppeteer | Music calculator with 2026 Polyphony/Tempo values, BFO/Vivace-only instrument special upgrades and noncollapsing extra settings; rhythm/performance activities. | [Read](features/12-MUSIC-AND-PUPPETEER.md) |
-| Positioning and chase activities | Targeting, Frame Bowling, pig pursuit and Bandit Hunt. | [Read](features/13-POSITIONING-AND-CHASE.md) |
+| Positioning and chase activities | Targeting, Frame Bowling, pig pursuit and Bandit Hunt with persistent regional exploration and real hunt-loot losses. | [Read](features/13-POSITIONING-AND-CHASE.md) |
 | Herb Collection | Collection minigame and shared rewards. | [Read](features/14-HERB-COLLECTION.md) |
 | Equipment simulators and economy | Reforge, Erg, Special Upgrade, Echostones and chest inventory. | [Read](features/15-EQUIPMENT-AND-ECONOMY.md) |
 | Settings and app shell | Navigation, Secret Sauce, accessibility, languages and PWA behavior. | [Read](features/16-SETTINGS-AND-APPLICATION.md) |
@@ -34,7 +38,7 @@ For the next Rotation Highlights verification pass, see [cooldown floors and ski
 
 - **Harmonic Saint / Resonant Litany (0.3.12a):** independent Healing and Party Healing recovery, EV-backed healing reforge/equipment selection (including user-provided Party Healing Echostone 1–20 and accessory exclusivity), direct Soul wand Dissonance bonus, optional Midir breakpoint comparison, and manual/calibrated and optional proportional comparison modes. [Current-state draft guide](features/20-HARMONIC-SAINT-LITANY-DRAFT.md).
 
-Historical 0.3.12f: introduced shared Gold/Herb spending and optional validated catalog imports; the current 0.3.13 simulator instead bundles all 97 Nexon-listed effect types, has no player-facing JSON uploader, and preserves previously imported profile data for compatibility.
+Historical 0.3.12f: introduced shared Gold/Herb spending and optional validated catalog imports; the current 0.3.15 simulator instead bundles all 97 Nexon-listed effect types, has no player-facing JSON uploader, and preserves previously imported profile data for compatibility.
 
 ### Ogham current inventory and equipment
 Rune inventory and five-point Arcana equipment board with drag/drop and touch selection. Desktop inventories are beside the board in a shared 590px maximum-height column, mobile inventories below it; each collection scrolls independently when full. Rune cards are compact art/name tiles with icon actions and drag-first organization; the comparison chooser is inline beneath Set A/B, and equipped sockets use a single primary frame. An occupied socket first shows details, then unequips on second tap to that same socket. The discrete 97-effect catalog uses reconstructed in-between level values; documented in features/22 and features/23. All 26 Ogham stone images are centered in their inventory/socket/detail frames. Practice rerolls spend the existing Gold and Herb chests but never mutate owned runes.

@@ -1,7 +1,39 @@
-# Midir Companion 0.3.13 Draft
+# Midir Companion 0.3.15 Draft
 
-**Documentation:** [Current features](Midir-Companion-Documentation/CURRENT-FEATURES.md) · [Documentation index](Midir-Companion-Documentation/README.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.13.md)
+**Documentation:** [Current features](Midir-Companion-Documentation/CURRENT-FEATURES.md) · [Documentation index](Midir-Companion-Documentation/README.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.15.md)
 
+
+## Release 0.3.15 — Bandit Hunt Exploration
+
+- Explore connected 5×5 regions, unlock neighboring areas from resolved edge locations, and revisit previous regions without respawning prizes.
+- Permanent cleared/stolen map locations, responsive encounter dialog, concise map navigation and collapsible help/records.
+- Misses forfeit unclaimed prizes and deduct limited current-hunt earnings; prior chest balance stays protected. Existing reaction mechanics and shared economy remain.
+- [Bandit Hunt guide](Midir-Companion-Documentation/features/13-POSITIONING-AND-CHASE.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.15.md).
+
+## Release 0.3.14a — Mobile Presentation Refinement
+
+- Compact shared mobile header, navigation, Arcana cards, Vault quick tools and side menu; less repeated text, strategy guidance below tool links, expandable report storage guidance.
+- Fix Theta currency header overflow without clipping the page. Keep existing local scrolling, simulator controls and calculator behavior.
+- Responsive route audit and current editor/gameplay regressions at narrow and desktop widths. [Release notes](Midir-Companion-Documentation/RELEASE-0.3.14A.md).
+
+## Release 0.3.14 — Sacred Guardian Echostone Planning
+
+- Edit Echostones alongside Oath thresholds. Infer minimum rolls above 2750, confirm initial equipment without adding stats twice, then apply only equipment differences. Reset or complete a new player-stat setup to reconfirm.
+- Compare entered alternative rolls across three distinct colors, with reserved stones and no loss of an existing Oath benefit. Display whole numbers; retain fractional defensive values internally.
+- [Oath guide](Midir-Companion-Documentation/features/08-SACRED-GUARDIAN-OATH.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.14.md).
+
+## Release 0.3.13b — Sacred Guardian Stat-Cap Recommendations
+
+- Enter observed STR, WILL and INT alongside defensive stats; ordinary gains use shared headroom below 2450. The assumed unified hard cap is 2750, not an ordinary-buff target.
+- Separate useful/potential, uncertain/optional and confirmed Oath-capped buffs. Direct defensive bonuses remain independent of primary stat limits.
+- [Oath guide](Midir-Companion-Documentation/features/08-SACRED-GUARDIAN-OATH.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.13B.md).
+
+## Release 0.3.13a — Sacred Guardian Checklist Refinement
+
+- Remove separate title bonuses and redundant buff fine-tuning panel.
+- Edit four Enduring Melody defensive stats directly or link to the Music Buff Calculator, with navigation and return.
+- Override Ophelia’s Tears cooldown to correct accidental checklist changes.
+- [Oath guide](Midir-Companion-Documentation/features/08-SACRED-GUARDIAN-OATH.md) · [Release notes](Midir-Companion-Documentation/RELEASE-0.3.13A.md).
 
 ## Release 0.3.13 — Native Offline Session ZIP Importing
 
